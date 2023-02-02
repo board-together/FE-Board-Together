@@ -1,7 +1,7 @@
 version: 2.1
 
 orbs:
-  node: circleci/node@16.15.1
+  node: circleci/node@4.7
 
 jobs:
   build_and_test:
@@ -20,3 +20,8 @@ jobs:
           root: ~/project
           paths:
             - .
+
+workflows:
+  test_my_app:
+    jobs:
+      - build_and_test
