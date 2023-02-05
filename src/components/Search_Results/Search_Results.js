@@ -1,7 +1,7 @@
 import React from 'react'
 
-export const Search_Results = () => {
+export const SearchResults = () => {
   return (
-    <div>Search_Results</div>
+    <div>SearchResults</div>
   )
 }

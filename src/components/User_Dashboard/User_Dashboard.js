@@ -1,7 +1,7 @@
 import React from 'react'
 
-export const User_Dashboard = () => {
+export const UserDashboard = () => {
   return (
-    <div>User_Dashboard</div>
+    <div>UserDashboard</div>
   )
 }
