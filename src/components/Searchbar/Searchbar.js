@@ -38,7 +38,6 @@ const SearchBar = () => {
   return (
     <form className='search-bar' onSubmit={handleSubmit}>
       <input className='search-input' type="text" placeholder='Look for a game!' value={searchTerm} onChange={handleChange} />
-      {/* make search button a router link that routes to the search results page using the terms as an id '/search-results/:searchTerm' */}
       <Link to={`/search-results/${searchTerm}`}> 
       <button className='search-button' type="submit">Search</button>
       </Link>
