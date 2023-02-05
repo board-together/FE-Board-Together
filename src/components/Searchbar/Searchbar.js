@@ -15,7 +15,7 @@ const SearchBar = () => {
   };
 
   return (
-    <form onSubmit={handleSubmit}>
+    <form className='search-bar' onSubmit={handleSubmit}>
       <input type="text" placeholder='Look for a game!' value={searchTerm} onChange={handleChange} />
       <button type="submit">Search</button>
       <ul>
