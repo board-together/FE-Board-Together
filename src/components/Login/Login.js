@@ -1,20 +1,28 @@
 import React from 'react'
 import { Link } from 'react-router-dom'
+import '../Login/Login.css'
 
 export const Login = () => {
   return (
     <main>
-      <div>
-        <h1>Welcome to Board Together</h1>
-        <p>Login</p>
+      <div className='login-heading-text-area'>
+        <h1 className='login-welcome-text'>Welcome to Board Together</h1>
+        <h2 className='login-text'>Login</h2>
       </div>
-      <div>
-        <input />
+      <form className='login-form'>
+        <input
+          className='username-input'
+          type='text'
+          placeholder='Enter your user name'
+          // value={userNameInput}
+          // onChange={event => }
+        />
         <Link to='/'>
-            <button>Enter</button>
+            <button className='enter-site-button'>Enter</button>
         </Link>
         <p>Not a member?</p>
-      </div>
+        <button className='create-account-button'>Create an account</button>
+      </form>
     </main>
   )
 }

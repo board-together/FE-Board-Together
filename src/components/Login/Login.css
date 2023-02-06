@@ -1,0 +1,39 @@
+.login-heading-text-area {
+  display: flex;
+  flex-direction: column;
+  margin: auto;
+  width: 50%;
+}
+
+.login-welcome-text {
+  text-align: center;
+}
+
+.login-text {
+  text-align: center;
+}
+
+.login-form {
+  display: flex;
+  flex-direction: column;
+  margin: auto;
+  align-items: center;
+  border-style: solid;
+  width: 60%;
+}
+
+.username-input {
+  width: 40%;
+  margin-top: 3em;
+  margin-bottom: 1em;
+}
+
+.enter-site-button {
+  cursor: pointer;
+  margin-bottom: 2em;
+}
+
+.create-account-button {
+  cursor: pointer;
+  margin-bottom: 2em;
+}
