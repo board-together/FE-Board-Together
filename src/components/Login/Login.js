@@ -6,12 +6,12 @@ export const Login = () => {
 
   /* Need a prop function to set 'username' state in App? */
 
-  const [userNameInput, setUserNameInput] = useState('');
-  const [validUser, setValidUser] = useState(false);
-  const [userStatus, setUserStatus] = useState(true);
-  const [newUserInput, setNewUserInput] = useState('');
-  const [invalidUserName, setInvalidUserName] = useState(false)
-  const [existingUserNames, setExistingUserNames] = useState([]);
+  const [userNameInput, setUserNameInput] = useState(''); // input to enter existing username
+  const [validUser, setValidUser] = useState(false); // boolean state for whether the username entered in the input already exists or not
+  const [userStatus, setUserStatus] = useState(true); // an assumption that the user has already signed up; if the username form is present, this is true, and if create user form is present, this is false
+  const [newUserInput, setNewUserInput] = useState(''); // input to create/enter a new username
+  const [invalidUserName, setInvalidUserName] = useState(false); // boolean state for whether a new username the user wants to create is already taken
+  const [existingUserNames, setExistingUserNames] = useState([]); // existing user names, will eventually get these from the backend
 
   useEffect(() => {
     //when page loads, populate existingUserNames with fetch/graphquery etc
@@ -25,12 +25,14 @@ export const Login = () => {
   const handleNewUserClick = (event) => {
     event.preventDefault();
     setUserStatus(false);
+    setUserNameInput('');
   } 
 
   const addName = (name) => {
     setUserStatus(true);
     setExistingUserNames([...existingUserNames, name]); 
     setInvalidUserName(false);
+    setNewUserInput('');
     //will need to change to make this a post fetch etc
   }
 
@@ -60,16 +62,11 @@ export const Login = () => {
         </form>
         <div className='not-member-prompt-area'>
           <p className='not-member-prompt'>Not a member?</p>
-          <button 
-            className='create-account-button' 
-            type='button'
-            onClick={event => handleNewUserClick(event)}
-          >
+          <button className='create-account-button' type='button' onClick={event => handleNewUserClick(event)}>
             Create an account
           </button>
         </div>      
-        </>
-      }
+      </>}
       {!userStatus &&
         <form className='create-user-form'>
           <input
@@ -79,9 +76,7 @@ export const Login = () => {
             value={newUserInput}
             onChange={event => setNewUserInput(event.target.value)}
           />
-          <button
-            className='create-new-user-button'
-            onClick={event => submitNewUser(event)}
+          <button className='create-new-user-button' onClick={event => submitNewUser(event)}
           >
             Create
           </button>
