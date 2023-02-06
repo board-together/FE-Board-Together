@@ -1,8 +1,11 @@
-import React from 'react'
+import React, { useState } from 'react'
 import { Link } from 'react-router-dom'
 import '../Login/Login.css'
 
 export const Login = () => {
+
+  const [userNameInput, setUserNameInput] = useState('')
+
   return (
     <main>
       <div className='login-heading-text-area'>
@@ -14,14 +17,14 @@ export const Login = () => {
           className='username-input'
           type='text'
           placeholder='Enter your user name'
-          // value={userNameInput}
-          // onChange={event => }
+          value={userNameInput}
+          onChange={event => setUserNameInput(event.target.value)}
         />
         <Link to='/'>
             <button className='enter-site-button'>Enter</button>
         </Link>
         <p>Not a member?</p>
-        <button className='create-account-button'>Create an account</button>
+        <button className='create-account-button' type='button'>Create an account</button>
       </form>
     </main>
   )
