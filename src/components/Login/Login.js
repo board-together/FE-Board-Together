@@ -20,7 +20,7 @@ export const Login = () => {
 
   useEffect(() => {
     existingUserNames.includes(userNameInput) ? setValidUser(true) : setValidUser(false);
-  }, [userNameInput]);
+  }, [userNameInput, existingUserNames]);
 
   const handleNewUserClick = (event) => {
     event.preventDefault();
