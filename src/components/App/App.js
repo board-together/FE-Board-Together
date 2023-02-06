@@ -1,4 +1,4 @@
-import React, {useReducer, useState} from 'react'
+import React, {useReducer} from 'react'
 import fakeData from  '../../dummy_data.json'
 import { Routes, Route } from 'react-router-dom'
 import { UserDashboard } from '../User_Dashboard/User_Dashboard'
