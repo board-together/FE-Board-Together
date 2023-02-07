@@ -1,16 +1,15 @@
-import React, { useReducer, useState } from 'react'
+import React from 'react'
 import { Routes, Route } from 'react-router-dom'
 import { UserDashboard } from '../User_Dashboard/User_Dashboard'
 import { Login } from '../Login/Login'
 import { SearchResults } from '../Search_Results/Search_Results'
 import { FriendsGames } from '../Friends_Games/Friends_Games'
-import { Navbar } from '../Navbar/Navbar'
 import dummyData from '../../dummy_user_data.json'
 
 export const App = () => {
 
-  console.log(dummyData)
-  const [userInfo, setUserInfo] = useState(dummyData)
+  const userInfo = dummyData
+
 
   return (
     <div className='App'>
