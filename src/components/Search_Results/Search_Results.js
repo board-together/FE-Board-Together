@@ -5,9 +5,6 @@ export const SearchResults = ({results}) => {
   
   
   
-  return (
-  
-  )
+  return 
 
   }
-  
