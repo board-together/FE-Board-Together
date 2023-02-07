@@ -3,7 +3,7 @@ import fakeData from  '../../dummy_data.json'
 import { Routes, Route } from 'react-router-dom'
 import { UserDashboard } from '../User_Dashboard/User_Dashboard'
 import { Login } from '../Login/Login'
-import { SearchResults } from '../Search_Results/Search_Results'
+import  SearchResults  from '../Search_Results/Search_Results'
 import { FriendsGames } from '../Friends_Games/Friends_Games'
 import { Navbar } from '../Navbar/Navbar'
 
@@ -37,6 +37,7 @@ export const App = () => {
       type: 'search_result',
       payload: fakeData.json()
      })
+     console.log(dispatch)
   }
 
   return (
