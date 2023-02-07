@@ -4,7 +4,7 @@ import { UserDashboard } from '../User_Dashboard/User_Dashboard'
 import { Login } from '../Login/Login'
 import  SearchResults  from '../Search_Results/Search_Results'
 import { FriendsGames } from '../Friends_Games/Friends_Games'
-import { Navbar } from '../Navbar/Navbar'
+import dummyData from '../../dummy_user_data.json'
 
 // dummyJson will be deleted when we connect to API 
 const dummyJson = [  
@@ -104,16 +104,18 @@ export const App = () => {
      return 
   }
 
-  return (
-  <div className='App'> 
+  const userInfo = dummyData
 
-  <Navbar submit={searchBarSubmit}></Navbar> 
-    <Routes>
-      <Route path='/' element={<UserDashboard />} />
-      <Route path='/login' element={<Login  />} />
-      <Route path='/search-results/:searchTerm' element={<SearchResults results={state.searchResults} />} />
-      <Route path='/friends-games/:id' element={<FriendsGames />} />
-    </Routes>
-  </div>  
+
+  return (
+
+    <div className='App'>
+      <Routes>
+        <Route path='/' element={<UserDashboard userInfo={userInfo} searchBarSubmit={searchBarSubmit}/>} />
+        <Route path='/login' element={<Login />} />
+        <Route path='/search-results/:searchTerm' element={<SearchResults results={state.searchResults}/>} />
+        <Route path='/friends-games/:id' element={<FriendsGames />} />
+      </Routes>
+    </div>
   )
 }

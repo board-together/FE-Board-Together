@@ -39,6 +39,7 @@
     ]
   },
   "devDependencies": {
-    "cypress": "^12.5.1"
+    "cypress": "^12.5.1",
+    "cypress-react-selector": "^3.0.0"
   }
 }

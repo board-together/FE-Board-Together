@@ -1,0 +1,50 @@
+.user-dashboard {
+  width: 100%;
+  height: 100vh;
+  display: grid;
+  grid-template-columns: 3fr 1fr;
+}
+
+.game-collection-section {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  border: solid black 2px;
+}
+
+.game-collection {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+  grid-template-rows: auto;
+  column-gap: 2vw;
+  row-gap: 2vw;
+  padding: 10px;
+  align-items: baseline;
+  text-align: center;
+  height: 100vh
+}
+
+.friends-section {
+  display: flex;
+  flex-direction: column;
+  padding: 10px;
+  border: solid black 2px;
+}
+
+.my-friends-header {
+  display: inline-block;
+  text-align: center;
+}
+
+.friend {
+  display: flex;
+  text-align: center;
+  justify-content: flex-end;
+  background-color: rgb(50, 108, 245);
+  color: white;
+  width: 75%;
+  height: 20%;
+  font-size: 30px;
+  margin: 5%;
+  padding-right: 10px;
+}
