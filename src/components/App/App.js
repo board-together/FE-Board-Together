@@ -46,9 +46,9 @@ export const App = () => {
 
     <div className='App'>
       <Routes>
-        <Route path='/' element={<UserDashboard userInfo={userInfo} />} />
+        <Route path='/' element={<UserDashboard userInfo={userInfo} searchBarSubmit={searchBarSubmit}/>} />
         <Route path='/login' element={<Login />} />
-        <Route path='/search-results/:searchTerm' element={<SearchResults />} />
+        <Route path='/search-results/:searchTerm' element={<SearchResults results={state.searchResults}/>} />
         <Route path='/friends-games/:id' element={<FriendsGames />} />
       </Routes>
     </div>
