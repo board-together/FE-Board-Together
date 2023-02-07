@@ -9,12 +9,11 @@ import dummyData from '../../dummy_user_data.json'
 
 export const App = () => {
 
-  const [userInfo, setUserInfo] = useState(dummyData.json())
+  console.log(dummyData)
+  const [userInfo, setUserInfo] = useState(dummyData)
 
   return (
     <div className='App'>
-
-      <Navbar></Navbar>
       <Routes>
         <Route path='/' element={<UserDashboard userInfo={userInfo} />} />
         <Route path='/login' element={<Login />} />
