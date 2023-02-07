@@ -6,7 +6,7 @@ import  SearchResults  from '../Search_Results/Search_Results'
 import { FriendsGames } from '../Friends_Games/Friends_Games'
 import { Navbar } from '../Navbar/Navbar'
 
-
+// dummyJson will be deleted when we connect to API 
 const dummyJson = [  
   {
     "type": "game",

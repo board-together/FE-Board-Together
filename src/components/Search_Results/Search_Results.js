@@ -7,8 +7,6 @@ import  Single_Game  from '../Single_Game/Single_Game'
 
 
 const SearchResults = ({results}) => {
- console.log('hey', results)
-
     const singleGames = results.map(game => {
      
       return (
@@ -20,11 +18,8 @@ const SearchResults = ({results}) => {
           image_url={game.attributes.image_url}
         />
       )
-
     })
-  
-  
-  
+   
   return (
     <div className='game-tiles'>
       {singleGames}
