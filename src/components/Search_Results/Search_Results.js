@@ -1,5 +1,5 @@
 import React from 'react'
-import  Single_Game  from '../Single_Game/Single_Game'
+import  SingleGame  from '../Single_Game/Single_Game'
 
 
 
@@ -7,10 +7,10 @@ import  Single_Game  from '../Single_Game/Single_Game'
 
 
 const SearchResults = ({results}) => {
-    const singleGames = results.map(game => {
+    const games = results.map(game => {
      
       return (
-        <Single_Game
+        <SingleGame
           id={game.id}
           key={game.id}
           name={game.attributes.name}
@@ -22,7 +22,7 @@ const SearchResults = ({results}) => {
    
   return (
     <div className='game-tiles'>
-      {singleGames}
+      {games}
     </div>
   )
   }

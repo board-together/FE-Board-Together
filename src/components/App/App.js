@@ -92,7 +92,7 @@ export const App = () => {
   const [state, dispatch] = useReducer(reducer,initialState)
   const searchBarSubmit = (terms) => { 
     const returnArray = []
-         dummyJson.map(element => {
+    dummyJson.forEach(element => {
       if (element.attributes.name.includes(terms) ) {
         return returnArray.push(element)
       }
@@ -100,9 +100,8 @@ export const App = () => {
     dispatch({
       type: 'search_result',
       payload: returnArray
-     
      })
-    
+     return 
   }
 
   return (
