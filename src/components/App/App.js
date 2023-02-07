@@ -10,6 +10,7 @@ import { Navbar } from '../Navbar/Navbar'
 const initialState = {
   searchResults : [],
   user: {},
+  userName: '',
   friendsList: [],
   gameCollection: [],
   modalOpen: false,
