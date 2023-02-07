@@ -11,34 +11,17 @@ const SearchBar = ({submit}) => {
   };
 
   const handleSubmit = (event) => {
-    event.preventDefault();
+    // event.preventDefault();
+    console.log(submit)
     submit(searchTerm)
   };
 
-  // {
-  //   "type": "game",
-  //     "id": "id",
-  //       "attributes": {
-  //     "board_game_atlas_id": ,
-  //     "name": ,
-  //     "min_players": ,
-  //     "max_players": ,
-  //     "min_playtime": ,
-  //     "max_playtime": ,
-  //     "min_age": ,
-  //     "year_published": ,
-  //     "description": ,
-  //     "thumb_url": ,
-  //     "image_url": ,
-  //     "url":
-  //   }
-  // }
 
   return (
-    <form className='search-bar' onSubmit={handleSubmit}>
+    <form className='search-bar'>
       <input className='search-input' type="text" placeholder='Look for a game!' value={searchTerm} onChange={handleChange} />
       <Link to={`/search-results/${searchTerm}`}> 
-      <button className='search-button' type="submit">Search</button>
+        <button className='search-button' onClick={() => handleSubmit()}>Search</button>
       </Link>
     </form>
   );

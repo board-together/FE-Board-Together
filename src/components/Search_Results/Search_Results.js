@@ -24,18 +24,17 @@ import  Single_Game  from '../Single_Game/Single_Game'
 
 
 const SearchResults = ({results}) => {
-    const singleGames = results.map(game => {
+    // const singleGames = results.map(game => {
+    //   return (
+    //     <Single_Game
+    //       id={game.id}
+    //       name={game.name}
+    //       thumb_url={game.thumb_url}
+    //       image_url={game.image_url}
+    //     />
+    //   )
 
-      return (
-        <Single_Game
-          id={game.id}
-          name={game.name}
-          thumb_url={game.thumb_url}
-          image_url={game.image_url}
-        />
-      )
-
-    })
+    // })
   
   
   
