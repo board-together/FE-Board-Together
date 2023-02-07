@@ -45,7 +45,7 @@ export const App = () => {
   <Navbar submit={searchBarSubmit}></Navbar> 
     <Routes>
       <Route path='/' element={<UserDashboard />} />
-      <Route path='/login' element={<Login />} />
+      <Route path='/login' element={<Login  />} />
       <Route path='/search-results/:searchTerm' element={<SearchResults results={state.searchResults} />} />
       <Route path='/friends-games/:id' element={<FriendsGames />} />
     </Routes>
