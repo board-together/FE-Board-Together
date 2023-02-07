@@ -10,9 +10,7 @@ const SearchBar = ({submit}) => {
     setSearchTerm(event.target.value);
   };
 
-  const handleSubmit = (event) => {
-    // event.preventDefault();
-    console.log(submit)
+  const handleSubmit = () => {
     submit(searchTerm)
   };
 

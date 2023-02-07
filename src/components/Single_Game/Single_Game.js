@@ -5,7 +5,7 @@ import './Single_Game.css'
 const Single_Game = ({id,name,thumb_url,image_url}) => {
   return (
     <div className="single-tile">
-      {/* <button className="game-tile-button" id={id} onClick={() => }> <img/> </button>   */}
+      <button className="game-tile-button" id={id} ><h2>{name}</h2> <img src={image_url}/> </button>  
     </div>
   )
 }
