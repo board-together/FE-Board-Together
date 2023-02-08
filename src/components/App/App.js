@@ -83,6 +83,9 @@ const reducer = (state, action) => {
       case 'search_result': {
         return { ...state,searchResults: action.payload}   
       }
+      case 'set_userName': {
+        return {...state, userName: action.payload}
+      }
       default:
       return state
     }
