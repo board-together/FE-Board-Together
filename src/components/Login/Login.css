@@ -1,0 +1,74 @@
+.login-heading-text-area {
+  display: flex;
+  flex-direction: column;
+  margin: auto;
+  width: 50%;
+}
+
+.login-welcome-text {
+  text-align: center;
+}
+
+.login-text {
+  text-align: center;
+}
+
+.login-form {
+  display: flex;
+  flex-direction: column;
+  margin: auto;
+  align-items: center;
+  border-style: solid;
+  width: 60%;
+  height: 9em;
+}
+
+.create-user-form {
+  display: flex;
+  flex-direction: column;
+  margin: auto;
+  align-items: center;
+  border-style: solid;
+  width: 60%;
+  height: 9em;
+
+}
+
+.username-input {
+  width: 40%;
+  margin-top: 3em;
+  margin-bottom: 1em;
+}
+
+.new-user-input {
+  width: 40%;
+  margin-top: 3em;
+  margin-bottom: 1em;
+}
+
+.invalid-user-button {
+  cursor: pointer;
+}
+
+.enter-site-button {
+  cursor: pointer;
+}
+
+.not-member-prompt-area {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.not-member-prompt {
+  margin-top: 4em;
+}
+
+.create-account-button {
+  cursor: pointer;
+  margin-bottom: 2em;
+}
+
+.create-new-user-button {
+  cursor: pointer;
+}
