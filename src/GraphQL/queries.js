@@ -3,7 +3,7 @@ import { useQuery, gql } from "@apollo/client"
 
 export const GET_USER = (userName) => gql`
    query {
-    user(username: $${userName}) {
+    user(username: "${userName}") {
         id
         username
         games {
