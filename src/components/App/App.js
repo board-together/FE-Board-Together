@@ -83,6 +83,9 @@ const reducer = (state, action) => {
       case 'search_result': {
         return { ...state,searchResults: action.payload}   
       }
+      case 'set_userName': {
+        return {...state, userName: action.payload}
+      }
       default:
       return state
     }
@@ -106,13 +109,19 @@ export const App = () => {
 
   const userInfo = dummyData
 
+  const setUserName = (userName) => {
+    dispatch({
+      type: 'set_userName',
+      payload: userName
+    })
+  }
 
   return (
 
     <div className='App'>
       <Routes>
         <Route path='/' element={<UserDashboard userInfo={userInfo} searchBarSubmit={searchBarSubmit}/>} />
-        <Route path='/login' element={<Login />} />
+        <Route path='/login' element={<Login setUserName={setUserName}/>} />
         <Route path='/search-results/:searchTerm' element={<SearchResults results={state.searchResults}/>} />
         <Route path='/friends-games/:id' element={<FriendsGames />} />
       </Routes>
