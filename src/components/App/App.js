@@ -1,13 +1,14 @@
-import React, {useReducer} from 'react'
+import React, { useReducer, useEffect } from 'react'
+import { useQuery, gql } from "@apollo/client"
 import { Routes, Route } from 'react-router-dom'
 import { UserDashboard } from '../User_Dashboard/User_Dashboard'
 import { Login } from '../Login/Login'
-import  SearchResults  from '../Search_Results/Search_Results'
+import SearchResults from '../Search_Results/Search_Results'
 import { FriendsGames } from '../Friends_Games/Friends_Games'
 import dummyData from '../../dummy_user_data.json'
 
 // dummyJson will be deleted when we connect to API 
-const dummyJson = [  
+const dummyJson = [
   {
     "type": "game",
     "id": 1,
@@ -64,47 +65,75 @@ const dummyJson = [
   }
 ]
 
-
-
+const GET_USER = gql`
+query {
+  user(username: "Pickafloof") {
+      id
+      username
+      games {
+          id
+          boardGameAtlasId
+          url
+          name
+          yearPublished
+          minPlayers
+          maxPlayers
+          minPlaytime
+          maxPlaytime
+          minAge
+          description
+          thumbUrl
+          imageUrl 
+      }
+  }
+}`
 
 const initialState = {
-  searchResults : [],
+  searchResults: [],
   user: {},
   userName: '',
   friendsList: [],
   gameCollection: [],
   modalOpen: false,
   error: null,
-  loading:false
+  loading: false
 }
 
 const reducer = (state, action) => {
-    switch(action.type) {
-      case 'search_result': {
-        return { ...state,searchResults: action.payload}   
-      }
-      case 'set_userName': {
-        return {...state, userName: action.payload}
-      }
-      default:
-      return state
+  switch (action.type) {
+    case 'search_result': {
+      return { ...state, searchResults: action.payload }
     }
+    case 'set_userName': {
+      return { ...state, userName: action.payload }
+    }
+    default:
+      return state
+  }
 }
 
 export const App = () => {
-  const [state, dispatch] = useReducer(reducer,initialState)
-  const searchBarSubmit = (terms) => { 
+  const { loading, error, data } = useQuery(GET_USER)
+
+  // useEffect(() => {
+  //   if (loading) { return "loading" }
+  //   if (error) { return `Error: ${error.message}` }
+  //   if (data) { console.log(data) }
+  // }, [])
+
+  const [state, dispatch] = useReducer(reducer, initialState)
+  const searchBarSubmit = (terms) => {
     const returnArray = []
     dummyJson.forEach(element => {
-      if (element.attributes.name.includes(terms) ) {
+      if (element.attributes.name.includes(terms)) {
         return returnArray.push(element)
       }
-    });
+    })
     dispatch({
       type: 'search_result',
       payload: returnArray
-     })
-     return 
+    })
+    return
   }
 
   const userInfo = dummyData
@@ -120,9 +149,9 @@ export const App = () => {
 
     <div className='App'>
       <Routes>
-        <Route path='/' element={<UserDashboard userInfo={userInfo} searchBarSubmit={searchBarSubmit}/>} />
-        <Route path='/login' element={<Login setUserName={setUserName}/>} />
-        <Route path='/search-results/:searchTerm' element={<SearchResults results={state.searchResults}/>} />
+        <Route path='/' element={<UserDashboard userInfo={userInfo} searchBarSubmit={searchBarSubmit} />} />
+        <Route path='/login' element={<Login setUserName={setUserName} />} />
+        <Route path='/search-results/:searchTerm' element={<SearchResults results={state.searchResults} />} />
         <Route path='/friends-games/:id' element={<FriendsGames />} />
       </Routes>
     </div>
