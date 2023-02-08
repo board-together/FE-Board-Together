@@ -27,7 +27,7 @@ export const Login = ({setUserName}) => {
       setValidUser(false);
       setUserName('')
     }
-  }, [userNameInput, existingUserNames]);
+  }, [userNameInput, existingUserNames, setUserName]);
 
   const showError = (event) => {
     event.preventDefault();
