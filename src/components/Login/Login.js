@@ -2,7 +2,7 @@ import React, { useEffect, useState } from 'react'
 import { Link } from 'react-router-dom'
 import '../Login/Login.css'
 
-export const Login = () => {
+export const Login = ({setUserName}) => {
 
   /* Need a prop function to set 'username' state in App */
 
@@ -20,7 +20,13 @@ export const Login = () => {
   }, []);
 
   useEffect(() => {
-    existingUserNames.includes(userNameInput) ? setValidUser(true) : setValidUser(false);
+    if (existingUserNames.includes(userNameInput)) {
+      setValidUser(true);
+      setUserName(userNameInput)
+    } else {
+      setValidUser(false);
+      setUserName('')
+    }
   }, [userNameInput, existingUserNames]);
 
   const showError = (event) => {
