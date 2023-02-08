@@ -4,7 +4,7 @@ import '../Login/Login.css'
 
 export const Login = () => {
 
-  /* Need a prop function to set 'username' state in App? */
+  /* Need a prop function to set 'username' state in App */
 
   const [userNameInput, setUserNameInput] = useState(''); // input to enter existing username
   const [validUser, setValidUser] = useState(false); // boolean state for whether the username entered in the input already exists or not
@@ -14,7 +14,7 @@ export const Login = () => {
   const [existingUserNames, setExistingUserNames] = useState([]); // existing user names, will eventually get these from the backend
 
   useEffect(() => {
-    //when page loads, populate existingUserNames with fetch/graphquery etc
+    // Hard coding usernames; as an extension, could do a query on page load.
     setExistingUserNames(['test1', 'test2'])
   }, []);
 
@@ -33,7 +33,7 @@ export const Login = () => {
     setExistingUserNames([...existingUserNames, name]); 
     setInvalidUserName(false);
     setNewUserInput('');
-    //will need to change to make this a post fetch etc
+    // WIP: will need to refactor to include a query/mutation to add user to backend
   }
 
   const submitNewUser = (event) => {
