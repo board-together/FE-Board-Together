@@ -8,9 +8,10 @@ export const Login = () => {
 
   const [userNameInput, setUserNameInput] = useState(''); // input to enter existing username
   const [validUser, setValidUser] = useState(false); // boolean state for whether the username entered in the input already exists or not
+  const [userNameMessage, setUserNameMessage] = useState('') // message when a username entered is not valid
   const [userStatus, setUserStatus] = useState(true); // an assumption that the user has already signed up; if the username form is present, this is true, and if create user form is present, this is false
   const [newUserInput, setNewUserInput] = useState(''); // input to create/enter a new username
-  const [invalidUserName, setInvalidUserName] = useState(false); // boolean state for whether a new username the user wants to create is already taken
+  const [takenUserName, setTakenUserName] = useState(false); // boolean state for whether a new username the user wants to create is already taken
   const [existingUserNames, setExistingUserNames] = useState([]); // existing user names, will eventually get these from the backend
 
   useEffect(() => {
@@ -22,6 +23,12 @@ export const Login = () => {
     existingUserNames.includes(userNameInput) ? setValidUser(true) : setValidUser(false);
   }, [userNameInput, existingUserNames]);
 
+  const showError = (event) => {
+    event.preventDefault();
+    setUserNameMessage('Please enter a valid username');
+    setTimeout(setUserNameMessage, 3000);
+  }
+
   const handleNewUserClick = (event) => {
     event.preventDefault();
     setUserStatus(false);
@@ -31,14 +38,14 @@ export const Login = () => {
   const addName = (name) => {
     setUserStatus(true);
     setExistingUserNames([...existingUserNames, name]); 
-    setInvalidUserName(false);
+    setTakenUserName(false);
     setNewUserInput('');
     // WIP: will need to refactor to include a query/mutation to add user to backend
   }
 
   const submitNewUser = (event) => {
     event.preventDefault()
-    existingUserNames.includes(newUserInput) ? setInvalidUserName(true) : addName(newUserInput)
+    existingUserNames.includes(newUserInput) ? setTakenUserName(true) : addName(newUserInput)
   }
 
   return (
@@ -56,9 +63,11 @@ export const Login = () => {
             value={userNameInput}
             onChange={event => setUserNameInput(event.target.value)}
           />
+          {!validUser && <button className='invalid-user-button' onClick={event => showError(event)}>Enter</button>}
           {validUser && <Link to='/'>
               <button className='enter-site-button'>Enter</button>
           </Link>}
+          {userNameMessage && <p>{userNameMessage}</p>}
         </form>
         <div className='not-member-prompt-area'>
           <p className='not-member-prompt'>Not a member?</p>
@@ -80,7 +89,7 @@ export const Login = () => {
           >
             Create
           </button>
-          {invalidUserName && <p>Username already taken!</p>}
+          {takenUserName && <p>Username already taken!</p>}
         </form>
       }
     </main>
