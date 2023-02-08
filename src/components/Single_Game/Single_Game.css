@@ -1,0 +1,17 @@
+.single-tile {
+  width: 300px;
+  height: 300px;
+}
+
+.single-game-img {
+  width: 250px;
+  height: auto;
+  border-top: 5px solid transparent;
+  border-bottom: 5px solid transparent;
+}
+
+.single-game-img:hover {
+  border-top: 5px solid rgb(62, 110, 232);
+  border-bottom: 5px solid rgb(62, 110, 232);
+  cursor: pointer;
+}

@@ -1,11 +1,6 @@
 import React from 'react'
 import  SingleGame  from '../Single_Game/Single_Game'
 
-
-
- 
-
-
 const SearchResults = ({results}) => {
     const games = results.map(game => {
      

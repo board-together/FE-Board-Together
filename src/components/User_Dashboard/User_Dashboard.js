@@ -1,10 +1,12 @@
 import React from 'react'
 import { Navbar } from '../Navbar/Navbar'
+import SingleGame from '../Single_Game/Single_Game'
 import './User_Dashboard.css'
 
 export const UserDashboard = ({ userInfo, searchBarSubmit }) => {
 
   let friends = userInfo.friends.map(friend => <p key={friend} className="friend">{friend}</p>)
+  let games = userInfo.games.map(game => <SingleGame key={game.id} game={game}/>)
 
   return (
     <>
@@ -12,7 +14,7 @@ export const UserDashboard = ({ userInfo, searchBarSubmit }) => {
       <div className='user-dashboard'>
         <div className='game-collection-section'>
           <h1>My Games</h1>
-          <div className='game-collection'>UserGames</div>
+          <div className='game-collection'>{games}</div>
         </div>
         <div className='friends-section'>
           <h1 className='my-friends-header'>My Friends</h1>

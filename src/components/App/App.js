@@ -115,13 +115,14 @@ const reducer = (state, action) => {
 export const App = () => {
   const { loading, error, data } = useQuery(GET_USER)
 
-  // useEffect(() => {
-  //   if (loading) { return "loading" }
-  //   if (error) { return `Error: ${error.message}` }
-  //   if (data) { console.log(data) }
-  // }, [])
+  useEffect(() => {
+    if (loading) { return "loading" }
+    if (error) { return `Error: ${error.message}` }
+    if (data) { console.log(data) }
+  }, [])
 
   const [state, dispatch] = useReducer(reducer, initialState)
+  
   const searchBarSubmit = (terms) => {
     const returnArray = []
     dummyJson.forEach(element => {
