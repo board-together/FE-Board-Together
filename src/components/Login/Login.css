@@ -46,9 +46,12 @@
   margin-bottom: 1em;
 }
 
+.invalid-user-button {
+  cursor: pointer;
+}
+
 .enter-site-button {
   cursor: pointer;
-  margin-bottom: 2em;
 }
 
 .not-member-prompt-area {
