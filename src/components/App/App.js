@@ -1,5 +1,4 @@
 import React, { useReducer, useEffect } from 'react'
-import { useQuery, gql } from "@apollo/client"
 import { Routes, Route } from 'react-router-dom'
 import { UserDashboard } from '../User_Dashboard/User_Dashboard'
 import { Login } from '../Login/Login'
@@ -65,28 +64,6 @@ const dummyJson = [
   }
 ]
 
-const GET_USER = gql`
-query {
-  user(username: "Pickafloof") {
-      id
-      username
-      games {
-          id
-          boardGameAtlasId
-          url
-          name
-          yearPublished
-          minPlayers
-          maxPlayers
-          minPlaytime
-          maxPlaytime
-          minAge
-          description
-          thumbUrl
-          imageUrl 
-      }
-  }
-}`
 
 const initialState = {
   searchResults: [],
@@ -113,12 +90,10 @@ const reducer = (state, action) => {
 }
 
 export const App = () => {
-  const { loading, error, data } = useQuery(GET_USER)
+
 
   // useEffect(() => {
-  //   if (loading) { return "loading" }
-  //   if (error) { return `Error: ${error.message}` }
-  //   if (data) { console.log(data) }
+
   // }, [])
 
   const [state, dispatch] = useReducer(reducer, initialState)
@@ -149,8 +124,8 @@ export const App = () => {
 
     <div className='App'>
       <Routes>
-        <Route path='/' element={<UserDashboard userInfo={userInfo} searchBarSubmit={searchBarSubmit} />} />
-        <Route path='/login' element={<Login setUserName={setUserName} />} />
+        <Route path='/dashboard/:username' element={<UserDashboard userInfo={userInfo} searchBarSubmit={searchBarSubmit} />} />
+        <Route path='/' element={<Login setUserName={setUserName} />} />
         <Route path='/search-results/:searchTerm' element={<SearchResults results={state.searchResults} />} />
         <Route path='/friends-games/:id' element={<FriendsGames />} />
       </Routes>

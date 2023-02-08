@@ -2,7 +2,7 @@ import React, { useEffect, useState } from 'react'
 import { Link } from 'react-router-dom'
 import '../Login/Login.css'
 
-export const Login = ({setUserName}) => {
+export const Login = () => {
 
   /* Need a prop function to set 'username' state in App */
 
@@ -22,10 +22,8 @@ export const Login = ({setUserName}) => {
   useEffect(() => {
     if (existingUserNames.includes(userNameInput)) {
       setValidUser(true);
-      setUserName(userNameInput)
     } else {
       setValidUser(false);
-      setUserName('')
     }
   }, [userNameInput, existingUserNames]);
 
@@ -70,7 +68,7 @@ export const Login = ({setUserName}) => {
             onChange={event => setUserNameInput(event.target.value)}
           />
           {!validUser && <button className='invalid-user-button' onClick={event => showError(event)}>Enter</button>}
-          {validUser && <Link to='/'>
+          {validUser && <Link to={`dashboard/${userNameInput}`}>
               <button className='enter-site-button'>Enter</button>
           </Link>}
           {userNameMessage && <p>{userNameMessage}</p>}
