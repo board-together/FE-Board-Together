@@ -7,7 +7,7 @@ import './User_Dashboard.css'
 export const UserDashboard = ({ userInfo, searchBarSubmit, setModal, modalOpen }) => {
 
   let friends = userInfo.friends.map(friend => <p key={friend} className="friend">{friend}</p>)
-  let games = userInfo.games.map(game => <SingleGame key={game.id} game={game} onClick={setModal} />)
+  let games = userInfo.games.map(game => <SingleGame key={game.id} game={game} setModal={setModal}/>)
 
   return (
     <>
