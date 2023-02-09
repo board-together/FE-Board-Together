@@ -1,13 +1,14 @@
-import React from "react";
+import React from "react"
 import './Single_Game.css'
 
 
-const SingleGame = ({id,name,thumb_url,image_url}) => {
+const SingleGame = ({ game }) => {
   return (
-    <div className="single-tile">
-      <button className="game-tile-button" id={id} ><h2 className="single-game-name">{name}</h2> <img className="single-game-img" src={image_url} alt={name}/> </button>  
+    <div className="single-tile" id={game.id}>
+      <h2 className="single-game-name">{game.attributes.name}</h2>
+      <img className="single-game-img" src={game.attributes.image_url} alt={game.attributes.name} />
     </div>
   )
 }
- 
-export default SingleGame;
+
+export default SingleGame
