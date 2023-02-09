@@ -7,12 +7,8 @@ import { useParams } from 'react-router'
 
 export const UserDashboard = ({ userInfo, searchBarSubmit }) => {
 
-  const userName = useParams().username
-  const { loading, error, data } = useQuery(GET_USER(userName))
-  console.log('username: ', userName);
-  console.log('loading: ', loading);
-  console.log('error: ', error);
-  console.log('data: ', data);
+  const userName = useParams().username;
+  const { loading, error, data } = useQuery(GET_USER(userName));
 
   let friends = userInfo.friends.map(friend => <p key={friend} className="friend">{friend}</p>)
 
