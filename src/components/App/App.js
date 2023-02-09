@@ -123,7 +123,7 @@ export const App = () => {
       <Routes>
         <Route path='/dashboard/:username' element={<UserDashboard userInfo={userInfo} searchBarSubmit={searchBarSubmit} />} />
         <Route path='/' element={<Login />} />
-        <Route path='/search-results/:searchTerm' element={<SearchResults results={state.searchResults} searchBarSubmit={searchBarSubmit} />} />
+        <Route path='/search-results/:searchTerm' element={<SearchResults userInfo={userInfo} results={state.searchResults} searchBarSubmit={searchBarSubmit} />} />
         <Route path='/friends-games/:id' element={<FriendsGames />} />
       </Routes>
     </div>

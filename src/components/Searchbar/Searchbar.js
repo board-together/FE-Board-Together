@@ -12,7 +12,7 @@ const SearchBar = ({ submit }) => {
 
   const handleSubmit = () => {
   submit(searchTerm)
-  
+
   }
 
 
