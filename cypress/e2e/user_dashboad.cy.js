@@ -7,7 +7,7 @@ describe('User Dashboard', () => {
   })
 
   it('should be the root page route', () => {
-    cy.url().should('eq', 'http://localhost:3000/')
+    cy.url().should('eq', 'http://localhost:3000/dashboard/randy')
   })
 
   it('should welcome the user', () => {
