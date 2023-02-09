@@ -22,7 +22,7 @@ export const UserDashboard = ({ userInfo, searchBarSubmit }) => {
           <h1>My Games</h1>
           {loading && <h2>LOADING</h2>}
           {data && <h2>GOT SOME DATA</h2>}
-          {error && <h2>OH NO ERROR: {error.message}</h2>
+          {error && <h2>OH NO ERROR: {error.message}</h2>}
           <div className='game-collection'>{games}</div>
         </div>
         <div className='friends-section'>
