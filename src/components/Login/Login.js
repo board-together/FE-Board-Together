@@ -4,8 +4,6 @@ import '../Login/Login.css'
 
 export const Login = () => {
 
-  /* Need a prop function to set 'username' state in App */
-
   const [userNameInput, setUserNameInput] = useState(''); // input to enter existing username
   const [validUser, setValidUser] = useState(false); // boolean state for whether the username entered in the input already exists or not
   const [userNameMessage, setUserNameMessage] = useState('') // message when a username entered is not valid
@@ -16,7 +14,7 @@ export const Login = () => {
 
   useEffect(() => {
     // Hard coding usernames; as an extension, could do a query on page load.
-    setExistingUserNames(['test1', 'test2', "Pickafloof", "Floofything"])
+    setExistingUserNames(["randy", "Pickafloof"])
   }, []);
 
   useEffect(() => {
