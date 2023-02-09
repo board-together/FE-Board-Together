@@ -1,7 +1,7 @@
 import React from 'react'
 import { Navbar } from '../Navbar/Navbar'
 import { GET_USER } from '../../GraphQL/queries'
-import { useQuery, gql } from "@apollo/client"
+import { useQuery } from "@apollo/client"
 import './User_Dashboard.css'
 import { useParams } from 'react-router'
 
