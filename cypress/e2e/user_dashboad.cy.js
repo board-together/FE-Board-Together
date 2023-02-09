@@ -3,7 +3,7 @@ import 'cypress-react-selector'
 describe('User Dashboard', () => {
 
   beforeEach(() => {
-    cy.visit('http://localhost:3000/')
+    cy.visit('http://localhost:3000/dashboard/randy')
   })
 
   it('should welcome the user', () => {
