@@ -124,7 +124,7 @@ export const App = () => {
         <Route path='/dashboard/:username' element={<UserDashboard userInfo={userInfo} searchBarSubmit={searchBarSubmit} />} />
         <Route path='/' element={<Login />} />
         <Route path='/search-results/:searchTerm' element={<SearchResults userInfo={userInfo} results={state.searchResults} searchBarSubmit={searchBarSubmit} />} />
-        <Route path='/friends-games/:id' element={<FriendsGames />} />
+        <Route path='/friends-games/:id' element={<FriendsGames  searchBarSubmit={searchBarSubmit} />} />
       </Routes>
     </div>
   )
