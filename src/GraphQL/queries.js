@@ -23,7 +23,7 @@ export const GET_USER = (userName) => gql`
         }
     }
   }`
-  // $ - unknown whether needed
+
 
 
   export const GET_ALL_USERS = gql`
