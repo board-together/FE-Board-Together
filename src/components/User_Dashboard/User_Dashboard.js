@@ -1,16 +1,18 @@
 import React from 'react'
 import { Navbar } from '../Navbar/Navbar'
+import { GameModal } from '../Game_Modal/Game_Modal'
 import SingleGame from '../Single_Game/Single_Game'
 import './User_Dashboard.css'
 
-export const UserDashboard = ({ userInfo, searchBarSubmit }) => {
+export const UserDashboard = ({ userInfo, searchBarSubmit, setModal, modalOpen }) => {
 
   let friends = userInfo.friends.map(friend => <p key={friend} className="friend">{friend}</p>)
-  let games = userInfo.games.map(game => <SingleGame key={game.id} game={game}/>)
+  let games = userInfo.games.map(game => <SingleGame key={game.id} game={game} onClick={setModal} />)
 
   return (
     <>
-      <Navbar username={userInfo.username} searchBarSubmit={searchBarSubmit}/>
+      {modalOpen && <GameModal setModal={setModal} />}
+      <Navbar username={userInfo.username} searchBarSubmit={searchBarSubmit} />
       <div className='user-dashboard'>
         <div className='game-collection-section'>
           <h1>My Games</h1>

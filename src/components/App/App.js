@@ -107,6 +107,9 @@ const reducer = (state, action) => {
     case 'set_userName': {
       return { ...state, userName: action.payload }
     }
+    case 'set_modal': {
+      return { ...state, modalOpen: state.modalOpen ? false : true }
+    }
     default:
       return state
   }
@@ -122,7 +125,7 @@ export const App = () => {
   // }, [])
 
   const [state, dispatch] = useReducer(reducer, initialState)
-  
+
   const searchBarSubmit = (terms) => {
     const returnArray = []
     dummyJson.forEach(element => {
@@ -146,11 +149,23 @@ export const App = () => {
     })
   }
 
+  const setModal = () => {
+    dispatch({ type: 'set_modal' })
+  }
+
   return (
 
     <div className='App'>
       <Routes>
-        <Route path='/' element={<UserDashboard userInfo={userInfo} searchBarSubmit={searchBarSubmit} />} />
+        <Route path='/'
+          element={
+            <UserDashboard
+              userInfo={userInfo}
+              searchBarSubmit={searchBarSubmit}
+              setModal={setModal}
+              modalOpen={state.modalOpen}
+            />
+          } />
         <Route path='/login' element={<Login setUserName={setUserName} />} />
         <Route path='/search-results/:searchTerm' element={<SearchResults results={state.searchResults} />} />
         <Route path='/friends-games/:id' element={<FriendsGames />} />

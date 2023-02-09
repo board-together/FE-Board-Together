@@ -1,0 +1,26 @@
+.modal-container {
+  position: fixed;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  top: 0;
+  left: 0;
+  width: 100%;
+  min-height: 100vh;
+  background: rgb(0, 0, 0, 0.7);
+  
+}
+
+.game-modal {
+  position: relative;
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+  width: 70%;
+  height: 75vh;
+  background: white;
+  border: 4px solid rgb(238, 200, 62);
+  border-radius: 12px;
+  padding: 20px;
+  overflow: scroll;
+}
