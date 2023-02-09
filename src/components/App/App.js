@@ -126,15 +126,15 @@ export const App = () => {
   const searchBarSubmit = (terms) => {
     const returnArray = []
     dummyJson.forEach(element => {
-      if (element.attributes.name.includes(terms)) {
-        return returnArray.push(element)
+      let name = element.attributes.name.toLowerCase()
+      if (name.includes(terms.toLowerCase())) {
+        returnArray.push(element)
       }
     })
     dispatch({
       type: 'search_result',
       payload: returnArray
     })
-    return
   }
 
   const userInfo = dummyData
