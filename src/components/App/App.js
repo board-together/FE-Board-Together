@@ -91,11 +91,6 @@ const reducer = (state, action) => {
 
 export const App = () => {
 
-
-  // useEffect(() => {
-
-  // }, [])
-
   const [state, dispatch] = useReducer(reducer, initialState)
   const searchBarSubmit = (terms) => {
     const returnArray = []
@@ -113,19 +108,19 @@ export const App = () => {
 
   const userInfo = dummyData
 
-  const setUserName = (userName) => {
-    dispatch({
-      type: 'set_userName',
-      payload: userName
-    })
-  }
+  // const setUserName = (userName) => {
+  //   dispatch({
+  //     type: 'set_userName',
+  //     payload: userName
+  //   })
+  // }
 
   return (
 
     <div className='App'>
       <Routes>
         <Route path='/dashboard/:username' element={<UserDashboard userInfo={userInfo} searchBarSubmit={searchBarSubmit} />} />
-        <Route path='/' element={<Login setUserName={setUserName} />} />
+        <Route path='/' element={<Login />} />
         <Route path='/search-results/:searchTerm' element={<SearchResults results={state.searchResults} />} />
         <Route path='/friends-games/:id' element={<FriendsGames />} />
       </Routes>
