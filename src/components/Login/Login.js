@@ -2,9 +2,7 @@ import React, { useEffect, useState } from 'react'
 import { Link } from 'react-router-dom'
 import '../Login/Login.css'
 
-export const Login = ({setUserName}) => {
-
-  /* Need a prop function to set 'username' state in App */
+export const Login = () => {
 
   const [userNameInput, setUserNameInput] = useState(''); // input to enter existing username
   const [validUser, setValidUser] = useState(false); // boolean state for whether the username entered in the input already exists or not
@@ -16,18 +14,16 @@ export const Login = ({setUserName}) => {
 
   useEffect(() => {
     // Hard coding usernames; as an extension, could do a query on page load.
-    setExistingUserNames(['test1', 'test2', "Pickafloof", "Floofything"])
+    setExistingUserNames(["randy", "Pickafloof"])
   }, []);
 
   useEffect(() => {
     if (existingUserNames.includes(userNameInput)) {
       setValidUser(true);
-      setUserName(userNameInput)
     } else {
       setValidUser(false);
-      setUserName('')
     }
-  }, [userNameInput, existingUserNames, setUserName]);
+  }, [userNameInput, existingUserNames]);
 
   const showError = (event) => {
     event.preventDefault();
@@ -70,7 +66,7 @@ export const Login = ({setUserName}) => {
             onChange={event => setUserNameInput(event.target.value)}
           />
           {!validUser && <button className='invalid-user-button' onClick={event => showError(event)}>Enter</button>}
-          {validUser && <Link to='/'>
+          {validUser && <Link to={`dashboard/${userNameInput}`}>
               <button className='enter-site-button'>Enter</button>
           </Link>}
           {userNameMessage && <p>{userNameMessage}</p>}
