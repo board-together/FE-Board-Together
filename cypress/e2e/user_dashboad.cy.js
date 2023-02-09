@@ -6,6 +6,10 @@ describe('User Dashboard', () => {
     cy.visit('http://localhost:3000/')
   })
 
+  it('should be the root page route', () => {
+    cy.url().should('eq', 'http://localhost:3000/')
+  })
+
   it('should welcome the user', () => {
     cy.get('.welcome-greeting').contains('Welcome, GarBear88!')
   })
@@ -25,5 +29,14 @@ describe('User Dashboard', () => {
   })
 
   it('should have a persistent Navbar', () => {
+  })
+
+  it('should show the user\'s games', () => {
+    cy.contains('Dominion')
+    cy.contains('Carcassonne')
+    cy.contains('Scythe')
+    cy.get('.single-game-img').first().should('have.attr', 'src', "https://s3-us-west-1.amazonaws.com/5cc.images/games/uploaded/1559254200326-6135RVKbZZL.jpg")
+    cy.get('.single-game-img').eq(1).should('have.attr', 'src', "https://cdn11.bigcommerce.com/s-wue8xznink/images/stencil/1280x1280/products/357/17642/pic6544250_1__09565.1658423124.png?c=2")
+    cy.get('.single-game-img').last().should('have.attr', 'src', "https://cdn.shopify.com/s/files/1/0513/4077/1515/products/scythe-board-game.jpg?v=1611090922")
   })
 })

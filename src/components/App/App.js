@@ -1,5 +1,5 @@
-import React, { useReducer, useEffect } from 'react'
-import { useQuery, gql } from "@apollo/client"
+import React, { useReducer } from 'react'
+//import { useQuery, gql } from "@apollo/client"
 import { Routes, Route } from 'react-router-dom'
 import { UserDashboard } from '../User_Dashboard/User_Dashboard'
 import { Login } from '../Login/Login'
@@ -65,28 +65,28 @@ const dummyJson = [
   }
 ]
 
-const GET_USER = gql`
-query {
-  user(username: "Pickafloof") {
-      id
-      username
-      games {
-          id
-          boardGameAtlasId
-          url
-          name
-          yearPublished
-          minPlayers
-          maxPlayers
-          minPlaytime
-          maxPlaytime
-          minAge
-          description
-          thumbUrl
-          imageUrl 
-      }
-  }
-}`
+// const GET_USER = gql`
+// query {
+//   user(username: "Pickafloof") {
+//       id
+//       username
+//       games {
+//           id
+//           boardGameAtlasId
+//           url
+//           name
+//           yearPublished
+//           minPlayers
+//           maxPlayers
+//           minPlaytime
+//           maxPlaytime
+//           minAge
+//           description
+//           thumbUrl
+//           imageUrl 
+//       }
+//   }
+// }`
 
 const initialState = {
   searchResults: [],
@@ -113,7 +113,7 @@ const reducer = (state, action) => {
 }
 
 export const App = () => {
-  const { loading, error, data } = useQuery(GET_USER)
+  //const { loading, error, data } = useQuery(GET_USER)
 
   // useEffect(() => {
   //   if (loading) { return "loading" }
