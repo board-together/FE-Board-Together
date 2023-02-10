@@ -4,9 +4,8 @@ import { Navbar } from '../Navbar/Navbar'
 import SingleGame from '../Single_Game/Single_Game'
 
 const SearchResults = ({ results, searchBarSubmit, userInfo }) => {
-  const games = results.map(game => <SingleGame game={game} />)
+  const games = results.map(game => <SingleGame game={game} key={game.id}/>)
  
-
   return (
   <div>
       <Navbar searchBarSubmit={searchBarSubmit} ></Navbar>
