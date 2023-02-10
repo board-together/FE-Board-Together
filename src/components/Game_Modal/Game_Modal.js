@@ -24,7 +24,7 @@ export const GameModal = ({ setModal, context, modal }) => {
             <p>Average Playtime: {averagePlayTime}</p>
             <p>Age: {modal.attributes.min_age}+</p>
             {string}
-            <a href={modal.attributes.url}>More Info</a>
+            <a href={modal.attributes.url} target='_blank' rel="noreferrer">More Info</a>
           </div>
         </div>
         <div className='modal-buttons'>
