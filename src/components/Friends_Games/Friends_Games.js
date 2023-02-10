@@ -16,7 +16,7 @@ export const FriendsGames = ({searchBarSubmit, userInfo}) => {
     <div>
       <Navbar searchBarSubmit={searchBarSubmit}></Navbar>
       <Link to={`/dashboard/${userInfo.username}`}><button>Back to dashboard</button></Link>
-          <h2>{friendName}'s Games</h2>
+          <h2 className='friend-name'>{friendName}s Games</h2>
       <div className='friends-games-container'>
           {fakedFriendsGames}
       </div>
