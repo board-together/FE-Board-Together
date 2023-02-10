@@ -5,12 +5,15 @@ import { useQuery } from "@apollo/client"
 import SingleGame from '../Single_Game/Single_Game'
 import './User_Dashboard.css'
 import { useParams } from 'react-router'
+import fakeBorrowedGames from '../../dummy-borrowed-games.json'
 
 export const UserDashboard = ({ userInfo, searchBarSubmit }) => {
 
   const userName = useParams().username;
   const { loading, error, data } = useQuery(GET_USER(userName));
+  console.log('Data from GraphQL Query: ', data);
 
+  let borrowedGamesThumbnails = fakeBorrowedGames.games.map((game, index) => <SingleGame key={index} game={game}/>)
   let friends = userInfo.friends.map(friend => <p key={friend} className="friend">{friend}</p>)
   let games = userInfo.games.map(game => <SingleGame key={game.id} game={game}/>)
 
@@ -21,7 +24,7 @@ export const UserDashboard = ({ userInfo, searchBarSubmit }) => {
         <div className='game-collection-section'>
           <h1 className='my-games-heading'>My Games</h1>
           <h2>Games I'm Borrowing</h2>
-          <div className='borrowed-games-collection'></div>
+          <div className='borrowed-games-collection'>{borrowedGamesThumbnails}</div>
           <h2>My Game Collection</h2>
           <div className='game-collection'>{games}</div>
         </div>
