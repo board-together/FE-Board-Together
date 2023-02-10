@@ -1,17 +1,10 @@
 import React from 'react'
 import { Navbar } from '../Navbar/Navbar'
-import { GET_USER } from '../../GraphQL/queries'
-import { useQuery } from "@apollo/client"
 import SingleGame from '../Single_Game/Single_Game'
 import './User_Dashboard.css'
 import fakeBorrowedGames from '../../dummy-borrowed-games.json'
 
-export const UserDashboard = ({ userInfo, searchBarSubmit, userName }) => {
-
-  const { loading, error, data } = useQuery(GET_USER(userName));
-  // console.log('Data from GraphQL Query: ', data);
-  // console.log(`'Loading': `, loading);
-  // console.log(`'Error: `, error);
+export const UserDashboard = ({ userInfo, searchBarSubmit, loading, error, data, userName }) => {
 
   let borrowedGamesThumbnails = fakeBorrowedGames.games.map((game, index) => <SingleGame key={index} game={game}/>)
   let friends = userInfo.friends.map(friend => <p key={friend} className="friend">{friend}</p>)

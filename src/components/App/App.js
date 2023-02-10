@@ -5,6 +5,9 @@ import { Login } from '../Login/Login'
 import SearchResults from '../Search_Results/Search_Results'
 import { FriendsGames } from '../Friends_Games/Friends_Games'
 import dummyData from '../../dummy_user_data.json'
+import { GET_USER } from '../../GraphQL/queries'
+import { useQuery } from "@apollo/client"
+
 
 // dummyJson will be deleted when we connect to API 
 const dummyJson = [
@@ -93,6 +96,7 @@ const reducer = (state, action) => {
 export const App = () => {
 
   const [state, dispatch] = useReducer(reducer, initialState);
+  const { loading, error, data } = useQuery(GET_USER(state.userName));
   
   const searchBarSubmit = (terms) => {
     let returnArray = []
@@ -120,7 +124,15 @@ export const App = () => {
   return (
     <div className='App'>
       <Routes>
-        <Route path='/dashboard' element={<UserDashboard userInfo={userInfo} searchBarSubmit={searchBarSubmit} userName={state.userName}/>} />
+        <Route path='/dashboard' 
+          element={<UserDashboard 
+            userInfo={userInfo} 
+            searchBarSubmit={searchBarSubmit} 
+            userName={state.userName}
+            loading={loading}
+            error={error}
+            data={data}
+          />} />
         <Route path='/' element={<Login setUserName={setUserName}/>} />
         <Route path='/search-results/:searchTerm' element={<SearchResults userInfo={userInfo} results={state.searchResults} searchBarSubmit={searchBarSubmit} />} />
         <Route path='/friends-games/:id' element={<FriendsGames />} />
