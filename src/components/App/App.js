@@ -145,7 +145,7 @@ export const App = () => {
   }
 
   const deleteGame = (id) => {
-    const filteredGames = state.user.games.filter(game => game.id !== id)
+    const filteredGames = state.user.games.filter(game => game.id !== id);
     dispatch({ type: 'delete_game', payload: filteredGames })
   }
 

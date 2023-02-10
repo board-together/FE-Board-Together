@@ -47,6 +47,6 @@ describe('Modal', () => {
   it('should be able to remove games from collection', () => {
     cy.get('.delete-button').click()
     cy.get('.single-tile').should('have.length', 2)
-    cy.contains('Dominion').should('not.exist')
+    cy.contains('Dominion').should('not.exist');
   })
 })
