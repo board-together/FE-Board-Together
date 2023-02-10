@@ -94,7 +94,7 @@ const initialState = {
   userName: '',
   friendsList: [],
   gameCollection: [],
-  modalOpen: false,
+  modal: null,
   error: null,
   loading: false
 }
@@ -108,7 +108,7 @@ const reducer = (state, action) => {
       return { ...state, userName: action.payload }
     }
     case 'set_modal': {
-      return { ...state, modalOpen: state.modalOpen ? false : true }
+      return { ...state, modal: action.payload ? action.payload : null }
     }
     default:
       return state
@@ -149,8 +149,13 @@ export const App = () => {
     })
   }
 
-  const setModal = () => {
-    dispatch({ type: 'set_modal' })
+  const setModal = (id = null) => {
+    if (id) {
+      const modalInfo = userInfo.games.find(game => game.id = game)
+      dispatch({ type: 'set_modal', payload: modalInfo })
+    } else {
+      dispatch({ type: 'set_modal' })
+    }
   }
 
   return (
@@ -164,6 +169,7 @@ export const App = () => {
               searchBarSubmit={searchBarSubmit}
               setModal={setModal}
               modalOpen={state.modalOpen}
+              modal={state.modal}
             />
           } />
         <Route path='/login' element={<Login setUserName={setUserName} />} />
