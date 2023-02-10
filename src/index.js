@@ -9,7 +9,7 @@ const cache = new InMemoryCache()
 
 const client = new ApolloClient({
   cache: cache,
-  uri: "https://8d01e596-f828-456f-b6c0-5dc44760ea92.mock.pstmn.io/graphql"
+  uri: "https://board-together.herokuapp.com/graphql"
 })
 
 const root = ReactDOM.createRoot(document.getElementById('root'))

@@ -65,28 +65,7 @@ const dummyJson = [
   }
 ]
 
-// const GET_USER = gql`
-// query {
-//   user(username: "Pickafloof") {
-//       id
-//       username
-//       games {
-//           id
-//           boardGameAtlasId
-//           url
-//           name
-//           yearPublished
-//           minPlayers
-//           maxPlayers
-//           minPlaytime
-//           maxPlaytime
-//           minAge
-//           description
-//           thumbUrl
-//           imageUrl 
-//       }
-//   }
-// }`
+
 
 const initialState = {
   searchResults: [],
@@ -133,7 +112,7 @@ export const App = () => {
   const [state, dispatch] = useReducer(reducer, initialState)
 
   const searchBarSubmit = (terms) => {
-    const returnArray = []
+    let returnArray = []
     dummyJson.forEach(element => {
       let name = element.attributes.name.toLowerCase()
       if (name.includes(terms.toLowerCase())) {
@@ -144,14 +123,17 @@ export const App = () => {
       type: 'search_result',
       payload: returnArray
     })
+
   }
 
-  const setUserName = (userName) => {
-    dispatch({
-      type: 'set_userName',
-      payload: userName
-    })
-  }
+
+
+  // const setUserName = (userName) => {
+  //   dispatch({
+  //     type: 'set_userName',
+  //     payload: userName
+  //   })
+  // }
 
   const setModal = (id = null) => {
     if (id) {
