@@ -155,7 +155,8 @@ export const App = () => {
     return (
       <div className='App'>
         <Routes>
-          <Route path='/'
+          <Route path='/' element={<Login />} />
+          <Route path='/dashboard/:username'
             element={
               <UserDashboard
                 userInfo={state.user}
@@ -165,7 +166,6 @@ export const App = () => {
                 deleteGame={deleteGame}
               />
             } />
-          <Route path='/login' element={<Login setUserName={setUserName} />} />
           <Route path='/search-results/:searchTerm' element={<SearchResults results={state.searchResults} />} />
           <Route path='/friends-games/:id' element={<FriendsGames />} />
         </Routes>
