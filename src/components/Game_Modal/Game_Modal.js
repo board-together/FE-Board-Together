@@ -11,20 +11,28 @@ export const GameModal = ({ setModal, context, modal }) => {
   return (
     <div className='modal-container'>
       <div className='game-modal'>
+        <span className='close-modal-button-container'>
+          <button className='close-modal-button' onClick={() => setModal()}>X</button>
+        </span>
         <span className='modal-header'>
           <h1>{modal.attributes.name}</h1><p>({modal.attributes.year_published})</p>
         </span>
-        <p>Players: {modal.attributes.min_players} to {modal.attributes.max_players}</p>
-        <p>Average Playtime: {averagePlayTime}</p>
-        <p>Age: {modal.attributes.min_age}+</p>
-        <img alt={`Box Cover of ${modal.attributes.name}`} src={modal.attributes.image_url} />
-        {string}
-        <a href={modal.attributes.url}>More Info</a>
-        <button onClick={() => setModal()}>CLOSE</button>
-        {context === 'user_dashboard' && <button>Delete</button>}
-        {context === 'user_dashboard' && <button>Make Private</button>}
-        {context === 'search' && <button>Add to Collection</button>}
-        {context === 'friends_games' && <button>Borrow</button>}
+        <div className='modal-content'>
+          <img className='modal-image' alt={`Box Cover of ${modal.attributes.name}`} src={modal.attributes.image_url} />
+          <div className='modal-details'>
+            <p>Players: {modal.attributes.min_players} to {modal.attributes.max_players}</p>
+            <p>Average Playtime: {averagePlayTime}</p>
+            <p>Age: {modal.attributes.min_age}+</p>
+            {string}
+            <a href={modal.attributes.url}>More Info</a>
+          </div>
+        </div>
+        <div className='modal-buttons'>
+          {context === 'user_dashboard' && <button className='modal-button'>Delete</button>}
+          {context === 'user_dashboard' && <button className='modal-button'>Make Private</button>}
+          {context === 'search' && <button className='modal-button'>Add to Collection</button>}
+          {context === 'friends_games' && <button className='modal-button'>Borrow</button>}
+        </div>
       </div>
     </div>
   )

@@ -151,9 +151,7 @@ export const App = () => {
 
   const setModal = (id = null) => {
     if (id) {
-      console.log(typeof id)
       const modalInfo = userInfo.games.find(game => game.id === id)
-      console.log(modalInfo)
       dispatch({ type: 'set_modal', payload: modalInfo })
     } else {
       dispatch({ type: 'set_modal' })
@@ -170,7 +168,6 @@ export const App = () => {
               userInfo={userInfo}
               searchBarSubmit={searchBarSubmit}
               setModal={setModal}
-              modalOpen={state.modalOpen}
               modal={state.modal}
             />
           } />

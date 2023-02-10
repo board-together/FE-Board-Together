@@ -7,13 +7,13 @@
   left: 0;
   width: 100%;
   min-height: 100vh;
-  background: rgb(0, 0, 0, 0.7);
-  
+  background: rgb(0, 0, 0, 0.7)
 }
 
 .game-modal {
   position: relative;
   display: flex;
+  flex-direction: column;
   align-items: center;
   flex-direction: column;
   width: 70%;
@@ -23,4 +23,63 @@
   border-radius: 12px;
   padding: 20px;
   overflow: scroll;
+}
+
+.close-modal-button-container {
+  display: flex;
+  justify-content: flex-end;
+  width: 100%;
+  padding-right: 10%;
+}
+
+.close-modal-button {
+  background: none;
+  border: none;
+}
+
+.close-modal-button:hover {
+  
+}
+
+.modal-header {
+  display: flex;
+  justify-content: center;
+  align-items: baseline;
+  width: 100%;
+}
+
+.modal-header h1 {
+  font-size: 60px;
+}
+
+.modal-content {
+  display: flex;
+}
+
+.modal-image {
+  height: 400px;
+  width: auto;
+}
+
+.modal-details {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: space-evenly;
+  padding: 20px;
+  border: 2px solid black;
+  border-radius: 10px;
+}
+
+.modal-buttons {
+  height: 10%;
+  width: 100%;
+  display: flex;
+  justify-content: flex-end;
+}
+
+.modal-button {
+  margin: 15px;
+  width: 15%;
+  font-size: 18px;
 }
