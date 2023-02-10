@@ -1,6 +1,10 @@
 describe('Navbar', () => {
   beforeEach(() => {
-    cy.visit('http://localhost:3000/dashboard/randy')
+    cy.visit('http://localhost:3000/')
+    cy.get('.username-input')
+      .type('randy');
+    cy.get('.enter-site-button')
+      .click()
     cy.get('.navbar-container')
   })
   

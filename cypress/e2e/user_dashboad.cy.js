@@ -3,11 +3,15 @@ import 'cypress-react-selector'
 describe('User Dashboard', () => {
 
   beforeEach(() => {
-    cy.visit('http://localhost:3000/dashboard/randy')
+    cy.visit('http://localhost:3000/')
+    cy.get('.username-input')
+      .type('randy');
+    cy.get('.enter-site-button')
+      .click()
   })
 
   it('should be the root page route', () => {
-    cy.url().should('eq', 'http://localhost:3000/dashboard/randy')
+    cy.url().should('eq', 'http://localhost:3000/dashboard/')
   })
 
   it('should welcome the user', () => {
