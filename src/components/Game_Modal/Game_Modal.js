@@ -28,12 +28,12 @@ export const GameModal = ({ setModal, deleteGame, context, modal }) => {
             <p>Players: {modal.attributes.min_players} to {modal.attributes.max_players}</p>
             <p>Average Playtime: {averagePlayTime} minutes</p>
             <p>Age: {modal.attributes.min_age}+</p>
-            {string}
+            <p>{string}</p>
             <a href={modal.attributes.url} target='_blank' rel="noreferrer">More Info</a>
           </div>
         </div>
         <div className='modal-buttons'>
-          {context === 'user_dashboard' && <button className='modal-button' onClick={() => deleteGame(modal.id)}>Delete</button>}
+          {context === 'user_dashboard' && <button className='modal-button delete-button' onClick={() => deleteGame(modal.id)}>Delete</button>}
           {context === 'user_dashboard' && <button className='modal-button'>Make Private</button>}
           {context === 'search' && <button className='modal-button'>Add to Collection</button>}
           {context === 'friends_games' && <button className='modal-button'>Borrow</button>}
