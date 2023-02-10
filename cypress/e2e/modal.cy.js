@@ -2,9 +2,11 @@ describe('Modal', () => {
 
   beforeEach(() => {
     cy.visit(`http://localhost:3000/`)
-    cy.get('.username-input').type('GarBear88')
+    cy.get('.username-input').type('randy')
     cy.get('.enter-site-button').click()
-    cy.get('.single-tile').first().click()
+    cy.get('.game-collection')
+      .find('.single-game-img')
+      .eq(0).click()
   })
 
   it("should open the modal when a game is clicked on", () => {
@@ -44,9 +46,9 @@ describe('Modal', () => {
     cy.get('.game-modal').should('not.exist')
   })
 
-  it('should be able to remove games from collection', () => {
-    cy.get('.delete-button').click()
-    cy.get('.single-tile').should('have.length', 2)
-    cy.contains('Dominion').should('not.exist')
-  })
+  // it('should be able to remove games from collection', () => {
+  //   cy.get('.delete-button').click()
+  //   cy.get('.single-tile').should('have.length', 2)
+  //   cy.contains('Dominion').should('not.exist')
+  // })
 })

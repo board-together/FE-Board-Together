@@ -74,7 +74,7 @@ const initialState = {
   userName: '',
   friendsList: [],
   gameCollection: [],
-  modalOpen: false,
+  modal: null,
   error: null,
   loading: false
 }
@@ -113,7 +113,6 @@ export const App = () => {
 
   const { loading, error, data } = useQuery(GET_USER(state.userName));
 
-  
   const searchBarSubmit = (terms) => {
     let returnArray = []
     dummyJson.forEach(element => {
