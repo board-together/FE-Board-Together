@@ -21,7 +21,7 @@ export const UserDashboard = ({ userInfo, searchBarSubmit }) => {
 
   return (
     <>
-      <Navbar username={userInfo.username} searchBarSubmit={searchBarSubmit}/>
+      <Navbar username={userName} searchBarSubmit={searchBarSubmit}/>
       <div className='user-dashboard'>
         {error && <h1>Error loading data: {error.message}</h1>}
         {loading && <h1>Loading...</h1>}
