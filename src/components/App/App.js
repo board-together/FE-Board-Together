@@ -166,7 +166,7 @@ export const App = () => {
                 deleteGame={deleteGame}
               />
             } />
-          <Route path='/search-results/:searchTerm' element={<SearchResults results={state.searchResults} />} />
+          <Route path='/search-results/:searchTerm' element={<SearchResults results={state.searchResults} userInfo={state.user}/>} />
           <Route path='/friends-games/:id' element={<FriendsGames />} />
         </Routes>
       </div>
