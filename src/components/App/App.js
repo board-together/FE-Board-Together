@@ -1,4 +1,4 @@
-import React, { useReducer } from 'react'
+import React, { useCallback, useReducer } from 'react'
 import { Routes, Route } from 'react-router-dom'
 import { UserDashboard } from '../User_Dashboard/User_Dashboard'
 import { Login } from '../Login/Login'
@@ -110,12 +110,12 @@ export const App = () => {
 
   const userInfo = dummyData
 
-  const setUserName = (userName) => {
+  const setUserName = useCallback((userName) => {
     dispatch({
       type: 'set_userName',
       payload: userName
     })
-  }
+  }, []);
 
   return (
 
