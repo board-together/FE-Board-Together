@@ -9,7 +9,7 @@ import '../Friends_Games/Friends_Games.css'
 
 export const FriendsGames = ({searchBarSubmit, userInfo}) => {
   const friendName = useParams().id;
-  const fakedFriendsGames = userInfo.games.map(game => <SingleGame key={game.id} game={game} />)
+  const fakedFriendsGames = userInfo.games.map(game => <SingleGame key={game.id}  game={game} />)
 
   
   return (
