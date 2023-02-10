@@ -26,7 +26,7 @@ export const GameModal = ({ setModal, deleteGame, context, modal }) => {
           <img className='modal-image' alt={`Box Cover of ${modal.attributes.name}`} src={modal.attributes.image_url} />
           <div className='modal-details'>
             <p>Players: {modal.attributes.min_players} to {modal.attributes.max_players}</p>
-            <p>Average Playtime: {averagePlayTime}</p>
+            <p>Average Playtime: {averagePlayTime} minutes</p>
             <p>Age: {modal.attributes.min_age}+</p>
             {string}
             <a href={modal.attributes.url} target='_blank' rel="noreferrer">More Info</a>
