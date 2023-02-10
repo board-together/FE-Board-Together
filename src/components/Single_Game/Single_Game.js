@@ -1,6 +1,11 @@
 import React from "react"
 import './Single_Game.css'
 
+/*
+  Game object being passed in will need a boolean of whether borrowed is true or not;
+  If it is borrowed AND it is in User's games, it will conditionally render as greyed out;
+  If it is NOT borrowed, it will render as below
+*/
 
 const SingleGame = ({ game, setModal }) => {
   return (

@@ -29,7 +29,10 @@ describe('Login Page', () => {
       .type('randy');
     cy.get('.enter-site-button')
       .click()
-      .url().should('equal', 'http://localhost:3000/dashboard/randy')
+      .url().should('equal', 'http://localhost:3000/dashboard/')
+
+   
+
 
     
 

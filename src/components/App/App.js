@@ -1,10 +1,14 @@
-import React, { useReducer, useEffect } from 'react'
+
+import React, { useReducer, useEffect, useCallback } from 'react'
 import { Routes, Route } from 'react-router-dom'
 import { UserDashboard } from '../User_Dashboard/User_Dashboard'
 import { Login } from '../Login/Login'
 import SearchResults from '../Search_Results/Search_Results'
 import { FriendsGames } from '../Friends_Games/Friends_Games'
 import dummyData from '../../dummy_user_data.json'
+import { GET_USER } from '../../GraphQL/queries'
+import { useQuery } from "@apollo/client"
+
 
 // dummyJson will be deleted when we connect to API 
 const dummyJson = [
@@ -100,11 +104,15 @@ const reducer = (state, action) => {
 }
 
 export const App = () => {
+
   const [state, dispatch] = useReducer(reducer, initialState)
 
   useEffect(() => {
     dispatch({ type: 'success' })
   }, [])
+
+  const { loading, error, data } = useQuery(GET_USER(state.userName));
+
   
   const searchBarSubmit = (terms) => {
     let returnArray = []
@@ -118,15 +126,15 @@ export const App = () => {
       type: 'search_result',
       payload: returnArray
     })
-
   }
 
-  // const setUserName = (userName) => {
-  //   dispatch({
-  //     type: 'set_userName',
-  //     payload: userName
-  //   })
-  // }
+
+  const setUserName = useCallback((userName) => {
+    dispatch({
+      type: 'set_userName',
+      payload: userName
+    })
+  }, []);
 
   const setModal = (id = null) => {
     if (id) {
@@ -148,8 +156,8 @@ export const App = () => {
     return (
       <div className='App'>
         <Routes>
-          <Route path='/' element={<Login />} />
-          <Route path='/dashboard/:username'
+          <Route path='/' element={<Login setUserName={setUserName}/>} />
+          <Route path='/dashboard/'
             element={
               <UserDashboard
                 userInfo={state.user}
@@ -157,12 +165,17 @@ export const App = () => {
                 setModal={setModal}
                 modal={state.modal}
                 deleteGame={deleteGame}
+                loading={loading}
+                error={error}
+                data={data}
+                userName={state.userName}
               />
             } />
-          <Route path='/search-results/:searchTerm' element={<SearchResults results={state.searchResults} userInfo={state.user} />} />
+          <Route path='/search-results/:searchTerm' element={<SearchResults results={state.searchResults} userInfo={state.user} searchBarSubmit={searchBarSubmit}/>} />
           <Route path='/friends-games/:id' element={<FriendsGames />} />
         </Routes>
       </div>
     )
   }
+
 }
