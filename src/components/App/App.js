@@ -91,7 +91,8 @@ const reducer = (state, action) => {
 }
 
 export const App = () => {
-  const [state, dispatch] = useReducer(reducer, initialState)
+
+  const [state, dispatch] = useReducer(reducer, initialState);
   
   const searchBarSubmit = (terms) => {
     let returnArray = []
@@ -105,10 +106,7 @@ export const App = () => {
       type: 'search_result',
       payload: returnArray
     })
-
   }
-
-  const userInfo = dummyData
 
   const setUserName = useCallback((userName) => {
     dispatch({
@@ -117,12 +115,13 @@ export const App = () => {
     })
   }, []);
 
-  return (
+  const userInfo = dummyData
 
+  return (
     <div className='App'>
       <Routes>
-        <Route path='/dashboard/:username' element={<UserDashboard userInfo={userInfo} searchBarSubmit={searchBarSubmit} setUserName={setUserName}/>} />
-        <Route path='/' element={<Login />} />
+        <Route path='/dashboard' element={<UserDashboard userInfo={userInfo} searchBarSubmit={searchBarSubmit} userName={state.userName}/>} />
+        <Route path='/' element={<Login setUserName={setUserName}/>} />
         <Route path='/search-results/:searchTerm' element={<SearchResults userInfo={userInfo} results={state.searchResults} searchBarSubmit={searchBarSubmit} />} />
         <Route path='/friends-games/:id' element={<FriendsGames />} />
       </Routes>

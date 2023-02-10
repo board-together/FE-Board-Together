@@ -2,7 +2,7 @@ import React, { useEffect, useState } from 'react'
 import { Link } from 'react-router-dom'
 import '../Login/Login.css'
 
-export const Login = () => {
+export const Login = ({setUserName}) => {
 
   const [userNameInput, setUserNameInput] = useState(''); // input to enter existing username
   const [validUser, setValidUser] = useState(false); // boolean state for whether the username entered in the input already exists or not
@@ -20,10 +20,12 @@ export const Login = () => {
   useEffect(() => {
     if (existingUserNames.includes(userNameInput)) {
       setValidUser(true);
+      setUserName(userNameInput);
     } else {
       setValidUser(false);
+      setUserName('');
     }
-  }, [userNameInput, existingUserNames]);
+  }, [userNameInput, existingUserNames, setUserName]);
 
   const showError = (event) => {
     event.preventDefault();
@@ -66,7 +68,7 @@ export const Login = () => {
             onChange={event => setUserNameInput(event.target.value)}
           />
           {!validUser && <button className='invalid-user-button' onClick={event => showError(event)}>Enter</button>}
-          {validUser && <Link to={`dashboard/${userNameInput}`}>
+          {validUser && <Link to={`dashboard/`}>
               <button className='enter-site-button'>Enter</button>
           </Link>}
           {userNameMessage && <p>{userNameMessage}</p>}

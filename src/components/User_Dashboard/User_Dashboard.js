@@ -7,18 +7,12 @@ import './User_Dashboard.css'
 import { useParams } from 'react-router'
 import fakeBorrowedGames from '../../dummy-borrowed-games.json'
 
-export const UserDashboard = ({ userInfo, searchBarSubmit, setUserName }) => {
-
-  const userName = useParams().username;
+export const UserDashboard = ({ userInfo, searchBarSubmit, userName }) => {
+  
   const { loading, error, data } = useQuery(GET_USER(userName));
   // console.log('Data from GraphQL Query: ', data);
   // console.log(`'Loading': `, loading);
   // console.log(`'Error: `, error);
-
-  useEffect(() => {
-    setUserName(userName)
-    console.log('ping');
-  }, [userName, setUserName]);
 
   let borrowedGamesThumbnails = fakeBorrowedGames.games.map((game, index) => <SingleGame key={index} game={game}/>)
   let friends = userInfo.friends.map(friend => <p key={friend} className="friend">{friend}</p>)
