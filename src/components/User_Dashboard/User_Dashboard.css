@@ -19,9 +19,13 @@
 .borrowed-games-collection {
   border-style: solid;
   border-radius: 11px;
-  height: 50%;
-  width: 93%;
-  margin-bottom: 1em;
+  height: 30%;
+  width: 67vw;
+  margin-bottom: 2em;
+  display: flex;
+  flex-direction: row;
+  overflow-x: auto;
+  padding: .7em;
 }
 
 .game-collection {
