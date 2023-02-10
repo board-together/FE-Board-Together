@@ -12,7 +12,25 @@
   border: solid black 2px;
 }
 
+.my-games-heading {
+  margin-bottom: 1em;
+}
+
+.borrowed-games-collection {
+  border-style: solid;
+  border-radius: 11px;
+  height: 30%;
+  width: 67vw;
+  margin-bottom: 2em;
+  display: flex;
+  flex-direction: row;
+  overflow-x: auto;
+  padding: .7em;
+}
+
 .game-collection {
+  border-style: solid;
+  border-radius: 11px;
   display: grid;
   grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
   grid-template-rows: auto;
@@ -22,7 +40,8 @@
   align-items: baseline;
   text-align: center;
   height: 100vh;
-  width: 100%
+  width: 93%;
+  margin-bottom: 1em;
 }
 
 .friends-section {

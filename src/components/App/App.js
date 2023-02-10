@@ -1,10 +1,13 @@
-import React, { useReducer } from 'react'
+import React, { useCallback, useReducer } from 'react'
 import { Routes, Route } from 'react-router-dom'
 import { UserDashboard } from '../User_Dashboard/User_Dashboard'
 import { Login } from '../Login/Login'
 import SearchResults from '../Search_Results/Search_Results'
 import { FriendsGames } from '../Friends_Games/Friends_Games'
 import dummyData from '../../dummy_user_data.json'
+import { GET_USER } from '../../GraphQL/queries'
+import { useQuery } from "@apollo/client"
+
 
 // dummyJson will be deleted when we connect to API 
 const dummyJson = [
@@ -91,7 +94,9 @@ const reducer = (state, action) => {
 }
 
 export const App = () => {
-  const [state, dispatch] = useReducer(reducer, initialState)
+
+  const [state, dispatch] = useReducer(reducer, initialState);
+  const { loading, error, data } = useQuery(GET_USER(state.userName));
   
   const searchBarSubmit = (terms) => {
     let returnArray = []
@@ -105,24 +110,30 @@ export const App = () => {
       type: 'search_result',
       payload: returnArray
     })
-
   }
+
+  const setUserName = useCallback((userName) => {
+    dispatch({
+      type: 'set_userName',
+      payload: userName
+    })
+  }, []);
 
   const userInfo = dummyData
 
-  // const setUserName = (userName) => {
-  //   dispatch({
-  //     type: 'set_userName',
-  //     payload: userName
-  //   })
-  // }
-
   return (
-
     <div className='App'>
       <Routes>
-        <Route path='/dashboard/:username' element={<UserDashboard userInfo={userInfo} searchBarSubmit={searchBarSubmit} />} />
-        <Route path='/' element={<Login />} />
+        <Route path='/dashboard' 
+          element={<UserDashboard 
+            userInfo={userInfo} 
+            searchBarSubmit={searchBarSubmit} 
+            userName={state.userName}
+            loading={loading}
+            error={error}
+            data={data}
+          />} />
+        <Route path='/' element={<Login setUserName={setUserName}/>} />
         <Route path='/search-results/:searchTerm' element={<SearchResults userInfo={userInfo} results={state.searchResults} searchBarSubmit={searchBarSubmit} />} />
         <Route path='/friends-games/:id' element={<FriendsGames />} />
       </Routes>
