@@ -110,18 +110,18 @@ export const App = () => {
 
   const userInfo = dummyData
 
-  // const setUserName = (userName) => {
-  //   dispatch({
-  //     type: 'set_userName',
-  //     payload: userName
-  //   })
-  // }
+  const setUserName = (userName) => {
+    dispatch({
+      type: 'set_userName',
+      payload: userName
+    })
+  }
 
   return (
 
     <div className='App'>
       <Routes>
-        <Route path='/dashboard/:username' element={<UserDashboard userInfo={userInfo} searchBarSubmit={searchBarSubmit} />} />
+        <Route path='/dashboard/:username' element={<UserDashboard userInfo={userInfo} searchBarSubmit={searchBarSubmit} setUserName={setUserName}/>} />
         <Route path='/' element={<Login />} />
         <Route path='/search-results/:searchTerm' element={<SearchResults userInfo={userInfo} results={state.searchResults} searchBarSubmit={searchBarSubmit} />} />
         <Route path='/friends-games/:id' element={<FriendsGames />} />
