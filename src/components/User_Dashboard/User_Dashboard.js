@@ -11,7 +11,7 @@ export const UserDashboard = ({ userInfo, searchBarSubmit, setModal, modalOpen }
 
   return (
     <>
-      {modalOpen && <GameModal setModal={setModal} />}
+      {modalOpen && <GameModal setModal={setModal} context={'user_dashboard'}/>}
       <Navbar username={userInfo.username} searchBarSubmit={searchBarSubmit} />
       <div className='user-dashboard'>
         <div className='game-collection-section'>
