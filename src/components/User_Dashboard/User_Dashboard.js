@@ -1,24 +1,22 @@
 import React from 'react'
 import { Navbar } from '../Navbar/Navbar'
-import { GameModal } from '../Game_Modal/Game_Modal'
 import { GET_USER } from '../../GraphQL/queries'
 import { useQuery } from "@apollo/client"
 import SingleGame from '../Single_Game/Single_Game'
 import './User_Dashboard.css'
 import { useParams } from 'react-router'
 
-export const UserDashboard = ({ userInfo, searchBarSubmit, deleteGame, setModal, modal }) => {
+export const UserDashboard = ({ userInfo, searchBarSubmit }) => {
 
   const userName = useParams().username
   const { loading, error, data } = useQuery(GET_USER(userName))
 
-  const friends = userInfo.friends.map(friend => <p key={friend} className="friend">{friend}</p>)
-  const games = userInfo.games.map(game => <SingleGame key={game.id} game={game} setModal={setModal} />)
+  let friends = userInfo.friends.map(friend => <p key={friend} className="friend">{friend}</p>)
+  let games = userInfo.games.map(game => <SingleGame key={game.id} game={game}/>)
 
   return (
     <>
-      {modal && <GameModal setModal={setModal} deleteGame={deleteGame} context={'user_dashboard'} modal={modal} />}
-      <Navbar username={userInfo.username} searchBarSubmit={searchBarSubmit} />
+      <Navbar username={userInfo.username} searchBarSubmit={searchBarSubmit}/>
       <div className='user-dashboard'>
         <div className='game-collection-section'>
           <h1>My Games</h1>
