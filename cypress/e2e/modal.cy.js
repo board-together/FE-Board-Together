@@ -5,9 +5,9 @@ describe('Modal', () => {
     cy.get('.username-input').type('GarBear88')
     cy.get('.enter-site-button').click()
     cy.get('.single-tile').first().click()
-  });
+  })
 
-  it("should open the modal when a game is clicked on", () => { 
+  it("should open the modal when a game is clicked on", () => {
     cy.get('.game-modal').should('be.visible')
   })
 
@@ -47,6 +47,6 @@ describe('Modal', () => {
   it('should be able to remove games from collection', () => {
     cy.get('.delete-button').click()
     cy.get('.single-tile').should('have.length', 2)
-    cy.contains('Dominion').should('not.exist');
+    cy.contains('Dominion').should('not.exist')
   })
 })

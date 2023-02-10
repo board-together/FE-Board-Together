@@ -9,7 +9,7 @@ import { useParams } from 'react-router'
 
 export const UserDashboard = ({ userInfo, searchBarSubmit, deleteGame, setModal, modal }) => {
 
-  const userName = useParams().username;
+  const userName = useParams().username
   const { loading, error, data } = useQuery(GET_USER(userName))
 
   const friends = userInfo.friends.map(friend => <p key={friend} className="friend">{friend}</p>)

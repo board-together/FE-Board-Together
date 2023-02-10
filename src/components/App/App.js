@@ -145,7 +145,7 @@ export const App = () => {
   }
 
   const deleteGame = (id) => {
-    const filteredGames = state.user.games.filter(game => game.id !== id);
+    const filteredGames = state.user.games.filter(game => game.id !== id)
     dispatch({ type: 'delete_game', payload: filteredGames })
   }
 
@@ -166,7 +166,7 @@ export const App = () => {
                 deleteGame={deleteGame}
               />
             } />
-          <Route path='/search-results/:searchTerm' element={<SearchResults results={state.searchResults} userInfo={state.user}/>} />
+          <Route path='/search-results/:searchTerm' element={<SearchResults results={state.searchResults} userInfo={state.user} />} />
           <Route path='/friends-games/:id' element={<FriendsGames />} />
         </Routes>
       </div>

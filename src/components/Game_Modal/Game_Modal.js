@@ -10,7 +10,7 @@ export const GameModal = ({ setModal, deleteGame, context, modal }) => {
   let array = ['<p>', '</p>', '<em>', '</em>', '<br>', '<br />', '<strong>', '</strong>']
   let string = modal.attributes.description
   array.forEach(val => {
-    string = string.replaceAll(val, '');
+    string = string.replaceAll(val, '')
   })
 
   return (
