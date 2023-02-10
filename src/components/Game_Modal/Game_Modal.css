@@ -1,0 +1,98 @@
+.modal-container {
+  position: fixed;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  top: 0;
+  left: 0;
+  width: 100%;
+  min-height: 100vh;
+  background: rgb(0, 0, 0, 0.7)
+}
+
+.game-modal {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  flex-direction: column;
+  width: 70%;
+  height: 75vh;
+  background: white;
+  border: 4px solid rgb(238, 200, 62);
+  border-radius: 12px;
+  padding: 20px;
+  overflow: scroll;
+}
+
+.close-modal-button-container {
+  display: flex;
+  justify-content: flex-end;
+  width: 100%;
+  padding-right: 10%;
+}
+
+.close-modal-button {
+  background: none;
+  border: none;
+  transition-duration: 300ms;
+  font-size: 18px;
+}
+
+.close-modal-button:hover {
+  cursor: pointer;
+  transform: scale(1.5);
+}
+
+.modal-header {
+  display: flex;
+  justify-content: center;
+  align-items: baseline;
+  width: 100%;
+}
+
+.modal-header h1 {
+  font-size: 60px;
+}
+
+.modal-content {
+  display: flex;
+}
+
+.modal-image {
+  height: 400px;
+  width: auto;
+}
+
+.modal-details {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: space-evenly;
+  padding: 20px;
+  margin-left: 20px;
+  border: 2px solid black;
+  border-radius: 10px;
+}
+
+.modal-buttons {
+  height: 10%;
+  width: 100%;
+  display: flex;
+  justify-content: flex-end;
+}
+
+.modal-button {
+  margin: 15px;
+  width: 12%;
+  font-size: 16px;
+  background: none;
+  border: 1px black solid;
+  transition-duration: 300ms;
+}
+
+.modal-button:hover {
+  box-shadow: 2px 2px 2px black;
+  transform: translateY(-0.1em);
+  cursor: pointer;
+}
