@@ -19,10 +19,10 @@ export const UserDashboard = ({ userInfo, searchBarSubmit }) => {
       <Navbar username={userInfo.username} searchBarSubmit={searchBarSubmit}/>
       <div className='user-dashboard'>
         <div className='game-collection-section'>
-          <h1>My Games</h1>
-          {loading && <h2>LOADING</h2>}
-          {data && <h2>GOT SOME DATA</h2>}
-          {error && <h2>OH NO ERROR: {error.message}</h2>}
+          <h1 className='my-games-heading'>My Games</h1>
+          <h2>Games I'm Borrowing</h2>
+          <div className='borrowed-games-collection'></div>
+          <h2>My Game Collection</h2>
           <div className='game-collection'>{games}</div>
         </div>
         <div className='friends-section'>
