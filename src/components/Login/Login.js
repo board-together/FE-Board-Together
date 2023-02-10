@@ -46,6 +46,7 @@ export const Login = ({setUserName}) => {
         />
         {!validUser && <button className='invalid-user-button' onClick={event => showError(event)}>Enter</button>}
         {validUser && <Link to={`dashboard/`}>
+
             <button className='enter-site-button'>Enter</button>
           </Link>}
         {userNameMessage && <p className='invalid-name-message'>{userNameMessage}</p>}
