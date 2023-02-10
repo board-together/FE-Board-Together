@@ -1,5 +1,4 @@
-import React, { useReducer, useEffect } from 'react'
-//import { useQuery, gql } from "@apollo/client"
+import React, { useReducer } from 'react'
 import { Routes, Route } from 'react-router-dom'
 import { UserDashboard } from '../User_Dashboard/User_Dashboard'
 import { Login } from '../Login/Login'
@@ -73,29 +72,18 @@ const initialState = {
   userName: '',
   friendsList: [],
   gameCollection: [],
-  modal: null,
+  modalOpen: false,
   error: null,
   loading: false
 }
 
 const reducer = (state, action) => {
   switch (action.type) {
-    case "success": {
-      return { ...state, user: dummyData }
-    }
     case 'search_result': {
       return { ...state, searchResults: action.payload }
     }
     case 'set_userName': {
       return { ...state, userName: action.payload }
-    }
-    case 'set_modal': {
-      return { ...state, modal: action.payload ? action.payload : null }
-    }
-    case 'delete_game': {
-      const userCopy = state.user
-      userCopy.games = action.payload
-      return { ...state, user: userCopy, modal: null }
     }
     default:
       return state
@@ -103,14 +91,8 @@ const reducer = (state, action) => {
 }
 
 export const App = () => {
-  //const { loading, error, data } = useQuery(GET_USER)
-
-  useEffect(() => {
-    dispatch({ type: 'success' })
-  }, [])
-
   const [state, dispatch] = useReducer(reducer, initialState)
-
+  
   const searchBarSubmit = (terms) => {
     let returnArray = []
     dummyJson.forEach(element => {
@@ -126,7 +108,7 @@ export const App = () => {
 
   }
 
-
+  const userInfo = dummyData
 
   // const setUserName = (userName) => {
   //   dispatch({
@@ -135,41 +117,15 @@ export const App = () => {
   //   })
   // }
 
-  const setModal = (id = null) => {
-    if (id) {
-      const modalInfo = state.user.games.find(game => game.id === id)
-      dispatch({ type: 'set_modal', payload: modalInfo })
-    } else {
-      dispatch({ type: 'set_modal' })
-    }
-  }
+  return (
 
-  const deleteGame = (id) => {
-    const filteredGames = state.user.games.filter(game => game.id !== id)
-    dispatch({ type: 'delete_game', payload: filteredGames })
-  }
-
-  if (!Object.keys(state.user).length) {
-    return <h1>LOADING...</h1>
-  } else {
-    return (
-      <div className='App'>
-        <Routes>
-          <Route path='/' element={<Login />} />
-          <Route path='/dashboard/:username'
-            element={
-              <UserDashboard
-                userInfo={state.user}
-                searchBarSubmit={searchBarSubmit}
-                setModal={setModal}
-                modal={state.modal}
-                deleteGame={deleteGame}
-              />
-            } />
-          <Route path='/search-results/:searchTerm' element={<SearchResults results={state.searchResults} userInfo={state.user}/>} />
-          <Route path='/friends-games/:id' element={<FriendsGames />} />
-        </Routes>
-      </div>
-    )
-  }
+    <div className='App'>
+      <Routes>
+        <Route path='/dashboard/:username' element={<UserDashboard userInfo={userInfo} searchBarSubmit={searchBarSubmit} />} />
+        <Route path='/' element={<Login />} />
+        <Route path='/search-results/:searchTerm' element={<SearchResults userInfo={userInfo} results={state.searchResults} searchBarSubmit={searchBarSubmit} />} />
+        <Route path='/friends-games/:id' element={<FriendsGames />} />
+      </Routes>
+    </div>
+  )
 }
