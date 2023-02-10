@@ -69,7 +69,7 @@ export const Login = () => {
           {validUser && <Link to={`dashboard/${userNameInput}`}>
               <button className='enter-site-button'>Enter</button>
           </Link>}
-          {userNameMessage && <p>{userNameMessage}</p>}
+          {userNameMessage && <p className='invalid-name-message'>{userNameMessage}</p>}
         </form>
         <div className='not-member-prompt-area'>
           <p className='not-member-prompt'>Not a member?</p>
