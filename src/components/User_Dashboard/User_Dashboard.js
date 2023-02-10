@@ -5,13 +5,14 @@ import { useQuery } from "@apollo/client"
 import SingleGame from '../Single_Game/Single_Game'
 import './User_Dashboard.css'
 import { useParams } from 'react-router'
+import { Link } from 'react-router-dom'
 
 export const UserDashboard = ({ userInfo, searchBarSubmit }) => {
 
   const userName = useParams().username;
   const { loading, error, data } = useQuery(GET_USER(userName));
 
-  let friends = userInfo.friends.map(friend => <p key={friend} className="friend">{friend}</p>)
+  let friends = userInfo.friends.map(friend => <p key={friend} className="friend"><Link to={`/friends-games/${friend}`}>{friend}</Link></p>)
   let games = userInfo.games.map(game => <SingleGame key={game.id} game={game}/>)
 
   return (

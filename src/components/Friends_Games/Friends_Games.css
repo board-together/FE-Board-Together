@@ -1,0 +1,7 @@
+.friends-games-container {
+  display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    align-items: center;
+    border: solid black 2px;
+}
