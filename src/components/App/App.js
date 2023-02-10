@@ -1,4 +1,4 @@
-import React, { useReducer } from 'react'
+import React, { useReducer, useEffect } from 'react'
 import { Routes, Route } from 'react-router-dom'
 import { UserDashboard } from '../User_Dashboard/User_Dashboard'
 import { Login } from '../Login/Login'
@@ -64,8 +64,6 @@ const dummyJson = [
   }
 ]
 
-
-
 const initialState = {
   searchResults: [],
   user: {},
@@ -79,11 +77,22 @@ const initialState = {
 
 const reducer = (state, action) => {
   switch (action.type) {
+    case "success": {
+      return { ...state, user: dummyData }
+    }
     case 'search_result': {
       return { ...state, searchResults: action.payload }
     }
     case 'set_userName': {
       return { ...state, userName: action.payload }
+    }
+    case 'set_modal': {
+      return { ...state, modal: action.payload ? action.payload : null }
+    }
+    case 'delete_game': {
+      const userCopy = state.user
+      userCopy.games = action.payload
+      return { ...state, user: userCopy, modal: null }
     }
     default:
       return state
@@ -92,6 +101,10 @@ const reducer = (state, action) => {
 
 export const App = () => {
   const [state, dispatch] = useReducer(reducer, initialState)
+
+  useEffect(() => {
+    dispatch({ type: 'success' })
+  }, [])
   
   const searchBarSubmit = (terms) => {
     let returnArray = []
@@ -107,8 +120,6 @@ export const App = () => {
     })
 
   }
-
-  const userInfo = dummyData
 
   // const setUserName = (userName) => {
   //   dispatch({
