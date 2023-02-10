@@ -94,7 +94,7 @@ export const App = () => {
   const [state, dispatch] = useReducer(reducer, initialState)
   
   const searchBarSubmit = (terms) => {
-    const returnArray = []
+    let returnArray = []
     dummyJson.forEach(element => {
       let name = element.attributes.name.toLowerCase()
       if (name.includes(terms.toLowerCase())) {
@@ -105,6 +105,7 @@ export const App = () => {
       type: 'search_result',
       payload: returnArray
     })
+
   }
 
   const userInfo = dummyData
@@ -122,7 +123,7 @@ export const App = () => {
       <Routes>
         <Route path='/dashboard/:username' element={<UserDashboard userInfo={userInfo} searchBarSubmit={searchBarSubmit} />} />
         <Route path='/' element={<Login />} />
-        <Route path='/search-results/:searchTerm' element={<SearchResults results={state.searchResults} />} />
+        <Route path='/search-results/:searchTerm' element={<SearchResults userInfo={userInfo} results={state.searchResults} searchBarSubmit={searchBarSubmit} />} />
         <Route path='/friends-games/:id' element={<FriendsGames />} />
       </Routes>
     </div>
