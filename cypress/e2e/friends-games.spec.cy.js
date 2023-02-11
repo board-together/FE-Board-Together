@@ -13,8 +13,8 @@ describe('Friends_Games', () => {
   })
 
   it('Should have a button that takes the useer back to there dashboard', () => {
-    cy.get('[href="/dashboard/GarBear88"] > button').click()
-      .url('http://localhost:3000/dashboard/GarBear88')
+    cy.get('.back-to-dash').click()
+      .url('http://localhost:3000/dashboard')
   })
 
 })
