@@ -7,7 +7,8 @@ import SearchResults from '../Search_Results/Search_Results'
 import { FriendsGames } from '../Friends_Games/Friends_Games'
 import dummyData from '../../dummy_user_data.json'
 import { GET_USER } from '../../GraphQL/queries'
-import { useQuery } from "@apollo/client"
+import { CREATE_USER } from '../../GraphQL/mutations'
+import { useQuery, useMutation } from "@apollo/client"
 
 
 // dummyJson will be deleted when we connect to API 
@@ -110,6 +111,12 @@ export const App = () => {
 
   const [state, dispatch] = useReducer(reducer, initialState)
   const { loading, error, data } = useQuery(GET_USER(state.userName))
+  // const [mutation] = useMutation(CREATE_USER('CoolGuy1975'), {
+  //   onCompleted: (data) => {
+  //     console.log(data)
+  //   }
+  // })
+  const [GET_USER, { data, loading, error }] = useMutation(GET_USER("argdfga"));
 
   useEffect(() => {
     if (error) {
@@ -155,8 +162,6 @@ export const App = () => {
     dispatch({ type: 'delete_game', payload: filteredGames })
   }
 
-  console.log(state.user)
-  console.log(error)
   return (
     <div className='App'>
       <Routes>
