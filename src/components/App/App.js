@@ -171,10 +171,9 @@ export const App = () => {
               />
             } />
           <Route path='/search-results/:searchTerm' element={<SearchResults results={state.searchResults} userInfo={state.user} searchBarSubmit={searchBarSubmit}/>} />
-          <Route path='/friends-games/:id' element={<FriendsGames />} />
+          <Route path='/friends-games/:id' element={<FriendsGames userInfo={state.user} searchBarSubmit={searchBarSubmit} />} />
         </Routes>
       </div>
     )
   }
-
 }

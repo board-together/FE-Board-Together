@@ -1,4 +1,5 @@
 import React from 'react'
+import { Link } from 'react-router-dom'
 import { Navbar } from '../Navbar/Navbar'
 import { GameModal } from '../Game_Modal/Game_Modal'
 import SingleGame from '../Single_Game/Single_Game'
@@ -6,11 +7,13 @@ import './User_Dashboard.css'
 import fakeBorrowedGames from '../../dummy-borrowed-games.json'
 
 
+
 export const UserDashboard = ({ userInfo, searchBarSubmit, deleteGame, setModal, modal, loading, error, data, userName }) => {
 
-  let borrowedGamesThumbnails = fakeBorrowedGames.games.map((game, index) => <SingleGame key={index} game={game} setModal={setModal}/>)
-  const friends = userInfo.friends.map(friend => <p key={friend} className="friend">{friend}</p>)
   const games = userInfo.games.map(game => <SingleGame key={game.id} game={game} setModal={setModal} />)
+  let friends = userInfo.friends.map(friend => <p key={friend} className="friend"><Link to={`/friends-games/${friend}`}>{friend}</Link></p>)
+  let borrowedGamesThumbnails = fakeBorrowedGames.games.map((game, index) => <SingleGame key={index} game={game} setModal={setModal}/>)
+  
 
   return (
     <>
