@@ -1,35 +1,40 @@
 import React from 'react'
+import { Link } from 'react-router-dom'
 import { Navbar } from '../Navbar/Navbar'
-import { GET_USER } from '../../GraphQL/queries'
-import { useQuery } from "@apollo/client"
+import { GameModal } from '../Game_Modal/Game_Modal'
 import SingleGame from '../Single_Game/Single_Game'
 import './User_Dashboard.css'
-import { useParams } from 'react-router'
-import { Link } from 'react-router-dom'
+import fakeBorrowedGames from '../../dummy-borrowed-games.json'
 
-export const UserDashboard = ({ userInfo, searchBarSubmit }) => {
 
-  const userName = useParams().username;
-  const { loading, error, data } = useQuery(GET_USER(userName));
 
+export const UserDashboard = ({ userInfo, searchBarSubmit, deleteGame, setModal, modal, loading, error, data, userName }) => {
+
+  const games = userInfo.games.map(game => <SingleGame key={game.id} game={game} setModal={setModal} />)
   let friends = userInfo.friends.map(friend => <p key={friend} className="friend"><Link to={`/friends-games/${friend}`}>{friend}</Link></p>)
-  let games = userInfo.games.map(game => <SingleGame key={game.id} game={game}/>)
+  let borrowedGamesThumbnails = fakeBorrowedGames.games.map((game, index) => <SingleGame key={index} game={game} setModal={setModal}/>)
+  
 
   return (
     <>
-      <Navbar username={userInfo.username} searchBarSubmit={searchBarSubmit}/>
+      {modal && <GameModal setModal={setModal} deleteGame={deleteGame} context={'user_dashboard'} modal={modal} />}
+      <Navbar username={userName} searchBarSubmit={searchBarSubmit} />
       <div className='user-dashboard'>
-        <div className='game-collection-section'>
-          <h1>My Games</h1>
-          {loading && <h2>LOADING</h2>}
-          {data && <h2>GOT SOME DATA</h2>}
-          {error && <h2>OH NO ERROR: {error.message}</h2>}
-          <div className='game-collection'>{games}</div>
-        </div>
-        <div className='friends-section'>
-          <h1 className='my-friends-header'>My Friends</h1>
-          <div className='friends-list'>{friends}</div>
-        </div>
+        {error && <h1>Error loading data: {error.message}</h1>}
+        {loading && <h1>Loading...</h1>}
+        {data && <>
+          <div className='game-collection-section'>
+            <h1 className='my-games-heading'>My Games</h1>
+            <h2>Games I'm Borrowing</h2>
+            <div className='borrowed-games-collection'>{borrowedGamesThumbnails}</div>
+            <h2>My Game Collection</h2>
+            <div className='game-collection'>{games}</div>
+          </div>
+          <div className='friends-section'>
+            <h1 className='my-friends-header'>My Friends</h1>
+            <div className='friends-list'>{friends}</div>
+          </div>
+        </>}
       </div>
     </>
   )

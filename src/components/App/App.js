@@ -1,10 +1,14 @@
-import React, { useReducer } from 'react'
+
+import React, { useReducer, useEffect, useCallback } from 'react'
 import { Routes, Route } from 'react-router-dom'
 import { UserDashboard } from '../User_Dashboard/User_Dashboard'
 import { Login } from '../Login/Login'
 import SearchResults from '../Search_Results/Search_Results'
 import { FriendsGames } from '../Friends_Games/Friends_Games'
 import dummyData from '../../dummy_user_data.json'
+import { GET_USER } from '../../GraphQL/queries'
+import { useQuery } from "@apollo/client"
+
 
 // dummyJson will be deleted when we connect to API 
 const dummyJson = [
@@ -64,26 +68,35 @@ const dummyJson = [
   }
 ]
 
-
-
 const initialState = {
   searchResults: [],
   user: {},
   userName: '',
   friendsList: [],
   gameCollection: [],
-  modalOpen: false,
+  modal: null,
   error: null,
   loading: false
 }
 
 const reducer = (state, action) => {
   switch (action.type) {
+    case "success": {
+      return { ...state, user: dummyData }
+    }
     case 'search_result': {
       return { ...state, searchResults: action.payload }
     }
     case 'set_userName': {
       return { ...state, userName: action.payload }
+    }
+    case 'set_modal': {
+      return { ...state, modal: action.payload ? action.payload : null }
+    }
+    case 'delete_game': {
+      const userCopy = state.user
+      userCopy.games = action.payload
+      return { ...state, user: userCopy, modal: null }
     }
     default:
       return state
@@ -91,8 +104,15 @@ const reducer = (state, action) => {
 }
 
 export const App = () => {
+
   const [state, dispatch] = useReducer(reducer, initialState)
-  
+
+  useEffect(() => {
+    dispatch({ type: 'success' })
+  }, [])
+
+  const { loading, error, data } = useQuery(GET_USER(state.userName));
+
   const searchBarSubmit = (terms) => {
     let returnArray = []
     dummyJson.forEach(element => {
@@ -105,27 +125,55 @@ export const App = () => {
       type: 'search_result',
       payload: returnArray
     })
-
   }
 
-  const userInfo = dummyData
 
-  // const setUserName = (userName) => {
-  //   dispatch({
-  //     type: 'set_userName',
-  //     payload: userName
-  //   })
-  // }
+  const setUserName = useCallback((userName) => {
+    dispatch({
+      type: 'set_userName',
+      payload: userName
+    })
+  }, []);
 
-  return (
+  const setModal = (id = null) => {
+    if (id) {
+      const modalInfo = state.user.games.find(game => game.id === id)
+      dispatch({ type: 'set_modal', payload: modalInfo })
+    } else {
+      dispatch({ type: 'set_modal' })
+    }
+  }
 
-    <div className='App'>
-      <Routes>
-        <Route path='/dashboard/:username' element={<UserDashboard userInfo={userInfo} searchBarSubmit={searchBarSubmit} />} />
-        <Route path='/' element={<Login />} />
-        <Route path='/search-results/:searchTerm' element={<SearchResults userInfo={userInfo} results={state.searchResults} searchBarSubmit={searchBarSubmit} />} />
-        <Route path='/friends-games/:id' element={<FriendsGames userInfo={userInfo} searchBarSubmit={searchBarSubmit} />} />
-      </Routes>
-    </div>
-  )
+  const deleteGame = (id) => {
+    const filteredGames = state.user.games.filter(game => game.id !== id)
+    dispatch({ type: 'delete_game', payload: filteredGames })
+  }
+
+  if (!Object.keys(state.user).length) {
+    return <h1>LOADING...</h1>
+  } else {
+    return (
+      <div className='App'>
+        <Routes>
+          <Route path='/' element={<Login setUserName={setUserName}/>} />
+          <Route path='/dashboard/'
+            element={
+              <UserDashboard
+                userInfo={state.user}
+                searchBarSubmit={searchBarSubmit}
+                setModal={setModal}
+                modal={state.modal}
+                deleteGame={deleteGame}
+                loading={loading}
+                error={error}
+                data={data}
+                userName={state.userName}
+              />
+            } />
+          <Route path='/search-results/:searchTerm' element={<SearchResults results={state.searchResults} userInfo={state.user} searchBarSubmit={searchBarSubmit}/>} />
+          <Route path='/friends-games/:id' element={<FriendsGames userInfo={state.user} searchBarSubmit={searchBarSubmit} />} />
+        </Routes>
+      </div>
+    )
+  }
 }
