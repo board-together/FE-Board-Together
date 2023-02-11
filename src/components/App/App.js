@@ -70,19 +70,22 @@ const dummyJson = [
 
 const initialState = {
   searchResults: [],
-  user: {},
+  user: null,
   userName: '',
   friendsList: [],
   gameCollection: [],
   modal: null,
   error: null,
-  loading: false
+  loading: true
 }
 
 const reducer = (state, action) => {
   switch (action.type) {
     case "success": {
-      return { ...state, user: dummyData }
+      return { ...state, user: action.payload, loading: false }
+    }
+    case "error": {
+      return { ...state, error: action.payload, loading: false }
     }
     case 'search_result': {
       return { ...state, searchResults: action.payload }
@@ -106,12 +109,16 @@ const reducer = (state, action) => {
 export const App = () => {
 
   const [state, dispatch] = useReducer(reducer, initialState)
+  const { loading, error, data } = useQuery(GET_USER(state.userName))
 
   useEffect(() => {
-    dispatch({ type: 'success' })
-  }, [])
-
-  const { loading, error, data } = useQuery(GET_USER(state.userName));
+    if (error) {
+      dispatch({ type: 'error', payload: error })
+    }
+    if (data) {
+      dispatch({ type: 'success', payload: data.user })
+    }
+  }, [data, loading, error])
 
   const searchBarSubmit = (terms) => {
     let returnArray = []
@@ -127,13 +134,12 @@ export const App = () => {
     })
   }
 
-
   const setUserName = useCallback((userName) => {
     dispatch({
       type: 'set_userName',
       payload: userName
     })
-  }, []);
+  }, [])
 
   const setModal = (id = null) => {
     if (id) {
@@ -149,32 +155,29 @@ export const App = () => {
     dispatch({ type: 'delete_game', payload: filteredGames })
   }
 
-  if (!Object.keys(state.user).length) {
-    return <h1>LOADING...</h1>
-  } else {
-    return (
-      <div className='App'>
-        <Routes>
-          <Route path='/' element={<Login setUserName={setUserName}/>} />
-          <Route path='/dashboard/'
-            element={
-              <UserDashboard
-                userInfo={state.user}
-                searchBarSubmit={searchBarSubmit}
-                setModal={setModal}
-                modal={state.modal}
-                deleteGame={deleteGame}
-                loading={loading}
-                error={error}
-                data={data}
-                userName={state.userName}
-              />
-            } />
-          <Route path='/search-results/:searchTerm' element={<SearchResults results={state.searchResults} userInfo={state.user} searchBarSubmit={searchBarSubmit}/>} />
-          <Route path='/friends-games/:id' element={<FriendsGames />} />
-        </Routes>
-      </div>
-    )
-  }
-
+  console.log(state.user)
+  console.log(error)
+  return (
+    <div className='App'>
+      <Routes>
+        <Route path='/' element={<Login setUserName={setUserName} />} />
+        <Route path='/dashboard/'
+          element={
+            <UserDashboard
+              userInfo={state.user}
+              searchBarSubmit={searchBarSubmit}
+              setModal={setModal}
+              modal={state.modal}
+              deleteGame={deleteGame}
+              loading={state.loading}
+              error={error}
+              data={data}
+              userName={state.userName}
+            />
+          } />
+        <Route path='/search-results/:searchTerm' element={<SearchResults results={state.searchResults} userInfo={state.user} searchBarSubmit={searchBarSubmit} />} />
+        <Route path='/friends-games/:id' element={<FriendsGames />} />
+      </Routes>
+    </div>
+  )
 }
