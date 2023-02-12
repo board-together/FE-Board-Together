@@ -106,15 +106,16 @@ const reducer = (state, action) => {
 export const App = () => {
 
   const [state, dispatch] = useReducer(reducer, initialState)
+  const { loading, error, data } = useQuery(GET_USER(state.userName));
 
+   
   useEffect(() => {
-    dispatch({ type: 'success' })
+    dispatch({ 
+      type: 'success',
+      payload: dummyData
+    })
   }, [])
 
-  const { loading, error, data } = useQuery(GET_USER(state.userName));
-  
-  
- 
   
   
   const searchBarSubmit = (terms) => {

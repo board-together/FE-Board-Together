@@ -6,10 +6,13 @@ import './Navbar.css'
 
 
 export const Navbar = ({ searchBarSubmit, username }) => {
-
+  const capitalizeFirstLetter = (string) => {
+    return string.charAt(0).toUpperCase() + string.slice(1);
+  }
+ const formatedUsername =  capitalizeFirstLetter(username)
   return (
     <div className='navbar-container'>
-      <h2 className='welcome-greeting'>Welcome, {username}!</h2>
+      <h2 className='welcome-greeting'>Welcome, {formatedUsername}!</h2>
       {/* make the above not a string when we take in a user.  */}
       <h1 className='app-name'>Board Together</h1>
       <Searchbar submit={searchBarSubmit} />
