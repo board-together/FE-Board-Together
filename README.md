@@ -1,52 +1,5 @@
 # Board-Together FE
 
-[![Contributors][contributors-shield]][contributors-url]
-[![Forks][forks-shield]][forks-url]
-[![Stargazers][stars-shield]][stars-url]
-[![Issues][issues-shield]][issues-url]
-
-<!-- PROJECT LOGO -->
-<br />
-<div align="center">
-  <a href="https://github.com/board-together">
-    <img src="https://st3.depositphotos.com/20363444/31955/i/1600/depositphotos_319556144-stock-photo-bored-pensive-friends-sitting-together.jpg" alt="Logo">
-  </a>
-
-  <h1 align="center">Board (games) Together!</h3>
-
-  <h3 align="center">
-    Board Game Swap app
-    <br />
-  </h3>
-</div>
-
-<!-- TABLE OF CONTENTS -->
-<h3>
-  <summary>Table of Contents</summary>
-  <ol>
-    <li>
-      <a href="#about-the-project">About The Project</a>
-      <ul>
-        <li><a href="#heroku-information">Heroku Information</a></li>
-        <li><a href="#built-with">Built With</a></li>
-        <li><a href="#database-schema">Database Schema</a></li>
-      </ul>
-    </li>
-    <li>
-      <a href="#getting-started">Getting Started</a>
-      <ul>
-          <li><a href="#repositories">Repositories</a></li>
-          <li><a href="#back-end-repository-installation">Back-End Repository Installation</a></li>
-          <li><a href="#available-endpoints">Available Endpoints</a></li>
-      </ul>
-    </li>
-    <li><a href="#roadmap">Roadmap</a></li>
-    <li><a href="#contact">Contact</a></li>
-    <li><a href="#acknowledgments">Acknowledgments</li>
-    <li><a href="#license">License</a></li></a>
-  </ol>
-</h3>
-
 <!-- ABOUT THE PROJECT -->
 ## About The Project
 
