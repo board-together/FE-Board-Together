@@ -164,10 +164,6 @@ export const App = () => {
     dispatch({ type: 'delete_game', payload: filteredGames })
   }
 
-
-  if (!Object.keys(state.user).length) {
-    return <h1>LOADING...</h1>
-  } else {
     return (
       <div className='App'>
         <Routes>
@@ -186,11 +182,9 @@ export const App = () => {
                 userName={state.userName}
               />
             } />
-          <Route path='/search-results/:searchTerm' element={<SearchResults results={state.searchResults} userInfo={state.user} searchBarSubmit={searchBarSubmit} setModal={setModal}/>  
+          <Route path='/search-results/:searchTerm' element={<SearchResults results={state.searchResults} userInfo={state.user} searchBarSubmit={searchBarSubmit} setModal={setModal}/> } /> 
           <Route path='/friends-games/:id' element={<FriendsGames userInfo={state.user} searchBarSubmit={searchBarSubmit} />} />
         </Routes>
       </div>
     )
-  }
-
 }
