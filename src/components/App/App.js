@@ -153,6 +153,7 @@ export const App = () => {
   const setModal = (id = null) => {
     if (id) {
       const modalInfo = state.user.userGames.find(game => +game.game.id === id)
+      //NOTE: modal does not work for borrowed games right now because borrowed games are coming from mock data, should be in same array once BE is set up.
       dispatch({ type: 'set_modal', payload: modalInfo })
     } else {
       dispatch({ type: 'set_modal' })
