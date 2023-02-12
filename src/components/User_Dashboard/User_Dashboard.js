@@ -1,4 +1,5 @@
 import React from 'react'
+import { Link } from 'react-router-dom'
 import { Navbar } from '../Navbar/Navbar'
 import { GameModal } from '../Game_Modal/Game_Modal'
 import SingleGame from '../Single_Game/Single_Game'
@@ -9,7 +10,9 @@ import { useQuery } from '@apollo/client'
 import { Link } from 'react-router-dom'
 
 
+
 export const UserDashboard = ({ userInfo, searchBarSubmit, deleteGame, setModal, modal, loading, error, data, userName }) => {
+
 
   const allUsersLoading = useQuery(GET_ALL_USERS).loading;
   const allUsersError = useQuery(GET_ALL_USERS).error;
@@ -29,6 +32,7 @@ export const UserDashboard = ({ userInfo, searchBarSubmit, deleteGame, setModal,
 console.log('userInfo: ', userInfo);
   let borrowedGamesThumbnails = fakeBorrowedGames.userGames.map((game, index) => <SingleGame key={index+20} game={game} setModal={setModal}/>)
   const games = userInfo ? userInfo.userGames.map(game => <SingleGame key={game.game.id} game={game} setModal={setModal} />) : []
+
 
   return (
     <>

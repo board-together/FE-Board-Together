@@ -164,38 +164,33 @@ export const App = () => {
     dispatch({ type: 'delete_game', payload: filteredGames })
   }
 
-console.log('state.serchreaults: ', state.searchResults);
 
-  return (
-    <div className='App'>
-      <Routes>
-        <Route path='/' element={<Login setUserName={setUserName} />} />
-        <Route path='/dashboard/'
-          element={
-            <UserDashboard
-              userInfo={state.user}
-              searchBarSubmit={searchBarSubmit}
-              setModal={setModal}
-              modal={state.modal}
-              deleteGame={deleteGame}
-              loading={state.loading}
-              error={error}
-              data={data}
-              userName={state.userName}
-            />
-          } />
-        <Route path='/search-results/:searchTerm' 
-          element={
-            <SearchResults 
-              results={state.searchResults} 
-              userInfo={state.user} 
-              searchBarSubmit={searchBarSubmit}
-              setModal={setModal} 
-            />
-          } 
-        />
-        <Route path='/friends-games/:id' element={<FriendsGames />} />
-      </Routes>
-    </div>
-  )
+  if (!Object.keys(state.user).length) {
+    return <h1>LOADING...</h1>
+  } else {
+    return (
+      <div className='App'>
+        <Routes>
+          <Route path='/' element={<Login setUserName={setUserName}/>} />
+          <Route path='/dashboard/'
+            element={
+              <UserDashboard
+                userInfo={state.user}
+                searchBarSubmit={searchBarSubmit}
+                setModal={setModal}
+                modal={state.modal}
+                deleteGame={deleteGame}
+                loading={loading}
+                error={error}
+                data={data}
+                userName={state.userName}
+              />
+            } />
+          <Route path='/search-results/:searchTerm' element={<SearchResults results={state.searchResults} userInfo={state.user} searchBarSubmit={searchBarSubmit}/> setModal={setModal} />
+          <Route path='/friends-games/:id' element={<FriendsGames userInfo={state.user} searchBarSubmit={searchBarSubmit} />} />
+        </Routes>
+      </div>
+    )
+  }
+
 }
