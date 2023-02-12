@@ -1,19 +1,29 @@
-import React from 'react'
+import React, { useEffect } from 'react'
 import { Navbar } from '../Navbar/Navbar'
 import { GameModal } from '../Game_Modal/Game_Modal'
 import SingleGame from '../Single_Game/Single_Game'
 import './User_Dashboard.css'
 import fakeBorrowedGames from '../../dummy-borrowed-games.json'
+import { GET_ALL_USERS } from '../../GraphQL/queries'
+import { useQuery } from '@apollo/client'
 
 
 export const UserDashboard = ({ userInfo, searchBarSubmit, deleteGame, setModal, modal, loading, error, data, userName }) => {
+console.log('modal: ', modal);
+console.log('userInfo: ', userInfo);
+  useEffect(() => {
 
-  if (loading) {
+  }, [])
+
+ /* if (loading) {
     return <h1>LOADING...</h1>
-  }
-  let borrowedGamesThumbnails = fakeBorrowedGames.games.map((game, index) => <SingleGame key={index} game={game} setModal={setModal}/>)
+  } */
+  // remove this 'if' (duplicate)...
+
+
+  let borrowedGamesThumbnails = fakeBorrowedGames.userGames.map((game, index) => <SingleGame key={index} game={game} setModal={setModal}/>)
   //const friends = userInfo.friends.map(friend => <p key={friend} className="friend">{friend}</p>)
-  const games = userInfo.games.map(game => <SingleGame key={game.id} game={game} setModal={setModal} />)
+  const games = userInfo.userGames.map(game => <SingleGame key={game.game.id} game={game} setModal={setModal} />)
 
   return (
     <>

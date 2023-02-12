@@ -116,13 +116,15 @@ export const App = () => {
   //     console.log(data)
   //   }
   // })
-  const [GET_USER, { data, loading, error }] = useMutation(GET_USER("argdfga"));
+  // const [GET_USER, { data, loading, error }] = useMutation(GET_USER("argdfga"));
 
   useEffect(() => {
     if (error) {
+      console.log('ERROR: ', error.message);
       dispatch({ type: 'error', payload: error })
     }
     if (data) {
+      console.log('success');
       dispatch({ type: 'success', payload: data.user })
     }
   }, [data, loading, error])
@@ -150,7 +152,7 @@ export const App = () => {
 
   const setModal = (id = null) => {
     if (id) {
-      const modalInfo = state.user.games.find(game => game.id === id)
+      const modalInfo = state.user.userGames.find(game => +game.game.id === id)
       dispatch({ type: 'set_modal', payload: modalInfo })
     } else {
       dispatch({ type: 'set_modal' })
