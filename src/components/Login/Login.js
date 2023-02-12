@@ -11,7 +11,7 @@ export const Login = ({setUserName}) => {
 
   useEffect(() => {
     // Hard coding usernames; as an extension, could do a query on page load.
-    setExistingUserNames(["randy", "Pickafloof", "GarBear88"])
+    setExistingUserNames(["randy", "Pickafloof", "heatherf", "mikedao", "jeff", "drake"])
   }, []);
 
   useEffect(() => {

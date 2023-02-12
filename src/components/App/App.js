@@ -4,10 +4,8 @@ import { UserDashboard } from '../User_Dashboard/User_Dashboard'
 import { Login } from '../Login/Login'
 import SearchResults from '../Search_Results/Search_Results'
 import { FriendsGames } from '../Friends_Games/Friends_Games'
-import dummyData from '../../dummy_user_data.json'
 import { GET_USER, GET_ALL_USERS } from '../../GraphQL/queries'
-import { CREATE_USER } from '../../GraphQL/mutations'
-import { useQuery, useMutation } from "@apollo/client"
+import { useQuery } from "@apollo/client"
 
 
 // dummyJson will be deleted when we connect to API 
@@ -125,7 +123,7 @@ export const App = () => {
     if (data) {
       dispatch({ type: 'success', payload: {user: data.user, friends: friendsData.data.users }})
     }
-  }, [data, loading, error])
+  }, [data, loading, error, friendsData])
 
   const searchBarSubmit = (terms) => {
     let returnArray = []
@@ -162,6 +160,7 @@ export const App = () => {
     dispatch({ type: 'delete_game', payload: filteredGames })
   }
 
+  console.log(state.user)
   return (
     <div className='App'>
       <Routes>
