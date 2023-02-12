@@ -18,7 +18,7 @@ See the [open issues](https://github.com/board-together/BE-Board-Together/issues
 
 <table>
   <tr>
-    <td><img src=https://avatars.githubusercontent.com/u/74210902?v=4 /></td>
+    <td><img src=https://avatars.githubusercontent.com/u/74210902?v=4 width=200/></td>
     <td></td>
     <td></td>
   </tr>
