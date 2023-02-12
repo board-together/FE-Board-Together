@@ -1,4 +1,4 @@
-import React, { useEffect } from 'react'
+import React from 'react'
 import { Navbar } from '../Navbar/Navbar'
 import { GameModal } from '../Game_Modal/Game_Modal'
 import SingleGame from '../Single_Game/Single_Game'
