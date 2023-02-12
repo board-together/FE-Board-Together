@@ -7,7 +7,6 @@ import './User_Dashboard.css'
 import fakeBorrowedGames from '../../dummy-borrowed-games.json'
 import { GET_ALL_USERS } from '../../GraphQL/queries'
 import { useQuery } from '@apollo/client'
-import { Link } from 'react-router-dom'
 
 
 
@@ -19,17 +18,18 @@ export const UserDashboard = ({ userInfo, searchBarSubmit, deleteGame, setModal,
   const allUsersData = useQuery(GET_ALL_USERS).data;
   const friendsList = allUsersData ? allUsersData.users.filter(user => user.username !== userInfo.username) : [];
   const friends = friendsList.map(friend => {
-    return (<Link to={`/friends-games/${friend.id}`} key={friend.id}> 
+    return (<Link to={`/friends-games/${friend.username}`} key={friend.id}> 
               <p key={friend.id} className="friend">{friend.username}</p>
             </Link>)
     })
+
+    console.log('allusersdata: ', friendsList);
 
  /* if (loading) {
     return <h1>LOADING...</h1>
   } */
   // NOTE: remove 👆, duplicate of conditional rendering below
 
-console.log('userInfo: ', userInfo);
   let borrowedGamesThumbnails = fakeBorrowedGames.userGames.map((game, index) => <SingleGame key={index+20} game={game} setModal={setModal}/>)
   const games = userInfo ? userInfo.userGames.map(game => <SingleGame key={game.game.id} game={game} setModal={setModal} />) : []
 
