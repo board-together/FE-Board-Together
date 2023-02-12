@@ -14,31 +14,31 @@ describe('Modal', () => {
   })
 
   it('should show the game name in header', () => {
-    cy.get('h1').contains('Dominion')
+    cy.get('h1').contains('Ticket to Ride')
   })
 
   it('should show the game\'s inception date', () => {
-    cy.get('p').first().contains('2008')
+    cy.get('p').first().contains('2004')
   })
 
   it('should show how many users can play the game', () => {
-    cy.get('p').eq(1).contains('Players: 2 to 4')
+    cy.get('p').eq(1).contains('Players: 2 to 5')
   })
 
   it('should show the average playtime', () => {
-    cy.get('p').eq(2).contains('Average Playtime: 30 minutes')
+    cy.get('p').eq(2).contains('Average Playtime: 67.5 minutes')
   })
 
   it('should show the minimum allowable playing age', () => {
-    cy.get('p').eq(3).contains('13+')
+    cy.get('p').eq(3).contains('8+')
   })
 
   it('should have a description of the game', () => {
-    cy.get('p').eq(4).contains('You are a monarch, like your parents before you, a ruler of a small pleasant kingdom of rivers and evergreens.')
+    cy.get('p').eq(4).contains('Ticket to Ride is a cross-country train adventure game. Players collect train cards that enable them to claim railway routes connecting cities throughout North America. The longer the routes, the more points they earn.')
   })
 
   it('should be able to see additional info from the game\'s website', () => {
-    cy.get('a').first().should('have.attr', 'href', "https://www.boardgameatlas.com/game/VO7TAxQ5Qn/dominion")
+    cy.get('a').first().should('have.attr', 'href', "https://www.boardgameatlas.com/game/AuBvbISHR6/ticket-to-ride")
   })
 
   it('should be able to exit modal', () => {
