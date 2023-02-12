@@ -186,7 +186,7 @@ export const App = () => {
                 userName={state.userName}
               />
             } />
-          <Route path='/search-results/:searchTerm' element={<SearchResults results={state.searchResults} userInfo={state.user} searchBarSubmit={searchBarSubmit} setModal={setModal}/>  
+          <Route path='/search-results/:searchTerm' element={<SearchResults results={state.searchResults} userInfo={state.user} searchBarSubmit={searchBarSubmit} setModal={setModal}/> } />
           <Route path='/friends-games/:id' element={<FriendsGames userInfo={state.user} searchBarSubmit={searchBarSubmit} />} />
         </Routes>
       </div>
