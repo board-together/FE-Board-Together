@@ -18,8 +18,7 @@ See the [open issues](https://github.com/board-together/BE-Board-Together/issues
 
 <table>
   <tr>
-    <td>![Spencer Haka copy](https://user-images.githubusercontent.com/74210902/218292305-3dee8987-0198-4aaf-ae46-dd9b1b18f1b4.jpg)</td>
-
+    <td>![Spencer Haka](https://user-images.githubusercontent.com/74210902/218292305-3dee8987-0198-4aaf-ae46-dd9b1b18f1b4.jpg)</td>
     <td></td>
     <td></td>
   </tr>
