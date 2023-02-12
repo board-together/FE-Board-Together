@@ -6,7 +6,7 @@ import { Login } from '../Login/Login'
 import SearchResults from '../Search_Results/Search_Results'
 import { FriendsGames } from '../Friends_Games/Friends_Games'
 import dummyData from '../../dummy_user_data.json'
-import { GET_USER } from '../../GraphQL/queries'
+import { GET_USER, GET_ALL_USERS } from '../../GraphQL/queries'
 import { CREATE_USER } from '../../GraphQL/mutations'
 import { useQuery, useMutation } from "@apollo/client"
 
@@ -83,7 +83,7 @@ const initialState = {
 const reducer = (state, action) => {
   switch (action.type) {
     case "success": {
-      return { ...state, user: action.payload, loading: false }
+      return { ...state, user: action.payload.user, friendsList: action.payload.friends, loading: false }
     }
     case "error": {
       return { ...state, error: action.payload, loading: false }
@@ -111,19 +111,20 @@ export const App = () => {
 
   const [state, dispatch] = useReducer(reducer, initialState)
   const { loading, error, data } = useQuery(GET_USER(state.userName))
+  const friendsData = useQuery(GET_ALL_USERS())
   // const [mutation] = useMutation(CREATE_USER('CoolGuy1975'), {
   //   onCompleted: (data) => {
   //     console.log(data)
   //   }
   // })
-  const [GET_USER, { data, loading, error }] = useMutation(GET_USER("argdfga"));
+  //const [GET_USER, { data, loading, error }] = useMutation(GET_USER("argdfga"));
 
   useEffect(() => {
     if (error) {
       dispatch({ type: 'error', payload: error })
     }
     if (data) {
-      dispatch({ type: 'success', payload: data.user })
+      dispatch({ type: 'success', payload: {user: data.user, friends: friendsData.data.users }})
     }
   }, [data, loading, error])
 
@@ -178,6 +179,7 @@ export const App = () => {
               error={error}
               data={data}
               userName={state.userName}
+              friends={state.friendsList}
             />
           } />
         <Route path='/search-results/:searchTerm' element={<SearchResults results={state.searchResults} userInfo={state.user} searchBarSubmit={searchBarSubmit} />} />
