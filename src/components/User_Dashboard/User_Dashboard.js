@@ -4,17 +4,15 @@ import { Navbar } from '../Navbar/Navbar'
 import { GameModal } from '../Game_Modal/Game_Modal'
 import SingleGame from '../Single_Game/Single_Game'
 import './User_Dashboard.css'
-import fakeBorrowedGames from '../../dummy-borrowed-games.json'
-import { GET_USER } from '../../GraphQL/queries'
+
 
 
 export const UserDashboard = ({ userInfo, searchBarSubmit, deleteGame, setModal, modal, loading, error, data, userName }) => {
 
-  console.log('heyhey',data.user)
 
   const games = data.user.userGames.map(game => <SingleGame key={game.id} game={game.game} setModal={setModal} />)
   let friends = userInfo.friends.map(friend => <p key={friend} className="friend"><Link to={`/friends-games/${friend}`}>{friend}</Link></p>)
-  let borrowedGamesThumbnails = fakeBorrowedGames.games.map((game, index) => <SingleGame key={index} game={game} setModal={setModal}/>)
+  let borrowedGamesThumbnails = data.user.borrowedGames.map((game) => <SingleGame key={game.borrowerId} game={game.game} setModal={setModal}/>)
   
 
   return (
