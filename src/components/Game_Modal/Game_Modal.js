@@ -20,7 +20,7 @@ export const GameModal = ({ setModal, deleteGame, context, modal }) => {
           <button className='close-modal-button' onClick={() => setModal()}>X</button>
         </span>
         <span className='modal-header'>
-          <h1>{modal.name}</h1><p>({modal.game.yearPublished})</p>
+          <h1>{modal.game.name}</h1><p>({modal.game.yearPublished})</p>
         </span>
         <div className='modal-content'>
           <img className='modal-image' alt={`Box Cover of ${modal.game.name}`} src={modal.game.imageUrl} />
