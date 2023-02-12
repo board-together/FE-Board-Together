@@ -8,10 +8,11 @@ import './Single_Game.css'
 */
 
 const SingleGame = ({ game, setModal }) => {
+  console.log(game)
   return (
     <div className="single-tile" id={`game-${game.id}`} key={game.id} onClick={() => setModal(game.id)} >
-      <h2 className="single-game-name" id={`game-name-${game.id}`}>{game.attributes.name}</h2>
-      <img className="single-game-img" src={game.attributes.image_url} alt={game.attributes.name} />
+      <h2 className="single-game-name" id={`game-name-${game.id}`}>{game.name}</h2>
+      <img className="single-game-img" src={game.imageUrl} alt={game.name} />
     </div>
   )
 }

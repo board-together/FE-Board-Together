@@ -112,7 +112,7 @@ export const App = () => {
   }, [])
 
   const { loading, error, data } = useQuery(GET_USER(state.userName));
-  console.log(data)
+  
   
  
   
