@@ -5,7 +5,7 @@ import { UserDashboard } from '../User_Dashboard/User_Dashboard'
 import { Login } from '../Login/Login'
 import SearchResults from '../Search_Results/Search_Results'
 import { FriendsGames } from '../Friends_Games/Friends_Games'
-import dummyData from '../../dummy_user_data.json'
+// import dummyData from '../../dummy_user_data.json'
 import { GET_USER } from '../../GraphQL/queries'
 import { useQuery } from "@apollo/client"
 
@@ -13,9 +13,9 @@ import { useQuery } from "@apollo/client"
 // dummyJson will be deleted when we connect to API 
 const dummyJson = [
   {
-    "type": "game",
-    "id": 1,
-    "attributes": {
+    "_typename": "UserGame",
+    "game": {
+      "id": 1,
       "board_game_atlas_id": "VO7TAxQ5Qn",
       "name": "Dominion",
       "min_players": 2,
@@ -26,14 +26,14 @@ const dummyJson = [
       "year_published": 2008,
       "description": "<p>You are a monarch, like your parents before you, a ruler of a small pleasant kingdom of rivers and evergreens. Unlike your parents, however, you have hopes and dreams! You want a bigger and more pleasant kingdom, with more rivers and a wider variety of trees. You want a Dominion! <br /><br />In all directions lie fiefs, freeholds, and feodums. All are small bits of land, controlled by petty lords and verging on anarchy. You will bring civilization to these people, uniting them under your banner.</p>\r\n<p>In <em><strong>Dominion</strong></em>, each player starts with an identical, very small deck of cards. In the center of the table is a selection of other cards the players can &quot;buy&quot; as they can afford them. Through their selection of cards to buy, and how they play their hands as they draw them, the players construct their deck on the fly, striving for the most efficient path to the precious victory points by game end.</p>",
       "thumb_url": "https://s3-us-west-1.amazonaws.com/5cc.images/games/uploaded/1559254200326-6135RVKbZZL.jpg",
-      "image_url": "https://s3-us-west-1.amazonaws.com/5cc.images/games/uploaded/1559254200326-6135RVKbZZL.jpg",
+      "imageUrl": "https://s3-us-west-1.amazonaws.com/5cc.images/games/uploaded/1559254200326-6135RVKbZZL.jpg",
       "url": "https://www.boardgameatlas.com/game/VO7TAxQ5Qn/dominion"
     }
   },
   {
-    "type": "game",
-    "id": 2,
-    "attributes": {
+    "_typename": "UserGame",
+    "game": {
+      "id": 2,
       "board_game_atlas_id": "oGVgRSAKwX",
       "name": "Carcassonne",
       "min_players": 2,
@@ -44,14 +44,14 @@ const dummyJson = [
       "year_published": 2000,
       "description": "<p>Each game of <em>Carcassonne</em> reveals a unique environment as tiles form a landscape of cities, roads, fields, and monasteries. Claim these features with your followers to win the game.</p>\r\n<p><em>Carcassonne</em> is a tile placement game where players collectively construct the area around the medieval French city of Carcassonne while competing to place followers on various features and score the most points.</p>\r\n<p>First published in 2000, the game's accessible yet deep design has attracted a wide fan base and led to the development of numerous expansions (eg Rivers) and standalone titles in the <em>Carcassonne</em> line.</p>",
       "thumb_url": "https://cdn.shopify.com/s/files/1/0513/4077/1515/products/carcassonne-board-game.jpg?v=1609629064",
-      "image_url": "https://cdn.shopify.com/s/files/1/0513/4077/1515/products/carcassonne-board-game.jpg?v=1609629064",
+      "imageUrl": "https://cdn.shopify.com/s/files/1/0513/4077/1515/products/carcassonne-board-game.jpg?v=1609629064",
       "url": "https://www.zmangames.com/en/products/carcassonne/?utm_source=boardgameatlas.com&utm_medium=search&utm_campaign=bga_ads"
     }
   },
   {
-    "type": "game",
-    "id": 3,
-    "attributes": {
+    "_typename": "UserGame",
+    "game": {
+      "id": 3,
       "board_game_atlas_id": "yqR4PtpO8X",
       "name": "Scythe",
       "min_players": 1,
@@ -62,7 +62,7 @@ const dummyJson = [
       "year_published": 2016,
       "description": "<p><em>Scythe</em> gives players almost complete control over their fate. Other than each player's individual hidden objective card, the only elements of luck or variability are &quot;Encounter&quot; cards that players will draw as they interact with the citizens of newly explored lands. Each encounter card provides the player with several options, allowing them to mitigate the luck of the draw through their selection. Combat is also driven by choices, not luck or randomness.<br /><br /><em>Scythe</em> uses a streamlined action-selection mechanism (no rounds or phases) to keep gameplay moving at a brisk pace and reduce downtime between turns. While there is plenty of direct conflict for players who seek it, there is no player elimination.<br /><br />Every part of <em>Scythe</em> has an aspect of engine-building to it. Players can upgrade actions to become more efficient, build structures that improve their position on the map, enlist new recruits to enhance character abilities, activate mechs to deter opponents from invading, and expand their borders to reap greater types and quantities of resources. These engine-building aspects create a sense of momentum and progress throughout the game. The order in which players improve their engine adds to the unique feel of each game, even when playing one faction multiple times.</p>",
       "thumb_url": "https://cdn.shopify.com/s/files/1/0513/4077/1515/products/scythe-board-game.jpg?v=1611090922",
-      "image_url": "https://cdn.shopify.com/s/files/1/0513/4077/1515/products/scythe-board-game.jpg?v=1611090922",
+      "imageUrl": "https://cdn.shopify.com/s/files/1/0513/4077/1515/products/scythe-board-game.jpg?v=1611090922",
       "url": "https://stonemaiergames.com/games/scythe/?utm_source=boardgameatlas.com&utm_medium=search&utm_campaign=bga_ads"
     }
   }
@@ -70,19 +70,22 @@ const dummyJson = [
 
 const initialState = {
   searchResults: [],
-  user: {},
+  user: null,
   userName: '',
   friendsList: [],
   gameCollection: [],
   modal: null,
   error: null,
-  loading: false
+  loading: true
 }
 
 const reducer = (state, action) => {
   switch (action.type) {
     case "success": {
-      return { ...state, user: dummyData }
+      return { ...state, user: action.payload, loading: false }
+    }
+    case "error": {
+      return { ...state, error: action.payload, loading: false }
     }
     case 'search_result': {
       return { ...state, searchResults: action.payload }
@@ -106,17 +109,29 @@ const reducer = (state, action) => {
 export const App = () => {
 
   const [state, dispatch] = useReducer(reducer, initialState)
+  const { loading, error, data } = useQuery(GET_USER(state.userName))
+  // const [mutation] = useMutation(CREATE_USER('CoolGuy1975'), {
+  //   onCompleted: (data) => {
+  //     console.log(data)
+  //   }
+  // })
+  // const [GET_USER, { data, loading, error }] = useMutation(GET_USER("argdfga"));
 
   useEffect(() => {
-    dispatch({ type: 'success' })
-  }, [])
-
-  const { loading, error, data } = useQuery(GET_USER(state.userName));
+    if (error) {
+      console.log('ERROR: ', error.message);
+      dispatch({ type: 'error', payload: error })
+    }
+    if (data) {
+      console.log('success');
+      dispatch({ type: 'success', payload: data.user })
+    }
+  }, [data, loading, error])
 
   const searchBarSubmit = (terms) => {
     let returnArray = []
     dummyJson.forEach(element => {
-      let name = element.attributes.name.toLowerCase()
+      let name = element.game.name.toLowerCase()
       if (name.includes(terms.toLowerCase())) {
         returnArray.push(element)
       }
@@ -127,17 +142,17 @@ export const App = () => {
     })
   }
 
-
   const setUserName = useCallback((userName) => {
     dispatch({
       type: 'set_userName',
       payload: userName
     })
-  }, []);
+  }, [])
 
   const setModal = (id = null) => {
     if (id) {
-      const modalInfo = state.user.games.find(game => game.id === id)
+      const modalInfo = state.user.userGames.find(game => +game.game.id === id)
+      //NOTE: modal does not work for borrowed games right now because borrowed games are coming from mock data, should be in same array once BE is set up.
       dispatch({ type: 'set_modal', payload: modalInfo })
     } else {
       dispatch({ type: 'set_modal' })
@@ -149,9 +164,6 @@ export const App = () => {
     dispatch({ type: 'delete_game', payload: filteredGames })
   }
 
-  if (!Object.keys(state.user).length) {
-    return <h1>LOADING...</h1>
-  } else {
     return (
       <div className='App'>
         <Routes>
@@ -170,10 +182,9 @@ export const App = () => {
                 userName={state.userName}
               />
             } />
-          <Route path='/search-results/:searchTerm' element={<SearchResults results={state.searchResults} userInfo={state.user} searchBarSubmit={searchBarSubmit}/>} />
+          <Route path='/search-results/:searchTerm' element={<SearchResults results={state.searchResults} userInfo={state.user} searchBarSubmit={searchBarSubmit} setModal={setModal}/> } /> 
           <Route path='/friends-games/:id' element={<FriendsGames userInfo={state.user} searchBarSubmit={searchBarSubmit} />} />
         </Routes>
       </div>
     )
-  }
 }

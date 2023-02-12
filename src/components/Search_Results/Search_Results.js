@@ -3,8 +3,9 @@ import { Link } from 'react-router-dom'
 import { Navbar } from '../Navbar/Navbar'
 import SingleGame from '../Single_Game/Single_Game'
 
-const SearchResults = ({ results, searchBarSubmit, userInfo }) => {
-  const games = results.map(game => <SingleGame game={game} key={game.id} />)
+const SearchResults = ({ results, searchBarSubmit, userInfo, setModal }) => {
+  console.log(results);
+  const games = results.map(game => <SingleGame game={game} key={game.id} setModal={setModal}/>)
 
   return (
     <div>

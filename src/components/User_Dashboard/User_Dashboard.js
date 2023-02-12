@@ -5,15 +5,34 @@ import { GameModal } from '../Game_Modal/Game_Modal'
 import SingleGame from '../Single_Game/Single_Game'
 import './User_Dashboard.css'
 import fakeBorrowedGames from '../../dummy-borrowed-games.json'
+import { GET_ALL_USERS } from '../../GraphQL/queries'
+import { useQuery } from '@apollo/client'
 
 
 
 export const UserDashboard = ({ userInfo, searchBarSubmit, deleteGame, setModal, modal, loading, error, data, userName }) => {
 
-  const games = userInfo.games.map(game => <SingleGame key={game.id} game={game} setModal={setModal} />)
-  let friends = userInfo.friends.map(friend => <p key={friend} className="friend"><Link to={`/friends-games/${friend}`}>{friend}</Link></p>)
-  let borrowedGamesThumbnails = fakeBorrowedGames.games.map((game, index) => <SingleGame key={index} game={game} setModal={setModal}/>)
-  
+
+  const allUsersLoading = useQuery(GET_ALL_USERS).loading;
+  const allUsersError = useQuery(GET_ALL_USERS).error;
+  const allUsersData = useQuery(GET_ALL_USERS).data;
+  const friendsList = allUsersData ? allUsersData.users.filter(user => user.username !== userInfo.username) : [];
+  const friends = friendsList.map(friend => {
+    return (<Link to={`/friends-games/${friend.username}`} key={friend.id}> 
+              <p key={friend.id} className="friend">{friend.username}</p>
+            </Link>)
+    })
+
+    console.log('allusersdata: ', friendsList);
+
+ /* if (loading) {
+    return <h1>LOADING...</h1>
+  } */
+  // NOTE: remove 👆, duplicate of conditional rendering below
+
+  let borrowedGamesThumbnails = fakeBorrowedGames.userGames.map((game, index) => <SingleGame key={index+20} game={game} setModal={setModal}/>)
+  const games = userInfo ? userInfo.userGames.map(game => <SingleGame key={game.game.id} game={game} setModal={setModal} />) : []
+
 
   return (
     <>
@@ -32,6 +51,9 @@ export const UserDashboard = ({ userInfo, searchBarSubmit, deleteGame, setModal,
           </div>
           <div className='friends-section'>
             <h1 className='my-friends-header'>My Friends</h1>
+            {allUsersLoading && <h2>Loading friends...</h2>}
+            {allUsersError && <h2>Trouble loading friends!</h2>}
+            {allUsersData && <div className='friends-list'></div>}
             <div className='friends-list'>{friends}</div>
           </div>
         </>}
