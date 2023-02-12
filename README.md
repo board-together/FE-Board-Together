@@ -18,7 +18,7 @@ See the [open issues](https://github.com/board-together/BE-Board-Together/issues
 
 <table>
   <tr>
-    <td>![Spencer Haka](https://avatars.githubusercontent.com/u/74210902?v=4)</td>
+    <td><img src=https://avatars.githubusercontent.com/u/74210902?v=4 /></td>
     <td></td>
     <td></td>
   </tr>
