@@ -26,9 +26,9 @@ export const UserDashboard = ({ userInfo, searchBarSubmit, deleteGame, setModal,
   } */
   // NOTE: remove 👆, duplicate of conditional rendering below
 
-
+console.log('userInfo: ', userInfo);
   let borrowedGamesThumbnails = fakeBorrowedGames.userGames.map((game, index) => <SingleGame key={index+20} game={game} setModal={setModal}/>)
-  const games = userInfo.userGames.map(game => <SingleGame key={game.game.id} game={game} setModal={setModal} />)
+  const games = userInfo ? userInfo.userGames.map(game => <SingleGame key={game.game.id} game={game} setModal={setModal} />) : []
 
   return (
     <>
