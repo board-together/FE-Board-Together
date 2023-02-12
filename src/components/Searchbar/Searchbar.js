@@ -1,20 +1,22 @@
 import './Searchbar.css'
 import React, { useState } from 'react'
 import { Link } from 'react-router-dom'
+import { GET_SEARCHED_GAMES } from '../../GraphQL/queries'
+import { useQuery, useMutation } from "@apollo/client"
 
 const SearchBar = ({ submit }) => {
-  const [searchTerm, setSearchTerm] = useState('')
-
-
+  const [searchTerm, setSearchTerm] = useState("")
   const handleChange = (event) => {
     setSearchTerm(event.target.value)
   }
-
   const handleSubmit = () => {
   submit(searchTerm)
+ }
+  
+  // const { loading, error, data } = useQuery(GET_SEARCHED_GAMES("Ticket"));
+  //  console.log('hey', data)
 
-  }
-
+  
 
   return (
     <form className='search-bar'>
