@@ -9,7 +9,7 @@ import './Search_Results.css'
 
 
 
-const SearchResults = ({ results, searchBarSubmit, setModal={setModal} , modal  }) => {
+const SearchResults = ({ results, searchBarSubmit, setModal, modal  }) => {
   const { loading, data, error } = useQuery(GET_SEARCHED_GAMES(results));
 
 
@@ -20,7 +20,7 @@ const SearchResults = ({ results, searchBarSubmit, setModal={setModal} , modal  
   if (loading) {
     return <h1>loading...</h1>
   }
-  const games = data ? data.searchGames.map(game => <SingleGameVarient game={game} key={game.name}  />) : []
+  const games = data ? data.searchGames.map(game => <SingleGameVarient game={game} key={game.name} setModal={setModal}/>) : []
   return (
 
     <>

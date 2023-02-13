@@ -111,6 +111,7 @@ export const GET_SEARCHED_GAMES = (name) => gql`
     minPlaytime
     name
     thumbUrl
+    yearPublished
   }
     }
   `
