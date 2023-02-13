@@ -27,7 +27,7 @@ export const FriendsGames = ({searchBarSubmit, userInfo}) => {
 
   return (
     <div>
-      <Navbar searchBarSubmit={searchBarSubmit}></Navbar>
+      <Navbar username={userInfo.username} searchBarSubmit={searchBarSubmit}></Navbar>
       <Link to={`/dashboard`}>
         <button className='back-to-dash'>Back to dashboard</button>
       </Link>
