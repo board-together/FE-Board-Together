@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from 'react'
+import React from 'react'
 import { Link } from 'react-router-dom'
 import { useParams } from 'react-router'
 import SingleGame from '../Single_Game/Single_Game'
@@ -11,19 +11,9 @@ import { useQuery } from '@apollo/client'
 
 export const FriendsGames = ({searchBarSubmit, userInfo}) => {
   const friendName = useParams().id;
-  const [friendsGames, setFriendsGames] = useState([]);
   const { loading, error, data } = useQuery(GET_USER(friendName));
-
-  useEffect(() => {
-    if (data) {
-      setFriendsGames(data.user.userGames.filter(game => !game.borrowerId))
-      console.log('friends games state: ', friendsGames);
-    } else {
-      setFriendsGames([]);
-    }
-  }, [data]);
-
-  const friendsGameThumbnails = friendsGames.map((game, index) => <SingleGame key={index}  game={game} />)
+  let friendsGames = data ? data.user.userGames.filter(game => !game.borrowerId) : [];
+  let friendsGameThumbnails = friendsGames.length ? friendsGames.map((game, index) => <SingleGame key={index}  game={game} />) : ''
 
   return (
     <div>
