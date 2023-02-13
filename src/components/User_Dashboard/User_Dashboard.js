@@ -4,14 +4,12 @@ import { Navbar } from '../Navbar/Navbar'
 import { GameModal } from '../Game_Modal/Game_Modal'
 import SingleGame from '../Single_Game/Single_Game'
 import './User_Dashboard.css'
-import fakeBorrowedGames from '../../dummy-borrowed-games.json'
 import { GET_ALL_USERS } from '../../GraphQL/queries'
 import { useQuery } from '@apollo/client'
 
 
 
 export const UserDashboard = ({ userInfo, searchBarSubmit, deleteGame, setModal, modal, loading, error, data, userName }) => {
-
 
   const allUsersLoading = useQuery(GET_ALL_USERS).loading;
   const allUsersError = useQuery(GET_ALL_USERS).error;
@@ -23,16 +21,8 @@ export const UserDashboard = ({ userInfo, searchBarSubmit, deleteGame, setModal,
             </Link>)
     })
 
-    console.log('allusersdata: ', friendsList);
-
- /* if (loading) {
-    return <h1>LOADING...</h1>
-  } */
-  // NOTE: remove 👆, duplicate of conditional rendering below
-
-  let borrowedGamesThumbnails = fakeBorrowedGames.userGames.map((game, index) => <SingleGame key={index+20} game={game} setModal={setModal}/>)
-  const games = userInfo ? userInfo.userGames.map(game => <SingleGame key={game.game.id} game={game} setModal={setModal} />) : []
-
+  const games = userInfo ? userInfo.userGames.map((game, index) => <SingleGame key={index} game={game} setModal={setModal} />) : []
+  const borrowedGames = userInfo ? userInfo.borrowedGames.map((game, index) => <SingleGame key={index} game={game} setModal={setModal} />) : []
 
   return (
     <>
@@ -45,7 +35,7 @@ export const UserDashboard = ({ userInfo, searchBarSubmit, deleteGame, setModal,
           <div className='game-collection-section'>
             <h1 className='my-games-heading'>My Games</h1>
             <h2>Games I'm Borrowing</h2>
-            <div className='borrowed-games-collection'>{borrowedGamesThumbnails}</div>
+            <div className='borrowed-games-collection'>{borrowedGames}</div>
             <h2>My Game Collection</h2>
             <div className='game-collection'>{games}</div>
           </div>
