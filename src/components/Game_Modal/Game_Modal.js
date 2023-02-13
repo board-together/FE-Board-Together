@@ -2,7 +2,7 @@ import React from 'react'
 import './Game_Modal.css'
 
 export const GameModal = ({ setModal, deleteGame, context, modal }) => {
-
+  console.log(modal)
   let averagePlayTime = (modal.game.minPlaytime + modal.game.maxPlaytime) / 2
 
   //Lines 6 through 11 are only for cleaning up the dummy data that (specifically the game description)
@@ -33,9 +33,10 @@ export const GameModal = ({ setModal, deleteGame, context, modal }) => {
           </div>
         </div>
         <div className='modal-buttons'>
-          {context === 'user_dashboard' && <button className='modal-button delete-button' onClick={() => deleteGame(+modal.game.id)}>Delete</button>}
-          {context === 'user_dashboard' && <button className='modal-button'>Make Private</button>}
-          {context === 'search' && <button className='modal-button'>Add to Collection</button>}
+          {(context === 'user_dashboard' && modal.borrowerId) && <button className='modal-button'>Return</button>}
+          {(context === 'user_dashboard' && !modal.borrowerId) && <button className='modal-button delete-button' onClick={() => deleteGame(+modal.game.id)}>Delete</button>}
+          {(context === 'user_dashboard' && !modal.borrowerId) && <button className='modal-button'>Make Private</button>}
+          {context === 'searched_games' && <button className='modal-button'>Add to Collection</button>}
           {context === 'friends_games' && <button className='modal-button'>Borrow</button>}
         </div>
       </div>

@@ -119,11 +119,10 @@ export const App = () => {
 
   useEffect(() => {
     if (error) {
-      console.log('ERROR: ', error.message);
+      console.log('ERROR: ', error.message)
       dispatch({ type: 'error', payload: error })
     }
     if (data) {
-      console.log('success');
       dispatch({ type: 'success', payload: data.user })
     }
   }, [data, loading, error])
@@ -149,11 +148,11 @@ export const App = () => {
     })
   }, [])
 
-  const setModal = (id = null) => {
-    if (id) {
-      const modalInfo = state.user.userGames.find(game => +game.game.id === id)
+  const setModal = (game = null) => {
+    if (game) {
+      //const modalInfo = state.user.userGames.find(game => +game.game.id === id)
       //NOTE: modal does not work for borrowed games right now because borrowed games are coming from mock data, should be in same array once BE is set up.
-      dispatch({ type: 'set_modal', payload: modalInfo })
+      dispatch({ type: 'set_modal', payload: game })
     } else {
       dispatch({ type: 'set_modal' })
     }
@@ -164,27 +163,44 @@ export const App = () => {
     dispatch({ type: 'delete_game', payload: filteredGames })
   }
 
-    return (
-      <div className='App'>
-        <Routes>
-          <Route path='/' element={<Login setUserName={setUserName}/>} />
-          <Route path='/dashboard/'
-            element={
-              <UserDashboard
-                userInfo={state.user}
-                searchBarSubmit={searchBarSubmit}
-                setModal={setModal}
-                modal={state.modal}
-                deleteGame={deleteGame}
-                loading={loading}
-                error={error}
-                data={data}
-                userName={state.userName}
-              />
-            } />
-          <Route path='/search-results/:searchTerm' element={<SearchResults results={state.searchResults} userInfo={state.user} searchBarSubmit={searchBarSubmit} setModal={setModal}/> } /> 
-          <Route path='/friends-games/:id' element={<FriendsGames userInfo={state.user} searchBarSubmit={searchBarSubmit} />} />
-        </Routes>
-      </div>
-    )
+  return (
+    <div className='App'>
+      <Routes>
+        <Route path='/' element={<Login setUserName={setUserName} />} />
+        <Route path='/dashboard/'
+          element={
+            <UserDashboard
+              userInfo={state.user}
+              searchBarSubmit={searchBarSubmit}
+              setModal={setModal}
+              modal={state.modal}
+              deleteGame={deleteGame}
+              loading={loading}
+              error={error}
+              data={data}
+              userName={state.userName}
+            />
+          } />
+        <Route path='/search-results/:searchTerm'
+          element={
+            <SearchResults
+              results={state.searchResults}
+              userInfo={state.user}
+              searchBarSubmit={searchBarSubmit}
+              setModal={setModal}
+              modal={state.modal}
+            />
+          } />
+        <Route path='/friends-games/:id'
+          element={
+            <FriendsGames
+              userInfo={state.user}
+              searchBarSubmit={searchBarSubmit}
+              setModal={setModal}
+              modal={state.modal}
+            />
+          } />
+      </Routes>
+    </div>
+  )
 }
