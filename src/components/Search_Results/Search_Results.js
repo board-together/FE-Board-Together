@@ -7,7 +7,6 @@ import { GET_SEARCHED_GAMES } from '../../GraphQL/queries'
 import SingleGameVarient from '../Single_Game_Varient/SingleGameVarinet'
 import './Search_Results.css'
 
-const SearchResults = ({ results, searchBarSubmit, userInfo, setModal, modal }) => {
 
 
 const SearchResults = ({ results, searchBarSubmit, setModal={setModal}  }) => {
