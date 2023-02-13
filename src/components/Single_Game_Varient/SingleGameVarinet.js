@@ -8,7 +8,7 @@ console.log('this is game on single game varient', game)
     <>
       
         <div className="single-tile-v"  >
-          <h2 className="single-game-name-v">{game.name}</h2>
+        <h2 className={`game-name-${game.name}`}>{game.name}</h2>
           <img className="single-game-img-v" src={game.imageUrl} alt={game.name} />
         </div>
     
