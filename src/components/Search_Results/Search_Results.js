@@ -9,7 +9,7 @@ import './Search_Results.css'
 
 
 
-const SearchResults = ({ results, searchBarSubmit, setModal={setModal}  }) => {
+const SearchResults = ({ results, searchBarSubmit, setModal={setModal} , modal  }) => {
   const { loading, data, error } = useQuery(GET_SEARCHED_GAMES(results));
 
 
