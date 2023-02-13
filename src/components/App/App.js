@@ -129,16 +129,10 @@ export const App = () => {
   }, [data, loading, error])
 
   const searchBarSubmit = (terms) => {
-    let returnArray = []
-    dummyJson.forEach(element => {
-      let name = element.game.name.toLowerCase()
-      if (name.includes(terms.toLowerCase())) {
-        returnArray.push(element)
-      }
-    })
+   
     dispatch({
       type: 'search_result',
-      payload: returnArray
+      payload: terms
     })
   }
 

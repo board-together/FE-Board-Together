@@ -1,19 +1,19 @@
 import React from 'react'
 import { Link } from 'react-router-dom'
 import { Navbar } from '../Navbar/Navbar'
-import SingleGame from '../Single_Game/Single_Game'
 import { useQuery } from "@apollo/client"
 import { GET_SEARCHED_GAMES } from '../../GraphQL/queries'
+import SingleGameVarient from '../Single_Game_Varient/SingleGameVarinet'
 
-const SearchResults = ({ results, searchBarSubmit, userInfo, setModal }) => {
+const SearchResults = ({ results, searchBarSubmit }) => {
   const { loading, data, error } = useQuery(GET_SEARCHED_GAMES(results));
-  console.log(data, error)
+
 
 
   if (loading) {
     return <h1>loading...</h1>
   }
-  const games = data ? data.searchGames.map(game => <SingleGame game={game} key={game.name} setModal={setModal} />) : []
+  const games = data ? data.searchGames.map(game => <SingleGameVarient game={game} key={game.name}  />) : []
   return (
     <div>
       <Navbar searchBarSubmit={searchBarSubmit} ></Navbar>

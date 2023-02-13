@@ -100,12 +100,18 @@ export const GET_GAME_DETAIL = (id) => gql`
 
 export const GET_SEARCHED_GAMES = (name) => gql`
     query {
-      games(name: "${name}") {
-        board_game_atlas_id
-        name
-        thumb_url
-        image_url
-      }
+    searchGames(name: "${name}") {
+    boardGameAtlasId
+    description
+    imageUrl
+    maxPlayers
+    maxPlaytime
+    minAge
+    minPlayers
+    minPlaytime
+    name
+    thumbUrl
+  }
     }
   `
 
