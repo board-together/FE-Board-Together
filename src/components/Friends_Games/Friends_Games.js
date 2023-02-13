@@ -9,7 +9,7 @@ import { useQuery } from '@apollo/client'
 
 
 
-export const FriendsGames = ({searchBarSubmit, userInfo}) => {
+export const FriendsGames = ({searchBarSubmit, userName}) => {
   const friendName = useParams().id;
   const { loading, error, data } = useQuery(GET_USER(friendName));
   let friendsGames = data ? data.user.userGames.filter(game => !game.borrowerId) : [];
@@ -17,7 +17,7 @@ export const FriendsGames = ({searchBarSubmit, userInfo}) => {
 
   return (
     <div>
-      <Navbar username={userInfo.username} searchBarSubmit={searchBarSubmit}></Navbar>
+      <Navbar username={userName} searchBarSubmit={searchBarSubmit}></Navbar>
       <Link to={`/dashboard`}>
         <button className='back-to-dash'>Back to dashboard</button>
       </Link>

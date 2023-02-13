@@ -53,7 +53,7 @@ const reducer = (state, action) => {
 export const App = () => {
 
   const [state, dispatch] = useReducer(reducer, initialState)
-  const { loading, error, data } = useQuery(GET_USER(state.userName))
+  const { loading, error, data } = useQuery(GET_USER(localStorage.getItem('username')))
   // const [mutation] = useMutation(CREATE_USER('CoolGuy1975'), {
   //   onCompleted: (data) => {
   //     console.log(data)
@@ -81,11 +81,12 @@ export const App = () => {
   }
 
   const setUserName = useCallback((userName) => {
+    localStorage.setItem('username', `${userName}`);
     dispatch({
       type: 'set_userName',
-      payload: userName
-    })
-  }, [])
+      payload: localStorage.getItem('username')
+    });
+  }, []);
 
   const setModal = (id = null) => {
     if (id) {
@@ -117,11 +118,26 @@ export const App = () => {
                 loading={loading}
                 error={error}
                 data={data}
-                userName={state.userName}
+                userName={localStorage.getItem('username')}
               />
             } />
-          <Route path='/search-results/:searchTerm' element={<SearchResults results={state.searchResults} userInfo={state.user} searchBarSubmit={searchBarSubmit} setModal={setModal}/> } /> 
-          <Route path='/friends-games/:id' element={<FriendsGames userInfo={state.user} searchBarSubmit={searchBarSubmit} />} />
+          <Route path='/search-results/:searchTerm' 
+            element={
+              <SearchResults 
+                results={state.searchResults} 
+                userInfo={state.user} 
+                searchBarSubmit={searchBarSubmit} 
+                setModal={setModal} 
+                userName={localStorage.getItem('username')}
+                /> 
+              } /> 
+          <Route path='/friends-games/:id' 
+            element={
+              <FriendsGames 
+                userName={localStorage.getItem('username')} 
+                searchBarSubmit={searchBarSubmit} 
+              />
+            } />
         </Routes>
       </div>
     )

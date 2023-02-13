@@ -6,7 +6,7 @@ import { GET_SEARCHED_GAMES } from '../../GraphQL/queries'
 import SingleGameVarient from '../Single_Game_Varient/SingleGameVarinet'
 import './Search_Results.css'
 
-const SearchResults = ({ results, searchBarSubmit }) => {
+const SearchResults = ({ results, searchBarSubmit, userName }) => {
   const { loading, data, error } = useQuery(GET_SEARCHED_GAMES(results));
 
   if(error){
@@ -19,7 +19,7 @@ const SearchResults = ({ results, searchBarSubmit }) => {
   const games = data ? data.searchGames.map(game => <SingleGameVarient game={game} key={game.name}  />) : []
   return (
     <div>
-      <Navbar searchBarSubmit={searchBarSubmit} ></Navbar>
+      <Navbar username={userName} searchBarSubmit={searchBarSubmit} ></Navbar>
       <Link to={`/dashboard/`}><button>Back to dashboard</button></Link>
       <div className='game-tiles'>
         {!games.length ? <h1>No results matching that name were found.</h1> : games}
