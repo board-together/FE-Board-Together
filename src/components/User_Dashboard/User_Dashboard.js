@@ -14,7 +14,7 @@ export const UserDashboard = ({ userInfo, searchBarSubmit, deleteGame, setModal,
   const allUsersLoading = useQuery(GET_ALL_USERS).loading;
   const allUsersError = useQuery(GET_ALL_USERS).error;
   const allUsersData = useQuery(GET_ALL_USERS).data;
-  const friendsList = allUsersData ? allUsersData.users.filter(user => user.username !== userInfo.username) : [];
+  const friendsList = allUsersData && userInfo ? allUsersData.users.filter(user => user.username !== userInfo.username) : [];
   const friends = friendsList.map(friend => {
     return (<Link to={`/friends-games/${friend.username}`} key={friend.id}> 
               <p key={friend.id} className="friend">{friend.username}</p>

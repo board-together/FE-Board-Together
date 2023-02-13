@@ -118,11 +118,26 @@ export const App = () => {
                 loading={loading}
                 error={error}
                 data={data}
-                userName={state.userName}
+                userName={localStorage.getItem('username')}
               />
             } />
-          <Route path='/search-results/:searchTerm' element={<SearchResults results={state.searchResults} userInfo={state.user} searchBarSubmit={searchBarSubmit} setModal={setModal}/> } /> 
-          <Route path='/friends-games/:id' element={<FriendsGames userInfo={state.user} searchBarSubmit={searchBarSubmit} />} />
+          <Route path='/search-results/:searchTerm' 
+            element={
+              <SearchResults 
+                results={state.searchResults} 
+                userInfo={state.user} 
+                searchBarSubmit={searchBarSubmit} 
+                setModal={setModal} 
+                userName={localStorage.getItem('username')}
+                /> 
+              } /> 
+          <Route path='/friends-games/:id' 
+            element={
+              <FriendsGames 
+                userName={localStorage.getItem('username')} 
+                searchBarSubmit={searchBarSubmit} 
+              />
+            } />
         </Routes>
       </div>
     )
