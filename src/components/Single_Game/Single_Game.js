@@ -16,6 +16,7 @@ const SingleGame = ({ game, setModal, userGames }) => {
           <div className="single-borrowed-game">
             <img className="single-game-img" src={game.game.imageUrl} alt={game.game.name} />
           </div>
+          <p>borrowed by ________</p>
         </div>
       }
       {!checkIfLentOut && 
