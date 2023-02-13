@@ -23,7 +23,6 @@ export const UserDashboard = ({ userInfo, searchBarSubmit, deleteGame, setModal,
             </Link>)
     })
 
-    console.log('allusersdata: ', friendsList);
 
  /* if (loading) {
     return <h1>LOADING...</h1>
