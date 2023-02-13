@@ -53,7 +53,7 @@ const reducer = (state, action) => {
 export const App = () => {
 
   const [state, dispatch] = useReducer(reducer, initialState)
-  const { loading, error, data } = useQuery(GET_USER(state.userName))
+  const { loading, error, data } = useQuery(GET_USER(localStorage.getItem('username')))
   // const [mutation] = useMutation(CREATE_USER('CoolGuy1975'), {
   //   onCompleted: (data) => {
   //     console.log(data)
@@ -81,11 +81,12 @@ export const App = () => {
   }
 
   const setUserName = useCallback((userName) => {
+    localStorage.setItem('username', `${userName}`);
     dispatch({
       type: 'set_userName',
-      payload: userName
-    })
-  }, [])
+      payload: localStorage.getItem('username')
+    });
+  }, []);
 
   const setModal = (id = null) => {
     if (id) {
