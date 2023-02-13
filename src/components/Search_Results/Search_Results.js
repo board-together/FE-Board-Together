@@ -4,6 +4,7 @@ import { Navbar } from '../Navbar/Navbar'
 import { useQuery } from "@apollo/client"
 import { GET_SEARCHED_GAMES } from '../../GraphQL/queries'
 import SingleGameVarient from '../Single_Game_Varient/SingleGameVarinet'
+import './Search_Results.css'
 
 const SearchResults = ({ results, searchBarSubmit }) => {
   const { loading, data, error } = useQuery(GET_SEARCHED_GAMES(results));
