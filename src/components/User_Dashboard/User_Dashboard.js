@@ -4,7 +4,6 @@ import { Navbar } from '../Navbar/Navbar'
 import { GameModal } from '../Game_Modal/Game_Modal'
 import SingleGame from '../Single_Game/Single_Game'
 import './User_Dashboard.css'
-import fakeBorrowedGames from '../../dummy-borrowed-games.json'
 import { GET_ALL_USERS } from '../../GraphQL/queries'
 import { useQuery } from '@apollo/client'
 
