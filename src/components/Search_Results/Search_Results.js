@@ -9,7 +9,9 @@ import './Search_Results.css'
 const SearchResults = ({ results, searchBarSubmit }) => {
   const { loading, data, error } = useQuery(GET_SEARCHED_GAMES(results));
 
-
+  if(error){
+    return <h1>{error}</h1>
+  }
 
   if (loading) {
     return <h1>loading...</h1>
