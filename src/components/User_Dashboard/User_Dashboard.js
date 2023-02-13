@@ -22,8 +22,8 @@ export const UserDashboard = ({ userInfo, searchBarSubmit, deleteGame, setModal,
             </Link>)
     })
 
-  const games = userInfo ? userInfo.userGames.map(game => <SingleGame key={game.game.id} game={game} setModal={setModal} />) : []
-  const borrowedGames = userInfo ? userInfo.borrowedGames.map(game => <SingleGame key={game.game.id} game={game} setModal={setModal} />) : []
+  const games = userInfo ? userInfo.userGames.map((game, index) => <SingleGame key={index} game={game} setModal={setModal} />) : []
+  const borrowedGames = userInfo ? userInfo.borrowedGames.map((game, index) => <SingleGame key={index} game={game} setModal={setModal} />) : []
 
   return (
     <>
