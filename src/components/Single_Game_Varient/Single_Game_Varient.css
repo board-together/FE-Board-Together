@@ -1,0 +1,27 @@
+
+.single-tile-v {
+  width: 300px;
+  height: 300px;
+  margin:1%;
+  margin-bottom:2%;
+  contain: content;
+}
+
+.single-game-img-v {
+  width: 70%;
+  height: auto;
+  border-top: 5px solid transparent;
+  border-bottom: 5px solid transparent;
+}
+
+.single-game-img-v:hover {
+  border-top: 5px solid rgb(62, 110, 232);
+  border-bottom: 5px solid rgb(62, 110, 232);
+  cursor: pointer;
+}
+
+
+
+
+
+
