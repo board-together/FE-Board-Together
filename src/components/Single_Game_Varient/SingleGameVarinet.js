@@ -3,7 +3,7 @@ import './Single_Game_Varient.css'
 
 
 const SingleGameVarient = ({ game }) => {
-console.log('this is game on single game varient', game)
+
   return (
     <>
       
