@@ -56,6 +56,7 @@ export const GET_USER = (userName) => gql`
       }
     }
   }`
+  
 
   //Example query response for single user
   // {
