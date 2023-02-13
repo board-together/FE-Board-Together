@@ -10,7 +10,7 @@ const SingleGame = ({ game, setModal, userGames }) => {
     userGames.filter(myGame => +myGame.gameId === game.gameId).map(item => item.gameId).includes(game.gameId) && game.borrowerId
     : false
 
-  const { loading, error, data } = useQuery(GET_ALL_USERS)
+  const { loading, data } = useQuery(GET_ALL_USERS)
   const borrower = data && checkIfLentOut ? data.users.find(user => +user.id === +game.borrowerId).username : ''
 
   return (
