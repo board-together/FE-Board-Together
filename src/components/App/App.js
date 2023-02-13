@@ -69,7 +69,11 @@ export const App = () => {
     if (data) {
       dispatch({ type: 'success', payload: data.user })
     }
-  }, [data, loading, error])
+  }, [data, loading, error]);
+
+  const updateUser = (userObject) => {
+    dispatch({ type: 'success', payload: userObject })
+  }
 
   const searchBarSubmit = (terms) => {
    
