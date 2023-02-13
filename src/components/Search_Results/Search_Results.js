@@ -10,7 +10,7 @@ const SearchResults = ({ results, searchBarSubmit, userInfo, setModal }) => {
   return (
     <div>
       <Navbar searchBarSubmit={searchBarSubmit} ></Navbar>
-      <Link to={`/dashboard/${userInfo.username}`}><button>Back to dashboard</button></Link>
+      <Link to={`/dashboard/`}><button>Back to dashboard</button></Link>
       <div className='game-tiles'>
         {!games.length && <h1>No results matching that name were found.</h1>}
         {games}
