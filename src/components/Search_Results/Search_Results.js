@@ -9,7 +9,9 @@ import './Search_Results.css'
 
 
 
-const SearchResults = ({ results, searchBarSubmit, setModal, modal  }) => {
+
+const SearchResults = ({ results, searchBarSubmit, setModal, modal, userName  }) => {
+
   const { loading, data, error } = useQuery(GET_SEARCHED_GAMES(results));
 
 
@@ -23,15 +25,17 @@ const SearchResults = ({ results, searchBarSubmit, setModal, modal  }) => {
   const games = data ? data.searchGames.map(game => <SingleGameVarient game={game} key={game.name} setModal={setModal}/>) : []
   return (
 
+
     <>
       {modal && <GameModal setModal={setModal} context={'searched_games'} modal={modal} />}
       <div>
-        <Navbar searchBarSubmit={searchBarSubmit} ></Navbar>
+        <Navbar username={userName} searchBarSubmit={searchBarSubmit} ></Navbar>
          <Link to={`/dashboard/`}><button>Back to dashboard</button></Link>
         <div className='game-tiles'>
           {!games.length && <h1>No results matching that name were found.</h1>}
           {games}
         </div>
+
       </div>
     </>
   )

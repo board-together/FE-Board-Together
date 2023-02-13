@@ -10,7 +10,8 @@ import { GameModal } from '../Game_Modal/Game_Modal'
 
 
 
-export const FriendsGames = ({ searchBarSubmit, userInfo, setModal, modal }) => {
+
+export const FriendsGames = ({ searchBarSubmit, userName, setModal, modal }) => {
   const friendName = useParams().id
   const { loading, error, data } = useQuery(GET_USER(friendName))
   let friendsGames = data ? data.user.userGames.filter(game => !game.borrowerId) : []
@@ -20,7 +21,7 @@ export const FriendsGames = ({ searchBarSubmit, userInfo, setModal, modal }) => 
     <>
       {modal && <GameModal setModal={setModal} context={'friends_games'} modal={modal} />}
       <div>
-        <Navbar username={userInfo.username} searchBarSubmit={searchBarSubmit}></Navbar>
+        <Navbar username={userName} searchBarSubmit={searchBarSubmit}></Navbar>
         <Link to={`/dashboard`}>
           <button className='back-to-dash'>Back to dashboard</button>
         </Link>
@@ -34,5 +35,6 @@ export const FriendsGames = ({ searchBarSubmit, userInfo, setModal, modal }) => 
         }
       </div>
     </>
+
   )
 }

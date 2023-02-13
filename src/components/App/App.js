@@ -53,7 +53,7 @@ const reducer = (state, action) => {
 export const App = () => {
 
   const [state, dispatch] = useReducer(reducer, initialState)
-  const { loading, error, data } = useQuery(GET_USER(state.userName))
+  const { loading, error, data } = useQuery(GET_USER(localStorage.getItem('username')))
   // const [mutation] = useMutation(CREATE_USER('CoolGuy1975'), {
   //   onCompleted: (data) => {
   //     console.log(data)
@@ -80,11 +80,12 @@ export const App = () => {
   }
 
   const setUserName = useCallback((userName) => {
+    localStorage.setItem('username', `${userName}`);
     dispatch({
       type: 'set_userName',
-      payload: userName
-    })
-  }, [])
+      payload: localStorage.getItem('username')
+    });
+  }, []);
 
   const setModal = (game = null) => {
     console.log(game)
@@ -102,6 +103,7 @@ export const App = () => {
     dispatch({ type: 'delete_game', payload: filteredGames })
   }
 
+
   return (
     <div className='App'>
       <Routes>
@@ -117,7 +119,7 @@ export const App = () => {
               loading={loading}
               error={error}
               data={data}
-              userName={state.userName}
+              userName={localStorage.getItem('username')}
             />
           } />
         <Route path='/search-results/:searchTerm'
@@ -128,18 +130,21 @@ export const App = () => {
               searchBarSubmit={searchBarSubmit}
               setModal={setModal}
               modal={state.modal}
+              userName={localStorage.getItem('username')}
             />
           } />
         <Route path='/friends-games/:id'
           element={
             <FriendsGames
-              userInfo={state.user}
               searchBarSubmit={searchBarSubmit}
               setModal={setModal}
               modal={state.modal}
+              userName={localStorage.getItem('username')}
             />
           } />
       </Routes>
     </div>
   )
+
+  
 }
