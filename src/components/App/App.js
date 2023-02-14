@@ -8,10 +8,6 @@ import { FriendsGames } from '../Friends_Games/Friends_Games'
 import { GET_USER } from '../../GraphQL/queries'
 import { useQuery } from "@apollo/client"
 
-
-
-
-
 const initialState = {
   searchResults: [],
   user: null,
@@ -55,13 +51,13 @@ export const App = () => {
 
   const { loading, error, data, refetch } = useQuery(GET_USER(localStorage.getItem('username')))
 
-
   useEffect(() => {
     if (error) {
       // console.log('ERROR: ', error.message)
       dispatch({ type: 'error', payload: error })
     }
     if (data) {
+      console.log(data.user)
       dispatch({ type: 'success', payload: data.user })
     }
   }, [data, loading, error]);
@@ -152,6 +148,7 @@ const modalFormatForMute = (modal,Id) => {
               modal={state.modal}
               userName={localStorage.getItem('username')}
               updateUser={updateUser}
+              refetch={refetch}
               addGamesInput={modalFormatForMute}
             />
           } />
