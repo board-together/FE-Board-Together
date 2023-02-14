@@ -6,16 +6,18 @@ import './Game_Modal.css'
 
 export const GameModal = ({ setModal, context, modal, refetchUser }) => {
 
-  const [deleteGame, { data, loading, error }] = useMutation(DELETE_GAME)
+  const deleteGameInfo = useMutation(DELETE_GAME)
+  const deleteGame = deleteGameInfo[0]
+  const deleteGameData = deleteGameInfo[1]
 
   let averagePlayTime
   let description
 
   useEffect(() => {
-    if (data) {
+    if (deleteGameData) {
       refetchUser();
     }
-  }, [data, refetchUser])
+  }, [deleteGameData, refetchUser])
 
   if (context === 'searched_games') {
     description = cleanGameDescription(modal.description)
