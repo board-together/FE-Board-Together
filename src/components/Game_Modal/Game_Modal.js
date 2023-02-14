@@ -37,7 +37,7 @@ const clickHelper = () => {
     status: 0
   } : '';
 
-  const [updateUserGame, {data}] = useMutation(UPDATE_USERGAME)
+
   const updateUserMutation = useMutation(UPDATE_USERGAME)
   const updateUserGame = updateUserMutation[0]
   const updateUserData = updateUserMutation[1].data
