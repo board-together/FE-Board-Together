@@ -19,6 +19,15 @@ export const cleanSearchResult = (games) => {
   })
 }
 
+export const cleanGameDescription = (description) => {
+  let arrayOfTerms = ['<p>', '</p>', '<em>', '</em>', '<br>', '<br />', '<strong>', '</strong>', '&quot;']
+
+  arrayOfTerms.forEach(val => {
+    description = description.replaceAll(val, '')
+  })
+  return description
+}
+
 //GAME STRUCTURE
 // [
 //   {
