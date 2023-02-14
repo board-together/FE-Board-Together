@@ -1,10 +1,26 @@
 import React from 'react'
 import './Game_Modal.css'
+import { UPDATE_USERGAME } from '../../GraphQL/mutations'
+import { useMutation } from '@apollo/client'
 
-export const GameModal = ({ setModal, deleteGame, context, modal, updateUser }) => {
+export const GameModal = ({ setModal, deleteGame, context, modal, updateUser, refetchFriend, userInfo }) => {
 
-  const borrowGame = (userObject) => {
-    updateUser(userObject);
+  console.log('modal: ', modal);
+
+  const inputObject = userInfo ? {
+    id: +modal.gameId, //should be game id maybe?? what is gameId vs game.id???
+    borrowerId: +userInfo.id,
+    status: 1
+  }
+  : ''
+
+  const [updateUserGame, {loading, error, data}] = useMutation(UPDATE_USERGAME)
+  console.log('response from mutation: ', data);
+  
+  const borrowGame = (event) => {
+    event.preventDefault();
+    updateUserGame({ variables: { input: inputObject } }) //HOW DOES IT KNOW WHO TO TAKE IT FROM
+    refetchFriend()
   }
 
   //Lines 6 through 11 are only for cleaning up the dummy data that (specifically the game description)
@@ -76,7 +92,7 @@ export const GameModal = ({ setModal, deleteGame, context, modal, updateUser }) 
           {(context === 'user_dashboard' && !modal.borrowerId) && <button className='modal-button delete-button' onClick={() => deleteGame(+modal.game.id)}>Delete</button>}
           {(context === 'user_dashboard' && !modal.borrowerId) && <button className='modal-button'>Make Private</button>}
           {context === 'searched_games' && <button className='modal-button'>Add to Collection</button>}
-          {context === 'friends_games' && <button className='modal-button'>Borrow</button>}
+          {context === 'friends_games' && <button className='modal-button' onClick={event => borrowGame(event)}>Borrow</button>}
         </div>
       </div>
     </div>
