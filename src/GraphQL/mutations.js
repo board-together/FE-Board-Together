@@ -19,7 +19,9 @@ export const UPDATE_USERGAME = gql`
         status
       }
       errors
-    }`
+    }
+  }
+  `
 
   
 
