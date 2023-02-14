@@ -5,16 +5,11 @@ import { ADD_GAME_TO_COLLECTION } from '../../GraphQL/mutations'
 
 export const GameModal = ({ setModal, deleteGame, context, modal, userInfo, updateUser, addGamesInput }) => {
 // console.log('this is the modal', modal)
-// console.log('this is userInfo', userInfo)
+//  console.log('this is userInfo', typeof userInfo.id)
 //  console.log('the format',addGamesInput(modal, userInfo.id))
-  const input = addGamesInput(modal, userInfo.id)
-  const[ addGame, { loading, data, error } ] = useMutation(ADD_GAME_TO_COLLECTION(input));
-   if(loading) { 
-    <h1>adding game</h1>
-   }
-   if(error) {
-    <h1>{error}</h1>
-   }
+  const inputVar = addGamesInput(modal, +userInfo.id)
+  const [addGame, { loading, data, error }] = useMutation(ADD_GAME_TO_COLLECTION);
+
   
 
   if (context === 'searched_games') {
@@ -45,7 +40,8 @@ export const GameModal = ({ setModal, deleteGame, context, modal, userInfo, upda
             </div>
           </div>
           <div className='modal-buttons'>
-            <button className='modal-button' onClick={addGame}>Add to Collection</button>
+            <button className='modal-button' onClick={ () => addGame({ variables: { input: inputVar } })} >Add to Collection</button>
+           
           </div>
         </div>
       </div>
