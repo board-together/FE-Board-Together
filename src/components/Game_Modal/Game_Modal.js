@@ -4,29 +4,37 @@ import { UPDATE_USERGAME } from '../../GraphQL/mutations'
 import { useMutation } from '@apollo/client'
 
 export const GameModal = ({ setModal, deleteGame, context, modal, userInfo, refetchFriend, refetchUser }) => {
-
-  // console.log('modal: ', modal);
-  const inputObject = userInfo ? {
+  const borrowObject = userInfo ? {
     id: +modal.id,
     borrowerId: +userInfo.id,
     status: 1
   }
-  : ''
+  : '';
 
-  const [updateUserGame, {loading, error, data}] = useMutation(UPDATE_USERGAME)
-  console.log('response from mutation: ', data);
+  const returnObject = userInfo ? {
+    id: +modal.id,
+    borrowerId: null,
+    status: 0
+  }
+  : '';
+
+  const [updateUserGame, {data}] = useMutation(UPDATE_USERGAME)
 
   useEffect(() => {
     if (data) {
       refetchUser();
-      refetchFriend();  
+      if (refetchFriend) refetchFriend();
     }
   }, [data, /*refetchFriend, refetchUser*/])
   
   const borrowFriendsGame = (event) => {
     event.preventDefault();
-    updateUserGame({ variables: { input: inputObject } });
-    console.log('data w/in borrowgame: ', data);
+    updateUserGame({ variables: { input: borrowObject } });
+  }
+
+  const returnFriendsGame = (event) => {
+    event.preventDefault();
+    updateUserGame({ variables: { input: returnObject } });
   }
 
   //Lines 6 through 11 are only for cleaning up the dummy data that (specifically the game description)
@@ -94,7 +102,7 @@ export const GameModal = ({ setModal, deleteGame, context, modal, userInfo, refe
           </div>
         </div>
         <div className='modal-buttons'>
-          {(context === 'user_dashboard' && modal.borrowerId) && <button className='modal-button'>Return</button>}
+          {(context === 'user_dashboard' && modal.borrowerId) && <button className='modal-button' onClick={event => returnFriendsGame(event)}>Return</button>}
           {(context === 'user_dashboard' && !modal.borrowerId) && <button className='modal-button delete-button' onClick={() => deleteGame(+modal.game.id)}>Delete</button>}
           {(context === 'user_dashboard' && !modal.borrowerId) && <button className='modal-button'>Make Private</button>}
           {context === 'searched_games' && <button className='modal-button'>Add to Collection</button>}
