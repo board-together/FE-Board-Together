@@ -9,17 +9,17 @@ import { useQuery } from '@apollo/client'
 import { GameModal } from '../Game_Modal/Game_Modal'
 
 
-
-
-export const FriendsGames = ({ searchBarSubmit, userName, setModal, modal }) => {
+export const FriendsGames = ({ searchBarSubmit, userName, setModal, modal, updateUser }) => {
   const friendName = useParams().id
   const { loading, error, data } = useQuery(GET_USER(friendName))
   let friendsGames = data ? data.user.userGames.filter(game => !game.borrowerId) : []
   let friendsGameThumbnails = friendsGames.length ? friendsGames.map((game, index) => <SingleGame key={index} game={game} setModal={setModal}/>) : ''
 
+
+
   return (
     <>
-      {modal && <GameModal setModal={setModal} context={'friends_games'} modal={modal} />}
+      {modal && <GameModal setModal={setModal} context={'friends_games'} modal={modal} updateUser={updateUser}/>}
       <div>
         <Navbar username={userName} searchBarSubmit={searchBarSubmit}></Navbar>
         <Link to={`/dashboard`}>

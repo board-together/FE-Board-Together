@@ -1,9 +1,11 @@
 import React from 'react'
 import './Game_Modal.css'
 
-export const GameModal = ({ setModal, deleteGame, context, modal }) => {
+export const GameModal = ({ setModal, deleteGame, context, modal, updateUser }) => {
 
-
+  const borrowGame = (userObject) => {
+    updateUser(userObject);
+  }
 
   //Lines 6 through 11 are only for cleaning up the dummy data that (specifically the game description)
   //I think matches what we will get from the server. If not, this code can be deleted.

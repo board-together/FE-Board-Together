@@ -76,7 +76,6 @@ export const App = () => {
   }
 
   const searchBarSubmit = (terms) => {
-   
     dispatch({
       type: 'search_result',
       payload: terms
@@ -145,6 +144,7 @@ export const App = () => {
               setModal={setModal}
               modal={state.modal}
               userName={localStorage.getItem('username')}
+              updateUser={updateUser}
             />
           } />
       </Routes>
