@@ -101,17 +101,17 @@ const modalFormatForMute = (modal,Id) => {
     boardGameAtlasId: modal.boardGameAtlasId,
     url: modal.url,
     name: modal.name,
-    yearPublished: String(modal.yearPublished),
-    minPlayers: String(modal.minPlayers),
-    maxPlayers: String(modal.maxPlayers),
-    minPlaytime: String(modal.minPlaytime),
-    maxPlaytime: String(modal.maxPlaytime),
-    minAge: String(modal.minAge),
+    yearPublished: modal.yearPublished,
+    minPlayers: modal.minPlayers,
+    maxPlayers: modal.maxPlayers,
+    minPlaytime: modal.minPlaytime,
+    maxPlaytime: modal.maxPlaytime,
+    minAge: modal.minAge,
     description: modal.description,
-    thumbUrl: String(modal.thumbUrl),
-    imageUrl: String(modal.imageUrl)
+    thumbUrl: modal.thumbUrl,
+    imageUrl: modal.imageUrl
   }
-  console.log(readyForMute)
+  console.log(JSON.stringify(readyForMute))
   return readyForMute
 }
 

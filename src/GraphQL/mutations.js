@@ -53,7 +53,7 @@ export const UPDATE_GAME = () => gql`
 
 export const  ADD_GAME_TO_COLLECTION = (inputObject) => gql`
  mutation {
-  createUserGame(input: ${{inputObject}}) {
+  createUserGame(input: ${inputObject}) {
     user {
       id
       username
