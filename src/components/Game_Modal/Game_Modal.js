@@ -8,15 +8,13 @@ export const GameModal = ({ setModal, deleteGame, context, modal, userInfo, refe
     id: +modal.id,
     borrowerId: +userInfo.id,
     status: 1
-  }
-  : '';
+  } : '';
 
   const returnObject = userInfo ? {
     id: +modal.id,
     borrowerId: null,
     status: 0
-  }
-  : '';
+  } : '';
 
   const [updateUserGame, {data}] = useMutation(UPDATE_USERGAME)
 
@@ -25,7 +23,7 @@ export const GameModal = ({ setModal, deleteGame, context, modal, userInfo, refe
       refetchUser();
       if (refetchFriend) refetchFriend();
     }
-  }, [data, /*refetchFriend, refetchUser*/])
+  }, [data, refetchFriend, refetchUser]) //wrap in a use callback??
   
   const borrowFriendsGame = (event) => {
     event.preventDefault();
