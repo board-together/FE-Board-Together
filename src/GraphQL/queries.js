@@ -12,6 +12,7 @@ export const GET_USER = (userName) => gql`
       id
       username
       userGames {
+        id
         userId
         gameId
         status
@@ -58,39 +59,7 @@ export const GET_USER = (userName) => gql`
   }`
 
 
-//Example query response for single user
-// {
-//   “data”: {
-//     “user”: {
-//       “id”: “10",
-//       “username”: “tuan”,
-//       “userGames”: [
-//         {
-//           “userId”: 10,
-//           “gameId”: 10,
-//           “status”: 0,
-//           “borrowerId”: null,
-//           “game”: {
-//             “id”: “10",
-//             “boardGameAtlasId”: “ed8889",
-//             “url”: “http://hegmann-cummings.io/charity”,
-//             “name”: “Metroid Prime 3: Corruption”,
-//             “yearPublished”: 2023,
-//             “minPlayers”: 2,
-//             “maxPlayers”: 7,
-//             “minPlaytime”: 43,
-//             “maxPlaytime”: 52,
-//             “minAge”: 5,
-//             “description”: “Suscipit laboriosam ratione. Voluptatum quasi tenetur. Consectetur amet atque.“,
-//             “thumbUrl”: “http://fritsch.name/leola.morar”,
-//             “imageUrl”: “https://loremflickr.com/300/300”
-//           }
-//         }
-//       ],
-//       “borrowedGames”: []
-//     }
-//   }
-// }
+
 
 export const GET_GAME_DETAIL = (id) => gql`
     query {

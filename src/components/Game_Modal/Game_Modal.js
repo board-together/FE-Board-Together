@@ -7,8 +7,11 @@ export const GameModal = ({ setModal, deleteGame, context, modal, userInfo, upda
 // console.log('this is the modal', modal)
 //  console.log('this is userInfo', typeof userInfo.id)
 //  console.log('the format',addGamesInput(modal, userInfo.id))
-  const inputVar = addGamesInput(modal, +userInfo.id)
-  const [addGame, { loading, data, error }] = useMutation(ADD_GAME_TO_COLLECTION);
+
+const [addGame, { loading, data, error }] = useMutation(ADD_GAME_TO_COLLECTION);
+  
+    const inputVar = userInfo ? addGamesInput(modal, +userInfo.id) : null     
+    
 
   
 

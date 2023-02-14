@@ -4,7 +4,7 @@ import { GET_ALL_USERS } from '../../GraphQL/queries'
 import './Single_Game.css'
 
 
-const SingleGame = ({ game, setModal, userGames }) => {
+const SingleGame = ({ game, setModal, userGames, userInfo }) => {
 
   const checkIfLentOut = userGames ? 
     userGames.filter(myGame => +myGame.gameId === game.gameId).map(item => item.gameId).includes(game.gameId) && game.borrowerId
