@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from 'react'
+import React from 'react'
 import { Link } from 'react-router-dom'
 import { useParams } from 'react-router'
 import SingleGame from '../Single_Game/Single_Game'
@@ -13,20 +13,12 @@ export const FriendsGames = ({ searchBarSubmit, userName, setModal, modal, userI
   const friendName = useParams().id
 
   const { loading, error, data, refetch } = useQuery(GET_USER(friendName))
-    console.log(`Friend's games: `, data ? data.user.userGames : '');
 
   let friendsGames = data ? data.user.userGames.filter(game => !game.borrowerId) : []
   let friendsGameThumbnails = friendsGames.length ? friendsGames.map((game, index) => <SingleGame key={index} game={game} setModal={setModal}/>) : ''
 
-  useEffect(() => {
-  //  console.log('data: ', data);
-  //  console.log('loading ', loading);
-  }, [data, loading, error])
-
   const refetchFriend = () => {
-    console.log('refetch friend ping');
     refetch();
-    //.then data = data.data?
   }
 
   return (
