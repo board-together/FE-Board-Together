@@ -45,15 +45,19 @@ const reducer = (state, action) => {
       userCopy.games = action.payload
       return { ...state, user: userCopy, modal: null }
     }
+    // case "borrow_game": {
+    //   const userCopy = state.user
+    //   // userCopy.borrowedGames = [...userCopy.borrowedGames, action.payload]
+    //   return {...state, user: userCopy, modal: null}
+    // }
     default:
       return state
   }
 }
 
 export const App = () => {
-
   const [state, dispatch] = useReducer(reducer, initialState)
-  const { loading, error, data } = useQuery(GET_USER(localStorage.getItem('username')))
+  const { loading, error, data, refetch } = useQuery(GET_USER(localStorage.getItem('username')))
   // const [mutation] = useMutation(CREATE_USER('CoolGuy1975'), {
   //   onCompleted: (data) => {
   //     console.log(data)
@@ -105,6 +109,10 @@ export const App = () => {
     dispatch({ type: 'delete_game', payload: filteredGames })
   }
 
+  const refetchUser = () => {
+    console.log('refresh user ping');
+    refetch();
+  }
 
   return (
     <div className='App'>
@@ -143,8 +151,8 @@ export const App = () => {
               setModal={setModal}
               modal={state.modal}
               userName={localStorage.getItem('username')}
-              updateUser={updateUser}
               userInfo={state.user}
+              refetchUser={refetchUser}
             />
           } />
       </Routes>

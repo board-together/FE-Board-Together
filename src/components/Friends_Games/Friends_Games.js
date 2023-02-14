@@ -9,7 +9,7 @@ import { useQuery } from '@apollo/client'
 import { GameModal } from '../Game_Modal/Game_Modal'
 
 
-export const FriendsGames = ({ searchBarSubmit, userName, setModal, modal, updateUser, userInfo }) => {
+export const FriendsGames = ({ searchBarSubmit, userName, setModal, modal, userInfo, refetchUser }) => {
   const friendName = useParams().id
 
   const { loading, error, data, refetch } = useQuery(GET_USER(friendName))
@@ -24,7 +24,9 @@ export const FriendsGames = ({ searchBarSubmit, userName, setModal, modal, updat
   }, [data, loading, error])
 
   const refetchFriend = () => {
-    refetch(); //not working(?)
+    console.log('refetch friend ping');
+    refetch();
+    //.then data = data.data?
   }
 
   return (
@@ -33,9 +35,9 @@ export const FriendsGames = ({ searchBarSubmit, userName, setModal, modal, updat
         setModal={setModal} 
         context={'friends_games'} 
         modal={modal} 
-        updateUser={updateUser}
         refetchFriend={refetchFriend}
-        userInfo={userInfo}/>
+        userInfo={userInfo}
+        refetchUser={refetchUser}/>
       }
       <div>
         <Navbar username={userName} searchBarSubmit={searchBarSubmit}></Navbar>

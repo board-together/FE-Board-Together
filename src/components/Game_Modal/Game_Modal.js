@@ -1,14 +1,13 @@
-import React from 'react'
+import React, { useEffect } from 'react'
 import './Game_Modal.css'
 import { UPDATE_USERGAME } from '../../GraphQL/mutations'
 import { useMutation } from '@apollo/client'
 
-export const GameModal = ({ setModal, deleteGame, context, modal, updateUser, refetchFriend, userInfo }) => {
+export const GameModal = ({ setModal, deleteGame, context, modal, userInfo, refetchFriend, refetchUser }) => {
 
-  console.log('modal: ', modal);
-
+  // console.log('modal: ', modal);
   const inputObject = userInfo ? {
-    id: +modal.gameId, //should be game id maybe?? what is gameId vs game.id???
+    id: +modal.id,
     borrowerId: +userInfo.id,
     status: 1
   }
@@ -16,11 +15,18 @@ export const GameModal = ({ setModal, deleteGame, context, modal, updateUser, re
 
   const [updateUserGame, {loading, error, data}] = useMutation(UPDATE_USERGAME)
   console.log('response from mutation: ', data);
+
+  useEffect(() => {
+    if (data) {
+      refetchUser();
+      refetchFriend();  
+    }
+  }, [data, /*refetchFriend, refetchUser*/])
   
-  const borrowGame = (event) => {
+  const borrowFriendsGame = (event) => {
     event.preventDefault();
-    updateUserGame({ variables: { input: inputObject } }) //HOW DOES IT KNOW WHO TO TAKE IT FROM
-    refetchFriend()
+    updateUserGame({ variables: { input: inputObject } });
+    console.log('data w/in borrowgame: ', data);
   }
 
   //Lines 6 through 11 are only for cleaning up the dummy data that (specifically the game description)
@@ -92,7 +98,7 @@ export const GameModal = ({ setModal, deleteGame, context, modal, updateUser, re
           {(context === 'user_dashboard' && !modal.borrowerId) && <button className='modal-button delete-button' onClick={() => deleteGame(+modal.game.id)}>Delete</button>}
           {(context === 'user_dashboard' && !modal.borrowerId) && <button className='modal-button'>Make Private</button>}
           {context === 'searched_games' && <button className='modal-button'>Add to Collection</button>}
-          {context === 'friends_games' && <button className='modal-button' onClick={event => borrowGame(event)}>Borrow</button>}
+          {context === 'friends_games' && <button className='modal-button' onClick={event => borrowFriendsGame(event)}>Borrow</button>}
         </div>
       </div>
     </div>
