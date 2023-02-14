@@ -87,7 +87,7 @@ export const GameModal = ({ setModal, context, modal, userInfo, refetchFriend, r
     description = cleanGameDescription(modal.game.description)
     averagePlayTime = (modal.game.minPlaytime + modal.game.maxPlaytime) / 2
   }
-console.log('userInfo: ', userInfo, '+', modal);
+
   return (
     <div className='modal-container'>
       <div className='game-modal'>

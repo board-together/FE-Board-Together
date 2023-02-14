@@ -53,11 +53,9 @@ export const App = () => {
 
   useEffect(() => {
     if (error) {
-      // console.log('ERROR: ', error.message)
       dispatch({ type: 'error', payload: error })
     }
     if (data) {
-      console.log(data.user)
       dispatch({ type: 'success', payload: data.user })
     }
   }, [data, loading, error]);
