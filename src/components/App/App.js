@@ -45,11 +45,6 @@ const reducer = (state, action) => {
       userCopy.games = action.payload
       return { ...state, user: userCopy, modal: null }
     }
-    // case "borrow_game": {
-    //   const userCopy = state.user
-    //   // userCopy.borrowedGames = [...userCopy.borrowedGames, action.payload]
-    //   return {...state, user: userCopy, modal: null}
-    // }
     default:
       return state
   }
@@ -58,12 +53,6 @@ const reducer = (state, action) => {
 export const App = () => {
   const [state, dispatch] = useReducer(reducer, initialState)
   const { loading, error, data, refetch } = useQuery(GET_USER(localStorage.getItem('username')))
-  // const [mutation] = useMutation(CREATE_USER('CoolGuy1975'), {
-  //   onCompleted: (data) => {
-  //     console.log(data)
-  //   }
-  // })
-  // const [GET_USER, { data, loading, error }] = useMutation(GET_USER("argdfga"));
 
   useEffect(() => {
     if (error) {
@@ -110,7 +99,6 @@ export const App = () => {
   }
 
   const refetchUser = () => {
-    console.log('refresh user ping');
     refetch();
   }
 
@@ -130,6 +118,7 @@ export const App = () => {
               error={error}
               data={data}
               userName={localStorage.getItem('username')}
+              refetchUser={refetchUser}
             />
           } />
         <Route path='/search-results/:searchTerm'
