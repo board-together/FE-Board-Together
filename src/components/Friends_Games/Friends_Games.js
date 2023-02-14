@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { useEffect, useState } from 'react'
 import { Link } from 'react-router-dom'
 import { useParams } from 'react-router'
 import SingleGame from '../Single_Game/Single_Game'
@@ -9,17 +9,34 @@ import { useQuery } from '@apollo/client'
 import { GameModal } from '../Game_Modal/Game_Modal'
 
 
-export const FriendsGames = ({ searchBarSubmit, userName, setModal, modal, updateUser }) => {
+export const FriendsGames = ({ searchBarSubmit, userName, setModal, modal, updateUser, userInfo }) => {
   const friendName = useParams().id
-  const { loading, error, data } = useQuery(GET_USER(friendName))
+
+  const { loading, error, data, refetch } = useQuery(GET_USER(friendName))
+    console.log(`Friend's games: `, data ? data.user.userGames : '');
+
   let friendsGames = data ? data.user.userGames.filter(game => !game.borrowerId) : []
   let friendsGameThumbnails = friendsGames.length ? friendsGames.map((game, index) => <SingleGame key={index} game={game} setModal={setModal}/>) : ''
 
+  useEffect(() => {
+  //  console.log('data: ', data);
+  //  console.log('loading ', loading);
+  }, [data, loading, error])
 
+  const refetchFriend = () => {
+    refetch(); //not working(?)
+  }
 
   return (
     <>
-      {modal && <GameModal setModal={setModal} context={'friends_games'} modal={modal} updateUser={updateUser}/>}
+      {modal && <GameModal 
+        setModal={setModal} 
+        context={'friends_games'} 
+        modal={modal} 
+        updateUser={updateUser}
+        refetchFriend={refetchFriend}
+        userInfo={userInfo}/>
+      }
       <div>
         <Navbar username={userName} searchBarSubmit={searchBarSubmit}></Navbar>
         <Link to={`/dashboard`}>
