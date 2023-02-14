@@ -63,7 +63,7 @@ export const App = () => {
 
   useEffect(() => {
     if (error) {
-      console.log('ERROR: ', error.message)
+      // console.log('ERROR: ', error.message)
       dispatch({ type: 'error', payload: error })
     }
     if (data) {
@@ -91,7 +91,6 @@ export const App = () => {
   }, []);
 
   const setModal = (game = null) => {
-    console.log(game)
     if (game) {
       //const modalInfo = state.user.userGames.find(game => +game.game.id === id)
       //NOTE: modal does not work for borrowed games right now because borrowed games are coming from mock data, should be in same array once BE is set up.
@@ -145,6 +144,7 @@ export const App = () => {
               modal={state.modal}
               userName={localStorage.getItem('username')}
               updateUser={updateUser}
+              userInfo={state.user}
             />
           } />
       </Routes>
