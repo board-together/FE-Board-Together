@@ -6,13 +6,13 @@
 .single-game-img {
   width: 250px;
   height: auto;
-  border-top: 5px solid transparent;
-  border-bottom: 5px solid transparent;
+  border: 4px solid transparent;
+  transition-duration: 300ms;
 }
 
 .single-game-img:hover {
-  border-top: 5px solid rgb(62, 110, 232);
-  border-bottom: 5px solid rgb(62, 110, 232);
+  border: 4px solid #FD3F01;
+  transform: scale(1.05);
   cursor: pointer;
 }
 

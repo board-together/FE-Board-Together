@@ -9,10 +9,11 @@ export const Navbar = ({ searchBarSubmit, username }) => {
 
   return (
     <div className='navbar-container'>
-      <h2 className='welcome-greeting'>Welcome, {username}!</h2>
-      {/* make the above not a string when we take in a user.  */}
-      <h1 className='app-name'>Board Together</h1>
-      <Searchbar submit={searchBarSubmit} />
+      <h1 className='app-name'>B O A R D TOGETHER</h1>
+      <div className='searchbar-container'>
+        <h2 className='welcome-greeting'>Welcome, {username}!</h2>
+        <Searchbar submit={searchBarSubmit} />
+      </div>
     </div>
   )
 }

@@ -16,7 +16,7 @@ export const UserDashboard = ({ userInfo, searchBarSubmit, deleteGame, setModal,
   const allUsersData = useQuery(GET_ALL_USERS).data;
   const friendsList = allUsersData && userInfo ? allUsersData.users.filter(user => user.username !== userInfo.username) : [];
   const friends = friendsList.map(friend => {
-    return (<Link to={`/friends-games/${friend.username}`} key={friend.id}> 
+    return (<Link to={`/friends-games/${friend.username}`} key={friend.id} className="friend-link"> 
               <p key={friend.id} className="friend">{friend.username}</p>
             </Link>)
     })
@@ -33,7 +33,6 @@ export const UserDashboard = ({ userInfo, searchBarSubmit, deleteGame, setModal,
         {loading && <h1>Loading...</h1>}
         {data && <>
           <div className='game-collection-section'>
-            <h1 className='my-games-heading'>My Games</h1>
             <h2>Games I'm Borrowing</h2>
             <div className='borrowed-games-collection'>{borrowedGames}</div>
             <h2>My Game Collection</h2>

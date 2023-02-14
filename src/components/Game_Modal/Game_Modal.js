@@ -60,7 +60,7 @@ export const GameModal = ({ setModal, deleteGame, context, modal }) => {
           <h1>{modal.game.name}</h1><p>({modal.game.yearPublished})</p>
         </span>
         <div className='modal-content'>
-          <img className='modal-image' alt={`Box Cover of ${modal.game.name || modal.game}`} src={modal.game.imageUrl} />
+          <img className='modal-image' alt={`Box Cover of ${modal.game.name}`} src={modal.game.imageUrl} />
           <div className='modal-details'>
             <p>Players: {modal.game.minPlayers} to {modal.game.maxPlayers}</p>
             <p>Average Playtime: {averagePlayTime} minutes</p>

@@ -19,3 +19,14 @@ export const UPDATE_GAME = () => gql`
       }  
     }
   `
+
+export const DELETE_GAME = () => gql`
+  mutation {
+    deleteUserGame(input :{
+        id: 1
+        }) {
+        id
+        errors
+    }
+  }
+`
