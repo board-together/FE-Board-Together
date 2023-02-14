@@ -51,14 +51,14 @@ const reducer = (state, action) => {
 }
 
 export const App = () => {
-
   const [state, dispatch] = useReducer(reducer, initialState)
-  const { loading, error, data } = useQuery(GET_USER(localStorage.getItem('username')))
+
+  const { loading, error, data, refetch } = useQuery(GET_USER(localStorage.getItem('username')))
 
 
   useEffect(() => {
     if (error) {
-      console.log('ERROR: ', error.message)
+      // console.log('ERROR: ', error.message)
       dispatch({ type: 'error', payload: error })
     }
     if (data) {
@@ -71,7 +71,6 @@ export const App = () => {
   }
 
   const searchBarSubmit = (terms) => {
-   
     dispatch({
       type: 'search_result',
       payload: terms
@@ -87,7 +86,7 @@ export const App = () => {
   }, []);
 
   const setModal = (game = null) => {
-   
+
     if (game) {
       dispatch({ type: 'set_modal', payload: game })
     } else {
@@ -120,6 +119,9 @@ const modalFormatForMute = (modal,Id) => {
     dispatch({ type: 'delete_game', payload: filteredGames })
   }
 
+  const refetchUser = () => {
+    refetch();
+  }
 
   return (
     <div className='App'>
@@ -137,6 +139,7 @@ const modalFormatForMute = (modal,Id) => {
               error={error}
               data={data}
               userName={localStorage.getItem('username')}
+              refetchUser={refetchUser}
             />
           } />
         <Route path='/search-results/:searchTerm'
@@ -159,6 +162,8 @@ const modalFormatForMute = (modal,Id) => {
               setModal={setModal}
               modal={state.modal}
               userName={localStorage.getItem('username')}
+              userInfo={state.user}
+              refetchUser={refetchUser}
             />
           } />
       </Routes>

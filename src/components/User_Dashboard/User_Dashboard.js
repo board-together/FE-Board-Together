@@ -9,7 +9,7 @@ import { useQuery } from '@apollo/client'
 
 
 
-export const UserDashboard = ({ userInfo, searchBarSubmit, deleteGame, setModal, modal, loading, error, data, userName }) => {
+export const UserDashboard = ({ userInfo, searchBarSubmit, deleteGame, setModal, modal, loading, error, data, userName, refetchUser }) => {
 
   const allUsersLoading = useQuery(GET_ALL_USERS).loading;
   const allUsersError = useQuery(GET_ALL_USERS).error;
@@ -21,12 +21,14 @@ export const UserDashboard = ({ userInfo, searchBarSubmit, deleteGame, setModal,
             </Link>)
     })
 
-  const games = userInfo ? userInfo.userGames.map((game, index) => <SingleGame key={index} game={game} setModal={setModal} userInfo={userInfo} userGames={userInfo.userGames}/>) : []
-  const borrowedGames = userInfo ? userInfo.borrowedGames.map((game, index) => <SingleGame key={index} game={game} setModal={setModal} />) : []
-    
+
+  const games = userInfo ? userInfo.userGames.map((game, index) => <SingleGame key={index} game={game} setModal={setModal} userGames={userInfo.userGames} userInfo={userInfo} context={'userGames'}/>) : []
+  const borrowedGames = userInfo ? userInfo.borrowedGames.map((game, index) => <SingleGame key={index} game={game} setModal={setModal} userGames={userInfo.userGames} context={'borrowedGames'}/>) : []
+
+
   return (
     <>
-      {modal && <GameModal setModal={setModal} deleteGame={deleteGame} context={'user_dashboard'} modal={modal} />}
+      {modal && <GameModal setModal={setModal} deleteGame={deleteGame} context={'user_dashboard'} modal={modal} userInfo={userInfo} refetchUser={refetchUser}/>}
       <Navbar username={userName} searchBarSubmit={searchBarSubmit} />
       <div className='user-dashboard'>
         {error && <h1>Error loading data: {error.message}</h1>}

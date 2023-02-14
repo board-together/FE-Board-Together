@@ -1,12 +1,12 @@
-import React from 'react'
+import React, { useEffect } from 'react'
 import './Game_Modal.css'
 import { useMutation } from "@apollo/client"
 import { ADD_GAME_TO_COLLECTION } from '../../GraphQL/mutations'
+import { UPDATE_USERGAME } from '../../GraphQL/mutations'
 
 
-export const GameModal = ({ setModal, deleteGame, context, modal, userInfo, updateUser, addGamesInput }) => {
-
-const [addGame, { loading, data, error }] = useMutation(ADD_GAME_TO_COLLECTION);
+export const GameModal = ({ setModal, deleteGame, context, modal, userInfo, refetchFriend, refetchUser, addGamesInput }) => {
+  const [addGame, { loading, data, error }] = useMutation(ADD_GAME_TO_COLLECTION);
   if(loading) {
     <h1>Loadin...</h1>
   }
@@ -25,6 +25,40 @@ const clickHelper = () => {
   }, "1000")
 }
   
+  const borrowObject = userInfo ? {
+    id: +modal.id,
+    borrowerId: +userInfo.id,
+    status: 1
+  } : '';
+
+  const returnObject = userInfo ? {
+    id: +modal.id,
+    borrowerId: null,
+    status: 0
+  } : '';
+
+  const [updateUserGame, {data}] = useMutation(UPDATE_USERGAME)
+
+  useEffect(() => {
+    if (data) {
+      refetchUser();
+      if (refetchFriend) refetchFriend();
+    }
+  }, [data, refetchFriend, refetchUser]) //wrap in a use callback??
+  
+  const borrowFriendsGame = (event) => {
+    event.preventDefault();
+    updateUserGame({ variables: { input: borrowObject } });
+  }
+
+  const returnFriendsGame = (event) => {
+    event.preventDefault();
+    updateUserGame({ variables: { input: returnObject } });
+  }
+
+
+
+
 
   if (context === 'searched_games') {
     let array = ['<p>', '</p>', '<em>', '</em>', '<br>', '<br />', '<strong>', '</strong>']
@@ -88,11 +122,11 @@ const clickHelper = () => {
           </div>
         </div>
         <div className='modal-buttons'>
-          {(context === 'user_dashboard' && modal.borrowerId) && <button className='modal-button'>Return</button>}
+          {(context === 'user_dashboard' && modal.borrowerId) && <button className='modal-button' onClick={event => returnFriendsGame(event)}>Return</button>}
           {(context === 'user_dashboard' && !modal.borrowerId) && <button className='modal-button delete-button' onClick={() => deleteGame(+modal.game.id)}>Delete</button>}
           {(context === 'user_dashboard' && !modal.borrowerId) && <button className='modal-button'>Make Private</button>}
           {context === 'searched_games' && <button className='modal-button'>Add to Collection</button>}
-          {context === 'friends_games' && <button className='modal-button'>Borrow</button>}
+          {context === 'friends_games' && <button className='modal-button' onClick={event => borrowFriendsGame(event)}>Borrow</button>}
         </div>
       </div>
     </div>
