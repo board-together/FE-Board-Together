@@ -27,8 +27,8 @@ describe('User Dashboard', () => {
     cy.get('.friends-section').contains('My Friends')
     cy.get('.friends-list').should('be.visible')
     cy.get('.friend').first().contains('Pickafloof')
-    cy.get('.friend').eq(1).contains('mikedao')
-    cy.get('.friend').eq(2).contains('abdulredd')
+    cy.get('[href="/friends-games/jeff"] > .friend').contains('jeff')
+    cy.get('[href="/friends-games/abdulredd"] > .friend').contains('abdulredd')
     //Will need to test all or stub data
   })
 

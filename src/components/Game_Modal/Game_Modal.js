@@ -7,7 +7,15 @@ import { ADD_GAME_TO_COLLECTION } from '../../GraphQL/mutations'
 export const GameModal = ({ setModal, deleteGame, context, modal, userInfo, updateUser, addGamesInput }) => {
 
 const [addGame, { loading, data, error }] = useMutation(ADD_GAME_TO_COLLECTION);
-  
+  if(loading) {
+    <h1>Loadin...</h1>
+  }
+  if(data){
+    console.log(data)
+  }
+  if(error) {
+    console.log(error)
+  }
     const inputVar = userInfo ? addGamesInput(modal, +userInfo.id) : null     
     
 const clickHelper = () => {

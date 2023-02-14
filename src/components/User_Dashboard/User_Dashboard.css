@@ -49,6 +49,7 @@
 
 .friends-section {
   display: flex;
+  height: max-content;
   flex-direction: column;
   padding: 10px;
   border: solid black 2px;
