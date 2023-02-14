@@ -20,12 +20,12 @@ export const GameModal = ({ setModal, context, modal, userInfo, refetchFriend, r
   }
     const inputVar = userInfo && addGamesInput ? addGamesInput(modal, +userInfo.id) : null     
     
-const clickHelper = () => {
-  addGame({ variables: { input: inputVar } })
-  setTimeout(() => {
-   setModal()
-  }, "1000")
-}
+  const clickHelper = () => {
+    addGame({ variables: { input: inputVar } })
+    setTimeout(() => {
+    setModal()
+    }, "1000")
+  }
   
   const borrowObject = userInfo ? {
     id: +modal.id,
@@ -54,11 +54,17 @@ const clickHelper = () => {
   const borrowFriendsGame = (event) => {
     event.preventDefault();
     updateUserGame({ variables: { input: borrowObject } });
+    setTimeout(() => {
+      setModal()
+      }, "1000");  
   }
 
   const returnFriendsGame = (event) => {
     event.preventDefault();
     updateUserGame({ variables: { input: returnObject } });
+    setTimeout(() => {
+      setModal()
+      }, "1000");  
   }
 
   const deleteGameInfo = useMutation(DELETE_GAME)
@@ -81,7 +87,7 @@ const clickHelper = () => {
     description = cleanGameDescription(modal.game.description)
     averagePlayTime = (modal.game.minPlaytime + modal.game.maxPlaytime) / 2
   }
-
+console.log('userInfo: ', userInfo, '+', modal);
   return (
     <div className='modal-container'>
       <div className='game-modal'>
@@ -102,7 +108,7 @@ const clickHelper = () => {
           </div>
         </div>
         <div className='modal-buttons'>
-          {(context === 'user_dashboard' && modal.borrowerId)
+          {(context === 'user_dashboard' && modal.borrowerId && modal.borrowerId === +userInfo.id)
             && <button className='modal-button' onClick={event => returnFriendsGame(event)}>Return Friend's Game</button>}
           {(context === 'user_dashboard' && !modal.borrowerId)
             && <button className='modal-button delete-button'
