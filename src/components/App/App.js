@@ -69,7 +69,11 @@ export const App = () => {
     if (data) {
       dispatch({ type: 'success', payload: data.user })
     }
-  }, [data, loading, error])
+  }, [data, loading, error]);
+
+  const updateUser = (userObject) => {
+    dispatch({ type: 'success', payload: userObject })
+  }
 
   const searchBarSubmit = (terms) => {
    
@@ -131,6 +135,7 @@ export const App = () => {
               setModal={setModal}
               modal={state.modal}
               userName={localStorage.getItem('username')}
+              updateUser={updateUser}
             />
           } />
         <Route path='/friends-games/:id'
