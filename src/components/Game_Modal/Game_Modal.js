@@ -1,6 +1,6 @@
 import React, { useEffect } from 'react'
 import { cleanGameDescription } from '../../utils'
-import { DELETE_GAME } from '../../GraphQL/mutations
+import { DELETE_GAME } from '../../GraphQL/mutations'
 import './Game_Modal.css'
 import { useMutation } from "@apollo/client"
 import { ADD_GAME_TO_COLLECTION } from '../../GraphQL/mutations'
