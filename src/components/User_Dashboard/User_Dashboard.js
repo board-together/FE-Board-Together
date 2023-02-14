@@ -9,7 +9,7 @@ import { useQuery } from '@apollo/client'
 
 
 
-export const UserDashboard = ({ userInfo, searchBarSubmit, deleteGame, setModal, modal, loading, error, data, userName }) => {
+export const UserDashboard = ({ userInfo, searchBarSubmit, deleteGame, setModal, modal, loading, error, data, userName, refetchUser }) => {
 
   const allUsersLoading = useQuery(GET_ALL_USERS).loading;
   const allUsersError = useQuery(GET_ALL_USERS).error;
@@ -26,7 +26,7 @@ export const UserDashboard = ({ userInfo, searchBarSubmit, deleteGame, setModal,
 
   return (
     <>
-      {modal && <GameModal setModal={setModal} deleteGame={deleteGame} context={'user_dashboard'} modal={modal} />}
+      {modal && <GameModal setModal={setModal} deleteGame={deleteGame} context={'user_dashboard'} modal={modal} refetchUser={refetchUser}/>}
       <Navbar username={userName} searchBarSubmit={searchBarSubmit} />
       <div className='user-dashboard'>
         {error && <h1>Error loading data: {error.message}</h1>}

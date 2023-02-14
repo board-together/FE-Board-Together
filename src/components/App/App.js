@@ -8,10 +8,6 @@ import { FriendsGames } from '../Friends_Games/Friends_Games'
 import { GET_USER } from '../../GraphQL/queries'
 import { useQuery } from "@apollo/client"
 
-
-
-
-
 const initialState = {
   searchResults: [],
   user: null,
@@ -53,13 +49,7 @@ const reducer = (state, action) => {
 export const App = () => {
 
   const [state, dispatch] = useReducer(reducer, initialState)
-  const { loading, error, data } = useQuery(GET_USER(localStorage.getItem('username')))
-  // const [mutation] = useMutation(CREATE_USER('CoolGuy1975'), {
-  //   onCompleted: (data) => {
-  //     console.log(data)
-  //   }
-  // })
-  // const [GET_USER, { data, loading, error }] = useMutation(GET_USER("argdfga"));
+  const { loading, error, data, refetch } = useQuery(GET_USER(localStorage.getItem('username')))
 
   useEffect(() => {
     if (error) {
@@ -67,6 +57,7 @@ export const App = () => {
       dispatch({ type: 'error', payload: error })
     }
     if (data) {
+      console.log(data.user)
       dispatch({ type: 'success', payload: data.user })
     }
   }, [data, loading, error]);
@@ -93,8 +84,6 @@ export const App = () => {
 
   const setModal = (game = null) => {
     if (game) {
-      //const modalInfo = state.user.userGames.find(game => +game.game.id === id)
-      //NOTE: modal does not work for borrowed games right now because borrowed games are coming from mock data, should be in same array once BE is set up.
       dispatch({ type: 'set_modal', payload: game })
     } else {
       dispatch({ type: 'set_modal' })
@@ -106,6 +95,9 @@ export const App = () => {
     dispatch({ type: 'delete_game', payload: filteredGames })
   }
 
+  const refetchUser = () => {
+    refetch()
+  }
 
   return (
     <div className='App'>
@@ -123,6 +115,7 @@ export const App = () => {
               error={error}
               data={data}
               userName={localStorage.getItem('username')}
+              refetchUser={refetchUser}
             />
           } />
         <Route path='/search-results/:searchTerm'
@@ -135,6 +128,7 @@ export const App = () => {
               modal={state.modal}
               userName={localStorage.getItem('username')}
               updateUser={updateUser}
+              refetch={refetch}
             />
           } />
         <Route path='/friends-games/:id'

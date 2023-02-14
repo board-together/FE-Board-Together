@@ -1,15 +1,21 @@
-import React from 'react'
-import { gql, useMutation } from '@apollo/client'
+import React, { useEffect } from 'react'
+import { useMutation } from '@apollo/client'
 import { cleanGameDescription } from '../../utils'
 import { DELETE_GAME } from '../../GraphQL/mutations'
 import './Game_Modal.css'
 
-export const GameModal = ({ setModal, context, modal }) => {
+export const GameModal = ({ setModal, context, modal, refetchUser }) => {
 
   const [deleteGame, { data, loading, error }] = useMutation(DELETE_GAME)
 
   let averagePlayTime
   let description
+
+  useEffect(() => {
+    if (data) {
+      refetchUser();
+    }
+  }, [data, refetchUser])
 
   if (context === 'searched_games') {
     description = cleanGameDescription(modal.description)
@@ -17,14 +23,6 @@ export const GameModal = ({ setModal, context, modal }) => {
   } else {
     description = cleanGameDescription(modal.game.description)
     averagePlayTime = (modal.game.minPlaytime + modal.game.maxPlaytime) / 2
-  }
-
-  const handleDelete = () => {
-    if (context === 'searched_games') {
-      deleteGame({ variables: { type: modal.id } })
-    } else {
-      deleteGame({ variables: { type: modal.id } })
-    }
   }
 
   return (
@@ -50,7 +48,12 @@ export const GameModal = ({ setModal, context, modal }) => {
           {(context === 'user_dashboard' && modal.borrowerId)
             && <button className='modal-button'>Return Game</button>}
           {(context === 'user_dashboard' && !modal.borrowerId)
-            && <button className='modal-button delete-button' onClick={handleDelete}>Delete</button>}
+            && <button className='modal-button delete-button'
+              onClick={() => {
+                deleteGame({ variables: { input: { id: +modal.id } } })
+                setModal()
+                refetchUser()
+              }}>Delete</button>}
           {(context === 'user_dashboard' && !modal.borrowerId)
             && <button className='modal-button'>Make Private</button>}
           {context === 'searched_games'
