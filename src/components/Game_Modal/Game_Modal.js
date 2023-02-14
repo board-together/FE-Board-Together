@@ -3,6 +3,7 @@ import './Game_Modal.css'
 import { useMutation } from "@apollo/client"
 import { ADD_GAME_TO_COLLECTION } from '../../GraphQL/mutations'
 
+
 export const GameModal = ({ setModal, deleteGame, context, modal, userInfo, updateUser, addGamesInput }) => {
 // console.log('this is the modal', modal)
 //  console.log('this is userInfo', typeof userInfo.id)
@@ -12,7 +13,12 @@ const [addGame, { loading, data, error }] = useMutation(ADD_GAME_TO_COLLECTION);
   
     const inputVar = userInfo ? addGamesInput(modal, +userInfo.id) : null     
     
-
+const clickHelper = () => {
+  addGame({ variables: { input: inputVar } })
+  setTimeout(() => {
+   setModal()
+  }, "1000")
+}
   
 
   if (context === 'searched_games') {
@@ -43,7 +49,7 @@ const [addGame, { loading, data, error }] = useMutation(ADD_GAME_TO_COLLECTION);
             </div>
           </div>
           <div className='modal-buttons'>
-            <button className='modal-button' onClick={ () => addGame({ variables: { input: inputVar } })} >Add to Collection</button>
+           <button className='modal-button' onClick={ () => clickHelper()} >Add to Collection</button>
            
           </div>
         </div>
