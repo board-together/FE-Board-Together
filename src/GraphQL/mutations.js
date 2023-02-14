@@ -52,8 +52,8 @@ export const UPDATE_GAME = () => gql`
 
 
 export const  ADD_GAME_TO_COLLECTION = (inputObject) => gql`
-   createUserGame(input: ${inputObject}) {
-   {
+ mutation {
+  createUserGame(input: ${{inputObject}}) {
     user {
       id
       username
@@ -64,21 +64,21 @@ export const  ADD_GAME_TO_COLLECTION = (inputObject) => gql`
         status
         borrowerId
         game {
-          id  
+          id
           boardGameAtlasId
           url
           name
           yearPublished
-          minPlayers
-          maxPlayers
           minPlaytime
-          maxPlaytime
+          minPlayers
           minAge
+          maxPlaytime
+          maxPlayers
           description
           thumbUrl
           imageUrl
         }
       }
-    } 
- }
-`
+    }
+  }
+}`

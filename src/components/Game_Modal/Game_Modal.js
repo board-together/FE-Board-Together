@@ -4,12 +4,14 @@ import { useMutation } from "@apollo/client"
 import { ADD_GAME_TO_COLLECTION } from '../../GraphQL/mutations'
 
 export const GameModal = ({ setModal, deleteGame, context, modal, userInfo, updateUser, addGamesInput }) => {
-console.log('this is the modal', modal)
-console.log('this is userInfo', userInfo)
-// console.log('the format',addGamesInput(modal, userInfo.id))
-  const { loading, data, error } = useMutation(ADD_GAME_TO_COLLECTION(addGamesInput(modal, userInfo.id)));
-    console.log('this is the response from mutation', data)
-
+// console.log('this is the modal', modal)
+// console.log('this is userInfo', userInfo)
+//  console.log('the format',addGamesInput(modal, userInfo.id))
+  const[ addGame, { loading, data, error } ] = useMutation(ADD_GAME_TO_COLLECTION(addGamesInput(modal, userInfo.id)));
+   if(loading) { 
+    <h1>adding game</h1>
+   }
+  
 
   if (context === 'searched_games') {
     let array = ['<p>', '</p>', '<em>', '</em>', '<br>', '<br />', '<strong>', '</strong>']
@@ -39,7 +41,7 @@ console.log('this is userInfo', userInfo)
             </div>
           </div>
           <div className='modal-buttons'>
-            <button className='modal-button'>Add to Collection</button>
+            <button className='modal-button' onClick={addGame}>Add to Collection</button>
           </div>
         </div>
       </div>

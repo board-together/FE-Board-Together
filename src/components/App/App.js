@@ -54,12 +54,7 @@ export const App = () => {
 
   const [state, dispatch] = useReducer(reducer, initialState)
   const { loading, error, data } = useQuery(GET_USER(localStorage.getItem('username')))
-  // const [mutation] = useMutation(CREATE_USER('CoolGuy1975'), {
-  //   onCompleted: (data) => {
-  //     console.log(data)
-  //   }
-  // })
-  // const [GET_USER, { data, loading, error }] = useMutation(GET_USER("argdfga"));
+
 
   useEffect(() => {
     if (error) {
@@ -92,7 +87,7 @@ export const App = () => {
   }, []);
 
   const setModal = (game = null) => {
-    console.log(game)
+   
     if (game) {
       dispatch({ type: 'set_modal', payload: game })
     } else {
@@ -101,21 +96,22 @@ export const App = () => {
   }
 
 const modalFormatForMute = (modal,Id) => {
-  const readyForMute =   { 
+  const readyForMute =  { 
     userId: Id,
     boardGameAtlasId: modal.boardGameAtlasId,
     url: modal.url,
     name: modal.name,
-    yearPublished: modal.yearPublished,
-    minPlayers: modal.minPlayers,
-    maxPlayers: modal.maxPlayers,
-    minPlaytime: modal.minPlaytime,
-    maxPlaytime: modal.maxPlaytime,
-    minAge: modal.minAge,
+    yearPublished: String(modal.yearPublished),
+    minPlayers: String(modal.minPlayers),
+    maxPlayers: String(modal.maxPlayers),
+    minPlaytime: String(modal.minPlaytime),
+    maxPlaytime: String(modal.maxPlaytime),
+    minAge: String(modal.minAge),
     description: modal.description,
-    thumbUrl: modal.thumbUrl,
-    imageUrl: modal.imageUrl
+    thumbUrl: String(modal.thumbUrl),
+    imageUrl: String(modal.imageUrl)
   }
+  console.log(readyForMute)
   return readyForMute
 }
 
