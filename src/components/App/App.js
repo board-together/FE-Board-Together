@@ -135,6 +135,7 @@ export const App = () => {
               setModal={setModal}
               modal={state.modal}
               userName={localStorage.getItem('username')}
+              updateUser={updateUser}
             />
           } />
         <Route path='/friends-games/:id'
