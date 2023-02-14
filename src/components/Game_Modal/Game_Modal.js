@@ -1,13 +1,14 @@
 import React from 'react'
 import './Game_Modal.css'
-import { useQuery } from "@apollo/client"
+import { useMutation } from "@apollo/client"
+import { ADD_GAME_TO_COLLECTION } from '../../GraphQL/mutations'
 
 export const GameModal = ({ setModal, deleteGame, context, modal, userInfo, updateUser, addGamesInput }) => {
-
 console.log('this is the modal', modal)
-
-  //Lines 6 through 11 are only for cleaning up the dummy data that (specifically the game description)
-  //I think matches what we will get from the server. If not, this code can be deleted.
+console.log('this is userInfo', userInfo)
+// console.log('the format',addGamesInput(modal, userInfo.id))
+  const { loading, data, error } = useMutation(ADD_GAME_TO_COLLECTION(addGamesInput(modal, userInfo.id)));
+    console.log('this is the response from mutation', data)
 
 
   if (context === 'searched_games') {
