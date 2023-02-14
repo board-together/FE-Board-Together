@@ -8,7 +8,7 @@ export const GameModal = ({ setModal, context, modal, refetchUser }) => {
 
   const deleteGameInfo = useMutation(DELETE_GAME)
   const deleteGame = deleteGameInfo[0]
-  const deleteGameData = deleteGameInfo[1]
+  const deleteGameData = deleteGameInfo[1].data
 
   let averagePlayTime
   let description
