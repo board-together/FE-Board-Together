@@ -52,7 +52,9 @@ const reducer = (state, action) => {
 
 export const App = () => {
   const [state, dispatch] = useReducer(reducer, initialState)
+
   const { loading, error, data, refetch } = useQuery(GET_USER(localStorage.getItem('username')))
+
 
   useEffect(() => {
     if (error) {
@@ -84,14 +86,33 @@ export const App = () => {
   }, []);
 
   const setModal = (game = null) => {
+
     if (game) {
-      //const modalInfo = state.user.userGames.find(game => +game.game.id === id)
-      //NOTE: modal does not work for borrowed games right now because borrowed games are coming from mock data, should be in same array once BE is set up.
       dispatch({ type: 'set_modal', payload: game })
     } else {
       dispatch({ type: 'set_modal' })
     }
   }
+
+const modalFormatForMute = (modal,Id) => {
+  const readyForMute =  { 
+    userId: Id,
+    boardGameAtlasId: modal.boardGameAtlasId,
+    url: modal.url,
+    name: modal.name,
+    yearPublished: String(modal.yearPublished),
+    minPlayers: String(modal.minPlayers),
+    maxPlayers: String(modal.maxPlayers),
+    minPlaytime: String(modal.minPlaytime),
+    maxPlaytime: String(modal.maxPlaytime),
+    minAge: String(modal.minAge),
+    description: modal.description,
+    thumbUrl: modal.thumbUrl,
+    imageUrl: modal.imageUrl
+  }
+  
+  return readyForMute
+}
 
   const deleteGame = (id) => {
     const filteredGames = state.user.games.filter(game => game.id !== id)
@@ -131,6 +152,7 @@ export const App = () => {
               modal={state.modal}
               userName={localStorage.getItem('username')}
               updateUser={updateUser}
+              addGamesInput={modalFormatForMute}
             />
           } />
         <Route path='/friends-games/:id'

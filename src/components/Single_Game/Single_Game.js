@@ -4,7 +4,10 @@ import { GET_ALL_USERS } from '../../GraphQL/queries'
 import './Single_Game.css'
 
 
-const SingleGame = ({ game, setModal, userGames, context }) => {
+
+
+const SingleGame = ({ game, setModal, userGames, context, userInfo }) => {
+
 
   const checkIfLentOut = userGames ? 
     context === 'userGames' && game.borrowerId

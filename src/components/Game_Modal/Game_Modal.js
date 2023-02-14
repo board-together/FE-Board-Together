@@ -1,9 +1,30 @@
 import React, { useEffect } from 'react'
 import './Game_Modal.css'
+import { useMutation } from "@apollo/client"
+import { ADD_GAME_TO_COLLECTION } from '../../GraphQL/mutations'
 import { UPDATE_USERGAME } from '../../GraphQL/mutations'
-import { useMutation } from '@apollo/client'
 
-export const GameModal = ({ setModal, deleteGame, context, modal, userInfo, refetchFriend, refetchUser }) => {
+
+export const GameModal = ({ setModal, deleteGame, context, modal, userInfo, refetchFriend, refetchUser, addGamesInput }) => {
+  const [addGame, { loading, data, error }] = useMutation(ADD_GAME_TO_COLLECTION);
+  if(loading) {
+    <h1>Loadin...</h1>
+  }
+  if(data){
+    console.log(data)
+  }
+  if(error) {
+    console.log(error)
+  }
+    const inputVar = userInfo ? addGamesInput(modal, +userInfo.id) : null     
+    
+const clickHelper = () => {
+  addGame({ variables: { input: inputVar } })
+  setTimeout(() => {
+   setModal()
+  }, "1000")
+}
+  
   const borrowObject = userInfo ? {
     id: +modal.id,
     borrowerId: +userInfo.id,
@@ -16,14 +37,17 @@ export const GameModal = ({ setModal, deleteGame, context, modal, userInfo, refe
     status: 0
   } : '';
 
-  const [updateUserGame, {data}] = useMutation(UPDATE_USERGAME)
 
+  const updateUserMutation = useMutation(UPDATE_USERGAME)
+  const updateUserGame = updateUserMutation[0]
+  const updateUserData = updateUserMutation[1].data
+  
   useEffect(() => {
-    if (data) {
+    if (updateUserData) {
       refetchUser();
       if (refetchFriend) refetchFriend();
     }
-  }, [data, refetchFriend, refetchUser]) //wrap in a use callback??
+  }, [updateUserData, refetchFriend, refetchUser]) //wrap in a use callback??
   
   const borrowFriendsGame = (event) => {
     event.preventDefault();
@@ -35,8 +59,8 @@ export const GameModal = ({ setModal, deleteGame, context, modal, userInfo, refe
     updateUserGame({ variables: { input: returnObject } });
   }
 
-  //Lines 6 through 11 are only for cleaning up the dummy data that (specifically the game description)
-  //I think matches what we will get from the server. If not, this code can be deleted.
+
+
 
 
   if (context === 'searched_games') {
@@ -67,7 +91,8 @@ export const GameModal = ({ setModal, deleteGame, context, modal, userInfo, refe
             </div>
           </div>
           <div className='modal-buttons'>
-            <button className='modal-button'>Add to Collection</button>
+           <button className='modal-button' onClick={ () => clickHelper()} >Add to Collection</button>
+           
           </div>
         </div>
       </div>
