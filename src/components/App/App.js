@@ -47,13 +47,13 @@ const reducer = (state, action) => {
 }
 
 export const App = () => {
-
   const [state, dispatch] = useReducer(reducer, initialState)
+
   const { loading, error, data, refetch } = useQuery(GET_USER(localStorage.getItem('username')))
 
   useEffect(() => {
     if (error) {
-      console.log('ERROR: ', error.message)
+      // console.log('ERROR: ', error.message)
       dispatch({ type: 'error', payload: error })
     }
     if (data) {
@@ -67,7 +67,6 @@ export const App = () => {
   }
 
   const searchBarSubmit = (terms) => {
-   
     dispatch({
       type: 'search_result',
       payload: terms
@@ -83,6 +82,7 @@ export const App = () => {
   }, []);
 
   const setModal = (game = null) => {
+
     if (game) {
       dispatch({ type: 'set_modal', payload: game })
     } else {
@@ -90,13 +90,33 @@ export const App = () => {
     }
   }
 
+const modalFormatForMute = (modal,Id) => {
+  const readyForMute =  { 
+    userId: Id,
+    boardGameAtlasId: modal.boardGameAtlasId,
+    url: modal.url,
+    name: modal.name,
+    yearPublished: String(modal.yearPublished),
+    minPlayers: String(modal.minPlayers),
+    maxPlayers: String(modal.maxPlayers),
+    minPlaytime: String(modal.minPlaytime),
+    maxPlaytime: String(modal.maxPlaytime),
+    minAge: String(modal.minAge),
+    description: modal.description,
+    thumbUrl: modal.thumbUrl,
+    imageUrl: modal.imageUrl
+  }
+  
+  return readyForMute
+}
+
   const deleteGame = (id) => {
     const filteredGames = state.user.games.filter(game => game.id !== id)
     dispatch({ type: 'delete_game', payload: filteredGames })
   }
 
   const refetchUser = () => {
-    refetch()
+    refetch();
   }
 
   return (
@@ -129,6 +149,7 @@ export const App = () => {
               userName={localStorage.getItem('username')}
               updateUser={updateUser}
               refetch={refetch}
+              addGamesInput={modalFormatForMute}
             />
           } />
         <Route path='/friends-games/:id'
@@ -138,6 +159,8 @@ export const App = () => {
               setModal={setModal}
               modal={state.modal}
               userName={localStorage.getItem('username')}
+              userInfo={state.user}
+              refetchUser={refetchUser}
             />
           } />
       </Routes>

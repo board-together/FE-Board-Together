@@ -4,14 +4,17 @@ import { GET_ALL_USERS } from '../../GraphQL/queries'
 import './Single_Game.css'
 
 
-const SingleGame = ({ game, setModal, userGames }) => {
+
+
+const SingleGame = ({ game, setModal, userGames, context, userInfo }) => {
+
 
   const checkIfLentOut = userGames ? 
-    userGames.filter(myGame => +myGame.gameId === game.gameId).map(item => item.gameId).includes(game.gameId) && game.borrowerId
-    : false
-
+    context === 'userGames' && game.borrowerId
+    : false;
   const { loading, data } = useQuery(GET_ALL_USERS)
-  const borrower = data && checkIfLentOut ? data.users.find(user => +user.id === +game.borrowerId).username : ''
+  const borrower = data && checkIfLentOut ? data.users.find(user => +user.id === +game.borrowerId).username : '';
+  const borrowee = data && context === 'borrowedGames' ? data.users.find(user => +user.id === +game.userId).username : '';
 
   return (
     <>
@@ -30,6 +33,7 @@ const SingleGame = ({ game, setModal, userGames }) => {
         <div className="single-tile" id={+game.game.id} onClick={() => setModal(game)}>
           <h2 className="single-game-name">{game.game.name}</h2>
           <img className="single-game-img" src={game.game.imageUrl} alt={game.game.name} />
+          {(context === 'borrowedGames' && data) && <p>Borrowing from {`${borrowee}`}</p>}
         </div>
       }
     </>
