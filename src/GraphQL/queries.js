@@ -34,6 +34,7 @@ export const GET_USER = (userName) => gql`
         }
       }
       borrowedGames {
+        id
         userId
         gameId
         status
