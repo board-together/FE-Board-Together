@@ -18,7 +18,7 @@ export const GameModal = ({ setModal, context, modal, userInfo, refetchFriend, r
   if(error) {
     console.log(error)
   }
-    const inputVar = userInfo ? addGamesInput(modal, +userInfo.id) : null     
+    const inputVar = userInfo && addGamesInput ? addGamesInput(modal, +userInfo.id) : null     
     
 const clickHelper = () => {
   addGame({ variables: { input: inputVar } })
