@@ -94,13 +94,30 @@ export const App = () => {
   const setModal = (game = null) => {
     console.log(game)
     if (game) {
-      //const modalInfo = state.user.userGames.find(game => +game.game.id === id)
-      //NOTE: modal does not work for borrowed games right now because borrowed games are coming from mock data, should be in same array once BE is set up.
       dispatch({ type: 'set_modal', payload: game })
     } else {
       dispatch({ type: 'set_modal' })
     }
   }
+
+const modalFormatForMute = (modal,Id) => {
+  const readyForMute =   { 
+    userId: Id,
+    boardGameAtlasId: modal.boardGameAtlasId,
+    url: modal.url,
+    name: modal.name,
+    yearPublished: modal.yearPublished,
+    minPlayers: modal.minPlayers,
+    maxPlayers: modal.maxPlayers,
+    minPlaytime: modal.minPlaytime,
+    maxPlaytime: modal.maxPlaytime,
+    minAge: modal.minAge,
+    description: modal.description,
+    thumbUrl: modal.thumbUrl,
+    imageUrl: modal.imageUrl
+  }
+  return readyForMute
+}
 
   const deleteGame = (id) => {
     const filteredGames = state.user.games.filter(game => game.id !== id)
@@ -136,6 +153,7 @@ export const App = () => {
               modal={state.modal}
               userName={localStorage.getItem('username')}
               updateUser={updateUser}
+              addGamesInput={modalFormatForMute}
             />
           } />
         <Route path='/friends-games/:id'

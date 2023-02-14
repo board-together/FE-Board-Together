@@ -10,7 +10,7 @@ import './Search_Results.css'
 
 
 
-const SearchResults = ({ results, searchBarSubmit, setModal, modal, userName  }) => {
+const SearchResults = ({ results, searchBarSubmit, setModal, modal, userName, userInfo, updateUser, addGamesInput }) => {
 
   const { loading, data, error } = useQuery(GET_SEARCHED_GAMES(results));
 
@@ -27,7 +27,7 @@ const SearchResults = ({ results, searchBarSubmit, setModal, modal, userName  })
 
 
     <>
-      {modal && <GameModal setModal={setModal} context={'searched_games'} modal={modal} />}
+      {modal && <GameModal setModal={setModal} context={'searched_games'} modal={modal} userInfo={userInfo} updateUser={updateUser} addGamesInput={addGamesInput} />}
       <div>
         <Navbar username={userName} searchBarSubmit={searchBarSubmit} ></Navbar>
          <Link to={`/dashboard/`}><button>Back to dashboard</button></Link>

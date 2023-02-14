@@ -104,6 +104,7 @@ export const GET_SEARCHED_GAMES = (name) => gql`
     boardGameAtlasId
     description
     imageUrl
+    url
     maxPlayers
     maxPlaytime
     minAge
@@ -119,18 +120,18 @@ export const GET_SEARCHED_GAMES = (name) => gql`
 export const GET_MODAL_GAME = (name) => gql`
   query {
     searchGames(name: "${name}") {
-      id
-      description
-      name
-      imageUrl
-      maxPlayers
-      maxPlaytime
-      minAge
-      minPlayers
-      minPlaytime
-      url
-      yearPublished
-      boardGameAtlasId
+    boardGameAtlasId
+    description
+    imageUrl
+    url
+    maxPlayers
+    maxPlaytime
+    minAge
+    minPlayers
+    minPlaytime
+    name
+    thumbUrl
+    yearPublished
     }
   }
   `

@@ -20,46 +20,65 @@ export const UPDATE_GAME = () => gql`
     }
   `
 
+
+// //this is modal 
+// boardGameAtlasId
+// description
+// imageUrl
+// maxPlayers
+// maxPlaytime
+// minAge
+// minPlayers
+// minPlaytime
+// name
+// thumbUrl
+// yearPublished
+//The object below is the required feilds  we need to give ADD_GAME
+// {
+//       userId: 4,
+//       boardGameAtlasId: "OIXt3DmJU0",
+//       url: "https://www.boardgameatlas.com/game/OIXt3DmJU0/catan",
+//       name: "Catan",
+//       yearPublished: "1995",
+//       minPlayers: "3",
+//       maxPlayers: "4",
+//       minPlaytime: "45",
+//       maxPlaytime: "90",
+//       minAge: "10",
+//       description: "settlers of catan",
+//       thumbUrl: "https://s3-us-west-1.amazonaws.com/5cc.images/games/uploaded/1629324722072.jpg",
+//       imageUrl: "https://s3-us-west-1.amazonaws.com/5cc.images/games/uploaded/1629324722072.jpg"
+//   }
+
+
 export const  ADD_GAME_TO_COLLECTION = (inputObject) => gql`
    createUserGame(input: ${inputObject}) {
+   {
     user {
-      borrowedGames {
-        borrowerId
-        game {
-          boardGameAtlasId
-          description
-          imageUrl
-          maxPlayers
-          maxPlaytime
-          minAge
-          minPlayers
-          minPlaytime
-          name
-          thumbUrl
-          url
-        }
-        status
-        userId
-      }
-      userGames {
-        borrowerId
-        game {
-          boardGameAtlasId
-          imageUrl
-          maxPlayers
-          maxPlaytime
-          minAge
-          minPlayers
-          minPlaytime
-          name
-          thumbUrl
-          yearPublished
-        }
-        status
-        userId
-      }
+      id
       username
-    }
-  }
-}
+      userGames {
+        id
+        userId
+        gameId
+        status
+        borrowerId
+        game {
+          id  
+          boardGameAtlasId
+          url
+          name
+          yearPublished
+          minPlayers
+          maxPlayers
+          minPlaytime
+          maxPlaytime
+          minAge
+          description
+          thumbUrl
+          imageUrl
+        }
+      }
+    } 
+ }
 `
