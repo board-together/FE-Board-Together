@@ -12,6 +12,7 @@ export const GET_USER = (userName) => gql`
       id
       username
       userGames {
+        id
         userId
         gameId
         status
@@ -33,6 +34,7 @@ export const GET_USER = (userName) => gql`
         }
       }
       borrowedGames {
+        id
         userId
         gameId
         status

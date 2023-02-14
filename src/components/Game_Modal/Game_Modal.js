@@ -1,9 +1,39 @@
-import React from 'react'
+import React, { useEffect } from 'react'
 import './Game_Modal.css'
+import { UPDATE_USERGAME } from '../../GraphQL/mutations'
+import { useMutation } from '@apollo/client'
 
-export const GameModal = ({ setModal, deleteGame, context, modal }) => {
+export const GameModal = ({ setModal, deleteGame, context, modal, userInfo, refetchFriend, refetchUser }) => {
+  const borrowObject = userInfo ? {
+    id: +modal.id,
+    borrowerId: +userInfo.id,
+    status: 1
+  } : '';
 
+  const returnObject = userInfo ? {
+    id: +modal.id,
+    borrowerId: null,
+    status: 0
+  } : '';
 
+  const [updateUserGame, {data}] = useMutation(UPDATE_USERGAME)
+
+  useEffect(() => {
+    if (data) {
+      refetchUser();
+      if (refetchFriend) refetchFriend();
+    }
+  }, [data, refetchFriend, refetchUser]) //wrap in a use callback??
+  
+  const borrowFriendsGame = (event) => {
+    event.preventDefault();
+    updateUserGame({ variables: { input: borrowObject } });
+  }
+
+  const returnFriendsGame = (event) => {
+    event.preventDefault();
+    updateUserGame({ variables: { input: returnObject } });
+  }
 
   //Lines 6 through 11 are only for cleaning up the dummy data that (specifically the game description)
   //I think matches what we will get from the server. If not, this code can be deleted.
@@ -70,11 +100,11 @@ export const GameModal = ({ setModal, deleteGame, context, modal }) => {
           </div>
         </div>
         <div className='modal-buttons'>
-          {(context === 'user_dashboard' && modal.borrowerId) && <button className='modal-button'>Return</button>}
+          {(context === 'user_dashboard' && modal.borrowerId) && <button className='modal-button' onClick={event => returnFriendsGame(event)}>Return</button>}
           {(context === 'user_dashboard' && !modal.borrowerId) && <button className='modal-button delete-button' onClick={() => deleteGame(+modal.game.id)}>Delete</button>}
           {(context === 'user_dashboard' && !modal.borrowerId) && <button className='modal-button'>Make Private</button>}
           {context === 'searched_games' && <button className='modal-button'>Add to Collection</button>}
-          {context === 'friends_games' && <button className='modal-button'>Borrow</button>}
+          {context === 'friends_games' && <button className='modal-button' onClick={event => borrowFriendsGame(event)}>Borrow</button>}
         </div>
       </div>
     </div>

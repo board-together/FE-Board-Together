@@ -11,11 +11,15 @@ export const CREATE_USER = (username) => gql`
   }
 `
 
-export const UPDATE_GAME = () => gql`
-    mutation {
-      users {
-          id
-          username
-      }  
+export const UPDATE_USERGAME = gql`
+  mutation UpdateUserGame($input: UpdateUserGameInput!) {
+    updateUserGame(input: $input) {
+      userGame {
+        id
+        borrowerId
+        status
+      }
+      errors
     }
-  `
+  }
+`

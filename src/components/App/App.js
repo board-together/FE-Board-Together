@@ -51,19 +51,12 @@ const reducer = (state, action) => {
 }
 
 export const App = () => {
-
   const [state, dispatch] = useReducer(reducer, initialState)
-  const { loading, error, data } = useQuery(GET_USER(localStorage.getItem('username')))
-  // const [mutation] = useMutation(CREATE_USER('CoolGuy1975'), {
-  //   onCompleted: (data) => {
-  //     console.log(data)
-  //   }
-  // })
-  // const [GET_USER, { data, loading, error }] = useMutation(GET_USER("argdfga"));
+  const { loading, error, data, refetch } = useQuery(GET_USER(localStorage.getItem('username')))
 
   useEffect(() => {
     if (error) {
-      console.log('ERROR: ', error.message)
+      // console.log('ERROR: ', error.message)
       dispatch({ type: 'error', payload: error })
     }
     if (data) {
@@ -76,7 +69,6 @@ export const App = () => {
   }
 
   const searchBarSubmit = (terms) => {
-   
     dispatch({
       type: 'search_result',
       payload: terms
@@ -92,7 +84,6 @@ export const App = () => {
   }, []);
 
   const setModal = (game = null) => {
-    console.log(game)
     if (game) {
       //const modalInfo = state.user.userGames.find(game => +game.game.id === id)
       //NOTE: modal does not work for borrowed games right now because borrowed games are coming from mock data, should be in same array once BE is set up.
@@ -107,6 +98,9 @@ export const App = () => {
     dispatch({ type: 'delete_game', payload: filteredGames })
   }
 
+  const refetchUser = () => {
+    refetch();
+  }
 
   return (
     <div className='App'>
@@ -124,6 +118,7 @@ export const App = () => {
               error={error}
               data={data}
               userName={localStorage.getItem('username')}
+              refetchUser={refetchUser}
             />
           } />
         <Route path='/search-results/:searchTerm'
@@ -145,6 +140,8 @@ export const App = () => {
               setModal={setModal}
               modal={state.modal}
               userName={localStorage.getItem('username')}
+              userInfo={state.user}
+              refetchUser={refetchUser}
             />
           } />
       </Routes>
