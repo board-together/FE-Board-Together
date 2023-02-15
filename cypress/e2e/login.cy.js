@@ -1,8 +1,19 @@
+import { aliasQuery, aliasMutation } from "../../src/utils"
+
 describe('Login Page', () => {
 
   beforeEach(() => {
     cy.visit(`http://localhost:3000/`)
-    /* Issue for future testing: how intercept Apollo/GraphQL query? */
+    cy.intercept('POST',  "https://board-together.herokuapp.com/graphql", (req) => {
+      // Queries
+      aliasQuery(req, 'GET_USER')
+      // aliasQuery(req, 'LaunchDetails')
+      // aliasQuery(req, 'GetMyTrips')
+
+      // Mutations
+      // aliasMutation(req, 'Login')
+      // aliasMutation(req, 'BookTrips')
+    })
   });
 
   it('Should have welcome text and a login heading', () => {
