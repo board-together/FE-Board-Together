@@ -28,8 +28,6 @@ describe.skip('Friends_Games', () => {
   })
 
 
-  it('Should have a button that takes the useer back to there dashboard', () => {
-
   it('Should have a button that takes the user back to there dashboard', () => {
 
     cy.get('.back-to-dash').click()
