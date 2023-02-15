@@ -26,10 +26,12 @@
   align-items: center;
   text-align: center;
   height: auto;
+  min-height: 20em;
   width: 90%;
   margin-bottom: 1em;
   overflow: scroll;
   contain: content;
+  margin-left: 2em;
 }
 
 .game-collection {
@@ -46,6 +48,8 @@
   margin-bottom: 1em;
   overflow: scroll;
   contain: content;
+  margin-left: 2em;
+
 }
 
 
@@ -55,7 +59,9 @@
   padding-left: 10%
 }
 
-.borrowed-header {
+.borrowed-header,
+.my-games-header {
+  min-width: 8em;
   width: 20%;
   border: 1px solid black;
   text-align: center;
@@ -64,17 +70,9 @@
 
 .my-games-header {
   margin-right: 2vw;
-  width: 20%;
-  border: 1px solid black;
-  text-align: center;
-  transition-duration: 300ms;
 }
 
-.borrowed-header:hover {
-  cursor: pointer;
-  transform: scale(1.05);
-}
-
+.borrowed-header:hover,
 .my-games-header:hover {
   cursor: pointer;
   transform: scale(1.05);
@@ -84,7 +82,8 @@
   background: rgb(135, 11, 194);
   background: linear-gradient(45deg, rgba(135, 11, 194, 1) 1%, rgba(14, 59, 157, 1) 49%, rgba(0, 255, 214, 1) 100%);
   background-repeat: no-repeat;
-  color: white
+  color: white;
+  border: 1px solid transparent;
 }
 
 .friends-section {
@@ -108,10 +107,11 @@
   color: white;
   width: 75%;
   height: 20%;
-  font-size: 30px;
+  font-size: 1.6em;
   margin: 10px;
   padding-right: 10px;
   transition-duration: 400ms;
+  contain: content;
 }
 
 .friend:hover {
@@ -124,6 +124,8 @@
 
 .friend-name {
   margin: 1vw;
+  margin-right: 1.6em;
+  text-align: right;
 }
 
 .smile-svg {

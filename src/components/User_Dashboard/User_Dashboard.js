@@ -31,7 +31,6 @@ export const UserDashboard = ({ userInfo, searchBarSubmit, deleteGame, setModal,
   const borrowedGames = userInfo ? userInfo.borrowedGames.map((game, index) => <SingleGame key={index} game={game} setModal={setModal} userGames={userInfo.userGames} context={'borrowedGames'} />) : []
 
 
-
   return (
     <>
       {modal && <GameModal setModal={setModal} deleteGame={deleteGame} context={'user_dashboard'} modal={modal} userInfo={userInfo} refetchUser={refetchUser} />}
@@ -42,8 +41,12 @@ export const UserDashboard = ({ userInfo, searchBarSubmit, deleteGame, setModal,
         {data && <>
           <div className='game-collection-section'>
             <div className='game-collection-headers'>
-              <h2 className={`my-games-header ${toggleFocus && 'header-focus'}`} onClick={() => setToggleFocus(!toggleFocus ? true : false)}>My Games</h2>
-              <h2 className={`borrowed-header ${!toggleFocus && 'header-focus'}`} onClick={() => setToggleFocus(toggleFocus ? false : true)}>Borrowed</h2>
+              <h2 className={`my-games-header ${toggleFocus && 'header-focus'}`}
+                tabIndex="0"
+                onClick={() => setToggleFocus(!toggleFocus ? true : false)}>My Games</h2>
+              <h2 className={`borrowed-header ${!toggleFocus && 'header-focus'}`}
+                tabIndex="0"
+                onClick={() => setToggleFocus(toggleFocus ? false : true)}>Borrowed</h2>
             </div>
             {toggleFocus && <div className='game-collection'>{games}</div>}
             {!toggleFocus && <div className='borrowed-games-collection'>{borrowedGames}</div>}

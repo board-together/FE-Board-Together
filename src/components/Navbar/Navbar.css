@@ -1,9 +1,17 @@
+@font-face {
+  font-family: "Inception";
+  src: local("Inception"),
+  url('../../assets/Inception_free.ttf');
+}
+
 header {
   display: flex;
   flex-direction: column;
   align-items: center;
+  width: 100%;
   height: auto;
   background-color: rgb(189, 194, 204);
+  margin-bottom: 20px;
 }
 
 .navbar-container {
@@ -13,13 +21,13 @@ header {
   justify-content: space-between;
   align-content: space-between;
   align-items: center;
-  width: 98%;
-  padding: 10px;
-  border-bottom: 2px solid black;
+  width: 95%;
+  padding: 10px; 
 }
 
 .welcome-greeting {
   font-size: 40px;
+  margin-left: 1em;
 }
 
 .link-to-login {
@@ -27,6 +35,7 @@ header {
   margin-top: .5em;
   border: 1px solid black;
   width: 18%;
+  min-width: 7em;
   text-align: center;
   transition-duration: 300ms;
 }
@@ -41,26 +50,19 @@ header {
 }
 
 .app-name-board {
+  font-family: 'Inception';
   color: auto;
-  font-size: 80px;
+  font-size: 95px;
   margin: 0;
   padding: 0;
-  font-family: 'Roboto', sans-serif;
-  font-family: 'Bungee Shade', cursive;
-  font-family: 'Montserrat', sans-serif;
-  /* font-style: italic; */
-  font-style: bold;
 }
 
 .app-name-together {
+  font-family: 'Inception';
   color: auto;
-  font-size: 80px;
+  font-size: 95px;
   margin: 0;
   padding: 0;
-  font-family: 'Roboto', sans-serif;
-  font-family: 'Bungee Shade', cursive;
-  font-family: 'Montserrat', sans-serif;
-  /* font-style: italic; */
 }
 
 a {
@@ -92,4 +94,8 @@ a {
   align-items: flex-end;
   height: 100%;
   width: 50%;
+}
+
+.search-button {
+  min-width: 7em;
 }

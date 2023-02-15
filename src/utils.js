@@ -20,7 +20,7 @@ export const cleanSearchResult = (games) => {
 }
 
 export const cleanGameDescription = (description) => {
-  let arrayOfTerms = ['<p>', '</p>', '<em>', '</em>', '<br>', '<br />', '<strong>', '</strong>', '&quot;']
+  let arrayOfTerms = ['<b>', '</b>','<p>', '</p>', '<em>', '</em>', '<br>', '<br />', '<strong>', '</strong>', '&quot;', '&amp']
 
   arrayOfTerms.forEach(val => {
     description = description.replaceAll(val, '')

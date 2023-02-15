@@ -1,16 +1,64 @@
+@font-face {
+  font-family: "Inception";
+  src: local("Inception"),
+    url('../../assets/Inception_free.ttf');
+}
+
+main {
+  display: flex;
+  width: 100%;
+  min-height: 100vh;
+  background: rgb(135, 11, 194);
+  background: linear-gradient(45deg, rgba(135, 11, 194, 1) 1%, rgba(14, 59, 157, 1) 49%, rgba(0, 255, 214, 1) 100%);
+  background-repeat: no-repeat;
+  color: white
+}
+
 .login-heading-text-area {
   display: flex;
   flex-direction: column;
   margin: auto;
   width: 50%;
+  padding-left: 5%;
+}
+
+.tagline {
+  font-size: 40px;
+  font-weight: 600;
+  margin-bottom: 0;
+}
+
+.login-board {
+  font-family: 'Inception';
+  font-size: 130px;
+  margin-top: 5%;
+  margin-bottom: 0;
+}
+
+.login-together {
+  font-family: 'Inception';
+  font-size: 130px;
+  margin: 0;
+}
+
+.login-right {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  width: 50%;
+  height: 100%;
+  padding-top: 8%;
 }
 
 .login-welcome-text {
   text-align: center;
+
 }
 
 .login-text {
   text-align: center;
+  font-size: 30px;
 }
 
 .login-form {
@@ -18,21 +66,37 @@
   flex-direction: column;
   margin: auto;
   align-items: center;
+  justify-content: space-evenly;
   border-style: solid;
-  width: 60%;
+  width: 90%;
   height: 9em;
 }
 
 .username-input {
-  width: 40%;
-  margin-top: 3em;
-  margin-bottom: 1em;
+  font-family: 'Montserrat', sans-serif;
+  width: 60%;
+  min-width: 9em;
+  font-size: 20px;
+  text-align: center;
 }
 
+.enter-site-button,
 .invalid-user-button {
+  text-align: center;
+  font-family: 'Montserrat', sans-serif;
   cursor: pointer;
+  background: none;
+  border: 1px solid white;
+  color: white;
+  font-size: 18px;
+  width: 8em;
+  transition-duration: 300ms
 }
 
-.enter-site-button {
-  cursor: pointer;
+.enter-site-button:hover,
+.invalid-user-button:hover {
+  transform: scale(1.05);
+  border: 1px solid white;
+  background-color: white;
+  color: black
 }
