@@ -11,13 +11,19 @@ export const Navbar = ({ searchBarSubmit, username }) => {
   return (
     <header>
       <div className='navbar-container'>
-        <h2 className='welcome-greeting'>Welcome, {username}!</h2>
         <Link to='/dashboard'>
-          <h1 className='app-name'>Board Together</h1>
+          <div className='logo'>
+            <h1 className='app-name'>BOARD</h1>
+            <h1 className='app-name'>TOGETHER</h1>
+          </div>
         </Link>
-        <Searchbar submit={searchBarSubmit} />
+        <div className='searchbar-container'>
+          <h2 className='welcome-greeting'>Welcome, {username}!</h2>
+          <Searchbar submit={searchBarSubmit} />
+          <Link to={'/'} className='link-to-login'>Log Out</Link>
+        </div>
       </div>
-      <Link to={'/'} className='link-to-login'>Login as another user</Link>
+
     </header>
   )
 }
