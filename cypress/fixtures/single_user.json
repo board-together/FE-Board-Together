@@ -1,0 +1,98 @@
+
+{
+"data": {
+  "user": {
+    "id": "2",
+    "userGames": [
+      {
+        "borrowerId": 1,
+        "id": "683",
+        "gameId": 12,
+        "status": 0,
+        "userId": 2,
+        "game": {
+          "id": "12",
+          "boardGameAtlasId": "MQcEH8C8Aa",
+          "url": "https://www.boardgameatlas.com/game/MQcEH8C8Aa/boss-monster",
+          "name": "Boss Monster",
+          "yearPublished": 2013,
+          "maxPlayers": 4,
+          "maxPlaytime": 45,
+          "minAge": 13,
+          "minPlayers": 2,
+          "minPlaytime": 30,
+          "thumbUrl": "https://s3-us-west-1.amazonaws.com/5cc.images/games/uploaded/1559255040530-51RxIS8kXNL.jpg",
+          "imageUrl": "https://s3-us-west-1.amazonaws.com/5cc.images/games/uploaded/1559255040530-51RxIS8kXNL.jpg",
+          "description": "<p>Inspired by classic video games, Boss Monster challenges you to become a villain, build a dungeon, lure adventurers, and destroy them! The game’s retro appeal has helped make it a top seller at independent game stores around the country, while its original gameplay earned it a nomination for the 2014 Origins Award for Best Card Game.</p>\r\n<p>Boss Monster is a standalone game that includes 155 cards …everything that 2-4 players need for endless hours of dungeon-building, hero-slaying fun!</p>"
+        }
+      },
+      {
+        "borrowerId": 9,
+        "id": "693",
+        "gameId": 7,
+        "status": 0,
+        "userId": 2,
+        "game": {
+          "id": "7",
+          "boardGameAtlasId": "hQLfeykeLS",
+          "url": "https://www.boardgameatlas.com/game/hQLfeykeLS/phase-10-card-game",
+          "name": "Phase 10",
+          "yearPublished": 1982,
+          "maxPlayers": 6,
+          "maxPlaytime": 45,
+          "minAge": 8,
+          "minPlayers": 2,
+          "minPlaytime": 45,
+          "thumbUrl": "https://s3-us-west-1.amazonaws.com/5cc.images/games/uploaded/1596731140183",
+          "imageUrl": "https://s3-us-west-1.amazonaws.com/5cc.images/games/uploaded/1596731140183",
+          "description": "<p>Phase 10 is the rummy-type card game where players compete against one another to see who can complete 10 varied phrases first! </p>\r\n<p>A phase is a combination of cards and can be composed of sets (multiple cards of the same value), runs (multiple cards in consecutive ascending order), cards of one color, or a combination of these. Each phase to be completed is specific to each hand dealt, meaning you need to complete the current phase in order to advance to the next one! Finish all 10 and win the game!</p>\r\n<p>Featured in each deck are “Wild” and “Skip” cards that deliver game-changing moments! A “Wild” card can be used in place of a number card, as well as be used as any color to complete any phase, while a “Skip” card causes your opponent to lose a turn!</p>\r\n<p>Includes 108 cards and instructions.</p>"
+        }
+      },
+      {
+        "borrowerId": null,
+        "id": "701",
+        "gameId": 6,
+        "status": 0,
+        "userId": 2,
+        "game": {
+          "id": "6",
+          "boardGameAtlasId": "Ad9NDUFxmt",
+          "url": "https://www.boardgameatlas.com/game/Ad9NDUFxmt/uno-card-game",
+          "name": "UNO",
+          "yearPublished": 1971,
+          "maxPlayers": 10,
+          "maxPlaytime": 30,
+          "minAge": 7,
+          "minPlayers": 2,
+          "minPlaytime": 30,
+          "thumbUrl": "https://s3-us-west-1.amazonaws.com/5cc.images/games/uploaded/1596731709416",
+          "imageUrl": "https://s3-us-west-1.amazonaws.com/5cc.images/games/uploaded/1596731709416",
+          "description": "<p>Now the classic card game of matching colors and numbers comes with customizable Wild Cards for added excitement! Players take turns racing to get rid of all their cards by matching a card in their hand with the current card shown on top of the deck either by color or number. Special Action cards deliver game-changing moments and help defeat opponents! Use the Swap Hands card to change hands with any other opponent and write your own rules using the 3 customizable (and erasable) Wild Cards!</p>\r\n<p>If you can't make a match, you must draw from the central pile! Don't forget to shout &quot;UNO&quot; when you only have one card remaining! The first player to reach 500 points wins.</p>\r\n<p>Includes 112 cards and instructions. You'll find 19 of each color (red, green, blue, and yellow), plus 8 Draw Two, Reverse and Skip cards in every color, along with 4 Wild Cards, 4 Wild Draw Four cards, 1 Wild Swap Hands Card and 3 Wild Customizable cards. </p>"
+        }
+      },
+      {
+        "borrowerId": null,
+        "id": "702",
+        "gameId": 23,
+        "status": 0,
+        "userId": 2,
+        "game": {
+          "id": "23",
+          "boardGameAtlasId": "AuBvbISHR6",
+          "url": "https://www.boardgameatlas.com/game/AuBvbISHR6/ticket-to-ride",
+          "name": "Ticket to Ride",
+          "yearPublished": 2004,
+          "maxPlayers": 5,
+          "maxPlaytime": 90,
+          "minAge": 8,
+          "minPlayers": 2,
+          "minPlaytime": 45,
+          "thumbUrl": "https://s3-us-west-1.amazonaws.com/5cc.images/games/uploaded/1629324738308.jpg",
+          "imageUrl": "https://s3-us-west-1.amazonaws.com/5cc.images/games/uploaded/1629324738308.jpg",
+          "description": "<p><strong>Ticket to Ride</strong> is a cross-country train adventure game. Players collect train cards that enable them to claim railway routes connecting cities throughout North America. The longer the routes, the more points they earn. Additional points come to those who can fulfill their Destination Tickets by connecting two distant cities, and to the player who builds the longest continuous railway. So climb aboard for some railroading fun and adventure. You've got a Ticket to Ride!<br /><br />October 2, 1900 -- it's 28 years to the day that noted London eccentric, Phileas Fogg accepted and then won a 20,000 bet that he could travel Around the World in 80 Days. Now at the dawn of the century some old friends have gathered to celebrate Fogg's impetuous and lucrative gamble -- and to propose a new wager of their own. The stakes: $1 million in a winner-takes-all competition. The objective: to see the most cities in North America -- in just 7 days. <br /><br />-Spiel Des Jahres 2004(German game of the year)<br />-As d'Or Cannes 2004 (French game of the year)<br />-Game of the year 2004 - Japan<br />-Game of the year 2004 - Sweden<br />-Game of the year 2004 - Finland<br />-Diana Jones Excellence in Gaming Award 2004<br />-Origins Award Winner - Best Board Game 2005<br />-Game of the year 2004 - Spain<br />-Parent's Choice Foundation Silver Medal 2004</p>"
+        }
+      }
+    ]
+  }
+}
+}
