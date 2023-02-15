@@ -163,7 +163,7 @@ const modalFormatForMute = (modal,Id) => {
               refetchUser={refetchUser}
             />
           } />
-        <Route path='/*' element={<ErrorPage></ErrorPage>} />
+        <Route path='*' element={<ErrorPage/>} />
       </Routes>
     </div>
   )

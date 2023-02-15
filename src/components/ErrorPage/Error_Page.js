@@ -8,7 +8,7 @@ import { Link } from 'react-router-dom';
 const ErrorPage = () => {
   return (
     <main>
-      <Navbar/>
+      {/* <Navbar/> */}
       <section className='wrong-url-section'>
         <h1 className='incorrect-url-error-message'>It seems you have entered the wrong url, go back to the login page.</h1>
         <Link to={`/`}>
