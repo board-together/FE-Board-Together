@@ -67,8 +67,7 @@ Board Together is a full-stack application combining a React frontend and Ruby o
 
 <!-- Built With -->
 ### Built With
-
-<img src="https://github.com/board-together/BE-Board-Together/raw/main/public/tech-stack-BE.png" alt="Tech-Stack" width="90%" height="90%">
+<img width="90%" height="90%" alt="Board Together-FE-Tech Stack" src="https://user-images.githubusercontent.com/74210902/219136560-e6e6ce33-a3d9-497d-b022-71ed91a1604a.png">
 
 <p align="right">(<a href="#top">back to top</a>)</p>
 
