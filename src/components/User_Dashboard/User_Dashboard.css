@@ -45,6 +45,30 @@
   contain: content;
 }
 
+.game-collection-headers {
+  display: flex;
+  width: 100%;
+  padding-left: 10%
+}
+
+.borrowed-header {}
+
+.my-games-header {
+  margin-right: 2vw
+}
+
+.borrowed-header:hover {
+  cursor: pointer;
+}
+
+.my-games-header:hover {
+  cursor: pointer;
+}
+
+.header-focus {
+  text-decoration: underline;
+}
+
 .friends-section {
   display: flex;
   height: max-content;

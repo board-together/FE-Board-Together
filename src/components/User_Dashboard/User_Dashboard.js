@@ -1,5 +1,5 @@
 import React from 'react'
-import { ReactSVG } from "react-svg";
+import { ReactSVG } from "react-svg"
 import { Link } from 'react-router-dom'
 import { Navbar } from '../Navbar/Navbar'
 import { GameModal } from '../Game_Modal/Game_Modal'
@@ -17,7 +17,7 @@ export const UserDashboard = ({ userInfo, searchBarSubmit, deleteGame, setModal,
   const allUsersError = useQuery(GET_ALL_USERS).error
   const allUsersData = useQuery(GET_ALL_USERS).data
   const friendsList = allUsersData && userInfo ? allUsersData.users.filter(user => user.username !== userInfo.username) : []
-  const smileImg = <img src={smile} alt='smile svg' className='smile-svg'/>
+  const smileImg = <img src={smile} alt='smile svg' className='smile-svg' />
   const friends = friendsList.map(friend => {
     return (<Link to={`/friends-games/${friend.username}`} key={friend.id}>
       <span key={friend.id} className="friend">{smileImg}<p className='friend-name'>{friend.username}</p></span>
@@ -38,9 +38,11 @@ export const UserDashboard = ({ userInfo, searchBarSubmit, deleteGame, setModal,
         {loading && <h1>Loading...</h1>}
         {data && <>
           <div className='game-collection-section'>
-            <h2>Games I'm Borrowing</h2>
+            <div className='game-collection-headers'>
+              <h2 className='my-games-header header-focus'>My Games</h2>
+              <h2 className='borrowed-header'>Borrowed</h2>
+            </div>
             <div className='borrowed-games-collection'>{borrowedGames}</div>
-            <h2>My Game Collection</h2>
             <div className='game-collection'>{games}</div>
           </div>
           <div className='friends-section'>
