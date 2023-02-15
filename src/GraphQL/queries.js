@@ -88,7 +88,7 @@ export const GET_SEARCHED_GAMES = (name) => gql`
   `
 
 export const GET_MODAL_GAME = (name) => gql`
-  query {
+  query GetModalGame {
     searchGames(name: "${name}") {
     boardGameAtlasId
     description
