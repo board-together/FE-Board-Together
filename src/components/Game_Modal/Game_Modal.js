@@ -20,12 +20,12 @@ export const GameModal = ({ setModal, context, modal, userInfo, refetchFriend, r
   }
     const inputVar = userInfo && addGamesInput ? addGamesInput(modal, +userInfo.id) : null     
     
-const clickHelper = () => {
-  addGame({ variables: { input: inputVar } })
-  setTimeout(() => {
-   setModal()
-  }, "1000")
-}
+  const clickHelper = () => {
+    addGame({ variables: { input: inputVar } })
+    setTimeout(() => {
+    setModal()
+    }, "1000")
+  }
   
   const borrowObject = userInfo ? {
     id: +modal.id,
@@ -54,11 +54,17 @@ const clickHelper = () => {
   const borrowFriendsGame = (event) => {
     event.preventDefault();
     updateUserGame({ variables: { input: borrowObject } });
+    setTimeout(() => {
+      setModal()
+      }, "1000");  
   }
 
   const returnFriendsGame = (event) => {
     event.preventDefault();
     updateUserGame({ variables: { input: returnObject } });
+    setTimeout(() => {
+      setModal()
+      }, "1000");  
   }
 
   const deleteGameInfo = useMutation(DELETE_GAME)
@@ -102,7 +108,7 @@ const clickHelper = () => {
           </div>
         </div>
         <div className='modal-buttons'>
-          {(context === 'user_dashboard' && modal.borrowerId)
+          {(context === 'user_dashboard' && modal.borrowerId && modal.borrowerId === +userInfo.id)
             && <button className='modal-button' onClick={event => returnFriendsGame(event)}>Return Friend's Game</button>}
           {(context === 'user_dashboard' && !modal.borrowerId)
             && <button className='modal-button delete-button'
@@ -111,8 +117,8 @@ const clickHelper = () => {
                 setModal()
                 refetchUser()
               }}>Delete</button>}
-          {(context === 'user_dashboard' && !modal.borrowerId)
-            && <button className='modal-button'>Make Private</button>}
+          {/* {(context === 'user_dashboard' && !modal.borrowerId)
+            && <button className='modal-button'>Make Private</button>} */}
           {context === 'searched_games'
             && <button className='modal-button' onClick={ () => clickHelper()} >Add to Collection</button>}
           {context === 'friends_games'
