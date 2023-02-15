@@ -1,16 +1,11 @@
-import { aliasQuery, aliasMutation } from "../../src/utils"
 
 describe('Login Page', () => {
 
   beforeEach(() => {
+    cy.visit('http://localhost:3000/')
     cy.intercept('POST',  "https://board-together.herokuapp.com/graphql", (req) => {
       cy.stub()
-        .callsFake(req => req.reply({ fixture: 'single_user.json' })).as('user')
-      cy.visit('http://localhost:3000/')
-      cy.wait('@user')
-   
-      
-      
+        .callsFake(req => req.reply({ fixture: 'single_user.json' })).as('user')   
     })
   });
 

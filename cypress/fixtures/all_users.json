@@ -1,0 +1,432 @@
+{
+  "data": {
+    "users": [
+      {
+        "username": "Pickafloof",
+        "userGames": [
+          {
+            "borrowerId": null,
+            "gameId": 1,
+            "id": "1",
+            "status": 0,
+            "userId": 1,
+            "game": {
+              "boardGameAtlasId": "AuBvbISHR6",
+              "description": "Ticket to Ride</strong> is a cross-country train adventure game. Players collect train cards that enable them to claim railway routes connecting cities throughout North America. The longer the routes, the more points they earn.",
+              "id": "1",
+              "imageUrl": "https://s3-us-west-1.amazonaws.com/5cc.images/games/uploaded/1629324738308.jpg",
+              "maxPlayers": 5,
+              "maxPlaytime": 90,
+              "minAge": 8,
+              "minPlayers": 2,
+              "minPlaytime": 45,
+              "name": "Ticket to Ride",
+              "thumbUrl": "https://s3-us-west-1.amazonaws.com/5cc.images/games/uploaded/1629324738308.jpg",
+              "url": "https://www.boardgameatlas.com/game/AuBvbISHR6/ticket-to-ride",
+              "yearPublished": 2004
+            }
+          },
+          {
+            "borrowerId": null,
+            "gameId": 2,
+            "id": "3",
+            "status": 0,
+            "userId": 1,
+            "game": {
+              "boardGameAtlasId": "fG5Ax8PA7n",
+              "description": "<p>The thrill of bankrupting an opponent, the possibility of playing a 9 hour game, and the absolution between winning and losing, could change with the roll of the dice. Experience the ups and downs by collecting property color’s sets to build houses, and hopefully upgrading to a hotel.",
+              "id": "2",
+              "imageUrl": "https://s3-us-west-1.amazonaws.com/5cc.images/games/uploaded/1609460299342",
+              "maxPlayers": 8,
+              "maxPlaytime": 300,
+              "minAge": 8,
+              "minPlayers": 2,
+              "minPlaytime": 40,
+              "name": "Monopoly",
+              "thumbUrl": "https://s3-us-west-1.amazonaws.com/5cc.images/games/uploaded/1609460299342",
+              "url": "https://www.boardgameatlas.com/game/fG5Ax8PA7n/monopoly",
+              "yearPublished": 1933
+            }
+          }
+        ],
+        "id": "1"
+      },
+      {
+        "username": "randy",
+        "userGames": [
+          {
+            "borrowerId": 1,
+            "gameId": 12,
+            "id": "683",
+            "status": 0,
+            "userId": 2,
+            "game": {
+              "boardGameAtlasId": "MQcEH8C8Aa",
+              "description": "<p>Inspired by classic video games, Boss Monster challenges you to become a villain, build a dungeon, lure adventurers, and destroy them! The game’s retro appeal has helped make it a top seller at independent game stores around the country, while its original gameplay earned it a nomination for the 2014 Origins Award for Best Card Game.</p>\r\n<p>Boss Monster is a standalone game that includes 155 cards …everything that 2-4 players need for endless hours of dungeon-building, hero-slaying fun!</p>",
+              "id": "12",
+              "imageUrl": "https://s3-us-west-1.amazonaws.com/5cc.images/games/uploaded/1559255040530-51RxIS8kXNL.jpg",
+              "maxPlayers": 4,
+              "maxPlaytime": 45,
+              "minAge": 13,
+              "minPlayers": 2,
+              "minPlaytime": 30,
+              "name": "Boss Monster",
+              "thumbUrl": "https://s3-us-west-1.amazonaws.com/5cc.images/games/uploaded/1559255040530-51RxIS8kXNL.jpg",
+              "url": "https://www.boardgameatlas.com/game/MQcEH8C8Aa/boss-monster",
+              "yearPublished": 2013
+            }
+          },
+          {
+            "borrowerId": 9,
+            "gameId": 7,
+            "id": "693",
+            "status": 0,
+            "userId": 2,
+            "game": {
+              "boardGameAtlasId": "hQLfeykeLS",
+              "description": "<p>Phase 10 is the rummy-type card game where players compete against one another to see who can complete 10 varied phrases first! </p>\r\n<p>A phase is a combination of cards and can be composed of sets (multiple cards of the same value), runs (multiple cards in consecutive ascending order), cards of one color, or a combination of these. Each phase to be completed is specific to each hand dealt, meaning you need to complete the current phase in order to advance to the next one! Finish all 10 and win the game!</p>\r\n<p>Featured in each deck are “Wild” and “Skip” cards that deliver game-changing moments! A “Wild” card can be used in place of a number card, as well as be used as any color to complete any phase, while a “Skip” card causes your opponent to lose a turn!</p>\r\n<p>Includes 108 cards and instructions.</p>",
+              "id": "7",
+              "imageUrl": "https://s3-us-west-1.amazonaws.com/5cc.images/games/uploaded/1596731140183",
+              "maxPlayers": 6,
+              "maxPlaytime": 45,
+              "minAge": 8,
+              "minPlayers": 2,
+              "minPlaytime": 45,
+              "name": "Phase 10",
+              "thumbUrl": "https://s3-us-west-1.amazonaws.com/5cc.images/games/uploaded/1596731140183",
+              "url": "https://www.boardgameatlas.com/game/hQLfeykeLS/phase-10-card-game",
+              "yearPublished": 1982
+            }
+          },
+          {
+            "borrowerId": null,
+            "gameId": 6,
+            "id": "701",
+            "status": 0,
+            "userId": 2,
+            "game": {
+              "boardGameAtlasId": "Ad9NDUFxmt",
+              "description": "<p>Now the classic card game of matching colors and numbers comes with customizable Wild Cards for added excitement! Players take turns racing to get rid of all their cards by matching a card in their hand with the current card shown on top of the deck either by color or number. Special Action cards deliver game-changing moments and help defeat opponents! Use the Swap Hands card to change hands with any other opponent and write your own rules using the 3 customizable (and erasable) Wild Cards!</p>\r\n<p>If you can't make a match, you must draw from the central pile! Don't forget to shout &quot;UNO&quot; when you only have one card remaining! The first player to reach 500 points wins.</p>\r\n<p>Includes 112 cards and instructions. You'll find 19 of each color (red, green, blue, and yellow), plus 8 Draw Two, Reverse and Skip cards in every color, along with 4 Wild Cards, 4 Wild Draw Four cards, 1 Wild Swap Hands Card and 3 Wild Customizable cards. </p>",
+              "id": "6",
+              "imageUrl": "https://s3-us-west-1.amazonaws.com/5cc.images/games/uploaded/1596731709416",
+              "maxPlayers": 10,
+              "maxPlaytime": 30,
+              "minAge": 7,
+              "minPlayers": 2,
+              "minPlaytime": 30,
+              "name": "UNO",
+              "thumbUrl": "https://s3-us-west-1.amazonaws.com/5cc.images/games/uploaded/1596731709416",
+              "url": "https://www.boardgameatlas.com/game/Ad9NDUFxmt/uno-card-game",
+              "yearPublished": 1971
+            }
+          },
+          {
+            "borrowerId": null,
+            "gameId": 23,
+            "id": "702",
+            "status": 0,
+            "userId": 2,
+            "game": {
+              "boardGameAtlasId": "AuBvbISHR6",
+              "description": "<p><strong>Ticket to Ride</strong> is a cross-country train adventure game. Players collect train cards that enable them to claim railway routes connecting cities throughout North America. The longer the routes, the more points they earn. Additional points come to those who can fulfill their Destination Tickets by connecting two distant cities, and to the player who builds the longest continuous railway. So climb aboard for some railroading fun and adventure. You've got a Ticket to Ride!<br /><br />October 2, 1900 -- it's 28 years to the day that noted London eccentric, Phileas Fogg accepted and then won a 20,000 bet that he could travel Around the World in 80 Days. Now at the dawn of the century some old friends have gathered to celebrate Fogg's impetuous and lucrative gamble -- and to propose a new wager of their own. The stakes: $1 million in a winner-takes-all competition. The objective: to see the most cities in North America -- in just 7 days. <br /><br />-Spiel Des Jahres 2004(German game of the year)<br />-As d'Or Cannes 2004 (French game of the year)<br />-Game of the year 2004 - Japan<br />-Game of the year 2004 - Sweden<br />-Game of the year 2004 - Finland<br />-Diana Jones Excellence in Gaming Award 2004<br />-Origins Award Winner - Best Board Game 2005<br />-Game of the year 2004 - Spain<br />-Parent's Choice Foundation Silver Medal 2004</p>",
+              "id": "23",
+              "imageUrl": "https://s3-us-west-1.amazonaws.com/5cc.images/games/uploaded/1629324738308.jpg",
+              "maxPlayers": 5,
+              "maxPlaytime": 90,
+              "minAge": 8,
+              "minPlayers": 2,
+              "minPlaytime": 45,
+              "name": "Ticket to Ride",
+              "thumbUrl": "https://s3-us-west-1.amazonaws.com/5cc.images/games/uploaded/1629324738308.jpg",
+              "url": "https://www.boardgameatlas.com/game/AuBvbISHR6/ticket-to-ride",
+              "yearPublished": 2004
+            }
+          }
+        ],
+        "id": "2"
+      },
+      {
+        "username": "abdulredd",
+        "userGames": [
+          {
+            "borrowerId": 6,
+            "gameId": 2,
+            "id": "6",
+            "status": 0,
+            "userId": 4,
+            "game": {
+              "boardGameAtlasId": "fG5Ax8PA7n",
+              "description": "<p>The thrill of bankrupting an opponent, the possibility of playing a 9 hour game, and the absolution between winning and losing, could change with the roll of the dice. Experience the ups and downs by collecting property color’s sets to build houses, and hopefully upgrading to a hotel.",
+              "id": "2",
+              "imageUrl": "https://s3-us-west-1.amazonaws.com/5cc.images/games/uploaded/1609460299342",
+              "maxPlayers": 8,
+              "maxPlaytime": 300,
+              "minAge": 8,
+              "minPlayers": 2,
+              "minPlaytime": 40,
+              "name": "Monopoly",
+              "thumbUrl": "https://s3-us-west-1.amazonaws.com/5cc.images/games/uploaded/1609460299342",
+              "url": "https://www.boardgameatlas.com/game/fG5Ax8PA7n/monopoly",
+              "yearPublished": 1933
+            }
+          },
+          {
+            "borrowerId": 6,
+            "gameId": 4,
+            "id": "17",
+            "status": 0,
+            "userId": 4,
+            "game": {
+              "boardGameAtlasId": "OIXt3DmJU0",
+              "description": "settlers of catan",
+              "id": "4",
+              "imageUrl": "https://s3-us-west-1.amazonaws.com/5cc.images/games/uploaded/1629324722072.jpg",
+              "maxPlayers": 4,
+              "maxPlaytime": 90,
+              "minAge": 10,
+              "minPlayers": 3,
+              "minPlaytime": 45,
+              "name": "Catan",
+              "thumbUrl": "https://s3-us-west-1.amazonaws.com/5cc.images/games/uploaded/1629324722072.jpg",
+              "url": "https://www.boardgameatlas.com/game/OIXt3DmJU0/catan",
+              "yearPublished": 1995
+            }
+          }
+        ],
+        "id": "4"
+      },
+      {
+        "username": "heatherf",
+        "userGames": [
+          {
+            "borrowerId": null,
+            "gameId": 2,
+            "id": "8",
+            "status": 0,
+            "userId": 5,
+            "game": {
+              "boardGameAtlasId": "fG5Ax8PA7n",
+              "description": "<p>The thrill of bankrupting an opponent, the possibility of playing a 9 hour game, and the absolution between winning and losing, could change with the roll of the dice. Experience the ups and downs by collecting property color’s sets to build houses, and hopefully upgrading to a hotel.",
+              "id": "2",
+              "imageUrl": "https://s3-us-west-1.amazonaws.com/5cc.images/games/uploaded/1609460299342",
+              "maxPlayers": 8,
+              "maxPlaytime": 300,
+              "minAge": 8,
+              "minPlayers": 2,
+              "minPlaytime": 40,
+              "name": "Monopoly",
+              "thumbUrl": "https://s3-us-west-1.amazonaws.com/5cc.images/games/uploaded/1609460299342",
+              "url": "https://www.boardgameatlas.com/game/fG5Ax8PA7n/monopoly",
+              "yearPublished": 1933
+            }
+          }
+        ],
+        "id": "5"
+      },
+      {
+        "username": "jeff",
+        "userGames": [
+          {
+            "borrowerId": 4,
+            "gameId": 1,
+            "id": "9",
+            "status": 0,
+            "userId": 6,
+            "game": {
+              "boardGameAtlasId": "AuBvbISHR6",
+              "description": "Ticket to Ride</strong> is a cross-country train adventure game. Players collect train cards that enable them to claim railway routes connecting cities throughout North America. The longer the routes, the more points they earn.",
+              "id": "1",
+              "imageUrl": "https://s3-us-west-1.amazonaws.com/5cc.images/games/uploaded/1629324738308.jpg",
+              "maxPlayers": 5,
+              "maxPlaytime": 90,
+              "minAge": 8,
+              "minPlayers": 2,
+              "minPlaytime": 45,
+              "name": "Ticket to Ride",
+              "thumbUrl": "https://s3-us-west-1.amazonaws.com/5cc.images/games/uploaded/1629324738308.jpg",
+              "url": "https://www.boardgameatlas.com/game/AuBvbISHR6/ticket-to-ride",
+              "yearPublished": 2004
+            }
+          },
+          {
+            "borrowerId": 4,
+            "gameId": 1,
+            "id": "10",
+            "status": 0,
+            "userId": 6,
+            "game": {
+              "boardGameAtlasId": "AuBvbISHR6",
+              "description": "Ticket to Ride</strong> is a cross-country train adventure game. Players collect train cards that enable them to claim railway routes connecting cities throughout North America. The longer the routes, the more points they earn.",
+              "id": "1",
+              "imageUrl": "https://s3-us-west-1.amazonaws.com/5cc.images/games/uploaded/1629324738308.jpg",
+              "maxPlayers": 5,
+              "maxPlaytime": 90,
+              "minAge": 8,
+              "minPlayers": 2,
+              "minPlaytime": 45,
+              "name": "Ticket to Ride",
+              "thumbUrl": "https://s3-us-west-1.amazonaws.com/5cc.images/games/uploaded/1629324738308.jpg",
+              "url": "https://www.boardgameatlas.com/game/AuBvbISHR6/ticket-to-ride",
+              "yearPublished": 2004
+            }
+          },
+          {
+            "borrowerId": null,
+            "gameId": 1,
+            "id": "11",
+            "status": 0,
+            "userId": 6,
+            "game": {
+              "boardGameAtlasId": "AuBvbISHR6",
+              "description": "Ticket to Ride</strong> is a cross-country train adventure game. Players collect train cards that enable them to claim railway routes connecting cities throughout North America. The longer the routes, the more points they earn.",
+              "id": "1",
+              "imageUrl": "https://s3-us-west-1.amazonaws.com/5cc.images/games/uploaded/1629324738308.jpg",
+              "maxPlayers": 5,
+              "maxPlaytime": 90,
+              "minAge": 8,
+              "minPlayers": 2,
+              "minPlaytime": 45,
+              "name": "Ticket to Ride",
+              "thumbUrl": "https://s3-us-west-1.amazonaws.com/5cc.images/games/uploaded/1629324738308.jpg",
+              "url": "https://www.boardgameatlas.com/game/AuBvbISHR6/ticket-to-ride",
+              "yearPublished": 2004
+            }
+          }
+        ],
+        "id": "6"
+      },
+      {
+        "username": "drake",
+        "userGames": [],
+        "id": "7"
+      },
+      {
+        "username": "dug",
+        "userGames": [],
+        "id": "8"
+      },
+      {
+        "username": "honey",
+        "userGames": [
+          {
+            "borrowerId": null,
+            "gameId": 13,
+            "id": "684",
+            "status": 0,
+            "userId": 9,
+            "game": {
+              "boardGameAtlasId": "iLClIEykRr",
+              "description": "The original Boss Monster challenged players to become the ultimate villains: video game-style Bosses. Now Boss Monster 2? builds on the original in every way! An all-new set of 160 cards, Boss Monster 2 is playable as a standalone game or as an expansion to the core set.<br />\r\n<br />\r\nDark Heroes and Hybrid Heroes raise the stakes, while Epic Spells and &quot;cycling&quot; rooms give players more options and flexibility. Boss Monster 2 features everything that made the best-selling original a hit with players of all skill levels, with fresh new mechanics and exciting new options.<br />\r\n<br />\r\nWith more Bosses, more unique cards, and more ways to slay hapless adventurers, Boss Monster 2 will take your dungeon to The Next Level!",
+              "id": "13",
+              "imageUrl": "https://s3-us-west-1.amazonaws.com/5cc.images/games/uploaded/1559255814377-51qZklmieRL.jpg",
+              "maxPlayers": 4,
+              "maxPlaytime": 30,
+              "minAge": 13,
+              "minPlayers": 2,
+              "minPlaytime": 20,
+              "name": "Boss Monster 2: The Next Level",
+              "thumbUrl": "https://s3-us-west-1.amazonaws.com/5cc.images/games/uploaded/1559255814377-51qZklmieRL.jpg",
+              "url": "https://www.boardgameatlas.com/game/iLClIEykRr/boss-monster-2-the-next-level",
+              "yearPublished": 2015
+            }
+          },
+          {
+            "borrowerId": null,
+            "gameId": 15,
+            "id": "686",
+            "status": 0,
+            "userId": 9,
+            "game": {
+              "boardGameAtlasId": "DaPMQqWbXX",
+              "description": "<p>Players can re-live the memorable Duelist Kingdom and Battle City storylines with the Decks that Yugi used to defeat his rivals, rescue his Grandpa from Pegasus, protect the Pharaohs legacy, and save the entire world from the maniacal menace of Marik!</p>\r\n<p>Filled with iconic cards such as Black Luster Solider, all five pieces of Exodia, the Forbidden One, Valkyrion the Magna Warrior, and the special, long-awaited Arkana-style Dark Magician, Duelists new and old can finally call these Decks their very own with Yugis Legendary Decks!<br /><br />Each box set includes:</p>\r\n<ul>\r\n<li>41-card Deck used by Yugi in the first season of the original Yu-Gi-Oh! animated series, including his initial Duel with Seto Kaiba and his adventures in Duelist Kingdom.</li>\r\n<li>41-card Deck inspired by Yugis Duels in the Battle City story arc from the second and third seasons of the original Yu-Gi-Oh! animated series, featuring - at long last - Arkanas long-awaited &quot;red&quot; Dark Magician!</li>\r\n<li>41-card Deck used by Yugi as he battled The Pharaoh himself in the final Duel of the original series, focused on &quot;Gadget&quot; monsters and the Silent series of LV monsters.</li>\r\n<li>3 brand new Secret Rare cards: Electromagnetic Turtle, Dark Renewal, and Black Illusion.</li>\r\n<li>3 Ultra Rare collectible (non-playable) historical cards celebrating the Duelist Kingdom storyline, including Glory of the Kings Hand, Set Sail for The Kingdom, and the Duelist Kingdom itself</li>\r\n<li>3 Ultra Rare collectible (non-playable) Egyptian God Cards: Slifer the Sky Dragon, Obelisk the Tormentor, and The Winged Dragon of Ra.</li>\r\n<li>1 Ultra Rare &quot;Yugi&quot; Token Card</li>\r\n</ul>",
+              "id": "15",
+              "imageUrl": "https://s3-us-west-1.amazonaws.com/5cc.images/games/uploaded/1599920704216",
+              "maxPlayers": 2,
+              "maxPlaytime": 0,
+              "minAge": 0,
+              "minPlayers": 2,
+              "minPlaytime": 0,
+              "name": "Yu-Gi-Oh! Trading Card Game: Yugi's Legendary Decks",
+              "thumbUrl": "https://s3-us-west-1.amazonaws.com/5cc.images/games/uploaded/1599920704216",
+              "url": "https://www.boardgameatlas.com/game/DaPMQqWbXX/yu-gi-oh-king-of-games-yugi-s-legendary-decks",
+              "yearPublished": 0
+            }
+          },
+          {
+            "borrowerId": 2,
+            "gameId": 18,
+            "id": "689",
+            "status": 0,
+            "userId": 9,
+            "game": {
+              "boardGameAtlasId": "TtPHSNukZB",
+              "description": "<p>In Village, each player will take the reins of a family and have them find fame and glory in many different ways. There is one thing you must not forget, however: Time will not stop for anyone and with time people will vanish. Those who will find themselves immortalized in the village chronicles will bring honor to their family and be one step closer to victory. A clever action mechanism is responsible for keeping turns short yet tactically rich and full of difficult decisions. Also unique is the way this game deals with the delicate subject of death; as a natural and perpetual part of life in the village, it keeps you focused on smart time-management.</p>",
+              "id": "18",
+              "imageUrl": "https://m.media-amazon.com/images/I/61XkXWPpGWL.jpg",
+              "maxPlayers": 4,
+              "maxPlaytime": 90,
+              "minAge": 12,
+              "minPlayers": 2,
+              "minPlaytime": 60,
+              "name": "Village",
+              "thumbUrl": "https://m.media-amazon.com/images/I/61XkXWPpGWL.jpg",
+              "url": "https://www.boardgameatlas.com/game/TtPHSNukZB/village",
+              "yearPublished": 2011
+            }
+          },
+          {
+            "borrowerId": null,
+            "gameId": 21,
+            "id": "692",
+            "status": 0,
+            "userId": 9,
+            "game": {
+              "boardGameAtlasId": "5qaWQC3bcb",
+              "description": "<p><strong><em>Prophecy of Kings </em></strong>is packed to bursting with new content that you can add to your games of <em>Twilight Imperium</em>. The galaxy has grown far larger, as seven never-before-seen factions enter the game, each boasting their own unique strengths and weaknesses, from the gene-altering powers of the Mahact, to the watchful guard of the Argent Flight, to the mysterious and ancient Empyrean. And new factions aren’t the only way the galaxy grows bigger! Forty new system and hyperlane tiles add new planets and obstacles to the map, and with two new colors of player components included in the box, you can play <em>Twilight Imperium </em>with up to eight players.</p>\r\n<p>But that’s only a fraction of what you’ll find in this expansion! Adding even more flavor to your chosen species, a wealth of unique leader cards arrive to support every faction in the game, giving you powers to unlock during the game. Lumbering mechs stomp onto the battlefield as powerful new ground forces with unique special abilities for every faction. As you venture into the unknown regions of space, brand-new exploration decks seed new planets and the void of space with new discoveries, including fragments you can combine to create awe-inspiring relics. With new action cards, agenda cards, objectives, technologies, promissory notes, legendary planets, and more, <em>Prophecy of Kings </em>is a must-have expansion for any fan of <em>Twilight Imperium</em>!</p>",
+              "id": "21",
+              "imageUrl": "https://s3-us-west-1.amazonaws.com/5cc.images/games/uploaded/1596503779926",
+              "maxPlayers": 8,
+              "maxPlaytime": 480,
+              "minAge": 14,
+              "minPlayers": 3,
+              "minPlaytime": 240,
+              "name": "Twilight Imperium: Fourth Edition – Prophecy of Kings",
+              "thumbUrl": "https://s3-us-west-1.amazonaws.com/5cc.images/games/uploaded/1596503779926",
+              "url": "https://www.boardgameatlas.com//game/5qaWQC3bcb/twilight-imperium-4th-edition-prophecy-of-kings-expansion",
+              "yearPublished": 2020
+            }
+          }
+        ],
+        "id": "9"
+      },
+      {
+        "username": "jakeandbake",
+        "userGames": [
+          {
+            "borrowerId": 9,
+            "gameId": 1,
+            "id": "16",
+            "status": 0,
+            "userId": 10,
+            "game": {
+              "boardGameAtlasId": "AuBvbISHR6",
+              "description": "Ticket to Ride</strong> is a cross-country train adventure game. Players collect train cards that enable them to claim railway routes connecting cities throughout North America. The longer the routes, the more points they earn.",
+              "id": "1",
+              "imageUrl": "https://s3-us-west-1.amazonaws.com/5cc.images/games/uploaded/1629324738308.jpg",
+              "maxPlayers": 5,
+              "maxPlaytime": 90,
+              "minAge": 8,
+              "minPlayers": 2,
+              "minPlaytime": 45,
+              "name": "Ticket to Ride",
+              "thumbUrl": "https://s3-us-west-1.amazonaws.com/5cc.images/games/uploaded/1629324738308.jpg",
+              "url": "https://www.boardgameatlas.com/game/AuBvbISHR6/ticket-to-ride",
+              "yearPublished": 2004
+            }
+          }
+        ],
+        "id": "10"
+      }
+    ]
+  }
+}
