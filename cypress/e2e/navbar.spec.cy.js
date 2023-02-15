@@ -1,4 +1,4 @@
-describe.skip('Navbar', () => {
+describe('Navbar', () => {
   beforeEach(() => {
     cy.visit('http://localhost:3000/')
     cy.get('.username-input')
@@ -9,11 +9,14 @@ describe.skip('Navbar', () => {
   })
   
   it('Should have a navbar with a site title', () => {
-    cy.get('.app-name').contains('Board Together')
+    cy.get('.app-name-board').contains('BOARD')
+    cy.get('.app-name-together').contains('TOGETHER')
+
   })
 
   it('Should have a navbar with a welcome greeting', () => {
     cy.get('.welcome-greeting').contains('Welcome,')
+    cy.get('.welcome-greeting').contains('randy')
   })
 
   it('Should have a navbar with a searchbar that can search and redirect to the corect url', () => {

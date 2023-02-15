@@ -8,13 +8,12 @@ import { UPDATE_USERGAME } from '../../GraphQL/mutations'
 
 
 export const GameModal = ({ setModal, context, modal, userInfo, refetchFriend, refetchUser, addGamesInput }) => {
-
   const [borrowed, setBorrowed] = useState(false);
   const [borrowedError, setBorrowedError] = useState('')
 
   const [addGame, { loading, data, error }] = useMutation(ADD_GAME_TO_COLLECTION);
   if(loading) {
-    <h1>Loadin...</h1>
+    <h1>Loading...</h1>
   }
   if(data){
     console.log(data)
@@ -25,10 +24,10 @@ export const GameModal = ({ setModal, context, modal, userInfo, refetchFriend, r
     const inputVar = userInfo && addGamesInput ? addGamesInput(modal, +userInfo.id) : null     
     
   const clickHelper = () => {
-    addGame({ variables: { input: inputVar } })
-    setTimeout(() => {
-    setModal()
-    }, "1000")
+      addGame({ variables: { input: inputVar } })
+      setTimeout(() => {
+      setModal()
+      }, "1000")  
   }
   
   const borrowObject = userInfo ? {
