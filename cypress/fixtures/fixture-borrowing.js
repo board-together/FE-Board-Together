@@ -238,3 +238,35 @@ export const updatedGameResponseReturn = {
   }
 }
 
+export const getRandyUserDataAfterDelete = {
+  user: {
+    borrowedGames: [],
+    id: "2",
+    userGames: [
+      {
+        borrowerId: 9,
+        game: {
+          "__typename": "Game",
+          "id": "7",
+          "boardGameAtlasId": "hQLfeykeLS",
+          "url": "https://www.boardgameatlas.com/game/hQLfeykeLS/phase-10-card-game",
+          "name": "Phase 10",
+          "yearPublished": 1982,
+          "minPlayers": 2,
+          "maxPlayers": 6,
+          "minPlaytime": 45,
+          "maxPlaytime": 45,
+          "minAge": 8,
+          "description": "<p>Phase 10 is the rummy-type card game where players compete against one another to see who can complete 10 varied phrases first! </p>\r\n<p>A phase is a combination of cards and can be composed of sets (multiple cards of the same value), runs (multiple cards in consecutive ascending order), cards of one color, or a combination of these. Each phase to be completed is specific to each hand dealt, meaning you need to complete the current phase in order to advance to the next one! Finish all 10 and win the game!</p>\r\n<p>Featured in each deck are “Wild” and “Skip” cards that deliver game-changing moments! A “Wild” card can be used in place of a number card, as well as be used as any color to complete any phase, while a “Skip” card causes your opponent to lose a turn!</p>\r\n<p>Includes 108 cards and instructions.</p>",
+          "thumbUrl": "https://s3-us-west-1.amazonaws.com/5cc.images/games/uploaded/1596731140183",
+          "imageUrl": "https://s3-us-west-1.amazonaws.com/5cc.images/games/uploaded/1596731140183"
+        },
+        gameId: 7,
+        id: "693",
+        status: 0,
+        userId: 2
+      },
+    ],
+    username: "randy"
+  }
+}
