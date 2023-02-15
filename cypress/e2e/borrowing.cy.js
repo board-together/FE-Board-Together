@@ -260,6 +260,82 @@ describe('Returning Games', () => {
     cy.get('.friends-games-container')
       .should('have.text', 'Village')
   });
+});
 
-  
+describe('User Seeing That Their Game Is Borrowed', () => {
+  it('Should see their game without a grey overlay if theyre not borrowed', () => {
+    cy.visit(`http://localhost:3000/`);
+    cy.intercept('POST', 'https://board-together.herokuapp.com/graphql', (req) => {
+      if (hasOperationName(req, 'GetUser')) {
+        req.alias = 'gqlGetUserQuery';
+        req.on('response', (res) => {
+          res.body.data = getHoneyUserDataBorrow;
+        });
+      } else if (hasOperationName(req, 'GetAllUsers')) {
+        req.alias = 'gqlGetAllUsersQuery';
+        req.on('response', (res) => {
+          console.log('res: ', res);
+          res.body.data = getAllUsersDataBorrow;
+        });
+      }
+    });
+    cy.get('.username-input')
+      .type('honey');
+    cy.get('.enter-site-button')
+      .click()
+    cy.get('.single-game-img');
+  });
+
+  it('When a friend borrows their game, user should see it with a grey overlay', () => {
+    cy.visit(`http://localhost:3000/`);
+    cy.intercept('POST', 'https://board-together.herokuapp.com/graphql', (req) => {
+      if (hasOperationName(req, 'GetUser')) {
+        req.alias = 'gqlGetUserQuery';
+        req.on('response', (res) => {
+          res.body.data = getRandyUserDataBorrow;
+        });
+      } else if (hasOperationName(req, 'GetAllUsers')) {
+        req.alias = 'gqlGetAllUsersQuery';
+        req.on('response', (res) => {
+          res.body.data = getAllUsersDataBorrow;
+        });
+      }
+    });
+    cy.get('.username-input').type('randy');
+    cy.get('.enter-site-button').click();
+    cy.intercept('POST', 'https://board-together.herokuapp.com/graphql', (req) => {
+      if (hasOperationName(req, 'GetUser')) {
+        req.alias = 'gqlGetUserQuery';
+        req.reply((res) => {
+          res.body.data = getHoneyUserDataBorrow;
+        });
+      } else if (hasOperationName(req, 'UpdateUserGame')) {
+        req.alias = 'gqlUpdateUserGameMutation';
+        req.reply((res) => {
+          res.body.data = updatedGameResponse;
+          res.body.errors = [];
+        });
+      }
+    });
+    cy.get('.friend').click();
+    cy.get('.single-game-img').click();
+    cy.get('button').eq(1).click();
+    cy.intercept('POST', 'https://board-together.herokuapp.com/graphql', (req) => {
+      if (hasOperationName(req, 'GetUser')) {
+        req.alias = 'gqlGetUserQuery';
+        req.reply((res) => {
+          res.body.data = getHoneyUserDataBorrowAFTER;
+        });
+      } 
+    });
+    cy.wait(1001);
+    cy.get('button').eq(1).click();
+    cy.go('back');
+    cy.go('back');
+    cy.go('back');
+    cy.get('.username-input').type('honey');
+    cy.get('.enter-site-button').click();
+    cy.get('.single-borrowed-game')
+  });
+
 })
