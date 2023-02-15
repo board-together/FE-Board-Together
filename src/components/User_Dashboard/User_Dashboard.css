@@ -26,10 +26,12 @@
   align-items: center;
   text-align: center;
   height: auto;
+  min-height: 20em;
   width: 90%;
   margin-bottom: 1em;
   overflow: scroll;
   contain: content;
+  margin-left: 2em;
 }
 
 .game-collection {
@@ -46,6 +48,8 @@
   margin-bottom: 1em;
   overflow: scroll;
   contain: content;
+  margin-left: 2em;
+
 }
 
 
