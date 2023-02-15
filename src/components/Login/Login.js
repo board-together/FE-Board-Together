@@ -5,14 +5,14 @@ import '../../assets/Inception_free.ttf'
 
 export const Login = ({ setUserName }) => {
 
-  const [userNameInput, setUserNameInput] = useState('') // input to enter existing username
-  const [validUser, setValidUser] = useState(false) // boolean state for whether the username entered in the input already exists or not
-  const [userNameMessage, setUserNameMessage] = useState('') // message when a username entered is not valid
-  const [existingUserNames, setExistingUserNames] = useState([]) // existing user names, will eventually get these from the backend
+  const [userNameInput, setUserNameInput] = useState('') 
+  const [validUser, setValidUser] = useState(false) 
+  const [userNameMessage, setUserNameMessage] = useState('') 
+  const [existingUserNames, setExistingUserNames] = useState([]) 
 
   useEffect(() => {
     // Hard coding usernames; as an extension, could do a query on page load.
-    setExistingUserNames(["Pickafloof", "randy", "mikedao", "abdulredd", "heatherf", "jeff", "drake", "dug", "honey", "jakeandbake"])
+    setExistingUserNames(["Pickafloof", "randy", "abdulredd", "heatherf", "jeff", "drake", "dug", "honey", "jakeandbake"])
   }, [])
 
   useEffect(() => {
@@ -28,7 +28,7 @@ export const Login = ({ setUserName }) => {
   const showError = (event) => {
     event.preventDefault()
     setUserNameMessage('Please enter a valid username')
-    setTimeout(setUserNameMessage, 3000)
+    setTimeout(setUserNameMessage, 2000)
   }
 
   return (
@@ -49,7 +49,9 @@ export const Login = ({ setUserName }) => {
             onChange={event => setUserNameInput(event.target.value)}
           />
           {(!validUser && !userNameMessage) && <button className='invalid-user-button' onClick={event => showError(event)}>Enter</button>}
-          {(validUser && !userNameMessage) && <Link to={`dashboard/`} className='enter-site-button'>Enter</Link>}
+          {(validUser && !userNameMessage) && <Link to='/dashboard/'>
+              <button className='enter-site-button'>Enter</button>
+          </Link>}
           {userNameMessage && <p className='invalid-name-message'>{userNameMessage}</p>}
         </form>
       </div>
