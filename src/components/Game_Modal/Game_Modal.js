@@ -1,4 +1,4 @@
-import React, { useEffect } from 'react'
+import React, { useEffect, useState } from 'react'
 import { cleanGameDescription } from '../../utils'
 import { DELETE_GAME } from '../../GraphQL/mutations'
 import './Game_Modal.css'
@@ -8,6 +8,10 @@ import { UPDATE_USERGAME } from '../../GraphQL/mutations'
 
 
 export const GameModal = ({ setModal, context, modal, userInfo, refetchFriend, refetchUser, addGamesInput }) => {
+
+  const [borrowed, setBorrowed] = useState(false);
+  const [borrowedError, setBorrowedError] = useState('')
+
   const [addGame, { loading, data, error }] = useMutation(ADD_GAME_TO_COLLECTION);
   if(loading) {
     <h1>Loadin...</h1>
@@ -49,22 +53,25 @@ export const GameModal = ({ setModal, context, modal, userInfo, refetchFriend, r
       refetchUser();
       if (refetchFriend) refetchFriend();
     }
-  }, [updateUserData, refetchFriend, refetchUser]) //wrap in a use callback??
+  }, [updateUserData, refetchFriend, refetchUser]);
   
   const borrowFriendsGame = (event) => {
     event.preventDefault();
-    updateUserGame({ variables: { input: borrowObject } });
-    setTimeout(() => {
-      setModal()
-      }, "1000");  
+    updateUserGame({ variables: { input: borrowObject } })
+      .then(res => {
+        setBorrowed(true)
+      })
+      .catch(err => {
+        setBorrowedError(err.message)
+      })
   }
 
   const returnFriendsGame = (event) => {
     event.preventDefault();
-    updateUserGame({ variables: { input: returnObject } });
+    updateUserGame({ variables: { input: returnObject } })
     setTimeout(() => {
       setModal()
-      }, "1000");  
+    }, "1000");    
   }
 
   const deleteGameInfo = useMutation(DELETE_GAME)
@@ -124,6 +131,8 @@ export const GameModal = ({ setModal, context, modal, userInfo, refetchFriend, r
           {context === 'friends_games'
             && <button className='modal-button' onClick={event => borrowFriendsGame(event)}>Borrow</button>}
         </div>
+        {borrowedError && <p>Error, unable to process request. {`${borrowedError}`}</p>}
+        {borrowed && <p>Added to your borrowed games!</p>}
       </div>
     </div>
   )
