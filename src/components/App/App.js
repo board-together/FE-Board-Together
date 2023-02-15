@@ -8,6 +8,7 @@ import { FriendsGames } from '../Friends_Games/Friends_Games'
 import { GET_USER } from '../../GraphQL/queries'
 import { useQuery } from "@apollo/client"
 import './App.css'
+import ErrorPage from '../ErrorPage/Error_Page'
 
 const initialState = {
   searchResults: [],
@@ -162,6 +163,7 @@ const modalFormatForMute = (modal,Id) => {
               refetchUser={refetchUser}
             />
           } />
+        <Route path='*' element={<ErrorPage></ErrorPage>} />
       </Routes>
     </div>
   )
