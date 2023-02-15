@@ -117,8 +117,8 @@ export const GameModal = ({ setModal, context, modal, userInfo, refetchFriend, r
                 setModal()
                 refetchUser()
               }}>Delete</button>}
-          {(context === 'user_dashboard' && !modal.borrowerId)
-            && <button className='modal-button'>Make Private</button>}
+          {/* {(context === 'user_dashboard' && !modal.borrowerId)
+            && <button className='modal-button'>Make Private</button>} */}
           {context === 'searched_games'
             && <button className='modal-button' onClick={ () => clickHelper()} >Add to Collection</button>}
           {context === 'friends_games'
