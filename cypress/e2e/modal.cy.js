@@ -1,4 +1,4 @@
-// describe.skip('Modal', () => {
+// describe('Modal', () => {
 
 //   beforeEach(() => {
 //     cy.visit(`http://localhost:3000/`)
@@ -46,9 +46,9 @@
 //     cy.get('.game-modal').should('not.exist')
 //   })
 
-//   // it('should be able to remove games from collection', () => {
-//   //   cy.get('.delete-button').click()
-//   //   cy.get('.single-tile').should('have.length', 2)
-//   //   cy.contains('Dominion').should('not.exist')
-//   // })
+//   it('should be able to remove games from collection', () => {
+//     cy.get('.delete-button').click()
+//     cy.get('.single-tile').should('have.length', 2)
+//     cy.contains('Ticket to Ride').should('not.exist')
+//   })
 // })
