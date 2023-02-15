@@ -6,7 +6,7 @@ describe('Search_Results', () => {
     })
     cy.visit('http://localhost:3000/')
     cy.get('.username-input')
-      .type('randy');
+      .type('abdulredd');
     cy.get('.enter-site-button')
       .click()
   })

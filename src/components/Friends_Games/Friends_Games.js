@@ -34,7 +34,7 @@ export const FriendsGames = ({ searchBarSubmit, userName, setModal, modal, userI
       <div>
         <Navbar username={userName} searchBarSubmit={searchBarSubmit}></Navbar>
         <Link to={`/dashboard`}>
-          <button className='back-to-dash'>Back to dashboard</button>
+          <button className='back-to-dashboard'>Back to dashboard</button>
         </Link>
         <h2 className='friend-name'>{friendName}'s Games</h2>
         {loading && <h1>Loading...</h1>}
