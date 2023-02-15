@@ -15,7 +15,7 @@ import { getRandyUserDataBorrow,
 } from "../fixtures/fixture-borrowing"
 
 
-describe.skip('Seeing Games', () => {
+describe('Seeing Games', () => {
   beforeEach(() => {
     cy.visit(`http://localhost:3000/`);
     cy.intercept('POST', 'https://board-together.herokuapp.com/graphql', (req) => {
@@ -27,7 +27,6 @@ describe.skip('Seeing Games', () => {
       } else if (hasOperationName(req, 'GetAllUsers')) {
         req.alias = 'gqlGetAllUsersQuery';
         req.on('response', (res) => {
-          console.log('res: ', res);
           res.body.data = getAllUsersDataBorrow;
         });
       }
@@ -39,6 +38,7 @@ describe.skip('Seeing Games', () => {
   });
 
   it('Should have a place to show their borrowed games', () => {
+    cy.get('.borrowed-header').click();
     cy.get('.borrowed-games-collection').should('be.empty');
   });
 
@@ -64,7 +64,7 @@ describe.skip('Seeing Games', () => {
 });
 
 
-describe.skip('Borrowing Games', () => {
+describe('Borrowing Games', () => {
   beforeEach(() => {
     cy.visit(`http://localhost:3000/`);
     cy.intercept('POST', 'https://board-together.herokuapp.com/graphql', (req) => {
@@ -124,45 +124,13 @@ describe.skip('Borrowing Games', () => {
       }
     });
     cy.get('button').eq(1).click();
-    cy.wait(1001)
-    cy.get('.friends-games-container').should('be.empty');
+    cy.get('p').eq(5).should('have.text', 'Added to your borrowed games!')
   });
 
-  it('Should see the game in their borrowed games area', () => {
-    cy.intercept('POST', 'https://board-together.herokuapp.com/graphql', (req) => {
-      if (hasOperationName(req, 'GetUser') && req.body.query.split('"').includes('honey')) {
-        req.alias = 'gqlGetUserQuery';
-        req.reply((res) => {
-          res.body.data = getHoneyUserDataBorrowAFTER;
-        });
-      } else if (hasOperationName(req, 'GetUser') && req.body.query.split('"').includes('randy')) {
-        req.alias = 'gqlGetUserQuery';
-        req.reply((res) => {
-          res.body.data = getRandyUserDataBorrowAFTER;
-        });
-      } else if (hasOperationName(req, 'UpdateUserGame')) {
-        req.alias = 'gqlUpdateUserGameMutation';
-        req.reply((res) => {
-          res.body.data = updatedGameResponse;
-          res.body.errors = [];
-        });
-      }
-    });
-    cy.get('button').eq(1).click();
-    cy.wait(1001);
-    cy.get('button').eq(1).click();
-    cy.get('.single-game-name').eq(0)
-      .should('have.text', 'Village')
-    cy.get('p').eq(0)
-      .should('have.text', 'Borrowing from honey');
-    cy.get('.single-game-img').eq(0)
-      .should('have.attr', 'src')
-      .should('eq', 'https://m.media-amazon.com/images/I/61XkXWPpGWL.jpg')
-  });
 });
 
 
-describe.skip('Returning Games', () => {
+describe('Returning Games', () => {
   beforeEach(() => {
     cy.visit(`http://localhost:3000/`);
     cy.intercept('POST', 'https://board-together.herokuapp.com/graphql', (req) => {
@@ -185,6 +153,7 @@ describe.skip('Returning Games', () => {
   });
 
   it('Should have a borrowed game', () => {
+    cy.get('.borrowed-header').click();
     cy.get('.single-game-name').eq(0)
       .should('have.text', 'Village');
     cy.get('p').eq(0)
@@ -195,6 +164,7 @@ describe.skip('Returning Games', () => {
   });
 
   it('Should be able to click on their friends game to see a modal pop up', () => {
+    cy.get('.borrowed-header').click();
     cy.get('.borrowed-games-collection')
       .find('.single-game-img').click();
     cy.get('.game-modal').should('be.visible');
@@ -218,6 +188,7 @@ describe.skip('Returning Games', () => {
         });
       }
     });
+    cy.get('.borrowed-header').click();
     cy.get('.borrowed-games-collection')
       .find('.single-game-img').click();
     cy.get('button').eq(1).should('have.text', `Return Friend's Game`)
@@ -242,6 +213,7 @@ describe.skip('Returning Games', () => {
         });
       }
     });
+    cy.get('.borrowed-header').click();
     cy.get('.borrowed-games-collection')
       .find('.single-game-img').click();
     cy.get('button').eq(1).click();
@@ -262,31 +234,9 @@ describe.skip('Returning Games', () => {
   });
 });
 
-describe.skip('User Seeing That Their Game Is Borrowed', () => {
-  it('Should see their game without a grey overlay if theyre not borrowed', () => {
-    cy.visit(`http://localhost:3000/`);
-    cy.intercept('POST', 'https://board-together.herokuapp.com/graphql', (req) => {
-      if (hasOperationName(req, 'GetUser')) {
-        req.alias = 'gqlGetUserQuery';
-        req.on('response', (res) => {
-          res.body.data = getHoneyUserDataBorrow;
-        });
-      } else if (hasOperationName(req, 'GetAllUsers')) {
-        req.alias = 'gqlGetAllUsersQuery';
-        req.on('response', (res) => {
-          console.log('res: ', res);
-          res.body.data = getAllUsersDataBorrow;
-        });
-      }
-    });
-    cy.get('.username-input')
-      .type('honey');
-    cy.get('.enter-site-button')
-      .click()
-    cy.get('.single-game-img');
-  });
 
-  it('When a friend borrows their game, user should see it with a grey overlay', () => {
+describe('Bad Response Handling', () => {
+  beforeEach(() => {
     cy.visit(`http://localhost:3000/`);
     cy.intercept('POST', 'https://board-together.herokuapp.com/graphql', (req) => {
       if (hasOperationName(req, 'GetUser')) {
@@ -294,48 +244,63 @@ describe.skip('User Seeing That Their Game Is Borrowed', () => {
         req.on('response', (res) => {
           res.body.data = getRandyUserDataBorrow;
         });
-      } else if (hasOperationName(req, 'GetAllUsers')) {
+      } /*else if (hasOperationName(req, 'GetAllUsers')) {
+        req.alias = 'gqlGetAllUsersQuery';
+        req.on('response', (res) => {
+          console.log('res: ', res);
+          res.body.data = getAllUsersDataBorrow;
+        });
+      }*/
+    });
+    cy.get('.username-input')
+      .type('randy');
+    cy.wait(500)
+  });
+
+  it('Should let the user know if they cant find a list of their friends', () => {
+    cy.intercept('POST', 'https://board-together.herokuapp.com/graphql', {
+      statusCode: 500
+    });
+    cy.get('.enter-site-button').click()
+  });
+
+  it('Should let the user know it cant load their friends games', () => {
+    cy.intercept('POST', 'https://board-together.herokuapp.com/graphql', (req) => {
+      if (hasOperationName(req, 'GetAllUsers')) {
+        req.alias = 'gqlGetAllUsersQuery';
+        req.on('response', (res) => {
+          console.log('res: ', res);
+          res.body.data = getAllUsersDataBorrow;
+        });
+      }
+    });
+    cy.get('.enter-site-button').click();
+    cy.intercept('POST', 'https://board-together.herokuapp.com/graphql', {
+      statusCode: 400
+    });
+    cy.get('.friend').click();
+    cy.get('h1').eq(2).should('have.text', 'Error loading data: Response not successful: Received status code 400')
+  });
+
+  it('Should let the user know if borrowing a game failed', () => {
+    cy.intercept('POST', 'https://board-together.herokuapp.com/graphql', (req) => {
+      if (hasOperationName(req, 'GetAllUsers')) {
         req.alias = 'gqlGetAllUsersQuery';
         req.on('response', (res) => {
           res.body.data = getAllUsersDataBorrow;
         });
       }
     });
-    cy.get('.username-input').type('randy');
     cy.get('.enter-site-button').click();
-    cy.intercept('POST', 'https://board-together.herokuapp.com/graphql', (req) => {
-      if (hasOperationName(req, 'GetUser')) {
-        req.alias = 'gqlGetUserQuery';
-        req.reply((res) => {
-          res.body.data = getHoneyUserDataBorrow;
-        });
-      } else if (hasOperationName(req, 'UpdateUserGame')) {
-        req.alias = 'gqlUpdateUserGameMutation';
-        req.reply((res) => {
-          res.body.data = updatedGameResponse;
-          res.body.errors = [];
-        });
-      }
-    });
     cy.get('.friend').click();
-    cy.get('.single-game-img').click();
+    cy.get('.friends-games-container')
+      .find('.single-game-img').click();
+    cy.intercept('POST', 'https://board-together.herokuapp.com/graphql', {
+      statusCode: 500
+    }).as('getNetworkFailure');
     cy.get('button').eq(1).click();
-    cy.intercept('POST', 'https://board-together.herokuapp.com/graphql', (req) => {
-      if (hasOperationName(req, 'GetUser')) {
-        req.alias = 'gqlGetUserQuery';
-        req.reply((res) => {
-          res.body.data = getHoneyUserDataBorrowAFTER;
-        });
-      } 
-    });
-    cy.wait(1001);
-    cy.get('button').eq(1).click();
-    cy.go('back');
-    cy.go('back');
-    cy.go('back');
-    cy.get('.username-input').type('honey');
-    cy.get('.enter-site-button').click();
-    cy.get('.single-borrowed-game')
+    cy.get('p').eq(5).should('have.text', 'Error, unable to process request. Response not successful: Received status code 500')
   });
 
-})
+
+});
