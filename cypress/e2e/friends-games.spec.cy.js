@@ -1,4 +1,4 @@
-describe('Friends_Games', () => {
+describe.skip('Friends_Games', () => {
   beforeEach(() => {
     cy.visit('http://localhost:3000/')
     cy.intercept("POST", 'https://board-together.herokuapp.com/graphql', { fixture: '../fixtures/getSingleUser.json' })

@@ -85,7 +85,8 @@ main {
   font-family: 'Montserrat', sans-serif;
   cursor: pointer;
   background: none;
-  border: 1px solid black;
+  border: 1px solid white;
+  color: white;
   font-size: 18px;
   width: 20%;
   transition-duration: 300ms
