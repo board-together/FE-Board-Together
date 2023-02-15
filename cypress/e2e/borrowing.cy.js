@@ -16,15 +16,15 @@ describe('Borrowing Functionality', () => {
   beforeEach(() => {
     cy.visit(`http://localhost:3000/`);
     cy.intercept('POST', 'https://board-together.herokuapp.com/graphql', (req) => {
-
       if (hasOperationName(req, 'GetUser')) {
         req.alias = 'gqlGetUserQuery';
-        req.reply((res) => {
+        req.on('response', (res) => {
           res.body.data = getRandyUserDataBorrow;
         });
       } else if (hasOperationName(req, 'GetAllUsers')) {
         req.alias = 'gqlGetAllUsersQuery';
-        req.reply((res) => {
+        req.on('response', (res) => {
+          console.log('res: ', res);
           res.body.data = getAllUsersDataBorrow;
         });
       }
