@@ -60,12 +60,34 @@
 .friend {
   display: flex;
   text-align: center;
-  justify-content: flex-end;
+  justify-content: space-between;
   background-color: rgb(50, 108, 245);
   color: white;
   width: 75%;
   height: 20%;
   font-size: 30px;
-  margin: 5%;
+  margin: 10px;
   padding-right: 10px;
+  transition-duration: 400ms;
+}
+
+.friend:hover {
+  transform: translateX(1em);
+}
+
+.friend:hover .smile-svg {
+  transform: scale(1.2);
+}
+
+.friend-name {
+  margin: 1vw;
+}
+
+.smile-svg {
+  width: 30px;
+  height: auto;
+  fill: white;
+  color: white;
+  filter: invert(100%) sepia(100%) saturate(0%) hue-rotate(133deg) brightness(101%) contrast(102%);
+  margin-left: 1vw;
 }
