@@ -104,7 +104,7 @@ export const GameModal = ({ setModal, context, modal, userInfo, refetchFriend, r
             <p>Average Playtime: {averagePlayTime} minutes</p>
             <p>Age: {modal.minAge || modal.game.minAge}+</p>
             <p>{description}</p>
-            <a href={modal.url || modal.game.url} target='_blank' rel="noreferrer">More Info</a>
+            <a href={modal.url || modal.game.url} target='_blank' rel="noreferrer" className='more-info'>More Info</a>
           </div>
         </div>
         <div className='modal-buttons'>

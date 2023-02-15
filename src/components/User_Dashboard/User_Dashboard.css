@@ -55,7 +55,8 @@
   padding-left: 10%
 }
 
-.borrowed-header {
+.borrowed-header,
+.my-games-header {
   width: 20%;
   border: 1px solid black;
   text-align: center;
@@ -64,17 +65,9 @@
 
 .my-games-header {
   margin-right: 2vw;
-  width: 20%;
-  border: 1px solid black;
-  text-align: center;
-  transition-duration: 300ms;
 }
 
-.borrowed-header:hover {
-  cursor: pointer;
-  transform: scale(1.05);
-}
-
+.borrowed-header:hover,
 .my-games-header:hover {
   cursor: pointer;
   transform: scale(1.05);
@@ -84,7 +77,8 @@
   background: rgb(135, 11, 194);
   background: linear-gradient(45deg, rgba(135, 11, 194, 1) 1%, rgba(14, 59, 157, 1) 49%, rgba(0, 255, 214, 1) 100%);
   background-repeat: no-repeat;
-  color: white
+  color: white;
+  border: 1px solid transparent;
 }
 
 .friends-section {
