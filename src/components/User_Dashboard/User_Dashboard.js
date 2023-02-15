@@ -1,5 +1,4 @@
-import React from 'react'
-import { ReactSVG } from "react-svg"
+import React, { useState } from 'react'
 import { Link } from 'react-router-dom'
 import { Navbar } from '../Navbar/Navbar'
 import { GameModal } from '../Game_Modal/Game_Modal'
@@ -12,6 +11,8 @@ import smile from '../../assets/face-smile-regular.svg'
 
 
 export const UserDashboard = ({ userInfo, searchBarSubmit, deleteGame, setModal, modal, loading, error, data, userName, refetchUser }) => {
+
+  const [toggleFocus, setToggleFocus] = useState(true)
 
   const allUsersLoading = useQuery(GET_ALL_USERS).loading
   const allUsersError = useQuery(GET_ALL_USERS).error
@@ -39,11 +40,11 @@ export const UserDashboard = ({ userInfo, searchBarSubmit, deleteGame, setModal,
         {data && <>
           <div className='game-collection-section'>
             <div className='game-collection-headers'>
-              <h2 className='my-games-header header-focus'>My Games</h2>
-              <h2 className='borrowed-header'>Borrowed</h2>
+              <h2 className={`my-games-header ${toggleFocus && 'header-focus'}`} onClick={() => setToggleFocus(!toggleFocus ? true : false)}>My Games</h2>
+              <h2 className={`borrowed-header ${!toggleFocus && 'header-focus'}`} onClick={() => setToggleFocus(toggleFocus ? false : true)}>Borrowed</h2>
             </div>
-            <div className='borrowed-games-collection'>{borrowedGames}</div>
-            <div className='game-collection'>{games}</div>
+            {toggleFocus && <div className='game-collection'>{games}</div>}
+            {!toggleFocus && <div className='borrowed-games-collection'>{borrowedGames}</div>}
           </div>
           <div className='friends-section'>
             <h1 className='my-friends-header'>My Friends</h1>
