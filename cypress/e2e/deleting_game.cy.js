@@ -8,11 +8,12 @@ const hasOperationName = (req, operationName) => {
   )
 }
 
-import { getRandyUserDataBorrow, 
-  getAllUsersDataBorrow, 
-  getHoneyUserDataBorrow, 
+import {
+  getRandyUserDataBorrow,
+  getAllUsersDataBorrow,
+  getHoneyUserDataBorrow,
   getHoneyUserDataBorrowAFTER,
-  updatedGameResponse, 
+  updatedGameResponse,
   getRandyUserDataBorrowAFTER,
   updatedGameResponseReturn,
   getRandyUserDataAfterDelete
@@ -20,42 +21,44 @@ import { getRandyUserDataBorrow,
 
 describe('Search_Results', () => {
   beforeEach(() => {
-    cy.visit(`http://localhost:3000/`);
+    cy.visit(`http://localhost:3000/`)
     cy.intercept('POST', 'https://board-together.herokuapp.com/graphql', (req) => {
       if (hasOperationName(req, 'GetUser')) {
-        req.alias = 'gqlGetUserQuery';
+        req.alias = 'gqlGetUserQuery'
         req.on('response', (res) => {
-          res.body.data = getRandyUserDataBorrow;
-        });
+          res.body.data = getRandyUserDataBorrow
+        })
       } else if (hasOperationName(req, 'GetAllUsers')) {
-        req.alias = 'gqlGetAllUsersQuery';
+        req.alias = 'gqlGetAllUsersQuery'
         req.on('response', (res) => {
-          console.log('res: ', res);
-          res.body.data = getAllUsersDataBorrow;
-        });
+          res.body.data = getAllUsersDataBorrow
+        })
       }
-    });
+    })
     cy.get('.username-input')
-      .type('randy');
+      .type('randy')
     cy.get('.enter-site-button')
       .click()
-  });
+  })
 
   it('should have the option to delete a game', () => {
     cy.get('.single-tile').last().click()
+
     cy.intercept('POST', 'https://board-together.herokuapp.com/graphql', (req) => {
-      if (hasOperationName(req, 'GetUser')) {
-        req.alias = 'gqlGetUserQuery';
+      if (hasOperationName(req, 'DeleteUserGame')) {
+        req.alias = 'gqlDeleteUserGameMutation'
         req.reply((res) => {
-          res.body.data = getHoneyUserDataBorrowAFTER;
-        });
-      } else if (hasOperationName(req, 'DeleteUserGame')) {
-        req.alias = 'gqlUpdateUserGameMutation';
-        req.reply((res) => {
-          res.body.data = updatedGameResponse;
-          res.body.errors = [];
-        });
+          res.body.data = updatedGameResponse
+          res.body.errors = []
+        })
+      } else if (hasOperationName(req, 'GetUser')) {
+        req.alias = 'gqlGetUserQuery'
+        req.on("response", (res) => {
+          res.body.data = getRandyUserDataAfterDelete
+          console.log(res.body)
+        })
       }
-    });
+    })
+    cy.get('.delete-button').click()
   })
 })
