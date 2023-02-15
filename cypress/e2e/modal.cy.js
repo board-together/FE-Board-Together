@@ -2,7 +2,7 @@ describe('Modal', () => {
 
   beforeEach(() => {
     cy.visit(`http://localhost:3000/`)
-    cy.get('.username-input').type('randy')
+    cy.get('.username-input').type('jakeandbake')
     cy.get('.enter-site-button').click()
     cy.get('.game-collection')
       .find('.single-game-img')
