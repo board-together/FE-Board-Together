@@ -7,7 +7,7 @@ import { gql } from "@apollo/client"
 //Get All Users (Friends)
 
 export const GET_USER = (userName) => gql`
-   query {
+   query GetUser {
     user(username: "${userName}") {
       id
       username
@@ -107,7 +107,7 @@ export const GET_MODAL_GAME = (name) => gql`
   `
 
 export const GET_ALL_USERS = gql`
-    query {
+    query GetAllUsers {
       users {
           id
           username
