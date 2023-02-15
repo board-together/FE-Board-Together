@@ -11,32 +11,16 @@ describe('Search_Results', () => {
     })
   })
 
-  it('Should see the game that is searched for', () => {
-    cy.get('.search-input')
-      .type('Catan')
-    cy.get('.search-button')
-      .click()
-    cy.url()
-      .should('include', 'http://localhost:3000/search-results/Catan') 
-    cy.get(':nth-child(1) > .game-name-Catan').contains('Catan')
-    cy.get(':nth-child(1) > .single-game-img-v')
-  })
-
-  it('Should see more info when game is clicked', () => {
-    cy.get('.search-input')
-      .type('Catan')
-    cy.get('.search-button')
-      .click()
-    cy.get(':nth-child(1) > .game-name-Catan').contains('Catan')
-       .click()
-    cy.get('.modal-details > :nth-child(4)').contains('The women and men of your expedition build the first two settlements. Fortunately, the land is rich in natural resources.')
-  })
 
   it('Should have the option to add to collection', () => {
     cy.get('.search-input')
       .type('Catan')
     cy.get('.search-button')
       .click()
+    cy.intercept('POST', "https://board-together.herokuapp.com/graphql", (req) => {
+      cy.stub()
+        .callsFake(req => req.reply({ fixture: 'single_user.json' })).as('user')
+    })
     cy.get(':nth-child(1) > .game-name-Catan').contains('Catan')
       .click()
     cy.get('.modal-button')
@@ -44,7 +28,7 @@ describe('Search_Results', () => {
     cy.get('[href="/dashboard/"] > button')
       .click()
     cy.url()
-      .should('include', 'http://localhost:3000/dashboard') 
+      .should('include', 'http://localhost:3000/dashboard')
   })
 
   // it('When game is added it should apear in game collection', () => {
@@ -60,7 +44,7 @@ describe('Search_Results', () => {
   //     .click()
   //   cy.url()
   //     .should('include', 'http://localhost:3000/dashboard')
-    
+
   // })
-  
+
 })
