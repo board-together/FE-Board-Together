@@ -116,7 +116,7 @@ const modalFormatForMute = (modal,Id) => {
   const refetchUser = () => {
     refetch();
   }
-console.log('data: ', data);
+
   return (
     <div className='App'>
       <Routes>
