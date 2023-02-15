@@ -25,7 +25,7 @@ export const getRandyUserDataBorrow = {
         id: "693",
         status: 0,
         userId: 2
-      }, 
+      },
       {
         borrowerId: null,
         game: {
@@ -67,20 +67,20 @@ export const getHoneyUserDataBorrow = {
         "status": 0,
         "borrowerId": null,
         "game": {
-            "__typename": "Game",
-            "id": "18",
-            "boardGameAtlasId": "TtPHSNukZB",
-            "url": "https://www.boardgameatlas.com/game/TtPHSNukZB/village",
-            "name": "Village",
-            "yearPublished": 2011,
-            "minPlayers": 2,
-            "maxPlayers": 4,
-            "minPlaytime": 60,
-            "maxPlaytime": 90,
-            "minAge": 12,
-            "description": "<p>In Village, each player will take the reins of a family and have them find fame and glory in many different ways. There is one thing you must not forget, however: Time will not stop for anyone and with time people will vanish. Those who will find themselves immortalized in the village chronicles will bring honor to their family and be one step closer to victory. A clever action mechanism is responsible for keeping turns short yet tactically rich and full of difficult decisions. Also unique is the way this game deals with the delicate subject of death; as a natural and perpetual part of life in the village, it keeps you focused on smart time-management.</p>",
-            "thumbUrl": "https://m.media-amazon.com/images/I/61XkXWPpGWL.jpg",
-            "imageUrl": "https://m.media-amazon.com/images/I/61XkXWPpGWL.jpg"
+          "__typename": "Game",
+          "id": "18",
+          "boardGameAtlasId": "TtPHSNukZB",
+          "url": "https://www.boardgameatlas.com/game/TtPHSNukZB/village",
+          "name": "Village",
+          "yearPublished": 2011,
+          "minPlayers": 2,
+          "maxPlayers": 4,
+          "minPlaytime": 60,
+          "maxPlaytime": 90,
+          "minAge": 12,
+          "description": "<p>In Village, each player will take the reins of a family and have them find fame and glory in many different ways. There is one thing you must not forget, however: Time will not stop for anyone and with time people will vanish. Those who will find themselves immortalized in the village chronicles will bring honor to their family and be one step closer to victory. A clever action mechanism is responsible for keeping turns short yet tactically rich and full of difficult decisions. Also unique is the way this game deals with the delicate subject of death; as a natural and perpetual part of life in the village, it keeps you focused on smart time-management.</p>",
+          "thumbUrl": "https://m.media-amazon.com/images/I/61XkXWPpGWL.jpg",
+          "imageUrl": "https://m.media-amazon.com/images/I/61XkXWPpGWL.jpg"
         }
       }
     ],
@@ -100,27 +100,27 @@ export const getHoneyUserDataBorrowAFTER = {
       "status": 0,
       "borrowerId": 2,
       "game": {
-          "__typename": "Game",
-          "id": "18",
-          "boardGameAtlasId": "TtPHSNukZB",
-          "url": "https://www.boardgameatlas.com/game/TtPHSNukZB/village",
-          "name": "Village",
-          "yearPublished": 2011,
-          "minPlayers": 2,
-          "maxPlayers": 4,
-          "minPlaytime": 60,
-          "maxPlaytime": 90,
-          "minAge": 12,
-          "description": "<p>In Village, each player will take the reins of a family and have them find fame and glory in many different ways. There is one thing you must not forget, however: Time will not stop for anyone and with time people will vanish. Those who will find themselves immortalized in the village chronicles will bring honor to their family and be one step closer to victory. A clever action mechanism is responsible for keeping turns short yet tactically rich and full of difficult decisions. Also unique is the way this game deals with the delicate subject of death; as a natural and perpetual part of life in the village, it keeps you focused on smart time-management.</p>",
-          "thumbUrl": "https://m.media-amazon.com/images/I/61XkXWPpGWL.jpg",
-          "imageUrl": "https://m.media-amazon.com/images/I/61XkXWPpGWL.jpg"
+        "__typename": "Game",
+        "id": "18",
+        "boardGameAtlasId": "TtPHSNukZB",
+        "url": "https://www.boardgameatlas.com/game/TtPHSNukZB/village",
+        "name": "Village",
+        "yearPublished": 2011,
+        "minPlayers": 2,
+        "maxPlayers": 4,
+        "minPlaytime": 60,
+        "maxPlaytime": 90,
+        "minAge": 12,
+        "description": "<p>In Village, each player will take the reins of a family and have them find fame and glory in many different ways. There is one thing you must not forget, however: Time will not stop for anyone and with time people will vanish. Those who will find themselves immortalized in the village chronicles will bring honor to their family and be one step closer to victory. A clever action mechanism is responsible for keeping turns short yet tactically rich and full of difficult decisions. Also unique is the way this game deals with the delicate subject of death; as a natural and perpetual part of life in the village, it keeps you focused on smart time-management.</p>",
+        "thumbUrl": "https://m.media-amazon.com/images/I/61XkXWPpGWL.jpg",
+        "imageUrl": "https://m.media-amazon.com/images/I/61XkXWPpGWL.jpg"
       }
     }],
     username: "honey"
   }
 }
 
-export const getRandyUserDataBorrowAFTER ={
+export const getRandyUserDataBorrowAFTER = {
   user: {
     borrowedGames: [{
       "__typename": "UserGame",
@@ -130,20 +130,20 @@ export const getRandyUserDataBorrowAFTER ={
       "status": 0,
       "borrowerId": 2,
       "game": {
-          "__typename": "Game",
-          "id": "18",
-          "boardGameAtlasId": "TtPHSNukZB",
-          "url": "https://www.boardgameatlas.com/game/TtPHSNukZB/village",
-          "name": "Village",
-          "yearPublished": 2011,
-          "minPlayers": 2,
-          "maxPlayers": 4,
-          "minPlaytime": 60,
-          "maxPlaytime": 90,
-          "minAge": 12,
-          "description": "<p>In Village, each player will take the reins of a family and have them find fame and glory in many different ways. There is one thing you must not forget, however: Time will not stop for anyone and with time people will vanish. Those who will find themselves immortalized in the village chronicles will bring honor to their family and be one step closer to victory. A clever action mechanism is responsible for keeping turns short yet tactically rich and full of difficult decisions. Also unique is the way this game deals with the delicate subject of death; as a natural and perpetual part of life in the village, it keeps you focused on smart time-management.</p>",
-          "thumbUrl": "https://m.media-amazon.com/images/I/61XkXWPpGWL.jpg",
-          "imageUrl": "https://m.media-amazon.com/images/I/61XkXWPpGWL.jpg"
+        "__typename": "Game",
+        "id": "18",
+        "boardGameAtlasId": "TtPHSNukZB",
+        "url": "https://www.boardgameatlas.com/game/TtPHSNukZB/village",
+        "name": "Village",
+        "yearPublished": 2011,
+        "minPlayers": 2,
+        "maxPlayers": 4,
+        "minPlaytime": 60,
+        "maxPlaytime": 90,
+        "minAge": 12,
+        "description": "<p>In Village, each player will take the reins of a family and have them find fame and glory in many different ways. There is one thing you must not forget, however: Time will not stop for anyone and with time people will vanish. Those who will find themselves immortalized in the village chronicles will bring honor to their family and be one step closer to victory. A clever action mechanism is responsible for keeping turns short yet tactically rich and full of difficult decisions. Also unique is the way this game deals with the delicate subject of death; as a natural and perpetual part of life in the village, it keeps you focused on smart time-management.</p>",
+        "thumbUrl": "https://m.media-amazon.com/images/I/61XkXWPpGWL.jpg",
+        "imageUrl": "https://m.media-amazon.com/images/I/61XkXWPpGWL.jpg"
       }
     }],
     id: "2",
@@ -170,7 +170,7 @@ export const getRandyUserDataBorrowAFTER ={
         id: "693",
         status: 0,
         userId: 2
-      }, 
+      },
       {
         borrowerId: null,
         game: {
@@ -213,28 +213,60 @@ export const getAllUsersDataBorrow = {
 }
 
 export const updatedGameResponse = {
-    "updateUserGame": {
-        "userGame": {
-            "id": "702",
-            "borrowerId": 2,
-            "status": 1,
-            "__typename": "UserGame"
-        },
-        "errors": [],
-        "__typename": "UpdateUserGamePayload"
-    }
+  "updateUserGame": {
+    "userGame": {
+      "id": "702",
+      "borrowerId": 2,
+      "status": 1,
+      "__typename": "UserGame"
+    },
+    "errors": [],
+    "__typename": "UpdateUserGamePayload"
+  }
 }
 
 export const updatedGameResponseReturn = {
   "updateUserGame": {
-      "userGame": {
-          "id": "702",
-          "borrowerId": null,
-          "status": 0,
-          "__typename": "UserGame"
-      },
-      "errors": [],
-      "__typename": "UpdateUserGamePayload"
+    "userGame": {
+      "id": "702",
+      "borrowerId": null,
+      "status": 0,
+      "__typename": "UserGame"
+    },
+    "errors": [],
+    "__typename": "UpdateUserGamePayload"
   }
 }
 
+export const getRandyUserDataAfterDelete = {
+  user: {
+    borrowedGames: [],
+    id: "2",
+    userGames: [
+      {
+        borrowerId: 9,
+        game: {
+          "__typename": "Game",
+          "id": "7",
+          "boardGameAtlasId": "hQLfeykeLS",
+          "url": "https://www.boardgameatlas.com/game/hQLfeykeLS/phase-10-card-game",
+          "name": "Phase 10",
+          "yearPublished": 1982,
+          "minPlayers": 2,
+          "maxPlayers": 6,
+          "minPlaytime": 45,
+          "maxPlaytime": 45,
+          "minAge": 8,
+          "description": "<p>Phase 10 is the rummy-type card game where players compete against one another to see who can complete 10 varied phrases first! </p>\r\n<p>A phase is a combination of cards and can be composed of sets (multiple cards of the same value), runs (multiple cards in consecutive ascending order), cards of one color, or a combination of these. Each phase to be completed is specific to each hand dealt, meaning you need to complete the current phase in order to advance to the next one! Finish all 10 and win the game!</p>\r\n<p>Featured in each deck are “Wild” and “Skip” cards that deliver game-changing moments! A “Wild” card can be used in place of a number card, as well as be used as any color to complete any phase, while a “Skip” card causes your opponent to lose a turn!</p>\r\n<p>Includes 108 cards and instructions.</p>",
+          "thumbUrl": "https://s3-us-west-1.amazonaws.com/5cc.images/games/uploaded/1596731140183",
+          "imageUrl": "https://s3-us-west-1.amazonaws.com/5cc.images/games/uploaded/1596731140183"
+        },
+        gameId: 7,
+        id: "693",
+        status: 0,
+        userId: 2
+      }
+    ],
+    username: "randy"
+  }
+}
