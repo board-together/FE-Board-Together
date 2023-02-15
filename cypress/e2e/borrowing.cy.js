@@ -15,7 +15,7 @@ import { getRandyUserDataBorrow,
 } from "../fixtures/fixture-borrowing"
 
 
-describe.skip('Seeing Games', () => {
+describe('Seeing Games', () => {
   beforeEach(() => {
     cy.visit(`http://localhost:3000/`);
     cy.intercept('POST', 'https://board-together.herokuapp.com/graphql', (req) => {
@@ -39,6 +39,7 @@ describe.skip('Seeing Games', () => {
   });
 
   it('Should have a place to show their borrowed games', () => {
+    cy.get('.borrowed-header').click();
     cy.get('.borrowed-games-collection').should('be.empty');
   });
 
@@ -64,7 +65,7 @@ describe.skip('Seeing Games', () => {
 });
 
 
-describe.skip('Borrowing Games', () => {
+describe('Borrowing Games', () => {
   beforeEach(() => {
     cy.visit(`http://localhost:3000/`);
     cy.intercept('POST', 'https://board-together.herokuapp.com/graphql', (req) => {
@@ -151,6 +152,7 @@ describe.skip('Borrowing Games', () => {
     cy.get('button').eq(1).click();
     cy.wait(1001);
     cy.get('button').eq(1).click();
+    cy.get('.borrowed-header').click();
     cy.get('.single-game-name').eq(0)
       .should('have.text', 'Village')
     cy.get('p').eq(0)
@@ -162,7 +164,7 @@ describe.skip('Borrowing Games', () => {
 });
 
 
-describe.skip('Returning Games', () => {
+describe('Returning Games', () => {
   beforeEach(() => {
     cy.visit(`http://localhost:3000/`);
     cy.intercept('POST', 'https://board-together.herokuapp.com/graphql', (req) => {
@@ -185,6 +187,7 @@ describe.skip('Returning Games', () => {
   });
 
   it('Should have a borrowed game', () => {
+    cy.get('.borrowed-header').click();
     cy.get('.single-game-name').eq(0)
       .should('have.text', 'Village');
     cy.get('p').eq(0)
@@ -195,6 +198,7 @@ describe.skip('Returning Games', () => {
   });
 
   it('Should be able to click on their friends game to see a modal pop up', () => {
+    cy.get('.borrowed-header').click();
     cy.get('.borrowed-games-collection')
       .find('.single-game-img').click();
     cy.get('.game-modal').should('be.visible');
@@ -218,6 +222,7 @@ describe.skip('Returning Games', () => {
         });
       }
     });
+    cy.get('.borrowed-header').click();
     cy.get('.borrowed-games-collection')
       .find('.single-game-img').click();
     cy.get('button').eq(1).should('have.text', `Return Friend's Game`)
@@ -242,6 +247,7 @@ describe.skip('Returning Games', () => {
         });
       }
     });
+    cy.get('.borrowed-header').click();
     cy.get('.borrowed-games-collection')
       .find('.single-game-img').click();
     cy.get('button').eq(1).click();
@@ -262,7 +268,7 @@ describe.skip('Returning Games', () => {
   });
 });
 
-describe.skip('User Seeing That Their Game Is Borrowed', () => {
+describe('User Seeing That Their Game Is Borrowed', () => {
   it('Should see their game without a grey overlay if theyre not borrowed', () => {
     cy.visit(`http://localhost:3000/`);
     cy.intercept('POST', 'https://board-together.herokuapp.com/graphql', (req) => {
