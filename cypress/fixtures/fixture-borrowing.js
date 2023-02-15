@@ -92,14 +92,60 @@ export const getHoneyUserDataBorrowAFTER = {
   user: {
     borrowedGames: [],
     id: "2",
-    userGames: [],
-    username: "randy"
+    userGames: [{
+      "__typename": "UserGame",
+      "id": "689",
+      "userId": 9,
+      "gameId": 18,
+      "status": 0,
+      "borrowerId": 2,
+      "game": {
+          "__typename": "Game",
+          "id": "18",
+          "boardGameAtlasId": "TtPHSNukZB",
+          "url": "https://www.boardgameatlas.com/game/TtPHSNukZB/village",
+          "name": "Village",
+          "yearPublished": 2011,
+          "minPlayers": 2,
+          "maxPlayers": 4,
+          "minPlaytime": 60,
+          "maxPlaytime": 90,
+          "minAge": 12,
+          "description": "<p>In Village, each player will take the reins of a family and have them find fame and glory in many different ways. There is one thing you must not forget, however: Time will not stop for anyone and with time people will vanish. Those who will find themselves immortalized in the village chronicles will bring honor to their family and be one step closer to victory. A clever action mechanism is responsible for keeping turns short yet tactically rich and full of difficult decisions. Also unique is the way this game deals with the delicate subject of death; as a natural and perpetual part of life in the village, it keeps you focused on smart time-management.</p>",
+          "thumbUrl": "https://m.media-amazon.com/images/I/61XkXWPpGWL.jpg",
+          "imageUrl": "https://m.media-amazon.com/images/I/61XkXWPpGWL.jpg"
+      }
+    }],
+    username: "honey"
   }
 }
 
 export const getRandyUserDataBorrowAFTER ={
   user: {
-    borrowedGames: [],
+    borrowedGames: [{
+      "__typename": "UserGame",
+      "id": "689",
+      "userId": 9,
+      "gameId": 18,
+      "status": 0,
+      "borrowerId": 2,
+      "game": {
+          "__typename": "Game",
+          "id": "18",
+          "boardGameAtlasId": "TtPHSNukZB",
+          "url": "https://www.boardgameatlas.com/game/TtPHSNukZB/village",
+          "name": "Village",
+          "yearPublished": 2011,
+          "minPlayers": 2,
+          "maxPlayers": 4,
+          "minPlaytime": 60,
+          "maxPlaytime": 90,
+          "minAge": 12,
+          "description": "<p>In Village, each player will take the reins of a family and have them find fame and glory in many different ways. There is one thing you must not forget, however: Time will not stop for anyone and with time people will vanish. Those who will find themselves immortalized in the village chronicles will bring honor to their family and be one step closer to victory. A clever action mechanism is responsible for keeping turns short yet tactically rich and full of difficult decisions. Also unique is the way this game deals with the delicate subject of death; as a natural and perpetual part of life in the village, it keeps you focused on smart time-management.</p>",
+          "thumbUrl": "https://m.media-amazon.com/images/I/61XkXWPpGWL.jpg",
+          "imageUrl": "https://m.media-amazon.com/images/I/61XkXWPpGWL.jpg"
+      }
+    }],
     id: "2",
     userGames: [
       {
@@ -147,30 +193,6 @@ export const getRandyUserDataBorrowAFTER ={
         id: "702",
         status: 0,
         userId: 2
-      },
-      {
-        "__typename": "UserGame",
-        "id": "689",
-        "userId": 9,
-        "gameId": 18,
-        "status": 0,
-        "borrowerId": null,
-        "game": {
-            "__typename": "Game",
-            "id": "18",
-            "boardGameAtlasId": "TtPHSNukZB",
-            "url": "https://www.boardgameatlas.com/game/TtPHSNukZB/village",
-            "name": "Village",
-            "yearPublished": 2011,
-            "minPlayers": 2,
-            "maxPlayers": 4,
-            "minPlaytime": 60,
-            "maxPlaytime": 90,
-            "minAge": 12,
-            "description": "<p>In Village, each player will take the reins of a family and have them find fame and glory in many different ways. There is one thing you must not forget, however: Time will not stop for anyone and with time people will vanish. Those who will find themselves immortalized in the village chronicles will bring honor to their family and be one step closer to victory. A clever action mechanism is responsible for keeping turns short yet tactically rich and full of difficult decisions. Also unique is the way this game deals with the delicate subject of death; as a natural and perpetual part of life in the village, it keeps you focused on smart time-management.</p>",
-            "thumbUrl": "https://m.media-amazon.com/images/I/61XkXWPpGWL.jpg",
-            "imageUrl": "https://m.media-amazon.com/images/I/61XkXWPpGWL.jpg"
-        }
       }
     ],
     username: "randy"
@@ -202,3 +224,17 @@ export const updatedGameResponse = {
         "__typename": "UpdateUserGamePayload"
     }
 }
+
+export const updatedGameResponseReturn = {
+  "updateUserGame": {
+      "userGame": {
+          "id": "702",
+          "borrowerId": null,
+          "status": 0,
+          "__typename": "UserGame"
+      },
+      "errors": [],
+      "__typename": "UpdateUserGamePayload"
+  }
+}
+
