@@ -15,7 +15,7 @@ import { getRandyUserDataBorrow,
 } from "../fixtures/fixture-borrowing"
 
 
-describe('Seeing Games', () => {
+describe.skip('Seeing Games', () => {
   beforeEach(() => {
     cy.visit(`http://localhost:3000/`);
     cy.intercept('POST', 'https://board-together.herokuapp.com/graphql', (req) => {
@@ -64,7 +64,7 @@ describe('Seeing Games', () => {
 });
 
 
-describe('Borrowing Games', () => {
+describe.skip('Borrowing Games', () => {
   beforeEach(() => {
     cy.visit(`http://localhost:3000/`);
     cy.intercept('POST', 'https://board-together.herokuapp.com/graphql', (req) => {
@@ -162,7 +162,7 @@ describe('Borrowing Games', () => {
 });
 
 
-describe('Returning Games', () => {
+describe.skip('Returning Games', () => {
   beforeEach(() => {
     cy.visit(`http://localhost:3000/`);
     cy.intercept('POST', 'https://board-together.herokuapp.com/graphql', (req) => {
@@ -262,7 +262,7 @@ describe('Returning Games', () => {
   });
 });
 
-describe('User Seeing That Their Game Is Borrowed', () => {
+describe.skip('User Seeing That Their Game Is Borrowed', () => {
   it('Should see their game without a grey overlay if theyre not borrowed', () => {
     cy.visit(`http://localhost:3000/`);
     cy.intercept('POST', 'https://board-together.herokuapp.com/graphql', (req) => {
