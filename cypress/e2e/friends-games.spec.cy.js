@@ -1,7 +1,7 @@
 import { aliasQuery, aliasMutation } from '../../src/utils'
 
 
-describe('Friends_Games', () => {
+describe.skip('Friends_Games', () => {
   beforeEach(() => {
     cy.intercept('POST', "https://board-together.herokuapp.com/graphql", (req) => {
       

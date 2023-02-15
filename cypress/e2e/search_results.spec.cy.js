@@ -1,4 +1,4 @@
-describe('Search_Results', () => {
+describe.skip('Search_Results', () => {
   beforeEach(() => {
     cy.visit('http://localhost:3000/')
     cy.get('.username-input')

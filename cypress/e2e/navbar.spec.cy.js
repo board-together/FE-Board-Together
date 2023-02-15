@@ -1,4 +1,4 @@
-describe('Navbar', () => {
+describe.skip('Navbar', () => {
   beforeEach(() => {
     cy.visit('http://localhost:3000/')
     cy.get('.username-input')

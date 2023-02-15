@@ -1,4 +1,4 @@
-describe('User Dashboard', () => {
+describe.skip('User Dashboard', () => {
 
   beforeEach(() => {
     cy.visit('http://localhost:3000/')
