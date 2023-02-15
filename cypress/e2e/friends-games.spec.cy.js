@@ -1,12 +1,21 @@
+import { aliasQuery, aliasMutation } from '../../src/utils'
+
+
 describe('Friends_Games', () => {
   beforeEach(() => {
+    cy.intercept('POST', "https://board-together.herokuapp.com/graphql", (req) => {
+      
+      // Queries
+      aliasQuery(req, 'GetUser')
+
+    if (req.body.operationName === 'GetFriends') {
+        req.alias = 'graphqlGetUser'
+      }
+    })
     cy.visit('http://localhost:3000/')
-    cy.get('.username-input')
-      .type('randy');
-    cy.get('.enter-site-button')
-      .click()
-    cy.get('.friend').eq(0).click()
   })
+
+
 
   it('Should have a list of games ', () => {
     cy.get('.single-game-name').eq(0).should('have.text', 'Ticket to Ride')  
