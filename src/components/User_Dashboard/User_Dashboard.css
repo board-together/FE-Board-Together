@@ -26,10 +26,12 @@
   align-items: center;
   text-align: center;
   height: auto;
+  min-height: 20em;
   width: 90%;
   margin-bottom: 1em;
   overflow: scroll;
   contain: content;
+  margin-left: 2em;
 }
 
 .game-collection {
@@ -46,6 +48,8 @@
   margin-bottom: 1em;
   overflow: scroll;
   contain: content;
+  margin-left: 2em;
+
 }
 
 
@@ -57,6 +61,7 @@
 
 .borrowed-header,
 .my-games-header {
+  min-width: 8em;
   width: 20%;
   border: 1px solid black;
   text-align: center;
@@ -102,10 +107,11 @@
   color: white;
   width: 75%;
   height: 20%;
-  font-size: 30px;
+  font-size: 1.6em;
   margin: 10px;
   padding-right: 10px;
   transition-duration: 400ms;
+  contain: content;
 }
 
 .friend:hover {
@@ -118,6 +124,8 @@
 
 .friend-name {
   margin: 1vw;
+  margin-right: 1.6em;
+  text-align: right;
 }
 
 .smile-svg {
