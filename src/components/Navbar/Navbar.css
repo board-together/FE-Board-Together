@@ -2,7 +2,8 @@ header {
   display: flex;
   flex-direction: column;
   align-items: center;
-  height: 35vh;
+  height: auto;
+  background-color: rgb(189, 194, 204);
 }
 
 .navbar-container {
@@ -27,7 +28,7 @@ header {
   border: 1px solid black;
   width: 18%;
   text-align: center;
-  transition-duration: 400ms;
+  transition-duration: 300ms;
 }
 
 .link-to-login:hover {

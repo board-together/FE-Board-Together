@@ -24,7 +24,7 @@
   border: 1px solid black;
   width: 100%;
   font-size: 15px;
-  transition-duration: 400ms;
+  transition-duration: 300ms;
 }
 
 .search-button:hover {

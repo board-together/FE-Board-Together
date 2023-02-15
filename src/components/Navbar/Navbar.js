@@ -23,7 +23,6 @@ export const Navbar = ({ searchBarSubmit, username }) => {
           <Link to={'/'} className='link-to-login'>Log Out</Link>
         </div>
       </div>
-
     </header>
   )
 }
