@@ -5,9 +5,8 @@ body {
     sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
-  background: rgb(135, 11, 194);
-  background: linear-gradient(45deg, rgba(135, 11, 194, 1) 1%, rgba(14, 59, 157, 1) 49%, rgba(0, 255, 214, 1) 100%);
-  background-repeat: no-repeat;
+  /* font-family: 'Lora', serif; */
+  font-family: 'Montserrat', sans-serif;
 }
 
 code {

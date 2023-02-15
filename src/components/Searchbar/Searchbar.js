@@ -25,7 +25,7 @@ const SearchBar = ({ submit }) => {
         value={searchTerm}
         onChange={handleChange}
       />
-      <Link to={`/search-results/${searchTerm}`}>
+      <Link to={`/search-results/${searchTerm}`} className='search-button-link'>
         <button className='search-button' onClick={() => handleSubmit()}>Search</button>
       </Link>
     </form>

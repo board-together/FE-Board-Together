@@ -2,36 +2,70 @@ header {
   display: flex;
   flex-direction: column;
   align-items: center;
-  height: 25vh;
+  height: 35vh;
 }
 
 .navbar-container {
   display: flex;
   flex-direction: row;
   flex-wrap: wrap;
-  justify-content:space-between;
+  justify-content: space-between;
   align-content: space-between;
   align-items: center;
-  width:100%;
+  width: 98%;
+  padding: 10px;
+  border-bottom: 2px solid black;
 }
 
 .welcome-greeting {
-  margin-left:1vw;
+  font-size: 40px;
 }
 
 .link-to-login {
   margin-bottom: 2em;
   margin-top: .5em;
+  border: 1px solid black;
+  width: 20%;
+  text-align: center;
+  transition-duration: 400ms;
 }
 
-.app-name {
+.link-to-login:hover {
+  transform: scale(1.1);
+  background: rgb(135, 11, 194);
+  background: linear-gradient(45deg, rgba(135, 11, 194, 1) 1%, rgba(14, 59, 157, 1) 49%, rgba(0, 255, 214, 1) 100%);
+  background-repeat: no-repeat;
+  color: white;
+  cursor: pointer
+}
+
+.app-name-board {
   color: auto;
-  font-size: 2.7em;
+  font-size: 80px;
+  margin: 0;
+  padding: 0;
+  font-family: 'Roboto', sans-serif;
+  font-family: 'Bungee Shade', cursive;
+  font-family: 'Montserrat', sans-serif;
+  /* font-style: italic; */
+  font-style: bold;
+}
+
+.app-name-together {
+  color: auto;
+  font-size: 80px;
+  margin: 0;
+  padding: 0;
+  font-family: 'Roboto', sans-serif;
+  font-family: 'Bungee Shade', cursive;
+  font-family: 'Montserrat', sans-serif;
+  /* font-style: italic; */
 }
 
 a {
   color: black;
   text-decoration: none;
+
 }
 
 .logo {
@@ -41,9 +75,13 @@ a {
   justify-content: center;
   background: white;
   height: 200px;
-  width: 200px;
-  border: 3px solid black;
-  font-size: 13px;
+  padding-right: 3vw;
+  padding-left: 1vw;
+  border: 4px solid black;
+  background: rgb(135, 11, 194);
+  background: linear-gradient(45deg, rgba(135, 11, 194, 1) 1%, rgba(14, 59, 157, 1) 49%, rgba(0, 255, 214, 1) 100%);
+  background-repeat: no-repeat;
+  color: white
 }
 
 .searchbar-container {
@@ -53,5 +91,4 @@ a {
   align-items: flex-end;
   height: 100%;
   width: 50%;
-  padding-right: 2vw;
 }

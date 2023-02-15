@@ -13,8 +13,8 @@ export const Navbar = ({ searchBarSubmit, username }) => {
       <div className='navbar-container'>
         <Link to='/dashboard'>
           <div className='logo'>
-            <h1 className='app-name'>BOARD</h1>
-            <h1 className='app-name'>TOGETHER</h1>
+            <h1 className='app-name-board'>BOARD</h1>
+            <h1 className='app-name-together'>TOGETHER</h1>
           </div>
         </Link>
         <div className='searchbar-container'>
