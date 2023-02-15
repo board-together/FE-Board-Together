@@ -51,7 +51,12 @@ describe('Search_Results', () => {
           res.body.data = updatedGameResponse
           res.body.errors = []
         })
-      } else if (hasOperationName(req, 'GetUser')) {
+      }
+    })
+    cy.get('.delete-button').click()
+    cy.wait(1001)
+    cy.intercept('POST', 'https://board-together.herokuapp.com/graphql', (req) => {
+      if (hasOperationName(req, 'GetUser')) {
         req.alias = 'gqlGetUserQuery'
         req.on("response", (res) => {
           res.body.data = getRandyUserDataAfterDelete
@@ -59,6 +64,7 @@ describe('Search_Results', () => {
         })
       }
     })
-    cy.get('.delete-button').click()
   })
+
+
 })
