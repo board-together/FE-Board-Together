@@ -10,7 +10,7 @@ import { UPDATE_USERGAME } from '../../GraphQL/mutations'
 export const GameModal = ({ setModal, context, modal, userInfo, refetchFriend, refetchUser, addGamesInput }) => {
   const [addGame, { loading, data, error }] = useMutation(ADD_GAME_TO_COLLECTION);
   if(loading) {
-    <h1>Loadin...</h1>
+    <h1>Loading...</h1>
   }
   if(data){
     console.log(data)
