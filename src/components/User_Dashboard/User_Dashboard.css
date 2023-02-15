@@ -57,6 +57,7 @@
 
 .borrowed-header,
 .my-games-header {
+  min-width: 8em;
   width: 20%;
   border: 1px solid black;
   text-align: center;
