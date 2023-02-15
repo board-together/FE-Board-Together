@@ -6,7 +6,7 @@ const SingleGameVarient = ({ game, setModal }) => {
 
   return (
     <>
-      <div className="single-tile-v" onClick={() => setModal(game)}>
+      <div className="single-tile-v" onClick={() => setModal(game)} tabIndex="0">
         <h2 className={`game-name-${game.name}`}>{game.name}</h2>
         <img className="single-game-img-v" src={game.imageUrl} alt={game.name} />
       </div>
