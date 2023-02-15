@@ -6,6 +6,7 @@ import { useQuery } from "@apollo/client"
 import { GET_SEARCHED_GAMES } from '../../GraphQL/queries'
 import SingleGameVarient from '../Single_Game_Varient/SingleGameVarinet'
 import './Search_Results.css'
+import ErrorPage from '../ErrorPage/Error_Page'
 
 
 
@@ -16,7 +17,7 @@ const SearchResults = ({ results, searchBarSubmit, setModal, modal, userName, us
 
 
   if(error){
-    return <h1>{error}</h1>
+    return <ErrorPage error= {error}></ErrorPage>
   }
 
   if (loading) {
