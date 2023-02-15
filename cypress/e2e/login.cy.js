@@ -10,7 +10,7 @@ describe('Login Page', () => {
   });
 
   it('Should have welcome text and a login heading', () => {
-    cy.get('h1').should('have.text', 'Welcome to Board Together');
+    cy.get('h1').should('have.text', 'BoardTogether');
     cy.get('h2').should('have.text', 'Login');
   });
 
