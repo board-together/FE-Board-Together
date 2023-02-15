@@ -122,7 +122,7 @@ const modalFormatForMute = (modal,Id) => {
   return (
     <div className='app'>
       <Routes>
-        <Route path='/' element={<Login setUserName={setUserName} />} />
+        <Route  path='/' element={<Login setUserName={setUserName} />} />
         <Route path='/dashboard/'
           element={
             <UserDashboard
@@ -163,7 +163,7 @@ const modalFormatForMute = (modal,Id) => {
               refetchUser={refetchUser}
             />
           } />
-        <Route path='*' element={<ErrorPage></ErrorPage>} />
+        <Route path='/*' element={<ErrorPage></ErrorPage>} />
       </Routes>
     </div>
   )
