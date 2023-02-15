@@ -12,30 +12,27 @@ import './Search_Results.css'
 
 const SearchResults = ({ results, searchBarSubmit, setModal, modal, userName, userInfo, updateUser, addGamesInput }) => {
 
-  const { loading, data, error } = useQuery(GET_SEARCHED_GAMES(results));
+  const { loading, data, error } = useQuery(GET_SEARCHED_GAMES(results))
 
 
-  if(error){
+  if (error) {
     return <h1>{error}</h1>
   }
 
   if (loading) {
     return <h1>loading...</h1>
   }
-  const games = data ? data.searchGames.map(game => <SingleGameVarient game={game} key={game.name} setModal={setModal}/>) : []
+  const games = data ? data.searchGames.map(game => <SingleGameVarient game={game} key={game.name} setModal={setModal} />) : []
   return (
 
 
     <>
       {modal && <GameModal setModal={setModal} context={'searched_games'} modal={modal} userInfo={userInfo} updateUser={updateUser} addGamesInput={addGamesInput} />}
-      <div>
-        <Navbar username={userName} searchBarSubmit={searchBarSubmit} ></Navbar>
-         <Link to={`/dashboard/`}><button>Back to dashboard</button></Link>
-        <div className='game-tiles'>
-          {!games.length && <h1>No results matching that name were found.</h1>}
-          {games}
-        </div>
-
+      <Navbar username={userName} searchBarSubmit={searchBarSubmit} ></Navbar>
+      <Link to={`/dashboard/`}><button className='back-to-dashboard'>Back to dashboard</button></Link>
+      <div className='game-tiles-section'>
+        {!games.length && <h1>No results matching that name were found.</h1>}
+        {games}
       </div>
     </>
   )

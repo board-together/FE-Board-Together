@@ -7,6 +7,7 @@ import SearchResults from '../Search_Results/Search_Results'
 import { FriendsGames } from '../Friends_Games/Friends_Games'
 import { GET_USER } from '../../GraphQL/queries'
 import { useQuery } from "@apollo/client"
+import './App.css'
 
 const initialState = {
   searchResults: [],
@@ -116,9 +117,9 @@ const modalFormatForMute = (modal,Id) => {
   const refetchUser = () => {
     refetch();
   }
-
+  
   return (
-    <div className='App'>
+    <div className='app'>
       <Routes>
         <Route path='/' element={<Login setUserName={setUserName} />} />
         <Route path='/dashboard/'

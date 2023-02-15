@@ -19,7 +19,7 @@ const SingleGame = ({ game, setModal, userGames, context, userInfo }) => {
   return (
     <>
       {checkIfLentOut && 
-        <div className="single-tile" id={+game.game.id} onClick={() => setModal(game)}>
+        <div className="single-tile" id={+game.game.id} onClick={() => setModal(game)} tabIndex="0">
           <h2 className="single-borrowed-game-name">{game.game.name}</h2>
           <div className="single-borrowed-game">
             <img className="single-game-img" src={game.game.imageUrl} alt={game.game.name} />
@@ -30,7 +30,7 @@ const SingleGame = ({ game, setModal, userGames, context, userInfo }) => {
         </div>
       }
       {!checkIfLentOut && 
-        <div className="single-tile" id={+game.game.id} onClick={() => setModal(game)}>
+        <div className="single-tile" id={+game.game.id} onClick={() => setModal(game)} tabIndex="0">
           <h2 className="single-game-name">{game.game.name}</h2>
           <img className="single-game-img" src={game.game.imageUrl} alt={game.game.name} />
           {(context === 'borrowedGames' && data) && <p>Borrowing from {`${borrowee}`}</p>}
