@@ -1,5 +1,56 @@
 {
-  "name": "Using fixtures to represent data",
-  "email": "hello@cypress.io",
-  "body": "Fixtures are a great way to mock data for responses to routes"
+  "data": {
+    "user": {
+      "id": "1",
+      "username": "emerita",
+      "userGames": [
+        {
+          "id": "1",
+          "userId": 1,
+          "gameId": 1,
+          "status": 0,
+          "borrowerId": 1,
+          "game": {
+            "id": "1",
+            "boardGameAtlasId": "abd6a0",
+            "url": "http://keeling.net/jae.dach",
+            "name": "Kirby's Epic Yarn",
+            "yearPublished": 1998,
+            "minPlayers": 1,
+            "maxPlayers": 13,
+            "minPlaytime": 19,
+            "maxPlaytime": 39,
+            "minAge": 1,
+            "description": "Commodi tempora dolorem. Placeat nihil sunt. Ut perspiciatis qui.",
+            "thumbUrl": "http://mcclure.org/bertram.moen",
+            "imageUrl": "https://loremflickr.com/300/300"
+          }
+        }
+      ],
+      "borrowedGames": [
+        {
+          "id": "1",
+          "userId": 1,
+          "gameId": 1,
+          "status": 0,
+          "borrowerId": 1,
+          "game": {
+            "id": "1",
+            "boardGameAtlasId": "abd6a0",
+            "url": "http://keeling.net/jae.dach",
+            "name": "Kirby's Epic Yarn",
+            "yearPublished": 1998,
+            "minPlayers": 1,
+            "maxPlayers": 13,
+            "minPlaytime": 19,
+            "maxPlaytime": 39,
+            "minAge": 1,
+            "description": "Commodi tempora dolorem. Placeat nihil sunt. Ut perspiciatis qui.",
+            "thumbUrl": "http://mcclure.org/bertram.moen",
+            "imageUrl": "https://loremflickr.com/300/300"
+          }
+        }
+      ]
+    }
+  }
 }
