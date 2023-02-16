@@ -739,16 +739,16 @@ See the [open issues](https://github.com/board-together/FE-Board-Together/issues
   </tr>
   <tr>
     <td>
-      <a href="https://github.com/bkuhn2">GitHub</a><br>
-      <a href="https://www.linkedin.com/in/brett-kuhn/">LinkedIn</a>
+      <img src="https://github.com/board-together/BE-Board-Together/raw/main/public/github-logo.png" alt="github"> <a href="https://github.com/bkuhn2">GitHub</a><br>
+      <img src="https://github.com/board-together/BE-Board-Together/raw/main/public/linkedin-logo.png" alt="linkedin"> <a href="https://www.linkedin.com/in/brett-kuhn/">LinkedIn</a>
     </td>
     <td>
-      <a href="https://github.com/Speekins">GitHub</a><br>
-      <a href="https://www.linkedin.com/in/spencer-haka/">LinkedIn</a>
+      <img src="https://github.com/board-together/BE-Board-Together/raw/main/public/github-logo.png" alt="github"> <a href="https://github.com/Speekins">GitHub</a><br>
+      <img src="https://github.com/board-together/BE-Board-Together/raw/main/public/linkedin-logo.png" alt="linkedin"> <a href="https://www.linkedin.com/in/spencer-haka/">LinkedIn</a>
     </td>
     <td>
-      <a href="https://github.com/thomedpete">GitHub</a><br>
-      <a href="https://www.linkedin.com/in/thomas-peterson-web-dev/">LinkedIn</a>
+      <img src="https://github.com/board-together/BE-Board-Together/raw/main/public/github-logo.png" alt="github"> <a href="https://github.com/thomedpete">GitHub</a><br>
+      <img src="https://github.com/board-together/BE-Board-Together/raw/main/public/linkedin-logo.png" alt="linkedin"> <a href="https://www.linkedin.com/in/thomas-peterson-web-dev/">LinkedIn</a>
     </td>
   </tr>
 </table>
