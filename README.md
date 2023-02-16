@@ -8,7 +8,7 @@
 <br />
 <div align="center">
   <a href="https://github.com/board-together">
-    <img src="https://github.com/board-together/BE-Board-Together/raw/main/public/board-together.png" alt="Logo">
+    <img src="https://user-images.githubusercontent.com/60988144/219110787-3968c539-cb23-4021-81d5-41e4f039ad6d.png" alt="Logo">
   </a>
 
   <h1 align="center">Board (games) Together!</h3>
