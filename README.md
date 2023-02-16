@@ -8,7 +8,7 @@
 <br />
 <div align="center">
   <a href="https://github.com/board-together">
-    <img src="https://user-images.githubusercontent.com/60988144/219110787-3968c539-cb23-4021-81d5-41e4f039ad6d.png" alt="Logo">
+    <img src="https://github.com/board-together/BE-Board-Together/raw/main/public/board-together.png" alt="Logo">
   </a>
 
   <h1 align="center">Board (games) Together!</h3>
@@ -66,7 +66,7 @@ Board Together is a full-stack application combining a React frontend and Ruby o
 <!-- Built With -->
 ### Built With
 
-<img src="[https://user-images.githubusercontent.com/60988144/219110787-3968c539-cb23-4021-81d5-41e4f039ad6d.png](https://github.com/board-together/BE-Board-Together/raw/main/public/board-together.png)" alt="Tech-Stack" width="90%" height="90%">
+<img src="https://github.com/board-together/BE-Board-Together/raw/main/public/tech-stack-BE.png" alt="Tech-Stack" width="90%" height="90%">
 
 <p align="right">(<a href="#top">back to top</a>)</p>
 
@@ -102,17 +102,16 @@ Board Together utilizes a service oriented architecture with separate backend an
 <!-- Frontend Repository Installation -->
 ### Frontend Repository Installation
 
-1. Clone the repo
-   ```sh
-   https://github.com/board-together/FE-Board-Together
-   ```
-2. Enter the directory and install NPM packages
-   ```sh
-   npm install
-   npm start
-   ``` 
-3. Enter the following url in your browser: http://localhost:3000/
-4. Explore the website
+<b>UPDATE FOR FRONTEND</b>
+
+1. Clone the repository.
+1. cd into the target directory.
+1. Install gem packages: `bundle install`.
+1. Setup the database: `rails db:{create,migrate,seed}`.
+1. Sign up for a <a href="https://www.boardgameatlas.com/api/docs/apps">Board Game Atlas Client ID</a>.
+1. Install figaro: `bundle exec figaro install`.
+1. In your <code>application.yml</code> file - assign your Board Game Atlas api key to a variable. This will need to be passed in as query params with key <code>client_id</code>.
+1. To run local RSpec test suite: `bundle exec rspec`, all tests should be passing.
 
 ### Gems Utilized
 
