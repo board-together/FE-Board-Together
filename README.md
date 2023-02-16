@@ -61,6 +61,8 @@ Board Together is a board game platform that allows users to create their own pr
 ![User Dashboard](https://user-images.githubusercontent.com/74210902/219470895-b111d25c-48f8-425b-b922-56b2b407c6d2.gif)
 #### Game Search
 ![search_gif](https://user-images.githubusercontent.com/74210902/219473532-9c16a2d8-536d-4d1f-aeba-1a0a4009d650.gif)
+#### Friend's Games
+![friends_game](https://user-images.githubusercontent.com/74210902/219474459-eae6254f-88e8-48aa-a5ad-a7f0bf48b6ec.gif)
 
 <!-- Deployment Information -->
 ### Deployment Information
