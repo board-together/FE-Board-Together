@@ -104,7 +104,7 @@ Board Together utilizes a service oriented architecture with separate backend an
 
 1. Clone the repo
    ```sh
-   git@github.com:thomedpete/Dokes.git
+   https://github.com/board-together/FE-Board-Together
    ```
 2. Enter the directory and install NPM packages
    ```sh
