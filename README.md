@@ -4,6 +4,7 @@
 [![Issues][issues-shield]][issues-url]
 
 
+
 <!-- PROJECT LOGO -->
 <br />
 <div align="center">
@@ -53,6 +54,13 @@
 Board Together is a board game platform that allows users to create their own profiles and list their favorite board games. It utilizes a React FrontEnd and GraphQL & PostgreSQL Backend to create a seamless user experience and features API calls to the popular Board Game Atlas API to provide up-to-date information about various board games. With this platform, board game enthusiasts can keep track of their collection, discover new games to play, and connect with others to share the games they have collected. The platform is easy to use and accessible to anyone who loves board games or wants to learn more about them.
 
 <p align="right">(<a href="#top">back to top</a>)</p>
+
+<!-- Screenshots/GIFS -->
+### Application Showcase
+#### User Dashboard
+![User Dashboard](https://user-images.githubusercontent.com/74210902/219470895-b111d25c-48f8-425b-b922-56b2b407c6d2.gif)
+#### Game Search
+![search_gif](https://user-images.githubusercontent.com/74210902/219473532-9c16a2d8-536d-4d1f-aeba-1a0a4009d650.gif)
 
 <!-- Deployment Information -->
 ### Deployment Information
