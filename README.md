@@ -102,8 +102,6 @@ Board Together utilizes a service oriented architecture with separate backend an
 <!-- Frontend Repository Installation -->
 ### Frontend Repository Installation
 
-<b>UPDATE FOR FRONTEND</b>
-
 1. Clone the repo
    ```sh
    git@github.com:thomedpete/Dokes.git
