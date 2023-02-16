@@ -62,6 +62,7 @@ describe('Search_Results', () => {
       }
     })
     cy.get('.delete-button').click()
+    cy.get('.single-tile').should('have.length', 1)
   })
 
 
