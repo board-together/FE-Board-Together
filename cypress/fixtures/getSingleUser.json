@@ -1,73 +1,75 @@
 {
-  "id": "9",
-  "username": "honey",
-  "borrowedGames": [
-    {
-      "borrowerId": "9",
-      "gameId": "1",
-      "id": "16",
-      "status": "0",
-      "userId": "10",
-      "game": {
-        "boardGameAtlasId": "AuBvbISHR6",
-        "description": "Ticket to Ride</strong> is a cross-country train adventure game. Players collect train cards that enable them to claim railway routes connecting cities throughout North America. The longer the routes, the more points they earn.",
-        "id": "1",
-        "imageUrl": "https://s3-us-west-1.amazonaws.com/5cc.images/games/uploaded/1629324738308.jpg",
-        "maxPlayers": "5",
-        "maxPlaytime": "90",
-        "minAge": "8",
-        "minPlayers": "2",
-        "minPlaytime": "45",
-        "name": "Ticket to Ride",
-        "thumbUrl": "https://s3-us-west-1.amazonaws.com/5cc.images/games/uploaded/1629324738308.jpg",
-        "url": "https://www.boardgameatlas.com/game/AuBvbISHR6/ticket-to-ride",
-        "yearPublished": "2004"
+  "user": {
+    "id": "9",
+    "username": "honey",
+    "borrowedGames": [
+      {
+        "borrowerId": "9",
+        "gameId": "1",
+        "id": "16",
+        "status": "0",
+        "userId": "10",
+        "game": {
+          "boardGameAtlasId": "AuBvbISHR6",
+          "description": "Ticket to Ride</strong> is a cross-country train adventure game. Players collect train cards that enable them to claim railway routes connecting cities throughout North America. The longer the routes, the more points they earn.",
+          "id": "1",
+          "imageUrl": "https://s3-us-west-1.amazonaws.com/5cc.images/games/uploaded/1629324738308.jpg",
+          "maxPlayers": "5",
+          "maxPlaytime": "90",
+          "minAge": "8",
+          "minPlayers": "2",
+          "minPlaytime": "45",
+          "name": "Ticket to Ride",
+          "thumbUrl": "https://s3-us-west-1.amazonaws.com/5cc.images/games/uploaded/1629324738308.jpg",
+          "url": "https://www.boardgameatlas.com/game/AuBvbISHR6/ticket-to-ride",
+          "yearPublished": "2004"
+        }
       }
-    }
-  ],
-  "userGames": [
-    {
-      "borrowerId": "null",
-      "id": "684",
-      "gameId": "13",
-      "status": "0",
-      "userId": "9",
-      "game": {
-        "id": "13",
-        "boardGameAtlasId": "iLClIEykRr",
-        "imageUrl": "https://s3-us-west-1.amazonaws.com/5cc.images/games/uploaded/1559255814377-51qZklmieRL.jpg",
-        "maxPlayers": "4",
-        "maxPlaytime": "30",
-        "minAge": "13",
-        "minPlayers": "2",
-        "minPlaytime": "20",
-        "name": "Boss Monster 2: The Next Level",
-        "thumbUrl": "https://s3-us-west-1.amazonaws.com/5cc.images/games/uploaded/1559255814377-51qZklmieRL.jpg",
-        "url": "https://www.boardgameatlas.com/game/iLClIEykRr/boss-monster-2-the-next-level",
-        "yearPublished": "2015"
+    ],
+    "userGames": [
+      {
+        "borrowerId": "null",
+        "id": "684",
+        "gameId": "13",
+        "status": "0",
+        "userId": "9",
+        "game": {
+          "id": "13",
+          "boardGameAtlasId": "iLClIEykRr",
+          "imageUrl": "https://s3-us-west-1.amazonaws.com/5cc.images/games/uploaded/1559255814377-51qZklmieRL.jpg",
+          "maxPlayers": "4",
+          "maxPlaytime": "30",
+          "minAge": "13",
+          "minPlayers": "2",
+          "minPlaytime": "20",
+          "name": "Boss Monster 2: The Next Level",
+          "thumbUrl": "https://s3-us-west-1.amazonaws.com/5cc.images/games/uploaded/1559255814377-51qZklmieRL.jpg",
+          "url": "https://www.boardgameatlas.com/game/iLClIEykRr/boss-monster-2-the-next-level",
+          "yearPublished": "2015"
+        }
+      },
+      {
+        "borrowerId": "null",
+        "id": "692",
+        "gameId": "21",
+        "status": "0",
+        "userId": "9",
+        "game": {
+          "boardGameAtlasId": "5qaWQC3bcb",
+          "description": "<p><strong><em>Prophecy of Kings </em></strong>is packed to bursting with new content that you can add to your games of <em>Twilight Imperium</em>. The galaxy has grown far larger, as seven never-before-seen factions enter the game, each boasting their own unique strengths and weaknesses, from the gene-altering powers of the Mahact, to the watchful guard of the Argent Flight, to the mysterious and ancient Empyrean. And new factions aren’t the only way the galaxy grows bigger! Forty new system and hyperlane tiles add new planets and obstacles to the map, and with two new colors of player components included in the box, you can play <em>Twilight Imperium </em>with up to eight players.</p>\r\n<p>But that’s only a fraction of what you’ll find in this expansion! Adding even more flavor to your chosen species, a wealth of unique leader cards arrive to support every faction in the game, giving you powers to unlock during the game. Lumbering mechs stomp onto the battlefield as powerful new ground forces with unique special abilities for every faction. As you venture into the unknown regions of space, brand-new exploration decks seed new planets and the void of space with new discoveries, including fragments you can combine to create awe-inspiring relics. With new action cards, agenda cards, objectives, technologies, promissory notes, legendary planets, and more, <em>Prophecy of Kings </em>is a must-have expansion for any fan of <em>Twilight Imperium</em>!</p>",
+          "id": "21",
+          "imageUrl": "https://s3-us-west-1.amazonaws.com/5cc.images/games/uploaded/1596503779926",
+          "maxPlayers": "8",
+          "maxPlaytime": "480",
+          "minAge": "14",
+          "minPlayers": "3",
+          "minPlaytime": "240",
+          "name": "Twilight Imperium: Fourth Edition - Prophecy of Kings",
+          "thumbUrl": "https://s3-us-west-1.amazonaws.com/5cc.images/games/uploaded/1596503779926",
+          "url": "https://www.boardgameatlas.com//game/5qaWQC3bcb/twilight-imperium-4th-edition-prophecy-of-kings-expansion",
+          "yearPublished": "2020"
+        }
       }
-    },
-    {
-      "borrowerId": "null",
-      "id": "692",
-      "gameId": "21",
-      "status": "0",
-      "userId": "9",
-      "game": {
-        "boardGameAtlasId": "5qaWQC3bcb",
-        "description": "<p><strong><em>Prophecy of Kings </em></strong>is packed to bursting with new content that you can add to your games of <em>Twilight Imperium</em>. The galaxy has grown far larger, as seven never-before-seen factions enter the game, each boasting their own unique strengths and weaknesses, from the gene-altering powers of the Mahact, to the watchful guard of the Argent Flight, to the mysterious and ancient Empyrean. And new factions aren’t the only way the galaxy grows bigger! Forty new system and hyperlane tiles add new planets and obstacles to the map, and with two new colors of player components included in the box, you can play <em>Twilight Imperium </em>with up to eight players.</p>\r\n<p>But that’s only a fraction of what you’ll find in this expansion! Adding even more flavor to your chosen species, a wealth of unique leader cards arrive to support every faction in the game, giving you powers to unlock during the game. Lumbering mechs stomp onto the battlefield as powerful new ground forces with unique special abilities for every faction. As you venture into the unknown regions of space, brand-new exploration decks seed new planets and the void of space with new discoveries, including fragments you can combine to create awe-inspiring relics. With new action cards, agenda cards, objectives, technologies, promissory notes, legendary planets, and more, <em>Prophecy of Kings </em>is a must-have expansion for any fan of <em>Twilight Imperium</em>!</p>",
-        "id": "21",
-        "imageUrl": "https://s3-us-west-1.amazonaws.com/5cc.images/games/uploaded/1596503779926",
-        "maxPlayers": "8",
-        "maxPlaytime": "480",
-        "minAge": "14",
-        "minPlayers": "3",
-        "minPlaytime": "240",
-        "name": "Twilight Imperium: Fourth Edition - Prophecy of Kings",
-        "thumbUrl": "https://s3-us-west-1.amazonaws.com/5cc.images/games/uploaded/1596503779926",
-        "url": "https://www.boardgameatlas.com//game/5qaWQC3bcb/twilight-imperium-4th-edition-prophecy-of-kings-expansion",
-        "yearPublished": "2020"
-      }
-    }
-  ]
+    ]
+  }
 }

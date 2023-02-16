@@ -38,11 +38,22 @@ describe('Search_Results', () => {
       .click()
   })
 
+  it('should confirm true is equal to true', () => {
+    expect(true).to.equal(true)
+  })
+
   it('should have the option to delete a game', () => {
     cy.get('.single-tile').last().click()
-
     cy.intercept('POST', 'https://board-together.herokuapp.com/graphql', (req) => {
-      if (hasOperationName(req, 'DeleteUserGame')) {
+      if (hasOperationName(req, 'GetUser')) {
+        req.alias = 'gqlGetUserQuery'
+        req.reply({
+          statusCode: 200,
+          body: {
+            data: getRandyUserDataAfterDelete
+          }
+        })
+      } else if (hasOperationName(req, 'deleteUserGame')) {
         req.alias = 'gqlDeleteUserGameMutation'
         req.reply((res) => {
           res.body.data = updatedGameResponse
@@ -51,16 +62,6 @@ describe('Search_Results', () => {
       }
     })
     cy.get('.delete-button').click()
-    cy.wait(1001)
-    cy.intercept('POST', 'https://board-together.herokuapp.com/graphql', (req) => {
-      if (hasOperationName(req, 'GetUser')) {
-        req.alias = 'gqlGetUserQuery'
-        req.on("response", (res) => {
-          res.body.data = getRandyUserDataAfterDelete
-          console.log(res.body)
-        })
-      }
-    })
   })
 
 

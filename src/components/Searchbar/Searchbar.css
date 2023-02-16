@@ -35,3 +35,54 @@
   color: white;
   cursor: pointer
 }
+
+@media (max-width: 1270px) {
+  
+  .search-bar {
+    width: 70%;
+    height: 15%;
+    flex-direction: column;
+    justify-content: space-between;
+    align-items: flex-end;
+  }
+
+  .search-input {
+    padding: 0;
+    margin: 0;
+    margin-bottom: 5px;
+    width: 100%
+  }
+
+  .search-button-link {
+    width: 25%
+  }
+
+  .search-button {
+    font-size: 12px;
+  }
+
+}
+
+@media (max-width: 875px) {
+  
+  .search-bar {
+    width: 30%;
+    height: auto;
+    flex-direction: column;
+    justify-content: space-between;
+    align-items: flex-end;
+  }
+
+  .search-input {
+    font-size: 15px;
+  }
+
+  .search-button-link {
+    width: 30%
+  }
+
+  .search-button {
+    font-size: 12px;
+  }
+
+}
