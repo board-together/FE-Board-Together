@@ -115,27 +115,7 @@ Board Together utilizes a service oriented architecture with separate backend an
 1. In your <code>application.yml</code> file - assign your Board Game Atlas api key to a variable. This will need to be passed in as query params with key <code>client_id</code>.
 1. To run local RSpec test suite: `bundle exec rspec`, all tests should be passing.
 
-### Gems Utilized
 
-<b>UPDATE FOR FRONTEND</b>
-
-- [Factory Bot Rails](https://github.com/thoughtbot/factory_bot_rails)
-- [Faker](https://github.com/vajradog/faker-rails)
-- [Faraday](https://lostisland.github.io/faraday/usage/)
-- [Figaro](https://github.com/laserlemon/figaro)
-- [GraphQL Ruby](https://github.com/rmosolgo/graphql-ruby)
-- [GraphiQL Rails](https://github.com/rmosolgo/graphiql-rails)
-- [Pry](https://github.com/pry/pry)
-- [Pry Rails](https://github.com/pry/pry-rails)
-- [Rack CORS](https://github.com/cyu/rack-cors)
-- [RSpec Rails](https://github.com/rspec/rspec-rails)
-- [RuboCop GraphQL](https://github.com/DmitryTsepelev/rubocop-graphql)
-- [RuboCop Rails](https://github.com/rubocop/rubocop-rails)
-- [RuboCop RSpec](https://github.com/rubocop/rubocop-rspec)
-- [SimpleCov](https://github.com/simplecov-ruby/simplecov)
-- [Shoulda-Matchers](https://github.com/thoughtbot/shoulda-matchers)
-- [Webmock](https://github.com/bblimke/webmock)
-- [VCR](https://github.com/vcr/vcr)
 
 <p align="right">(<a href="#top">back to top</a>)</p>
 
