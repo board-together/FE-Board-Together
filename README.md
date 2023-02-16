@@ -104,14 +104,17 @@ Board Together utilizes a service oriented architecture with separate backend an
 
 <b>UPDATE FOR FRONTEND</b>
 
-1. Clone the repository.
-1. cd into the target directory.
-1. Install gem packages: `bundle install`.
-1. Setup the database: `rails db:{create,migrate,seed}`.
-1. Sign up for a <a href="https://www.boardgameatlas.com/api/docs/apps">Board Game Atlas Client ID</a>.
-1. Install figaro: `bundle exec figaro install`.
-1. In your <code>application.yml</code> file - assign your Board Game Atlas api key to a variable. This will need to be passed in as query params with key <code>client_id</code>.
-1. To run local RSpec test suite: `bundle exec rspec`, all tests should be passing.
+1. Clone the repo
+   ```sh
+   git@github.com:thomedpete/Dokes.git
+   ```
+2. Enter the directory and install NPM packages
+   ```sh
+   npm install
+   npm start
+   ``` 
+3. Enter the following url in your browser: http://localhost:3000/
+4. Explore the website
 
 ### Gems Utilized
 
