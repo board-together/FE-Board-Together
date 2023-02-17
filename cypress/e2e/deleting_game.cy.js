@@ -38,11 +38,25 @@ describe('Search_Results', () => {
       .click()
   })
 
-  it('should confirm true is equal to true', () => {
-    expect(true).to.equal(true)
+  it('should start with two games in view', () => {
+    cy.get('.single-tile').should('have.length', 2)
+    cy.get('div[id="23"]').should('be.visible')
+    cy.get('div[id="7"]').should('be.visible')
+    cy.contains('Ticket to Ride')
+    cy.contains('Phase 10')
   })
 
-  it('should have the option to delete a game', () => {
+  it('should open modal', () => {
+    cy.get('.single-tile').last().click()
+    cy.get('.game-modal').should('be.visible')
+  })
+
+  it('should show the "delete" button in the modal of an unborrowed game', () => {
+    cy.get('.single-tile').last().click()
+    cy.get('.delete-button').should('exist')
+  })
+
+  it('should be able to delete a game', () => {
     cy.get('.single-tile').last().click()
     cy.intercept('POST', 'https://board-together.herokuapp.com/graphql', (req) => {
       if (hasOperationName(req, 'GetUser')) {
@@ -63,6 +77,10 @@ describe('Search_Results', () => {
     })
     cy.get('.delete-button').click()
     cy.get('.single-tile').should('have.length', 1)
+    cy.get('div[id="23"]').should('not.exist')
+    cy.contains('Ticket to Ride').should('not.exist')
+    cy.get('div[id="7"]').should('be.visible')
+    cy.contains('Phase 10')
   })
 
 
