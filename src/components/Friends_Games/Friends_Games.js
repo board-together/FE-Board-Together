@@ -31,7 +31,7 @@ export const FriendsGames = ({ searchBarSubmit, userName, setModal, modal, userI
         userInfo={userInfo}
         refetchUser={refetchUser}/>
       }
-      <div>
+      <>
         <Navbar username={userName} searchBarSubmit={searchBarSubmit}></Navbar>
         <Link to={`/dashboard`}>
           <button className='back-to-dashboard'>Back to dashboard</button>
@@ -44,7 +44,7 @@ export const FriendsGames = ({ searchBarSubmit, userName, setModal, modal, userI
             {friendsGameThumbnails}
           </div>
         }
-      </div>
+      </>
     </>
 
   )

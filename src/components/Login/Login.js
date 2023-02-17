@@ -5,10 +5,10 @@ import '../../assets/Inception_free.ttf'
 
 export const Login = ({ setUserName }) => {
 
-  const [userNameInput, setUserNameInput] = useState('') 
-  const [validUser, setValidUser] = useState(false) 
-  const [userNameMessage, setUserNameMessage] = useState('') 
-  const [existingUserNames, setExistingUserNames] = useState([]) 
+  const [userNameInput, setUserNameInput] = useState('')
+  const [validUser, setValidUser] = useState(false)
+  const [userNameMessage, setUserNameMessage] = useState('')
+  const [existingUserNames, setExistingUserNames] = useState([])
 
   useEffect(() => {
     // Hard coding usernames; as an extension, could do a query on page load.
@@ -34,7 +34,7 @@ export const Login = ({ setUserName }) => {
   return (
     <main>
       <div className='login-heading-text-area'>
-        <p className='tagline'>Welcome! Let's get...</p>
+        <h2 className='tagline'>Welcome! Let's get...</h2>
         <h1 className='login-board'>Board</h1>
         <h1 className='login-together'>Together</h1>
       </div>
@@ -43,6 +43,7 @@ export const Login = ({ setUserName }) => {
         <form className='login-form'>
           <input
             className='username-input'
+            name='username-input'
             type='text'
             placeholder='Enter your username'
             value={userNameInput}
@@ -50,7 +51,7 @@ export const Login = ({ setUserName }) => {
           />
           {(!validUser && !userNameMessage) && <button className='invalid-user-button' onClick={event => showError(event)}>Enter</button>}
           {(validUser && !userNameMessage) && <Link to='/dashboard/'>
-              <button className='enter-site-button'>Enter</button>
+            <button className='enter-site-button'>Enter</button>
           </Link>}
           {userNameMessage && <p className='invalid-name-message'>{userNameMessage}</p>}
         </form>

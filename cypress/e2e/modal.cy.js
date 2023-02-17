@@ -1,4 +1,4 @@
-describe.skip('Modal', () => {
+describe('Modal', () => {
 
   beforeEach(() => {
     cy.visit(`http://localhost:3000/`)
@@ -6,7 +6,7 @@ describe.skip('Modal', () => {
     cy.get('.enter-site-button').click()
     cy.get('.game-collection')
       .find('.single-game-img')
-      .eq(1).click()
+      .eq(0).click()
   })
 
   it("should open the modal when a game is clicked on", () => {
