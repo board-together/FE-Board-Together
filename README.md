@@ -1,9 +1,8 @@
-# Board-Together FE
-
 [![Contributors][contributors-shield]][contributors-url]
 [![Forks][forks-shield]][forks-url]
 [![Stargazers][stars-shield]][stars-url]
 [![Issues][issues-shield]][issues-url]
+
 
 
 <!-- PROJECT LOGO -->
@@ -52,14 +51,23 @@
 <!-- ABOUT THE PROJECT -->
 ## About The Project
 
-Board Together is a board game platform that allows users to create their own profiles and list their favorite board games. It utilizes GraphQL and PostgreSQL to create a seamless user experience and features API calls to the popular Board Game Atlas API to provide up-to-date information about various board games. With this platform, board game enthusiasts can keep track of their collection, discover new games to play, and connect with others who share their interests. The platform is easy to use and accessible to anyone who loves board games or wants to learn more about them.
+Board Together is a board game platform that allows users to create their own profiles and list their favorite board games. It utilizes a React FrontEnd and GraphQL & PostgreSQL Backend to create a seamless user experience and features API calls to the popular Board Game Atlas API to provide up-to-date information about various board games. With this platform, board game enthusiasts can keep track of their collection, discover new games to play, and connect with others to share the games they have collected. The platform is easy to use and accessible to anyone who loves board games or wants to learn more about them.
 
 <p align="right">(<a href="#top">back to top</a>)</p>
 
-<!-- Heroku Information -->
-### Heroku Information
+<!-- Screenshots/GIFS -->
+### Application Showcase
+#### User Dashboard
+![User Dashboard](https://user-images.githubusercontent.com/74210902/219470895-b111d25c-48f8-425b-b922-56b2b407c6d2.gif)
+#### Game Search
+![search_gif](https://user-images.githubusercontent.com/74210902/219473532-9c16a2d8-536d-4d1f-aeba-1a0a4009d650.gif)
+#### Friend's Games
+![borrow_gif](https://user-images.githubusercontent.com/74210902/219478546-e40d629d-2398-4c37-bc38-12dfb0b9dd5e.gif)
 
-Board Together is a full-stack application combining a React frontend and Ruby on Rails backend, deployed to Heroku. The frontend handles client-side tasks and displays data from the backend, which handles server-side logic and database operations. Deployment involves building the React frontend, integrating it with the Rails backend, and pushing the code to Heroku. The application can be accessed at the Heroku URL.
+<!-- Deployment Information -->
+### Deployment Information
+
+Board Together is a full-stack application combining a React frontend deployed to Surge and Ruby on Rails backend deployed to Heroku. The frontend handles client-side tasks and displays data from the backend, which handles server-side logic and database operations. Deployment involves building the React frontend, integrating it with the Rails backend, and pushing the code to Heroku. The application can be accessed at the Heroku URL.
 
 * <a href="https://board-together.herokuapp.com/" alt="Heroku Deployment">Heroku Deployment</a><br>
 
@@ -67,7 +75,7 @@ Board Together is a full-stack application combining a React frontend and Ruby o
 
 <!-- Built With -->
 ### Built With
-<img width="90%" height="90%" alt="Board Together-FE-Tech Stack" src="https://user-images.githubusercontent.com/74210902/219136560-e6e6ce33-a3d9-497d-b022-71ed91a1604a.png">
+<img width="2441" width="90%" height="90%" alt="Board Together-FE-Tech Stack" src="https://user-images.githubusercontent.com/74210902/219459283-08b81e57-bf46-4f10-8017-573d27039bc3.png"/>
 
 <p align="right">(<a href="#top">back to top</a>)</p>
 
@@ -81,7 +89,7 @@ Board Together is a full-stack application combining a React frontend and Ruby o
 <!-- Learning Goals -->
 ### Learning Goals
 
-* Implement GraphQL into Rails application to make API calls.
+* Learn and Implement Apollo/GraphQL into the React application to make API calls.
 * Work in a full-stack development team.
 * Utilize continuous integration with CircleCI.
 
@@ -90,7 +98,7 @@ Board Together is a full-stack application combining a React frontend and Ruby o
 <!-- GETTING STARTED -->
 ## Getting Started
 
-Board Together utilizes a service oriented architecture with separate backend and frontend services. Installation instructions for the backend repository below. Frontend installation instructions can be found in the repository section. The Postman mock server below can be used to test the available endpoints. Expected request and response formats are listed for CRUD functionality.
+Board Together utilizes a service oriented architecture with separate backend and frontend services. Installation instructions for the frontend repository below. Backend installation instructions can be found in the repository section. The Postman mock server below can be used to test the available endpoints. Expected request and response formats are listed for CRUD functionality.
 
 <!-- Repositories -->
 ### Repositories
@@ -106,40 +114,18 @@ Board Together utilizes a service oriented architecture with separate backend an
 <b>UPDATE FOR FRONTEND</b>
 
 1. Clone the repository.
-1. cd into the target directory.
-1. Install gem packages: `bundle install`.
-1. Setup the database: `rails db:{create,migrate,seed}`.
-1. Sign up for a <a href="https://www.boardgameatlas.com/api/docs/apps">Board Game Atlas Client ID</a>.
-1. Install figaro: `bundle exec figaro install`.
-1. In your <code>application.yml</code> file - assign your Board Game Atlas api key to a variable. This will need to be passed in as query params with key <code>client_id</code>.
-1. To run local RSpec test suite: `bundle exec rspec`, all tests should be passing.
-
-### Gems Utilized
-
-<b>UPDATE FOR FRONTEND</b>
-
-- [Factory Bot Rails](https://github.com/thoughtbot/factory_bot_rails)
-- [Faker](https://github.com/vajradog/faker-rails)
-- [Faraday](https://lostisland.github.io/faraday/usage/)
-- [Figaro](https://github.com/laserlemon/figaro)
-- [GraphQL Ruby](https://github.com/rmosolgo/graphql-ruby)
-- [GraphiQL Rails](https://github.com/rmosolgo/graphiql-rails)
-- [Pry](https://github.com/pry/pry)
-- [Pry Rails](https://github.com/pry/pry-rails)
-- [Rack CORS](https://github.com/cyu/rack-cors)
-- [RSpec Rails](https://github.com/rspec/rspec-rails)
-- [RuboCop GraphQL](https://github.com/DmitryTsepelev/rubocop-graphql)
-- [RuboCop Rails](https://github.com/rubocop/rubocop-rails)
-- [RuboCop RSpec](https://github.com/rubocop/rubocop-rspec)
-- [SimpleCov](https://github.com/simplecov-ruby/simplecov)
-- [Shoulda-Matchers](https://github.com/thoughtbot/shoulda-matchers)
-- [Webmock](https://github.com/bblimke/webmock)
-- [VCR](https://github.com/vcr/vcr)
+1. cd into the target directory `FE-Board-Together`.
+1. Install all packages: `npm install`.
+1. Open application: `npm start`.
+1. You will be automatically navigated to your browser of choice.
+1. Run Cypress test suite: `npm run cypress`.
+1. Open Cypress runner in prefered browser (default Chrome).
+1. Open each file to view passing tests.
 
 <p align="right">(<a href="#top">back to top</a>)</p>
 
 <!-- Available Endpoints -->
-## Available Endpoints
+## Available GraphQL Endpoints
 
 [![Run in Postman](https://run.pstmn.io/button.svg)](https://app.getpostman.com/run-collection/25666683-0ebb6dbb-8b11-460e-8585-8adaf17a4211?action=collection%2Ffork&collection-url=entityId%3D25666683-0ebb6dbb-8b11-460e-8585-8adaf17a4211%26entityType%3Dcollection%26workspaceId%3D744a08a3-dcad-44e1-bb68-becc0c7dbc17)
 

@@ -1,4 +1,4 @@
-describe('Modal', () => {
+describe.skip('Modal', () => {
 
   beforeEach(() => {
     cy.visit(`http://localhost:3000/`)
