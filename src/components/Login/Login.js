@@ -1,7 +1,9 @@
 import React, { useEffect, useState } from 'react'
 import { Link } from 'react-router-dom'
+import { useQuery } from '@apollo/client'
 import '../Login/Login.css'
 import '../../assets/Inception_free.ttf'
+import { VALIDATE_USER } from '../../GraphQL/queries'
 
 export const Login = ({ setUserName }) => {
 
@@ -10,20 +12,26 @@ export const Login = ({ setUserName }) => {
   const [userNameMessage, setUserNameMessage] = useState('')
   const [existingUserNames, setExistingUserNames] = useState([])
 
+  const [validateUser, { loading, error, data }] = useQuery(VALIDATE_USER)
+
   useEffect(() => {
     // Hard coding usernames; as an extension, could do a query on page load.
     setExistingUserNames(["Pickafloof", "randy", "abdulredd", "heatherf", "jeff", "drake", "dug", "honey", "jakeandbake"])
   }, [])
 
   useEffect(() => {
-    if (existingUserNames.includes(userNameInput)) {
+    if (data) {
       setValidUser(true)
       setUserName(userNameInput)
     } else {
       setValidUser(false)
       setUserName('')
     }
-  }, [userNameInput, existingUserNames, setUserName])
+  }, [userNameInput, existingUserNames, setUserName, data])
+
+  const handleChange = (e) => {
+    validateUser({ variables: e.target.value })
+  }
 
   const showError = (event) => {
     event.preventDefault()
@@ -51,7 +59,7 @@ export const Login = ({ setUserName }) => {
             type='text'
             placeholder='Enter your username'
             value={userNameInput}
-            onChange={event => setUserNameInput(event.target.value)}
+            onChange={event => handleChange(event)}
           />
           {(!validUser && !userNameMessage) && <button className='invalid-user-button' onClick={event => showError(event)}>Enter</button>}
           {(validUser && !userNameMessage) && <Link to='/dashboard/'>

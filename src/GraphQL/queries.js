@@ -1,14 +1,16 @@
 import { gql } from "@apollo/client"
 
-//QUERIES
-//Search Games
-//Get Single User
-//Get Single Game
-//Get All Users (Friends)
+export const VALIDATE_USER = (username) => gql`
+  query Query($username: String!) {
+    user(username: $username) {
+      username
+    }
+  }
+`
 
-export const GET_USER = (userName) => gql`
+export const GET_USER = (username) => gql`
    query GetUser {
-    user(username: "${userName}") {
+    user(username: "${username}") {
       id
       username
       userGames {
@@ -58,9 +60,6 @@ export const GET_USER = (userName) => gql`
       }
     }
   }`
-
-
-
 
 export const GET_GAME_DETAIL = (id) => gql`
     query {
