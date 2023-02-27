@@ -41,6 +41,10 @@ export const Login = ({ setUserName }) => {
       <div className='login-right'>
         <h2 className='login-text'>Login</h2>
         <form className='login-form'>
+          <select name='username-select' className='username-select' value={userNameInput} onChange={event => setUserNameInput(event.target.value)}>
+            <option>Select a username to proceed...</option>
+            {existingUserNames.map(username => <option>{username}</option>)}
+          </select>
           <input
             className='username-input'
             name='username-input'
