@@ -55,7 +55,6 @@ main {
 
 .login-welcome-text {
   text-align: center;
-
 }
 
 .login-text {
@@ -72,6 +71,19 @@ main {
   border-style: solid;
   width: 90%;
   height: 9em;
+}
+
+.username-select {
+  text-align: center;
+  font-family: 'Montserrat', sans-serif;
+  cursor: pointer;
+  background: none;
+  border: 1px solid white;
+  color: white;
+  font-size: 18px;
+  width: auto;
+  padding: 2px 20px;
+  font-weight: 700;
 }
 
 .username-input {
