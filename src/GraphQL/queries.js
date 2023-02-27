@@ -59,7 +59,8 @@ export const GET_USER = (username) => gql`
         }
       }
     }
-  }`
+  }
+  `
 
 export const GET_SEARCHED_GAMES = (name) => gql`
     query {

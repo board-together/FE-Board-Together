@@ -70,5 +70,5 @@ export const ADD_GAME_TO_COLLECTION = gql`
       }
     }
   }
-}`
-
+}
+`
