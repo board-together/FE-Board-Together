@@ -20,8 +20,6 @@ export const UserDashboard = ({ userInfo, searchBarSubmit, deleteGame, setModal,
   const friendsList = allUsersData && userInfo ? allUsersData.users.filter(user => user.username !== userInfo.username) : []
   const smileImg = <img src={smile} alt='smile svg' className='smile-svg' />
   const friends = friendsList.map(friend => {
-    console.log('friend', friend.username)
-    console.log('id', friend.id)
     return (<Link to={`/friends-games/${friend.username}`} key={friend.id}>
       <span key={friend.id} className="friend">{smileImg}<p className='friend-name'>{friend.username}</p></span>
     </Link>)

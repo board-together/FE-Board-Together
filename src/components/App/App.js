@@ -123,7 +123,7 @@ export const App = () => {
     <div className='app'>
       <Routes>
         <Route path='/' element={<Login setUserName={setUserName} />} />
-        <Route path='/dashboard/'
+        <Route path={`/dashboard/`}
           element={
             <UserDashboard
               userInfo={state.user}
