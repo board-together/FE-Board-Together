@@ -11,18 +11,15 @@ export const Login = ({ setUserName }) => {
   const [userNameInput, setUserNameInput] = useState('')
   const [userNameMessage, setUserNameMessage] = useState('')
   const [isValid, setIsValid] = useState(false)
-
-  const usernameQuery = useLazyQuery(VALIDATE_USER, { variables: { username: userNameInput } })
-  const validateUser = usernameQuery[0]
-  const usernameData = usernameQuery[1].data
+  const [validateUser, {data}] = useLazyQuery(VALIDATE_USER, { variables: { username: userNameInput } })
 
   useEffect(() => {
-    if (usernameData) {
-      setUserName(usernameData.user.username)
+    if (data) {
+     setUserName(data.user.username)
     } else {
       setUserName('')
     }
-  }, [userNameInput, setUserName, usernameData])
+  }, [userNameInput, setUserName, data])
 
   useEffect(() => {
     if (isValid) {
@@ -37,7 +34,7 @@ export const Login = ({ setUserName }) => {
 
   const handleClick = (event) => {
     event.preventDefault()
-    if (usernameData) {
+    if (data) {
       setIsValid(true)
     } else {
       showError(event)
