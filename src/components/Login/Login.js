@@ -15,11 +15,12 @@ export const Login = ({ setUserName }) => {
   const [userNameMessage, setUserNameMessage] = useState('')
   const [isValid, setIsValid] = useState(false)
   const [createUser, setCreateUser] = useState(false)
-  const [usernameMismatch, setUserNameMismatch] = useState(false)
+  const [success, setSuccess] = useState(false)
   const [validateUser, { data }] = useLazyQuery(VALIDATE_USER, { variables: { username: userNameInput } })
-  const createUserResponse = useMutation(CREATE_USER)
-  const createUserFunc = createUserResponse[0]
-  const createUserResponseData = createUserResponse[1].data
+  const createUserVals = useMutation(CREATE_USER)
+  const createUserFunc = createUserVals[0]
+  const createUserResponse = createUserVals[1].data
+  const error = createUserVals[1].error
 
   useEffect(() => {
     if (data) {
@@ -35,6 +36,19 @@ export const Login = ({ setUserName }) => {
     }
   }, [isValid, navigate])
 
+  useEffect(() => {
+    if (error) {
+      setUserNameMessage('Error: Username must be unique.')
+      setTimeout(setUserNameMessage, 3000)
+    } else if (createUserResponse) {
+      setSuccess(true)
+      setTimeout(() => {
+        setSuccess(false)
+        setCreateUser(false)
+      }, 3000)
+    }
+  }, [error, createUserResponse])
+
   const handleChange = (e) => {
     setUserNameInput(e.target.value)
     validateUser()
@@ -49,10 +63,11 @@ export const Login = ({ setUserName }) => {
     }
   }
 
-  const submitCreateUser = () => {
-    if (newUsername !== confirmUsername) {
+  const submitCreateUser = (event) => {
+    event.preventDefault()
+    if (newUsername !== confirmUsername || !newUsername.length) {
       setUserNameMessage('Username entries do not match!')
-      setTimeout(setUserNameMessage, 2000)
+      setTimeout(setUserNameMessage, 3000)
     } else {
       createUserFunc({ variables: { input: { username: newUsername } } })
     }
@@ -61,7 +76,7 @@ export const Login = ({ setUserName }) => {
   const showError = (event) => {
     event.preventDefault()
     setUserNameMessage('Please enter a valid username')
-    setTimeout(setUserNameMessage, 2000)
+    setTimeout(setUserNameMessage, 3000)
   }
 
   const signInForm =
@@ -103,9 +118,10 @@ export const Login = ({ setUserName }) => {
         value={confirmUsername}
         onChange={event => setConfirmUsername(event.target.value)}
       />
-      {/* <button className='enter-site-button' onClick={submitCreateUser}>Create Account</button> */}
+      {(!userNameMessage && !success) && <button className='enter-site-button' onClick={(event) => submitCreateUser(event)}>Create Account</button>}
+      {(userNameMessage && !success) && <p className='invalid-name-message'>{userNameMessage}</p>}
+      {(success && !error) && <p className='success-message'>Account Successfully Created!</p>}
       <p onClick={() => setCreateUser(false)} className='cancel-button'>Cancel</p>
-      {userNameMessage && <p className='invalid-name-message'>{userNameMessage}</p>}
     </form>
 
   return (

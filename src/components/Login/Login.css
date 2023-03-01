@@ -138,6 +138,11 @@ main {
   font-size: 10px;
 }
 
+.success-message {
+  color: rgb(9, 237, 9);
+  font-weight: 700;
+}
+
 .create-user-button {
   margin-left: 2px;
   text-decoration: underline;
