@@ -39,7 +39,10 @@ export const Login = ({ setUserName }) => {
   useEffect(() => {
     if (error) {
       setUserNameMessage('Error: Username must be unique.')
-      setTimeout(setUserNameMessage, 3000)
+      setTimeout(() => {
+        setUserNameMessage('')
+        setConfirmUsername('')
+      }, 3000)
     } else if (createUserResponse) {
       setSuccess(true)
       setTimeout(() => {
@@ -94,7 +97,7 @@ export const Login = ({ setUserName }) => {
       <div className='login-messages'>
         <span className='create-message'>
           <p className='create-user-message'>Don't Have A Username Yet?</p>
-          <p onClick={() => setCreateUser(true)} className='create-user-button'>Create one!</p>
+          <p onClick={() => setCreateUser(true)} className='create-user-button'>Create One!</p>
         </span>
         {/* <p className='demo-message'>For Demo Purposes, Proceed As A Random User. Click Here</p> */}
       </div>
