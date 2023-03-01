@@ -90,7 +90,7 @@ main {
   font-family: 'Montserrat', sans-serif;
   width: 60%;
   min-width: 9em;
-  font-size: 20px;
+  font-size: 18px;
   text-align: center;
 }
 
@@ -133,10 +133,25 @@ main {
   width: 100%;
 }
 
-.create-user-message,
-.demo-message {
+.create-message {
+  display: flex;
   font-size: 10px;
-  margin: 0;
+}
+
+.create-user-button {
+  margin-left: 2px;
+  text-decoration: underline;
+}
+
+.cancel-button {
+  margin-top: 0;
+  text-decoration: underline;
+  font-size: 10px;
+}
+
+.create-user-button:hover,
+.cancel-button:hover {
+  cursor: pointer;
 }
 
 @media (max-width: 1100px) {
