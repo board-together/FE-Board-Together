@@ -4,7 +4,7 @@ import { useLazyQuery, useMutation } from '@apollo/client'
 import '../Login/Login.css'
 import '../../assets/Inception_free.ttf'
 import { VALIDATE_USER } from '../../GraphQL/queries'
-import { CREATE_USER} from '../../GraphQL/mutations'
+import { CREATE_USER } from '../../GraphQL/mutations'
 
 export const Login = ({ setUserName }) => {
 
@@ -17,6 +17,9 @@ export const Login = ({ setUserName }) => {
   const [createUser, setCreateUser] = useState(false)
   const [usernameMismatch, setUserNameMismatch] = useState(false)
   const [validateUser, { data }] = useLazyQuery(VALIDATE_USER, { variables: { username: userNameInput } })
+  const createUserResponse = useMutation(CREATE_USER)
+  const createUserFunc = createUserResponse[0]
+  const createUserResponseData = createUserResponse[1].data
 
   useEffect(() => {
     if (data) {
@@ -43,6 +46,15 @@ export const Login = ({ setUserName }) => {
       setIsValid(true)
     } else {
       showError(event)
+    }
+  }
+
+  const submitCreateUser = () => {
+    if (newUsername !== confirmUsername) {
+      setUserNameMessage('Username entries do not match!')
+      setTimeout(setUserNameMessage, 2000)
+    } else {
+      createUserFunc({ variables: { input: { username: newUsername } } })
     }
   }
 
@@ -80,18 +92,18 @@ export const Login = ({ setUserName }) => {
         name='username-input'
         type='text'
         placeholder='Username'
-        value={userNameInput}
-        onChange={event => handleChange(event)}
+        value={newUsername}
+        onChange={event => setNewUsername(event.target.value)}
       />
       <input
         className='username-input'
         name='username-input'
         type='text'
         placeholder='Confirm Username'
-        value={userNameInput}
-        onChange={event => handleChange(event)}
+        value={confirmUsername}
+        onChange={event => setConfirmUsername(event.target.value)}
       />
-      <button className='enter-site-button' onClick={() => console.log("cool")}>Create Account</button>
+      {/* <button className='enter-site-button' onClick={submitCreateUser}>Create Account</button> */}
       <p onClick={() => setCreateUser(false)} className='cancel-button'>Cancel</p>
       {userNameMessage && <p className='invalid-name-message'>{userNameMessage}</p>}
     </form>
