@@ -17,10 +17,10 @@ export const Login = ({ setUserName }) => {
   const [createUser, setCreateUser] = useState(false)
   const [success, setSuccess] = useState(false)
   const [validateUser, { data }] = useLazyQuery(VALIDATE_USER, { variables: { username: userNameInput } })
-  const createUserVals = useMutation(CREATE_USER)
-  const createUserFunc = createUserVals[0]
-  const createUserResponse = createUserVals[1].data
-  const error = createUserVals[1].error
+  const createUserResponse = useMutation(CREATE_USER)
+  const createUserFunc = createUserResponse[0]
+  const createUserData = createUserResponse[1].data
+  const error = createUserResponse[1].error
 
   useEffect(() => {
     if (data) {
@@ -38,19 +38,15 @@ export const Login = ({ setUserName }) => {
 
   useEffect(() => {
     if (error) {
-      setUserNameMessage('Error: Username must be unique.')
-      setTimeout(() => {
-        setUserNameMessage('')
-        setConfirmUsername('')
-      }, 3000)
-    } else if (createUserResponse) {
+      showError(null, 'Warning: Username Already Exists')
+    } else if (createUserData) {
       setSuccess(true)
       setTimeout(() => {
         setSuccess(false)
         setCreateUser(false)
       }, 3000)
     }
-  }, [error, createUserResponse])
+  }, [error, createUserData])
 
   const handleChange = (e) => {
     setUserNameInput(e.target.value)
@@ -62,46 +58,52 @@ export const Login = ({ setUserName }) => {
     if (data) {
       setIsValid(true)
     } else {
-      showError(event)
+      showError(event, 'Please enter a valid username')
     }
   }
 
   const submitCreateUser = (event) => {
     event.preventDefault()
     if (newUsername !== confirmUsername || !newUsername.length) {
-      setUserNameMessage('Username entries do not match!')
+      showError(event, 'Username entries do not match!')
       setTimeout(setUserNameMessage, 3000)
     } else {
       createUserFunc({ variables: { input: { username: newUsername } } })
     }
   }
 
-  const showError = (event) => {
-    event.preventDefault()
-    setUserNameMessage('Please enter a valid username')
+  const showError = (event, message) => {
+    if (event) {
+      event.preventDefault()
+    }
+    setUserNameMessage(message)
     setTimeout(setUserNameMessage, 3000)
   }
 
   const signInForm =
-    <form className='login-form'>
-      <input
-        className='username-input'
-        name='username-input'
-        type='text'
-        placeholder='Enter Username'
-        value={userNameInput}
-        onChange={event => handleChange(event)}
-      />
-      {!userNameMessage && <button className='enter-site-button' onClick={(event) => handleClick(event)}>Enter</button>}
-      {userNameMessage && <p className='invalid-name-message'>{userNameMessage}</p>}
-      <div className='login-messages'>
-        <span className='create-message'>
-          <p className='create-user-message'>Don't Have A Username Yet?</p>
-          <p onClick={() => setCreateUser(true)} className='create-user-button'>Create One!</p>
-        </span>
-        {/* <p className='demo-message'>For Demo Purposes, Proceed As A Random User. Click Here</p> */}
-      </div>
-    </form>
+    <>
+      <form className='login-form'>
+        <div className='username-input-section'>
+          <input
+            className='username-input'
+            name='username-input'
+            type='text'
+            placeholder='Enter Username'
+            value={userNameInput}
+            onChange={event => handleChange(event)}
+          />
+          {!userNameMessage && <button className='enter-site-button' onClick={(event) => handleClick(event)}>Enter</button>}
+          {userNameMessage && <p className='invalid-name-message'>{userNameMessage}</p>}
+        </div>
+        <div className='login-messages'>
+          <span className='create-message'>
+            <p className='create-user-message'>Don't Have A Username Yet?</p>
+            <p onClick={() => setCreateUser(true)} className='create-user-button'>Create One!</p>
+          </span>
+        </div>
+      </form>
+      {/* <p className='demo-message'>For Demo Purposes, Proceed As A Random User. Click Here</p> */}
+    </>
 
   const createUserForm =
     <form className='login-form'>

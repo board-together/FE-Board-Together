@@ -86,6 +86,15 @@ main {
   font-weight: 700;
 }
 
+.username-input-section {
+  display:flex;
+  flex-direction: column;
+  justify-content: space-evenly;
+  align-items: center;
+  height: 70%;
+  width: 100%;
+}
+
 .username-input {
   font-family: 'Montserrat', sans-serif;
   width: 60%;
@@ -117,7 +126,7 @@ main {
 }
 
 .invalid-name-message {
-  color: rgb(235, 82, 82);
+  color: rgb(228, 20, 20);
   font-weight: 700;
   font-size: 18px;
   margin: 0;
