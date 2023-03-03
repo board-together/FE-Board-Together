@@ -1,7 +1,7 @@
 import { gql } from "@apollo/client"
 
 export const VALIDATE_USER = gql`
-query Query($username: String!) {
+query ValidateUser($username: String!) {
   user(username: $username) {
     username
   }

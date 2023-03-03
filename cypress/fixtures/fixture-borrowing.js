@@ -270,3 +270,13 @@ export const getRandyUserDataAfterDelete = {
     username: "randy"
   }
 }
+
+export const validateUserData = {
+  user: {
+    username: "randy"
+  }
+}
+
+export const badValidationResponse = {
+  user: undefined
+}
