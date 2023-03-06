@@ -34,6 +34,7 @@ describe('Login Page', () => {
         })
       }
     })
+    cy.wait(2000)
   })
 
   it('Should have welcome text and a login heading', () => {
@@ -49,7 +50,7 @@ describe('Login Page', () => {
 
   it('Should take the user to their dashboard when they enter their username', () => {
     cy.get('.username-input').type('randy')
-    cy.wait(2000)
+    cy.wait(1000)
     cy.get('.enter-site-button').click()
     cy.url().should('equal', 'http://localhost:3000/dashboard/')
   })
@@ -60,6 +61,7 @@ describe("Login page sad paths", () => {
 
   beforeEach(() => {
     cy.visit('http://localhost:3000/')
+    cy.wait(2000)
   })
 
   it('should warn the user if the entered username is invalid', () => {

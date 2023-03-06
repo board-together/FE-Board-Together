@@ -59,7 +59,7 @@ main {
   height: 100%;
   padding-top: 8%;
   animation-name: fadeInForm;
-  animation-duration: 4000ms;
+  animation-duration: 2500ms;
 
 }
 
@@ -214,12 +214,8 @@ main {
     opacity: 0;
   }
 
-  50% {
-    opacity: 0;
-  }
-
   75% {
-    opacity: 0.5;
+    opacity: 0;
   }
 
   100% {
