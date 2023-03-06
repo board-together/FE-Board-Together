@@ -5,6 +5,7 @@ import '../Login/Login.css'
 import '../../assets/Inception_free.ttf'
 import { VALIDATE_USER } from '../../GraphQL/queries'
 import { CREATE_USER } from '../../GraphQL/mutations'
+import { randomNum } from '../../utils'
 
 export const Login = ({ setUserName }) => {
 
@@ -21,6 +22,7 @@ export const Login = ({ setUserName }) => {
   const createUserFunc = createUserResponse[0]
   const createUserData = createUserResponse[1].data
   const error = createUserResponse[1].error
+  let usernames = ["Pickafloof", "randy", "abdulredd", "heatherf", "jeff", "drake", "dug", "honey", "jakeandbake"]
 
   useEffect(() => {
     if (data) {
@@ -49,6 +51,7 @@ export const Login = ({ setUserName }) => {
   }, [error, createUserData])
 
   const handleChange = (e) => {
+    console.log(e.target)
     setUserNameInput(e.target.value)
     validateUser()
   }
@@ -102,7 +105,18 @@ export const Login = ({ setUserName }) => {
           </span>
         </div>
       </form>
-      {/* <p className='demo-message'>For Demo Purposes, Proceed As A Random User. Click Here</p> */}
+      <span className='create-message'>
+        <p className='demo-message'>To proceed as a random user, click</p>
+        <p
+          onClick={async() => {
+            setUserNameInput(usernames[randomNum(usernames.length)])
+            await validateUser()
+          }}
+          className='demo-message-button'
+        >
+          here.
+        </p>
+      </span>
     </>
 
   const createUserForm =
