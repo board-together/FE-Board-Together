@@ -33,8 +33,9 @@ describe('Modal', () => {
         })
       }
     })
-    cy.get('.username-input').type('randy')
     cy.wait(2000)
+    cy.get('.username-input').type('randy')
+    cy.wait(1000)
     cy.get('.enter-site-button').click()
     cy.get('.game-collection')
       .find('.single-game-img')

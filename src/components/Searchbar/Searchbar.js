@@ -11,10 +11,8 @@ const SearchBar = ({ submit }) => {
   }
 
   const handleSubmit = () => {
-  submit(searchTerm)
-
+    submit(searchTerm)
   }
-
 
   return (
     <form className='search-bar'>

@@ -51,7 +51,6 @@ export const Login = ({ setUserName }) => {
   }, [error, createUserData])
 
   const handleChange = (e) => {
-    console.log(e.target)
     setUserNameInput(e.target.value)
     validateUser()
   }

@@ -63,7 +63,7 @@ export const GET_USER = (username) => gql`
   `
 
 export const GET_SEARCHED_GAMES = (name) => gql`
-    query {
+    query searchGames {
     searchGames(name: "${name}") {
     boardGameAtlasId
     description
@@ -80,6 +80,26 @@ export const GET_SEARCHED_GAMES = (name) => gql`
   }
     }
   `
+
+// export const GET_SEARCHED_GAMES = gql`
+// query Query($name: String!) {
+//   searchGames(name: $name) {
+//     description
+//     boardGameAtlasId
+//     id
+//     imageUrl
+//     maxPlayers
+//     maxPlaytime
+//     minAge
+//     minPlayers
+//     minPlaytime
+//     name
+//     thumbUrl
+//     url
+//     yearPublished
+//   }
+// }
+// `
 
 export const GET_MODAL_GAME = (name) => gql`
   query GetModalGame {
