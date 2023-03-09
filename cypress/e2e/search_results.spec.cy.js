@@ -44,12 +44,18 @@ describe('Search_Results', () => {
     cy.get('.enter-site-button').click()
   })
 
-  it('Should see the game that is searched for', () => {
+  it('Should navigate to the search results page', () => {
     cy.get('.search-input').type('Catan')
     cy.get('.search-button').click()
     cy.url().should('include', 'http://localhost:3000/search-results/Catan')
+  })
+
+  it('Should see the game that is searched for', () => {
+    cy.get('.search-input').type('Catan')
+    cy.get('.search-button').click()
+
+    cy.get('.single-tile-v').should('have.length', 1)
     cy.get('.single-tile-v').first().contains('Catan')
-    //cy.get(':nth-child(1) > .single-game-img-v')
   })
 
   it('Should see more info when game is clicked', () => {
