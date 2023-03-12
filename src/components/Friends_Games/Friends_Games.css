@@ -1,14 +1,17 @@
 .friends-games-container {
-  display: flex;
-    flex-direction: row;
-    flex-wrap: wrap;
-    align-items: center;
-    border: solid black 3px;
-    border-radius: 11px;
-    margin: auto;
-    height: 100%;
-    min-height: 20em;
-    width: 93vw;
-    padding: 1.5em;
+  border-style: solid;
+  border-radius: 11px;
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+  gap: 2vw;
+  padding: 20px 10px;
+  align-items: center;
+  text-align: center;
+  height: auto;
+  min-height: 20em;
+  width: 90%;
+  margin-bottom: 1em;
+  overflow: scroll;
+  contain: content;
+  margin-left: 2em;
 }
-

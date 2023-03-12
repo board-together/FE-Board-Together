@@ -21,7 +21,7 @@
   border-radius: 11px;
   display: grid;
   grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
-  gap: 1vw;
+  gap: 2vw;
   padding: 20px 10px;
   align-items: center;
   text-align: center;
@@ -39,7 +39,7 @@
   border-radius: 11px;
   display: grid;
   grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
-  gap: 1vw;
+  gap: 2vw;
   padding: 20px 10px;
   align-items: center;
   text-align: center;

@@ -23,10 +23,6 @@ export const UPDATE_USERGAME = gql`
   }
   `
 
-  
-
-
-
 
 export const  ADD_GAME_TO_COLLECTION = gql`
  mutation Mutation($input: CreateUserGameInput!) {
