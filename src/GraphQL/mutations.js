@@ -1,6 +1,5 @@
 import { gql } from "@apollo/client"
 
-//NOTE: for example input would be {username: "Gary"}
 export const CREATE_USER = gql`
   mutation Mutation($input: CreateUserInput!) {
     createUser(input: $input) {
@@ -42,7 +41,7 @@ export const UPDATE_USERGAME = gql`
   `
 
 export const ADD_GAME_TO_COLLECTION = gql`
- mutation Mutation($input: CreateUserGameInput!) {
+ mutation CreateUserGame($input: CreateUserGameInput!) {
   createUserGame(input: $input) {
     user {
       id

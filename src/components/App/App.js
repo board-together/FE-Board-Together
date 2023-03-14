@@ -148,7 +148,7 @@ export const App = () => {
               modal={state.modal}
               userName={localStorage.getItem('username')}
               updateUser={updateUser}
-              refetch={refetch}
+              refetchUser={refetchUser}
               addGamesInput={modalFormatForMute}
             />
           } />

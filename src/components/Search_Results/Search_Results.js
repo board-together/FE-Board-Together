@@ -11,7 +11,7 @@ import './Search_Results.css'
 
 
 
-const SearchResults = ({ results, searchBarSubmit, setModal, modal, userName, userInfo, updateUser, addGamesInput }) => {
+const SearchResults = ({ results, searchBarSubmit, setModal, modal, userName, userInfo, updateUser, addGamesInput, refetchUser }) => {
 
   const { loading, data, error } = useQuery(GET_SEARCHED_GAMES(results))
 
@@ -22,13 +22,13 @@ const SearchResults = ({ results, searchBarSubmit, setModal, modal, userName, us
   if (loading) {
     return <h1>loading...</h1>
   }
-  console.log(data)
+
   const games = data ? data.searchGames.map(game =>
     <SingleGameVarient game={game} key={game.name} setModal={setModal} />) : []
 
   return (
     <>
-      {modal && <GameModal setModal={setModal} context={'searched_games'} modal={modal} userInfo={userInfo} updateUser={updateUser} addGamesInput={addGamesInput} />}
+      {modal && <GameModal setModal={setModal} context={'searched_games'} modal={modal} userInfo={userInfo} updateUser={updateUser} addGamesInput={addGamesInput} refetchUser={refetchUser}/>}
       <Navbar username={userName} searchBarSubmit={searchBarSubmit} ></Navbar>
       <Link to={`/dashboard/`}><button className='back-to-dashboard'>Back to dashboard</button></Link>
       <div className='game-tiles-section'>
