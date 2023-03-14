@@ -9,7 +9,6 @@ header {
   flex-direction: column;
   align-items: center;
   width: 100%;
-  height: auto;
   background-color: rgb(189, 194, 204);
   margin-bottom: 20px;
 }
@@ -21,8 +20,8 @@ header {
   justify-content: space-between;
   align-content: space-between;
   align-items: center;
-  width: 95%;
-  padding: 10px;
+  width: 100%;
+  height: 100%;
 }
 
 .welcome-greeting {
@@ -53,7 +52,7 @@ header {
   font-family: 'Inception';
   font-weight: 300;
   color: auto;
-  font-size: 110px;
+  font-size: 115px;
   margin: 0;
   padding: 0;
 }
@@ -69,8 +68,6 @@ a {
   flex-direction: column;
   align-items: flex-start;
   justify-content: center;
-  background: white;
-  height: 200px;
   padding-right: 3vw;
   padding-left: 1vw;
   padding-bottom: 1vw;
@@ -88,6 +85,7 @@ a {
   align-items: flex-end;
   height: 100%;
   width: 50%;
+  padding-right: 2%
 }
 
 @media (max-width: 1500px) {
