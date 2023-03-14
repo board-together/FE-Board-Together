@@ -60,7 +60,7 @@ export const App = () => {
     if (data) {
       dispatch({ type: 'success', payload: data.user })
     }
-  }, [data, loading, error]);
+  }, [data, loading, error])
 
   const updateUser = (userObject) => {
     dispatch({ type: 'success', payload: userObject })
@@ -74,12 +74,12 @@ export const App = () => {
   }
 
   const setUserName = useCallback((userName) => {
-    localStorage.setItem('username', `${userName}`);
+    localStorage.setItem('username', `${userName}`)
     dispatch({
       type: 'set_userName',
       payload: localStorage.getItem('username')
-    });
-  }, []);
+    })
+  }, [])
 
   const setModal = (game = null) => {
 
@@ -90,25 +90,25 @@ export const App = () => {
     }
   }
 
-const modalFormatForMute = (modal,Id) => {
-  const readyForMute =  { 
-    userId: Id,
-    boardGameAtlasId: modal.boardGameAtlasId,
-    url: modal.url,
-    name: modal.name,
-    yearPublished: String(modal.yearPublished),
-    minPlayers: String(modal.minPlayers),
-    maxPlayers: String(modal.maxPlayers),
-    minPlaytime: String(modal.minPlaytime),
-    maxPlaytime: String(modal.maxPlaytime),
-    minAge: String(modal.minAge),
-    description: modal.description,
-    thumbUrl: modal.thumbUrl,
-    imageUrl: modal.imageUrl
+  const modalFormatForMute = (modal, Id) => {
+    const readyForMute = {
+      userId: Id,
+      boardGameAtlasId: modal.boardGameAtlasId,
+      url: modal.url,
+      name: modal.name,
+      yearPublished: String(modal.yearPublished),
+      minPlayers: String(modal.minPlayers),
+      maxPlayers: String(modal.maxPlayers),
+      minPlaytime: String(modal.minPlaytime),
+      maxPlaytime: String(modal.maxPlaytime),
+      minAge: String(modal.minAge),
+      description: modal.description,
+      thumbUrl: modal.thumbUrl,
+      imageUrl: modal.imageUrl
+    }
+
+    return readyForMute
   }
-  
-  return readyForMute
-}
 
   const deleteGame = (id) => {
     const filteredGames = state.user.games.filter(game => game.id !== id)
@@ -116,14 +116,14 @@ const modalFormatForMute = (modal,Id) => {
   }
 
   const refetchUser = () => {
-    refetch();
+    refetch()
   }
-  
+
   return (
     <div className='app'>
       <Routes>
-        <Route  path='/' element={<Login setUserName={setUserName} />} />
-        <Route path='/dashboard/'
+        <Route path='/' element={<Login setUserName={setUserName} />} />
+        <Route path={`/dashboard/`}
           element={
             <UserDashboard
               userInfo={state.user}
@@ -148,7 +148,7 @@ const modalFormatForMute = (modal,Id) => {
               modal={state.modal}
               userName={localStorage.getItem('username')}
               updateUser={updateUser}
-              refetch={refetch}
+              refetchUser={refetchUser}
               addGamesInput={modalFormatForMute}
             />
           } />
@@ -163,10 +163,8 @@ const modalFormatForMute = (modal,Id) => {
               refetchUser={refetchUser}
             />
           } />
-        <Route path='*' element={<ErrorPage/>} />
+        <Route path='*' element={<ErrorPage />} />
       </Routes>
     </div>
   )
-
-  
 }

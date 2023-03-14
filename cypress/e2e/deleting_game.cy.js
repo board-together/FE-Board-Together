@@ -1,10 +1,3 @@
-const hasOperationName = (req, operationName) => {
-  const { body } = req
-  return (
-    body.hasOwnProperty('operationName') && body.operationName === operationName
-  )
-}
-
 import {
   getRandyUserDataBorrow,
   getAllUsersDataBorrow,
@@ -13,29 +6,42 @@ import {
   updatedGameResponse,
   getRandyUserDataBorrowAFTER,
   updatedGameResponseReturn,
-  getRandyUserDataAfterDelete
+  getRandyUserDataAfterDelete,
+  validateUserData
 } from "../fixtures/fixture-borrowing"
+
+const hasOperationName = (req, operationName) => {
+  const { body } = req
+  return (
+    body.hasOwnProperty('operationName') && body.operationName === operationName
+  )
+}
 
 describe('Search_Results', () => {
   beforeEach(() => {
     cy.visit(`http://localhost:3000/`)
     cy.intercept('POST', 'https://board-together.herokuapp.com/graphql', (req) => {
-      if (hasOperationName(req, 'GetUser')) {
-        req.alias = 'gqlGetUserQuery'
+      if (hasOperationName(req, 'ValidateUser')) {
+        req.alias = 'gqlValidateUserQuery'
         req.on('response', (res) => {
-          res.body.data = getRandyUserDataBorrow
+          res.body.data = validateUserData
         })
       } else if (hasOperationName(req, 'GetAllUsers')) {
         req.alias = 'gqlGetAllUsersQuery'
         req.on('response', (res) => {
           res.body.data = getAllUsersDataBorrow
         })
+      } else {
+        req.alias = 'gqlGetUserQuery'
+        req.on('response', (res) => {
+          res.body.data = getRandyUserDataBorrow
+        })
       }
     })
-    cy.get('.username-input')
-      .type('randy')
-    cy.get('.enter-site-button')
-      .click()
+    cy.wait(2000)
+    cy.get('.username-input').type('randy')
+    cy.wait(1000)
+    cy.get('.enter-site-button').click()
   })
 
   it('should start with two games in view', () => {

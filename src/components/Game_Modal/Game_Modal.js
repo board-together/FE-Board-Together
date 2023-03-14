@@ -8,54 +8,55 @@ import { UPDATE_USERGAME } from '../../GraphQL/mutations'
 
 
 export const GameModal = ({ setModal, context, modal, userInfo, refetchFriend, refetchUser, addGamesInput }) => {
-  const [borrowed, setBorrowed] = useState(false);
+  const [borrowed, setBorrowed] = useState(false)
   const [borrowedError, setBorrowedError] = useState('')
 
-  const [addGame, { loading, data, error }] = useMutation(ADD_GAME_TO_COLLECTION);
-  if(loading) {
+  const [addGame, { loading, data, error }] = useMutation(ADD_GAME_TO_COLLECTION)
+  if (loading) {
     <h1>Loading...</h1>
   }
-  if(data){
+  if (data) {
     console.log(data)
   }
-  if(error) {
+  if (error) {
     console.log(error)
   }
-    const inputVar = userInfo && addGamesInput ? addGamesInput(modal, +userInfo.id) : null     
-    
+  const inputVar = userInfo && addGamesInput ? addGamesInput(modal, +userInfo.id) : null
+
   const clickHelper = () => {
-      addGame({ variables: { input: inputVar } })
-      setTimeout(() => {
+    addGame({ variables: { input: inputVar } })
+    setTimeout(() => {
       setModal()
-      }, "1000")  
+      refetchUser()
+    }, "1000")
   }
-  
+
   const borrowObject = userInfo ? {
     id: +modal.id,
     borrowerId: +userInfo.id,
     status: 1
-  } : '';
+  } : ''
 
   const returnObject = userInfo ? {
     id: +modal.id,
     borrowerId: null,
     status: 0
-  } : '';
+  } : ''
 
 
   const updateUserMutation = useMutation(UPDATE_USERGAME)
   const updateUserGame = updateUserMutation[0]
   const updateUserData = updateUserMutation[1].data
-  
+
   useEffect(() => {
     if (updateUserData) {
-      refetchUser();
-      if (refetchFriend) refetchFriend();
+      refetchUser()
+      if (refetchFriend) refetchFriend()
     }
-  }, [updateUserData, refetchFriend, refetchUser]);
-  
+  }, [updateUserData, refetchFriend, refetchUser])
+
   const borrowFriendsGame = (event) => {
-    event.preventDefault();
+    event.preventDefault()
     updateUserGame({ variables: { input: borrowObject } })
       .then(res => {
         setBorrowed(true)
@@ -66,11 +67,11 @@ export const GameModal = ({ setModal, context, modal, userInfo, refetchFriend, r
   }
 
   const returnFriendsGame = (event) => {
-    event.preventDefault();
+    event.preventDefault()
     updateUserGame({ variables: { input: returnObject } })
     setTimeout(() => {
       setModal()
-    }, "1000");    
+    }, "1000")
   }
 
   const deleteGameInfo = useMutation(DELETE_GAME)
@@ -82,7 +83,7 @@ export const GameModal = ({ setModal, context, modal, userInfo, refetchFriend, r
 
   useEffect(() => {
     if (deleteGameData) {
-      refetchUser();
+      refetchUser()
     }
   }, [deleteGameData, refetchUser])
 
@@ -126,7 +127,7 @@ export const GameModal = ({ setModal, context, modal, userInfo, refetchFriend, r
           {/* {(context === 'user_dashboard' && !modal.borrowerId)
             && <button className='modal-button'>Make Private</button>} */}
           {context === 'searched_games'
-            && <button className='modal-button' onClick={ () => clickHelper()} >Add to Collection</button>}
+            && <button className='modal-button' onClick={() => clickHelper()} >Add to Collection</button>}
           {context === 'friends_games'
             && <button className='modal-button' onClick={event => borrowFriendsGame(event)}>Borrow</button>}
         </div>
