@@ -1,16 +1,16 @@
 import { gql } from "@apollo/client"
 
 export const VALIDATE_USER = gql`
-query Query($username: String!) {
+query ValidateUser($username: String!) {
   user(username: $username) {
     username
   }
 }
 `
 
-export const GET_USER = (userName) => gql`
+export const GET_USER = (username) => gql`
    query GetUser {
-    user(username: "${userName}") {
+    user(username: "${username}") {
       id
       username
       userGames {
@@ -59,19 +59,11 @@ export const GET_USER = (userName) => gql`
         }
       }
     }
-  }`
-
-
-
-
-export const GET_GAME_DETAIL = (id) => gql`
-    query {
-
-    }
+  }
   `
 
 export const GET_SEARCHED_GAMES = (name) => gql`
-    query {
+    query searchGames {
     searchGames(name: "${name}") {
     boardGameAtlasId
     description
@@ -88,6 +80,26 @@ export const GET_SEARCHED_GAMES = (name) => gql`
   }
     }
   `
+
+// export const GET_SEARCHED_GAMES = gql`
+// query Query($name: String!) {
+//   searchGames(name: $name) {
+//     description
+//     boardGameAtlasId
+//     id
+//     imageUrl
+//     maxPlayers
+//     maxPlaytime
+//     minAge
+//     minPlayers
+//     minPlaytime
+//     name
+//     thumbUrl
+//     url
+//     yearPublished
+//   }
+// }
+// `
 
 export const GET_MODAL_GAME = (name) => gql`
   query GetModalGame {

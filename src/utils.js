@@ -1,5 +1,3 @@
-
-
 export const cleanSearchResult = (games) => {
   return games.map(game => {
     return {
@@ -26,6 +24,10 @@ export const cleanGameDescription = (description) => {
     description = description.replaceAll(val, '')
   })
   return description
+}
+
+export const randomNum = (max) => {
+  return Math.floor(Math.random() * max)
 }
 
 
