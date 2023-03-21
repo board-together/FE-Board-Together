@@ -2,6 +2,7 @@ import React from 'react'
 import { ApolloProvider, ApolloClient, InMemoryCache } from "@apollo/client"
 import ReactDOM from 'react-dom/client'
 import { BrowserRouter } from 'react-router-dom'
+import { GoogleOAuthProvider } from '@react-oauth/google'
 import { App } from './components/App/App'
 import './index.css'
 
@@ -14,10 +15,12 @@ const client = new ApolloClient({
 
 const root = ReactDOM.createRoot(document.getElementById('root'))
 root.render(
-  <ApolloProvider client={client}>
-    <BrowserRouter>
-      <App />
-    </BrowserRouter>
-  </ApolloProvider>
+  <GoogleOAuthProvider clientId={process.env.REACT_APP_API_KEY}>
+    <ApolloProvider client={client}>
+      <BrowserRouter>
+        <App />
+      </BrowserRouter>
+    </ApolloProvider>
+  </GoogleOAuthProvider>
 );
 

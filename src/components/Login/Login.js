@@ -6,6 +6,7 @@ import '../../assets/Inception_free.ttf'
 import { VALIDATE_USER } from '../../GraphQL/queries'
 import { CREATE_USER } from '../../GraphQL/mutations'
 import { randomNum } from '../../utils'
+import { GoogleLogin } from '@react-oauth/google'
 
 export const Login = ({ setUserName }) => {
 
@@ -107,7 +108,7 @@ export const Login = ({ setUserName }) => {
       <span className='create-message'>
         <p className='demo-message'>To proceed as a random user, click</p>
         <p
-          onClick={async() => {
+          onClick={async () => {
             setUserNameInput(usernames[randomNum(usernames.length)])
             await validateUser()
           }}
@@ -151,6 +152,14 @@ export const Login = ({ setUserName }) => {
       </div>
       <div className='login-right'>
         <h2 className='login-text'>Login</h2>
+        <GoogleLogin
+          onSuccess={credentialResponse => {
+            console.log(credentialResponse)
+          }}
+          onError={() => {
+            console.log('Login Failed')
+          }}
+        />
         {!createUser && signInForm}
         {createUser && createUserForm}
       </div>
