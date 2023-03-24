@@ -3,8 +3,8 @@ import { useNavigate } from 'react-router-dom'
 import { useLazyQuery, useMutation } from '@apollo/client'
 import { VALIDATE_USER } from '../../GraphQL/queries'
 import { CREATE_USER } from '../../GraphQL/mutations'
-import { randomNum } from '../../utils'
-import jwt_decode from 'jwt-decode'
+import { randomNum, usernames } from '../../utils'
+import GoogleButton from '../Google_Button/Google_Button'
 import '../Login/Login.css'
 import '../../assets/Inception_free.ttf'
 
@@ -23,7 +23,6 @@ export const Login = ({ setUserName }) => {
   const createUserFunc = createUserResponse[0]
   const createUserData = createUserResponse[1].data
   const error = createUserResponse[1].error
-  let usernames = ["Pickafloof", "randy", "abdulredd", "heatherf", "jeff", "drake", "dug", "honey", "jakeandbake"]
 
   useEffect(() => {
     if (data) {
@@ -50,24 +49,6 @@ export const Login = ({ setUserName }) => {
       }, 3000)
     }
   }, [error, createUserData])
-
-  useEffect(() => {
-    /*global google*/
-    google.accounts.id.initialize({
-      client_id: process.env.REACT_APP_CLIENT_ID,
-      callback: handleCallbackResponse
-    })
-    google.accounts.id.renderButton(
-      document.getElementById('googleSignIn'),
-      { theme: "outline", size: "large" }
-    )
-  }, [])
-
-  function handleCallbackResponse(response) {
-    console.log('JWT CREDENTIAL:', response.credential)
-    const userInfo = jwt_decode(response.credential)
-    console.log("USER INFO:", userInfo)
-  }
 
   const handleChange = (e) => {
     setUserNameInput(e.target.value)
@@ -172,7 +153,7 @@ export const Login = ({ setUserName }) => {
         <h2 className='login-text'>Login</h2>
         {!createUser && signInForm}
         {createUser && createUserForm}
-        <div id='googleSignIn'></div>
+        <GoogleButton />
       </div>
     </main>
   )
