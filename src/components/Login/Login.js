@@ -153,7 +153,7 @@ export const Login = ({ setUserName }) => {
         <h2 className='login-text'>Login</h2>
         {!createUser && signInForm}
         {createUser && createUserForm}
-        <GoogleButton />
+        <GoogleButton setUserName={setUserName} setIsValid={setIsValid} createUserFunc={createUserFunc}/>
       </div>
     </main>
   )
