@@ -1,12 +1,12 @@
 import React, { useEffect, useState } from 'react'
 import { useNavigate } from 'react-router-dom'
 import { useLazyQuery, useMutation } from '@apollo/client'
-import '../Login/Login.css'
-import '../../assets/Inception_free.ttf'
 import { VALIDATE_USER } from '../../GraphQL/queries'
 import { CREATE_USER } from '../../GraphQL/mutations'
 import { randomNum } from '../../utils'
-import { GoogleLogin } from '@react-oauth/google'
+import jwt_decode from 'jwt-decode'
+import '../Login/Login.css'
+import '../../assets/Inception_free.ttf'
 
 export const Login = ({ setUserName }) => {
 
@@ -50,6 +50,24 @@ export const Login = ({ setUserName }) => {
       }, 3000)
     }
   }, [error, createUserData])
+
+  useEffect(() => {
+    /*global google*/
+    google.accounts.id.initialize({
+      client_id: process.env.REACT_APP_CLIENT_ID,
+      callback: handleCallbackResponse
+    })
+    google.accounts.id.renderButton(
+      document.getElementById('googleSignIn'),
+      { theme: "outline", size: "large" }
+    )
+  }, [])
+
+  function handleCallbackResponse(response) {
+    console.log('JWT CREDENTIAL:', response.credential)
+    const userInfo = jwt_decode(response.credential)
+    console.log("USER INFO:", userInfo)
+  }
 
   const handleChange = (e) => {
     setUserNameInput(e.target.value)
@@ -152,16 +170,9 @@ export const Login = ({ setUserName }) => {
       </div>
       <div className='login-right'>
         <h2 className='login-text'>Login</h2>
-        <GoogleLogin
-          onSuccess={credentialResponse => {
-            console.log(credentialResponse)
-          }}
-          onError={() => {
-            console.log('Login Failed')
-          }}
-        />
         {!createUser && signInForm}
         {createUser && createUserForm}
+        <div id='googleSignIn'></div>
       </div>
     </main>
   )
