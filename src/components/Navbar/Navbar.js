@@ -1,6 +1,7 @@
 import React from 'react'
 import { Link } from 'react-router-dom'
 import Searchbar from '../Searchbar/Searchbar'
+import DeleteUser from '../DeleteUser/DeleteUser'
 import '../../assets/Inception_free.ttf'
 import './Navbar.css'
 
@@ -16,9 +17,9 @@ export const Navbar = ({ searchBarSubmit, username }) => {
           </div>
         </Link>
         <div className='searchbar-container'>
+          <DeleteUser />
           <h2 className='welcome-greeting'>Welcome, {username}!</h2>
           <Searchbar submit={searchBarSubmit} />
-          <Link to={'/'} className='link-to-login'>Log Out</Link>
         </div>
       </div>
     </header>

@@ -1,0 +1,41 @@
+.delete-user-container {
+  position: absolute;
+  display: flex;
+  align-items: flex-end;
+  justify-content: flex-end;
+  background-color: transparent;
+  width: 400px;
+  height: 600px;
+  z-index: 1;
+}
+
+.user-options-icon {
+  height: 25px;
+  width: auto;
+  z-index: 2;
+}
+
+.user-options-icon:hover {
+  cursor: pointer;
+}
+
+.user-options-icon-focus {
+  filter: invert(40%) sepia(95%) saturate(948%) hue-rotate(187deg) brightness(98%) contrast(95%);
+}
+
+.delete-user {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: space-between;
+  width: 70%;
+  height: 60%;
+  background-color: rgb(220, 236, 249);
+  border-radius: 10px;
+  margin-right: 10px;
+  padding: 10px;
+}
+
+.hidden {
+  display: none;
+}

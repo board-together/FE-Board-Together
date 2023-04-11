@@ -89,6 +89,8 @@ main {
   height: 30px;
   width: 30px;
   border-radius: 50%;
+  color: white;
+  background-color: transparent;
   border: 1px solid white;
 }
 
@@ -139,6 +141,7 @@ main {
 
 .enter-site-button:hover,
 .invalid-user-button:hover {
+  cursor: pointer;
   transform: scale(1.05);
   border: 1px solid white;
   background-color: white;
@@ -164,7 +167,10 @@ main {
 
 .create-message {
   display: flex;
+  align-items: center;
+  justify-content: center;
   font-size: 10px;
+  width: 100%
 }
 
 .success-message {
