@@ -1,11 +1,12 @@
 .delete-user-container {
   position: absolute;
+  top: 0;
   display: flex;
-  align-items: flex-end;
   justify-content: flex-end;
+  align-items: flex-start;
   background-color: transparent;
   width: 400px;
-  height: 600px;
+  height: 400px;
   z-index: 1;
 }
 
@@ -27,13 +28,36 @@
   display: flex;
   flex-direction: column;
   align-items: center;
-  justify-content: space-between;
+  justify-content: space-evenly;
   width: 70%;
-  height: 60%;
+  min-height: 30%;
   background-color: rgb(220, 236, 249);
   border-radius: 10px;
-  margin-right: 10px;
-  padding: 10px;
+  margin-right: 25px;
+  margin-top: 40px;
+  padding: 10px 0;
+}
+
+.confirmation-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  padding-left: 10px;
+}
+
+.delete-user-button {
+  border: 1px solid black;
+  font-family: 'Montserrat', sans-serif;
+  text-align: center;
+  transition-duration: 300ms;
+  font-size: 16px;
+  padding: 2px 20px;
+  background: none;
+}
+
+.delete-user-button:hover {
+  background-color: rgb(246, 154, 154);
 }
 
 .hidden {
