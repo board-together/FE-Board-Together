@@ -97,6 +97,8 @@ export const Login = ({ setUserName }) => {
           {!userNameMessage && <button className='enter-site-button' onClick={(event) => handleClick(event)}>Enter</button>}
           {userNameMessage && <p className='invalid-name-message'>{userNameMessage}</p>}
         </div>
+        <h5 className='login-division'>OR</h5>
+        <GoogleButton setUserName={setUserName} setIsValid={setIsValid} createUserFunc={createUserFunc} />
         <div className='login-messages'>
           <span className='create-message'>
             <p className='create-user-message'>Don't Have A Username Yet?</p>
@@ -153,7 +155,7 @@ export const Login = ({ setUserName }) => {
         <h2 className='login-text'>Login</h2>
         {!createUser && signInForm}
         {createUser && createUserForm}
-        <GoogleButton setUserName={setUserName} setIsValid={setIsValid} createUserFunc={createUserFunc}/>
+
       </div>
     </main>
   )
