@@ -11,13 +11,13 @@ export const CREATE_USER = gql`
 `
 
 //NOTE: for example input would be {id: 15}
-// export const DELETE_USER = gql`
-// mutation Mutation($input: DeleteUserInput!) {
-//   deleteUser(input: $input) {
-//     id
-//   }
-// }
-// `
+export const DELETE_USER = gql`
+mutation DeleteUser($input: DeleteUserInput!) {
+  deleteUser(input: $input) {
+    id
+  }
+}
+`
 
 export const DELETE_GAME = gql`
 mutation DeleteUserGame($input: DeleteUserGameInput!) {

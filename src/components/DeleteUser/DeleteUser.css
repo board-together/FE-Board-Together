@@ -60,6 +60,18 @@
   background-color: rgb(246, 154, 154);
 }
 
+.confirmation {
+  font-size: 16px;
+  font-family: 'Montserrat', sans-serif;
+}
+
+.confirmation-buttons {
+  display: flex;
+  margin-top: 10px;
+  width: 100%;
+  justify-content: space-evenly;
+}
+
 .hidden {
   display: none;
 }

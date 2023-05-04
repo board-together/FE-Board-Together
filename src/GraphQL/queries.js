@@ -8,6 +8,15 @@ query ValidateUser($username: String!) {
 }
 `
 
+export const GET_USER_ID = gql`
+query ValidateUser($username: String!) {
+  user(username: $username) {
+    username
+    id
+  }
+}
+`
+
 export const GET_USER = (username) => gql`
    query GetUser {
     user(username: "${username}") {
