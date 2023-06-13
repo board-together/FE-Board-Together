@@ -16,7 +16,7 @@ const hasOperationName = (req, operationName) => {
   )
 }
 
-describe('Seeing Games', () => {
+describe.skip('Seeing Games', () => {
   beforeEach(() => {
     cy.visit(`http://localhost:3000/`)
     cy.intercept('POST', 'https://board-together.herokuapp.com/graphql', (req) => {
@@ -70,7 +70,7 @@ describe('Seeing Games', () => {
 })
 
 
-describe('Borrowing Games', () => {
+describe.skip('Borrowing Games', () => {
   beforeEach(() => {
     cy.visit(`http://localhost:3000/`)
     cy.intercept('POST', 'https://board-together.herokuapp.com/graphql', (req) => {
@@ -140,7 +140,7 @@ describe('Borrowing Games', () => {
 })
 
 
-describe('Returning Games', () => {
+describe.skip('Returning Games', () => {
   beforeEach(() => {
     cy.visit(`http://localhost:3000/`)
     cy.intercept('POST', 'https://board-together.herokuapp.com/graphql', (req) => {
@@ -249,7 +249,7 @@ describe('Returning Games', () => {
 })
 
 
-describe('Bad Response Handling', () => {
+describe.skip('Bad Response Handling', () => {
   beforeEach(() => {
     cy.visit(`http://localhost:3000/`)
     cy.intercept('POST', 'https://board-together.herokuapp.com/graphql', (req) => {

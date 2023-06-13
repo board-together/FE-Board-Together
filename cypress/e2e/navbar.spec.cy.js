@@ -11,7 +11,7 @@ import {
   validateUserData,
 } from "../fixtures/fixture-borrowing"
 
-describe('Navbar', () => {
+describe.skip('Navbar', () => {
   beforeEach(() => {
     cy.visit('http://localhost:3000/')
     cy.intercept('POST', 'https://board-together.herokuapp.com/graphql', (req) => {

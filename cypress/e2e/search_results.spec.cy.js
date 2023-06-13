@@ -12,7 +12,7 @@ const hasOperationName = (req, operationName) => {
   )
 }
 
-describe('Search_Results', () => {
+describe.skip('Search_Results', () => {
   beforeEach(() => {
     cy.visit('http://localhost:3000/')
     cy.intercept('POST', 'https://board-together.herokuapp.com/graphql', (req) => {

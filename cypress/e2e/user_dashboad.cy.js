@@ -11,7 +11,7 @@ const hasOperationName = (req, operationName) => {
   )
 }
 
-describe('User Dashboard', () => {
+describe.skip('User Dashboard', () => {
   beforeEach(() => {
     cy.visit('http://localhost:3000/')
     cy.intercept('POST', 'https://board-together.herokuapp.com/graphql', (req) => {

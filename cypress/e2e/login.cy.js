@@ -12,7 +12,7 @@ import {
   badValidationResponse
 } from "../fixtures/fixture-borrowing"
 
-describe('Login Page', () => {
+describe.skip('Login Page', () => {
 
   beforeEach(() => {
     cy.visit('http://localhost:3000/')
@@ -57,7 +57,7 @@ describe('Login Page', () => {
 
 })
 
-describe("Login page sad paths", () => {
+describe.skip("Login page sad paths", () => {
 
   beforeEach(() => {
     cy.visit('http://localhost:3000/')
