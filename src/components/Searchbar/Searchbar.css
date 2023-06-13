@@ -23,7 +23,7 @@
   background: none;
   border: 1px solid black;
   width: 100%;
-  font-size: 15px;
+  font-size: 16px;
   transition-duration: 300ms;
 }
 
@@ -58,7 +58,7 @@
   }
 
   .search-button {
-    font-size: 12px;
+    font-size: 14px;
   }
 
 }
@@ -83,6 +83,14 @@
 
   .search-button {
     font-size: 12px;
+  }
+
+}
+
+@media (max-width: 625px) {
+  
+  .search-button {
+    font-size: 9px;
   }
 
 }

@@ -92,6 +92,7 @@
   flex-direction: column;
   padding: 10px;
   margin-left: 20px;
+  width: 25%
 }
 
 .my-friends-header {
@@ -108,18 +109,20 @@
   width: 75%;
   height: 20%;
   font-size: 1.6em;
-  margin: 10px;
   padding-right: 10px;
   transition-duration: 400ms;
   contain: content;
+  border-top-left-radius: 10px;
+  border-bottom-left-radius: 10px;
+  border: 1px solid gray;
 }
 
 .friend:hover {
-  transform: translateX(1em);
+  transform: translateX(.5em);
 }
 
 .friend:hover .smile-svg {
-  transform: scale(1.2);
+  transform: scale(1.1);
 }
 
 .friend-name {
