@@ -19,7 +19,7 @@ function GoogleButton({ setUserName, setIsValid, createUserFunc }) {
       document.getElementById('googleSignIn'),
       { theme: "outline", size: "large" }
     )
-  }, [])
+  })
 
   useEffect(() => {
     if (data && googleUser.given_name) {
@@ -47,24 +47,5 @@ function GoogleButton({ setUserName, setIsValid, createUserFunc }) {
     <div id='googleSignIn'></div>
   )
 }
-
-/*
-let googleObj = {
-  aud: "1035464443855-ume25mrk6ce6jhnckuk9ctoedm6gacce.apps.googleusercontent.com",
-  azp: "1035464443855-ume25mrk6ce6jhnckuk9ctoedm6gacce.apps.googleusercontent.com",
-  email: "hi.iamzacchaeus@gmail.com",
-  email_verified: true,
-  exp: 1679625197,
-  family_name: "Zacchaeus",
-  given_name: "I am",
-  iat: 1679621597,
-  iss: "https://accounts.google.com",
-  jti: "34b250accca7cd82400e52170dc9b1514b45f774",
-  name: "I am Zacchaeus",
-  nbf: 1679621297,
-  picture: "https://lh3.googleusercontent.com/a/AGNmyxaC4lqjd7SGCZBgj4DNXzHBVQdbQg2EMFQ9JjAm=s96-c",
-  sub: "112001238777884617065",
-}
-*/
 
 export default GoogleButton
